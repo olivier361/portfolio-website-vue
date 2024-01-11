@@ -56,13 +56,23 @@ a:hover {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  border-bottom: 2px solid transparent;
-  transition: color 200ms, border-bottom 200ms;
+  /* border-bottom: 2px solid transparent; */
+  display: inline-block;
+  padding-bottom:2px;
+  background-image: linear-gradient(to right, #FFD700 33%,#FFD700 33% 66%, transparent 66%);
+  background-position: right bottom;
+  background-size: 300% 2px;
+  background-repeat: no-repeat;
+  /* transition: color 200ms, border-bottom 200ms; */
+  transition: color 200ms;
+
 }
 
 .nav-links > *:hover {
   color: #FFD700;
   /* text-decoration: underline; */
-  border-bottom: 2px solid #FFD700;
+  /* border-bottom: 2px solid #FFD700; */
+  background-position: left bottom;
+  transition: background-position 0.5s;
 }
 </style>
