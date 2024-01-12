@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div class="header">
+  <div class="header header-desktop">
     <RouterLink to="/" style="height: 26px">
       <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
@@ -12,6 +12,42 @@ import { RouterLink } from 'vue-router'
       <RouterLink to="/about">Resume</RouterLink>
       <RouterLink to="/about">About</RouterLink>
     </div>
+  </div>
+  <div class="header header-mobile">
+    <RouterLink to="/" style="height: 26px">
+      <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
+    </RouterLink>
+
+    <button type="button" uk-toggle="target: #nav-links-mobile; cls: show-nav-links mode: click">
+      <span href="" uk-icon="icon: menu; ratio: 1.3"></span>
+    </button>
+
+    <!-- <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href=""></a>
+    <div uk-navbar>
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
+        <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li class="uk-active"><a href="#">Active</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+            </ul>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="nav-links">
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">Resume</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </div> -->
+  <!-- </div>
+  <div class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
+    </div> -->
+  </div>
+  <div id="nav-links-mobile">
+
   </div>
 </template>
 
@@ -32,10 +68,25 @@ a:hover {
   border-bottom: 2px solid #FFD700;
 } */
 
+img {
+  height: 26px;
+}
+
+button {
+  background-color: transparent;
+  border-width: 0px;
+}
+
+span {
+  stroke: white;
+  color: white;
+}
+
 .header {
   width: 100%;
   height: 50px;
   background-color: #232323;
+  /* background-color: #FFD700; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,5 +125,33 @@ a:hover {
   /* border-bottom: 2px solid #FFD700; */
   background-position: left bottom;
   transition: background-position 0.5s;
+}
+
+#nav-links-mobile {
+  display: none;
+  opacity:    0.85; 
+  background: #000; 
+  width:      100%;
+  height:     100%; 
+  z-index:    10;
+  /* top:        0; /* TODO: Change to 50 for final */
+  /* left:       0;  */
+  position:   fixed; 
+}
+
+@media (max-width: 640px) {
+  .header-desktop {
+    display: none;
+  }
+
+  #nav-links-mobile.show-nav-links {
+    display: block;
+  }
+}
+
+@media (min-width: 641px) {
+  .header-mobile {
+    display: none;
+  }
 }
 </style>

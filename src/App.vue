@@ -1,6 +1,10 @@
 <script setup>
+import UIkit from 'uikit'
+import Icons from 'uikit/dist/js/uikit-icons';
 import { RouterView } from 'vue-router'
 import NavHeader from './components/NavHeader.vue'
+
+UIkit.use(Icons);
 </script>
 
 <template>
@@ -10,6 +14,10 @@ import NavHeader from './components/NavHeader.vue'
 
   <RouterView />
 </template>
+
+<style lang="less">
+  @import "../node_modules/uikit/src/less/uikit.less";
+</style>
 
 <style scoped>
 header {
