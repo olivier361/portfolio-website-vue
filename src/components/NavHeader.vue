@@ -1,5 +1,16 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+
+const isMobileNavMenuOpen = ref(false)
+
+function handleMobileNavMenu() {
+  isMobileNavMenuOpen.value = !isMobileNavMenuOpen.value
+}
+
+function handleSetMobileNavMenu(state = true) {
+  isMobileNavMenuOpen.value = state
+}
 </script>
 
 <template>
@@ -14,13 +25,18 @@ import { RouterLink } from 'vue-router'
     </div>
   </div>
   <div class="header header-mobile">
-    <RouterLink to="/" style="height: 26px">
+    <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
       <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
 
     <!-- TODO: Rather than trying to use UK-toggle, use a Vue prop. It'll be simpler to coordinate everythin -->
-    <button type="button" uk-toggle="target: #nav-links-mobile, #nav-menu; cls: show-nav-links mode: click">
+    <!-- <button type="button" uk-toggle="target: #nav-links-mobile, #nav-menu; cls: show-nav-links mode: click">
       <span id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3"></span>
+    </button> -->
+
+    <button @click="handleMobileNavMenu" type="button">
+      <span v-if="isMobileNavMenuOpen" id="nav-menu" href="" uk-icon="icon: close; ratio: 1.3"></span>
+      <span v-else id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3"></span>
     </button>
 
     <!-- <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href=""></a>
@@ -47,10 +63,13 @@ import { RouterLink } from 'vue-router'
         <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
     </div> -->
   </div>
-  <div id="nav-links-mobile">
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">Resume</RouterLink>
-    <RouterLink to="/about">About</RouterLink>
+  <div v-if="isMobileNavMenuOpen" id="nav-links-mobile">
+    <RouterLink to="/" @click="handleMobileNavMenu">Home</RouterLink>
+    <RouterLink to="/about" @click="handleMobileNavMenu">Resume</RouterLink>
+    <RouterLink to="/about" @click="handleMobileNavMenu">About</RouterLink>
+    <button @click="handleMobileNavMenu" type="button">
+      <span id="nav-mobile-close" href="" uk-icon="icon: close; ratio: 1.6"></span>
+    </button>
   </div>
 </template>
 
@@ -130,8 +149,22 @@ span {
   transition: background-position 0.5s;
 }
 
+#nav-mobile-close {
+  margin: 20px 0px;
+  padding: 4px;
+  border: white solid 2px;
+  border-radius: 26px;
+}
+
+#nav-mobile-close:hover {
+  border-color: #FFD700;
+  stroke: #FFD700;
+  color: #FFD700;
+}
+
 #nav-links-mobile {
-  display: none;
+  /* display: none; */
+  display: flex;
   opacity:    0.85; 
   background: #000; 
   width:      100%;
