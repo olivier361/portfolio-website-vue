@@ -67,8 +67,8 @@ function handleSetMobileNavMenu(state = true) {
     <RouterLink to="/" @click="handleMobileNavMenu">Home</RouterLink>
     <RouterLink to="/about" @click="handleMobileNavMenu">Resume</RouterLink>
     <RouterLink to="/about" @click="handleMobileNavMenu">About</RouterLink>
-    <button @click="handleMobileNavMenu" type="button">
-      <span id="nav-mobile-close" href="" uk-icon="icon: close; ratio: 1.6"></span>
+    <button id="nav-mobile-close" @click="handleMobileNavMenu" type="button">
+      <span href="" uk-icon="icon: close; ratio: 1.6"></span>
     </button>
   </div>
 </template>
@@ -150,13 +150,17 @@ span {
 }
 
 #nav-mobile-close {
+  background-image: none;
+}
+
+#nav-mobile-close > span {
   margin: 20px 0px;
   padding: 4px;
   border: white solid 2px;
   border-radius: 26px;
 }
 
-#nav-mobile-close:hover {
+#nav-mobile-close > span:hover {
   border-color: #FFD700;
   stroke: #FFD700;
   color: #FFD700;
