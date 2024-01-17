@@ -18,8 +18,9 @@ import { RouterLink } from 'vue-router'
       <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
 
-    <button type="button" uk-toggle="target: #nav-links-mobile; cls: show-nav-links mode: click">
-      <span href="" uk-icon="icon: menu; ratio: 1.3"></span>
+    <!-- TODO: Rather than trying to use UK-toggle, use a Vue prop. It'll be simpler to coordinate everythin -->
+    <button type="button" uk-toggle="target: #nav-links-mobile, #nav-menu; cls: show-nav-links mode: click">
+      <span id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3"></span>
     </button>
 
     <!-- <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href=""></a>
@@ -47,7 +48,9 @@ import { RouterLink } from 'vue-router'
     </div> -->
   </div>
   <div id="nav-links-mobile">
-
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">Resume</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
   </div>
 </template>
 
@@ -100,7 +103,7 @@ span {
   justify-content: flex-end;
 }
 
-.nav-links > * {
+.nav-links > *, #nav-links-mobile > * {
   margin-left: 20px;
   color: white;
   text-decoration: none;
@@ -119,7 +122,7 @@ span {
 
 }
 
-.nav-links > *:hover {
+.nav-links > *:hover, #nav-links-mobile > *:hover {
   color: #FFD700;
   /* text-decoration: underline; */
   /* border-bottom: 2px solid #FFD700; */
@@ -136,7 +139,15 @@ span {
   z-index:    10;
   /* top:        0; /* TODO: Change to 50 for final */
   /* left:       0;  */
-  position:   fixed; 
+  position:   fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-links-mobile > * {
+  margin: 10px 0px;
+  font-size: 24px;
 }
 
 @media (max-width: 640px) {
@@ -145,7 +156,7 @@ span {
   }
 
   #nav-links-mobile.show-nav-links {
-    display: block;
+    display: flex;
   }
 }
 
