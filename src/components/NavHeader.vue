@@ -28,40 +28,10 @@ function handleSetMobileNavMenu(state = true) {
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
       <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
-
-    <!-- TODO: Rather than trying to use UK-toggle, use a Vue prop. It'll be simpler to coordinate everythin -->
-    <!-- <button type="button" uk-toggle="target: #nav-links-mobile, #nav-menu; cls: show-nav-links mode: click">
-      <span id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3"></span>
-    </button> -->
-
     <button @click="handleMobileNavMenu" type="button">
       <span v-if="isMobileNavMenuOpen" id="nav-menu" href="" uk-icon="icon: close; ratio: 1.3"></span>
       <span v-else id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3"></span>
     </button>
-
-    <!-- <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href=""></a>
-    <div uk-navbar>
-      <div class="uk-navbar-left">
-        <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
-        <div class="uk-navbar-dropdown">
-            <ul class="uk-nav uk-navbar-dropdown-nav">
-                <li class="uk-active"><a href="#">Active</a></li>
-                <li><a href="#">Item</a></li>
-                <li><a href="#">Item</a></li>
-            </ul>
-        </div>
-      </div>
-    </div> -->
-    <!-- <div class="nav-links">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">Resume</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </div> -->
-  <!-- </div>
-  <div class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-        <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
-    </div> -->
   </div>
   <div v-if="isMobileNavMenuOpen" id="nav-links-mobile">
     <RouterLink to="/" @click="handleMobileNavMenu">Home</RouterLink>
@@ -74,22 +44,6 @@ function handleSetMobileNavMenu(state = true) {
 </template>
 
 <style scoped>
-/* a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  border-bottom: 2px solid transparent;
-  transition: color 200ms, border-bottom 200ms;
-}
-
-a:hover {
-  color: #FFD700;
-  /* text-decoration: underline;
-  border-bottom: 2px solid #FFD700;
-} */
-
 img {
   height: 26px;
 }
@@ -108,7 +62,6 @@ span {
   width: 100%;
   height: 50px;
   background-color: #232323;
-  /* background-color: #FFD700; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -129,22 +82,17 @@ span {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  /* border-bottom: 2px solid transparent; */
   display: inline-block;
   padding-bottom:2px;
   background-image: linear-gradient(to right, #FFD700 33%,#FFD700 33% 66%, transparent 66%);
   background-position: right bottom;
   background-size: 300% 2px;
   background-repeat: no-repeat;
-  /* transition: color 200ms, border-bottom 200ms; */
   transition: color 200ms;
-
 }
 
 .nav-links > *:hover, #nav-links-mobile > *:hover {
   color: #FFD700;
-  /* text-decoration: underline; */
-  /* border-bottom: 2px solid #FFD700; */
   background-position: left bottom;
   transition: background-position 0.5s;
 }
@@ -176,15 +124,12 @@ span {
 }
 
 #nav-links-mobile {
-  /* display: none; */
   display: flex;
   opacity:    0.85; 
   background: #000; 
   width:      100%;
   height:     100%; 
   z-index:    10;
-  /* top:        0; /* TODO: Change to 50 for final */
-  /* left:       0;  */
   position:   fixed;
   flex-direction: column;
   align-items: center;
