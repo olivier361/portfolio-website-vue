@@ -54,14 +54,14 @@ button {
 }
 
 span {
-  stroke: white;
-  color: white;
+  stroke: var(--color-header-button);
+  color: var(--color-header-button);
 }
 
 .header {
   width: 100%;
   height: 50px;
-  background-color: #232323;
+  background-color: var(--color-header-background);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,14 +77,14 @@ span {
 
 .nav-links > *, #nav-links-mobile > * {
   margin-left: 20px;
-  color: white;
+  color: var(--color-header-link);
   text-decoration: none;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   display: inline-block;
   padding-bottom:2px;
-  background-image: linear-gradient(to right, #FFD700 33%,#FFD700 33% 66%, transparent 66%);
+  background-image: linear-gradient(to right, var(--color-header-link-hover) 33%,var(--color-header-link-hover) 33% 66%, transparent 66%);
   background-position: right bottom;
   background-size: 300% 2px;
   background-repeat: no-repeat;
@@ -92,7 +92,7 @@ span {
 }
 
 .nav-links > *:hover, #nav-links-mobile > *:hover {
-  color: #FFD700;
+  color: var(--color-header-link-hover);
   background-position: left bottom;
   transition: background-position 0.5s;
 }
@@ -113,20 +113,20 @@ span {
 #nav-mobile-close > span {
   margin: 20px 0px;
   padding: 4px;
-  border: white solid 2px;
+  border: var(--color-header-button) solid 2px;
   border-radius: 26px;
 }
 
 #nav-mobile-close > span:hover {
-  border-color: #FFD700;
-  stroke: #FFD700;
-  color: #FFD700;
+  border-color: var(--color-header-button-click);
+  stroke: var(--color-header-button-click);
+  color: var(--color-header-button-click);
 }
 
 #nav-links-mobile {
   display: flex;
   opacity:    0.85; 
-  background: #000; 
+  background: var(--color-page-overlay); 
   width:      100%;
   height:     100%; 
   z-index:    10;
