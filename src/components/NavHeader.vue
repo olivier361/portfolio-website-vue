@@ -26,7 +26,7 @@ function handleSetMobileNavMenu(state = true) {
   </div>
   <div class="header header-mobile">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
-      <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
+      <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
 
     <!-- TODO: Rather than trying to use UK-toggle, use a Vue prop. It'll be simpler to coordinate everythin -->
@@ -149,6 +149,15 @@ span {
   transition: background-position 0.5s;
 }
 
+#nav-logo {
+  min-width: fit-content;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+
 #nav-mobile-close {
   background-image: none;
 }
@@ -188,6 +197,10 @@ span {
 }
 
 @media (max-width: 640px) {
+  .header {
+    padding: 0px 12px;
+  }
+
   .header-desktop {
     display: none;
   }
