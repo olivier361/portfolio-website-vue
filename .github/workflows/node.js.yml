@@ -21,5 +21,13 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
+
+  linting:
+    needs: build
+    steps:
     - run: npm run lint
+
+  tests:
+    needs: build
+    steps:
     - run: npm run test:unit
