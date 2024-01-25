@@ -1,7 +1,8 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# This workflow will do a clean installation of node dependencies,
+# cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: 🧪 Tests & Linting
 
 on:
   push
@@ -13,12 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js lts/iron # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    - name: Use Node.js v20 (lts/iron) # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
       uses: actions/setup-node@v3
       with:
         node-version: lts/iron
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run build
     - run: npm run lint
     - run: npm run test:unit
