@@ -14,7 +14,7 @@ function handleSetMobileNavMenu(state = true) {
 </script>
 
 <template>
-  <div class="header header-desktop">
+  <div class="header header-desktop" ref="navHeader">
     <RouterLink to="/" style="height: 26px">
       <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
@@ -24,7 +24,7 @@ function handleSetMobileNavMenu(state = true) {
       <RouterLink to="/about">About</RouterLink>
     </div>
   </div>
-  <div class="header header-mobile">
+  <div class="header header-mobile" ref="navHeader">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
       <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
@@ -60,7 +60,7 @@ span {
 
 .header {
   width: 100%;
-  height: 50px;
+  height: var(--header-height);
   background-color: var(--color-header-background);
   display: flex;
   align-items: center;
