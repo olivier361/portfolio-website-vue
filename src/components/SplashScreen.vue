@@ -1,40 +1,4 @@
 <script setup>
-import { ref, onMounted, onUpdated } from 'vue'
-
-const props = defineProps(['splashscreenHeight'])
-
-const navHeader = ref(null)
-const slideshowItems = ref(null)
-
-onMounted(() => {
-  adjustHeight()
-})
-
-onUpdated(() => {
-  // adjustHeight()
-  console.log(`ON UPDATED props.splashscreenHeight: ${props.splashscreenHeight}`)
-
-})
-
-// Adjusts the height of the splash screen to equal
-// the height of the viewport minus the height of the header.
-function adjustHeight() {
-  // let height = this.$refs.navHeader.clientHeight;
-  // console.log(`Mounted with height = ${height}`);
-  // var heightString = this.$refs.infoBox.clientHeight + 'px';
-  // Vue.set(this.leftColStyles, 'height', heightString); 
-  console.log('adjustHeight() called')
-  console.log(`navHeader: ${navHeader.value}`)
-  console.log(`props.splashscreenHeight: ${props.splashscreenHeight}`)
-  // slideshowItems.value.style.height = `${props.splashscreenHeight}px`; // Set height
-
-  // if (navHeader.value && slideshowItems.value) {
-  //   const viewportHeight = window.innerHeight; // Get the viewport height
-  //   console.log(`viewportHeight: ${viewportHeight}`)
-
-  //   slideshowItems.value.style.height = `${viewportHeight - navHeader.value.style.height}px`; // Set height
-  // }
-}
 
 </script>
 
@@ -42,7 +6,7 @@ function adjustHeight() {
 
   <div class="splashscreen">
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: pull; autoplay: true">
-      <div class="uk-slideshow-items" ref="slideshowItems">
+      <div class="uk-slideshow-items">
         <div>
           <img src="@/assets/2D-Pixel-Game.png" alt="" uk-cover>
         </div>
@@ -77,8 +41,7 @@ function adjustHeight() {
 
 .splashscreen {
   .uk-slideshow-items {
-    /* height: v-bind(splashscreenHeight); */
-    height: calc(100vh - var(--header-height)); /* 50px is the height of the header */
+    height: calc(100vh - var(--header-height));
     /* position: relative;
     overflow: hidden; */
   }
