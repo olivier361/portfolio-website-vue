@@ -18,14 +18,14 @@
         </div>
       </div>
 
-      <!-- TODO: Added as a test -->
+      <div class="splashscreen-content-wrapper uk-position-center" style="width: 100%;">
+        <div class="splashscreen-banner uk-position-center">
+          <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
+        </div>
 
-      <div class="splashscreen-banner uk-position-center">
-        <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
+        <h3 class="uk-position-center">Software and Game Developer - Video Content Creator - Design and Marketing</h3>
       </div>
-
-      <!-- <h3>Software and Game Developer - Video Content Creator - Graphic Designer</h3> -->
-
+      
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous"></a>
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next"></a>
     
@@ -46,28 +46,39 @@
   }
 }
 
+.splashscreen-content-wrapper {
+  h3 {
+    position: absolute;
+    top: 22vh;
+    margin: 0px;
+  }
+}
+
 .splashscreen-banner {
 	display: flex;
 	justify-content: center;
   width: 100%;
 	border-top: 5px solid white;
 	border-bottom: 5px solid white;
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.65);
+  pointer-events: none;
 }
 
 #main-logo {
-  width: 40%;
+  max-width: 40%;
+  max-height: 25vh;
+  object-fit: contain;
 }
 
 @media (max-width: 640px) {
   #main-logo {
-    width: 60%;
+    max-width: 60%;
   }
 }
 
 @media (max-width: 480px) {
   #main-logo {
-    width: 80%;
+    max-width: 80%;
   }
 }
 
