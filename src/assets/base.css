@@ -47,6 +47,8 @@
 
   --section-gap: 160px;
 
+  /* See https://getuikit.com/docs/visibility#visible */
+  --width-mini: 480px;
   --width-small: 640px;
   --width-medium: 960px;
   --width-large: 1200px;
