@@ -47,6 +47,7 @@
 
   --color-splashscreen-social-links-background: var(--c-background-primary);
   --color-splashscreen-social-links-border: var(--c-background-primary);
+  --color-splashscreen-text: var(--c-accent-primary);
 
   --section-gap: 160px;
 
@@ -107,4 +108,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  /* smoothly scroll to section anchors when href clicked */
+  scroll-behavior: smooth;
 }

@@ -30,13 +30,20 @@
           <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
         </div>
 
-        <h3 class="uk-position-center">Software and Game Developer - Video Content Creator - Design and Marketing</h3>
+        <h3 class="uk-position-center">Software & Game Developer - Video Content Creator - Design and Marketing</h3>
       </div>
       
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous"></a>
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next"></a>
     
-      <ul class="uk-slideshow-nav uk-dotnav uk-position-bottom-center uk-position-small"></ul>
+      <div class="uk-position-bottom-center uk-flex uk-flex-column uk-flex-middle">
+        <ul class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"></ul>
+
+        <p id="splashscreen-cta">Check out my work</p>
+
+        <a href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5"></a>
+      </div>
+
     </div>
 
   </div>
@@ -59,6 +66,8 @@
     position: absolute;
     top: 22vh;
     margin: 0px;
+    color: var(--color-splashscreen-text);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.70); /* Horizontal, Vertical, Blur, Color */
   }
 
   .social-links {
@@ -117,5 +126,15 @@
   margin: 10px 13px;
 }
 
+#splashscreen-cta {
+  color: var(--color-splashscreen-text);
+  font-family: 'Roboto', sans-serif; /* TODO: implement proper fonts */
+  font-size: 1.2rem;
+  margin: 0px;
+  position: relative;
+  top: 10px;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.40); /* Horizontal, Vertical, Blur, Color */
+  user-select: none;
+}
 
 </style>
