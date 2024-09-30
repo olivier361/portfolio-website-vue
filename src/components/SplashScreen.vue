@@ -19,6 +19,13 @@
       </div>
 
       <div class="splashscreen-content-wrapper uk-position-center" style="width: 100%;">
+        <ul class="social-links uk-position-center">
+          <li><a href="https://www.linkedin.com/in/olivier-gg/" target="_blank"><img src="@/assets/linkedin-logo.png" alt="LinkedIn"></a></li>
+          <li><a href="https://twitter.com/oliviergg" target="_blank"><img src="@/assets/twitter-logo.png" alt="Twitter/X"></a></li>
+          <li><a href="https://github.com/olivier361" target="_blank"><img src="@/assets/github-logo.png" alt="GitHub"></a></li>
+          <li><a href="https://youtube.com/SkullkidGamingOfficial" target="_blank"><img src="@/assets/youtube-logo.png" alt="YouTube"></a></li>
+        </ul>
+
         <div class="splashscreen-banner uk-position-center">
           <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
         </div>
@@ -47,10 +54,16 @@
 }
 
 .splashscreen-content-wrapper {
+  /* TODO: find a better way to position these */
   h3 {
     position: absolute;
     top: 22vh;
     margin: 0px;
+  }
+
+  .social-links {
+    position: absolute;
+    top: -22vh;
   }
 }
 
@@ -81,5 +94,28 @@
     max-width: 80%;
   }
 }
+
+.social-links {
+	list-style: none;	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: flex-end;
+  padding: 0px;
+}
+	
+.social-links img {
+	background-color: var(--color-splashscreen-social-links-background);
+	border: 1px var(--color-splashscreen-social-links-border) solid;
+	width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.social-links a {
+  margin: 10px 13px;
+}
+
 
 </style>
