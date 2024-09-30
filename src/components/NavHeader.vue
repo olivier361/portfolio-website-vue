@@ -15,13 +15,13 @@ function handleSetMobileNavMenu(state = true) {
 
 <template>
   <div class="header header-desktop">
-    <RouterLink to="/" style="height: 26px">
+    <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
       <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
     </RouterLink>
     <div class="nav-links">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">Resume</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
+      <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
+      <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
     </div>
   </div>
   <div class="header header-mobile">
@@ -34,10 +34,10 @@ function handleSetMobileNavMenu(state = true) {
     </button>
   </div>
   <div v-if="isMobileNavMenuOpen" id="nav-links-mobile">
-    <RouterLink to="/" @click="handleMobileNavMenu">Home</RouterLink>
-    <RouterLink to="/about" @click="handleMobileNavMenu">Resume</RouterLink>
-    <RouterLink to="/about" @click="handleMobileNavMenu">About</RouterLink>
-    <button id="nav-mobile-close" @click="handleMobileNavMenu" type="button">
+    <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
+    <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
+    <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
+    <button id="nav-mobile-close" @click="handleSetMobileNavMenu(false)" type="button">
       <span href="" uk-icon="icon: close; ratio: 1.6"></span>
     </button>
   </div>
