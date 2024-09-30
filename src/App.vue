@@ -23,6 +23,9 @@ UIkit.use(Icons);
 header {
   line-height: 1.5;
   max-height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure the header is above everything else */
 }
 
 nav {
