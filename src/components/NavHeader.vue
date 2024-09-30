@@ -49,8 +49,10 @@ img {
 }
 
 button {
+  padding: 0px;
   background-color: transparent;
   border-width: 0px;
+  cursor: pointer;
 }
 
 span {
@@ -107,11 +109,11 @@ span {
 }
 
 #nav-mobile-close {
+  margin: 30px 0px;
   background-image: none;
 }
 
 #nav-mobile-close > span {
-  margin: 20px 0px;
   padding: 4px;
   border: var(--color-header-button) solid 2px;
   border-radius: 26px;
@@ -136,7 +138,7 @@ span {
   justify-content: center;
 }
 
-#nav-links-mobile > * {
+#nav-links-mobile > a {
   margin: 10px 0px;
   font-size: 24px;
 }
