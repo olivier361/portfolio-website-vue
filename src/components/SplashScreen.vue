@@ -42,26 +42,30 @@ onBeforeUnmount(() => {
       </div>
 
       <div class="splashscreen-content-wrapper uk-position-center" style="width: 100%;">
-        <ul class="social-links uk-position-center">
-          <li><a href="https://www.linkedin.com/in/olivier-gg/" target="_blank"><img src="@/assets/linkedin-logo.png" alt="LinkedIn"></a></li>
-          <li><a href="https://twitter.com/oliviergg" target="_blank"><img src="@/assets/twitter-logo.png" alt="Twitter/X"></a></li>
-          <li><a href="https://github.com/olivier361" target="_blank"><img src="@/assets/github-logo.png" alt="GitHub"></a></li>
-          <li><a href="https://youtube.com/SkullkidGamingOfficial" target="_blank"><img src="@/assets/youtube-logo.png" alt="YouTube"></a></li>
-        </ul>
+        <div class="match-height uk-flex uk-flex-column uk-flex-right">
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/in/olivier-gg/" target="_blank"><img src="@/assets/linkedin-logo.png" alt="LinkedIn"></a></li>
+            <li><a href="https://twitter.com/oliviergg" target="_blank"><img src="@/assets/twitter-logo.png" alt="Twitter/X"></a></li>
+            <li><a href="https://github.com/olivier361" target="_blank"><img src="@/assets/github-logo.png" alt="GitHub"></a></li>
+            <li><a href="https://youtube.com/SkullkidGamingOfficial" target="_blank"><img src="@/assets/youtube-logo.png" alt="YouTube"></a></li>
+          </ul>
+        </div>
 
-        <div class="splashscreen-banner uk-position-center">
+        <div class="splashscreen-banner">
           <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
         </div>
 
-        <h3 class="uk-position-center" v-if="windowWidth > 960">
-          {{headingEntries[0]}} • {{headingEntries[1]}} • {{headingEntries[2]}}
-        </h3>
-        <h3 class="uk-position-center" v-else-if="640 < windowWidth && windowWidth <= 960">
-          {{headingEntries[0]}} • {{headingEntries[1]}}<br>{{headingEntries[2]}}
-        </h3>
-        <h3 class="uk-position-center" style="line-height: 0.8;" v-else>
-          {{headingEntries[0]}}<br>—<br>{{headingEntries[1]}}<br>—<br>{{headingEntries[2]}}
-        </h3>
+        <div class="match-height">
+          <h3 v-if="windowWidth > 960">
+            {{headingEntries[0]}} • {{headingEntries[1]}} • {{headingEntries[2]}}
+          </h3>
+          <h3 v-else-if="640 < windowWidth && windowWidth <= 960">
+            {{headingEntries[0]}} • {{headingEntries[1]}}<br>{{headingEntries[2]}}
+          </h3>
+          <h3 style="line-height: 0.8;" v-else>
+            {{headingEntries[0]}}<br>—<br>{{headingEntries[1]}}<br>—<br>{{headingEntries[2]}}
+          </h3>
+        </div>
       </div>
       
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous"></a>
@@ -91,20 +95,26 @@ onBeforeUnmount(() => {
   }
 }
 
+.match-height {
+  flex: 1;
+}
+
 .splashscreen-content-wrapper {
-  /* TODO: find a better way to position these */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
   h3 {
-    position: absolute;
-    top: 22vh;
-    margin: 0px;
+    margin: 30px 0px 0px 0px;  
     color: var(--color-splashscreen-text);
     text-shadow: 2px 2px 10px rgba(0,0,0,0.70); /* Horizontal, Vertical, Blur, Color */
     text-align: center;
   }
 
   .social-links {
-    position: absolute;
-    top: -22vh;
+    margin-bottom: 30px;
   }
 }
 
