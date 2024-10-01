@@ -1,6 +1,12 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
+const headingEntries = ref([
+  'Software & Game Developer',
+  'Video Content Creator',
+  'Design and Marketing'
+]);
+
 const windowWidth = ref(window.innerWidth);
 
 function handleResize() {
@@ -48,13 +54,13 @@ onBeforeUnmount(() => {
         </div>
 
         <h3 class="uk-position-center" v-if="windowWidth > 960">
-          Software & Game Developer • Video Content Creator • Design and Marketing
+          {{headingEntries[0]}} • {{headingEntries[1]}} • {{headingEntries[2]}}
         </h3>
         <h3 class="uk-position-center" v-else-if="640 < windowWidth && windowWidth <= 960">
-          Software & Game Developer • Video Content Creator<br>Design and Marketing
+          {{headingEntries[0]}} • {{headingEntries[1]}}<br>{{headingEntries[2]}}
         </h3>
         <h3 class="uk-position-center" style="line-height: 0.8;" v-else>
-          Software & Game Developer<br>—<br>Video Content Creator<br>—<br>Design and Marketing
+          {{headingEntries[0]}}<br>—<br>{{headingEntries[1]}}<br>—<br>{{headingEntries[2]}}
         </h3>
       </div>
       
@@ -91,7 +97,6 @@ onBeforeUnmount(() => {
     position: absolute;
     top: 22vh;
     margin: 0px;
-    width: 100%;
     color: var(--color-splashscreen-text);
     text-shadow: 2px 2px 10px rgba(0,0,0,0.70); /* Horizontal, Vertical, Blur, Color */
     text-align: center;
