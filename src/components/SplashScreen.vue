@@ -8,9 +8,12 @@ const headingEntries = ref([
 ]);
 
 const windowWidth = ref(window.innerWidth);
+const windowHeight = ref(window.innerHeight);
+
 
 function handleResize() {
-  return windowWidth.value = window.innerWidth;
+  windowWidth.value = window.innerWidth;
+  windowHeight.value = window.innerHeight;
 }
 
 onMounted(() => {
@@ -72,11 +75,13 @@ onBeforeUnmount(() => {
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next"></a>
     
       <div class="uk-position-bottom-center uk-flex uk-flex-column uk-flex-middle">
-        <ul class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"></ul>
+        <ul class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"
+          :style="{visibility: (windowHeight >= 550 ? 'visible' : 'hidden')}"
+        ></ul>
 
-        <p id="splashscreen-cta">Check out my work</p>
+        <p id="splashscreen-cta" v-if="windowHeight >= 500">Check out my work</p>
 
-        <a href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5"></a>
+        <a v-if="windowHeight >= 420" href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5"></a>
       </div>
 
     </div>
