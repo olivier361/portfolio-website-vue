@@ -1,4 +1,35 @@
 <script setup>
+import { ref, onMounted, computed } from 'vue';
+
+const items = ref([
+  'Software & Game Developer',
+  'Video Content Creator',
+  'Design and Marketing',
+]);
+
+const flexContainer = ref(null);
+const itemPositions = ref([]);
+
+const updateItemPositions = () => {
+  const children = flexContainer.value.children;
+  itemPositions.value = Array.from(children).map((item) =>
+    item.getBoundingClientRect().top
+  );
+};
+
+const shouldAddBullet = (index) => {
+  // Add bullet if the current item and the next are on the same line
+  console.log(`itemPositions.value[index]: ${itemPositions.value}`);
+  return (
+    index < itemPositions.value.length - 1 &&
+    itemPositions.value[index] === itemPositions.value[index + 1]
+  );
+};
+
+onMounted(() => {
+  updateItemPositions();
+  window.addEventListener('resize', updateItemPositions);
+});
 
 </script>
 
@@ -30,10 +61,14 @@
           <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
         </div>
 
-        <h3 class="uk-position-center">
-          <span class="line">Software & Game Developer</span>
-          <span class="line"> - Video Content Creator - </span>
-          <span class="line">Design and Marketing</span>
+        <h3 class="flex-container uk-position-center" ref="flexContainer">
+          <span class="flex-item"
+            v-for="(item, index) in items"
+            :key="index"
+            :class="{'bullet': shouldAddBullet(index)}"
+          >
+            {{ item }}
+          </span>
         </h3>
       </div>
       
@@ -72,19 +107,17 @@
     margin: 0px;
     color: var(--color-splashscreen-text);
     text-shadow: 2px 2px 10px rgba(0,0,0,0.70); /* Horizontal, Vertical, Blur, Color */
-
+/* 
     display: flex;
     flex-direction: row;
-    /* flex wrap */
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
     span.line {
-      /* no wrap */
       white-space: nowrap;
       display: inline-block;
-    }
+    } */
   }
 
   .social-links {
@@ -153,5 +186,28 @@
   text-shadow: 1px 1px 10px rgba(0,0,0,0.40); /* Horizontal, Vertical, Blur, Color */
   user-select: none;
 }
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* gap: 10px; */
+}
+
+.flex-item {
+  /* padding: 10px; */
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+/* Add bullet after the element if the class 'bullet' is applied */
+.bullet::after {
+  content: "•";
+  padding: 0px 10px;
+  color: var(--color-splashscreen-text);
+}
+
+/* .flex-item:last-child::after {
+  content: "";
+} */
 
 </style>
