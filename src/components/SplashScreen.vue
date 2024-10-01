@@ -30,7 +30,11 @@
           <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
         </div>
 
-        <h3 class="uk-position-center">Software & Game Developer - Video Content Creator - Design and Marketing</h3>
+        <h3 class="uk-position-center">
+          <span class="line">Software & Game Developer</span>
+          <span class="line"> - Video Content Creator - </span>
+          <span class="line">Design and Marketing</span>
+        </h3>
       </div>
       
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous"></a>
@@ -68,6 +72,19 @@
     margin: 0px;
     color: var(--color-splashscreen-text);
     text-shadow: 2px 2px 10px rgba(0,0,0,0.70); /* Horizontal, Vertical, Blur, Color */
+
+    display: flex;
+    flex-direction: row;
+    /* flex wrap */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    span.line {
+      /* no wrap */
+      white-space: nowrap;
+      display: inline-block;
+    }
   }
 
   .social-links {
