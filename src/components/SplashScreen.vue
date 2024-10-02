@@ -76,12 +76,12 @@ onBeforeUnmount(() => {
     
       <div class="uk-position-bottom-center uk-flex uk-flex-column uk-flex-middle">
         <ul class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"
-          :style="{visibility: (windowHeight >= 550 ? 'visible' : 'hidden')}"
+          :style="{visibility: (windowHeight >= 720 || (windowHeight >= 620 && windowWidth > 640) || (windowHeight >= 550 && windowWidth > 960) ? 'visible' : 'hidden')}"
         ></ul>
 
-        <p id="splashscreen-cta" v-if="windowHeight >= 500">Check out my work</p>
+        <p id="splashscreen-cta" v-if="windowHeight >= 650 || (windowHeight >= 550 && windowWidth > 640) || (windowHeight >= 500 && windowWidth > 960)">Check out my work</p>
 
-        <a v-if="windowHeight >= 420" href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5"></a>
+        <a v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)" href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5"></a>
       </div>
 
     </div>
