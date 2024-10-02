@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
           <img src="@/assets/ruby-adventure.png" alt="Ruby's Adventure Game" uk-cover>
         </div>
       </div>
-
+      <!-- <div class="image-overlay uk-position-center"></div>  -->
       <div class="splashscreen-content-wrapper uk-position-center" style="width: 100%;">
         <div class="match-height uk-flex uk-flex-column uk-flex-right">
           <ul class="social-links">
@@ -103,13 +103,32 @@ onBeforeUnmount(() => {
 .match-height {
   flex: 1;
 }
-
+/*
+.image-overlay {
+   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(0,0,0,0.2);
+  pointer-events: none;
+}
+*/
 .splashscreen-content-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  pointer-events: none;
+
+  * {
+    pointer-events: auto;
+  }
+
+  .match-height, ul, li {
+    pointer-events: none;
+  }
 
   h3 {
     margin: 30px 0px 0px 0px;  
@@ -130,7 +149,11 @@ onBeforeUnmount(() => {
 	border-top: 5px solid white;
 	border-bottom: 5px solid white;
 	background-color: rgba(0,0,0,0.65);
-  pointer-events: none;
+  pointer-events: none !important;
+
+  * {
+    pointer-events: none;
+  }
 }
 
 #main-logo {
