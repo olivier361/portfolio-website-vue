@@ -48,6 +48,7 @@
   --color-splashscreen-social-links-background: var(--c-background-primary);
   --color-splashscreen-social-links-border: var(--c-background-primary);
   --color-splashscreen-text: var(--c-accent-primary);
+  --color-splashscreen-image-overlay: rgba(0,0,0,0.2);
 
   --section-gap: 160px;
 
