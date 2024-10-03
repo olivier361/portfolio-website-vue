@@ -62,7 +62,7 @@ span {
 
 .header {
   width: 100%;
-  height: 50px;
+  height: var(--header-height);
   background-color: var(--color-header-background);
   display: flex;
   align-items: center;

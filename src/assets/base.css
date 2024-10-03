@@ -45,12 +45,21 @@
   --color-header-button-click: var(--c-accent-secondary);
   --color-header-link-hover: var(--c-accent-secondary);
 
+  --color-splashscreen-social-links-background: var(--c-background-primary);
+  --color-splashscreen-social-links-border: var(--c-background-primary);
+  --color-splashscreen-text: var(--c-accent-primary);
+  --color-splashscreen-image-overlay: rgba(0,0,0,0.2);
+
   --section-gap: 160px;
 
+  /* See https://getuikit.com/docs/visibility#visible */
+  --width-mini: 480px;
   --width-small: 640px;
   --width-medium: 960px;
   --width-large: 1200px;
   --width-extra-large: 1600px;
+
+  --header-height: 50px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -100,4 +109,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  /* smoothly scroll to section anchors when href clicked */
+  scroll-behavior: smooth;
 }
