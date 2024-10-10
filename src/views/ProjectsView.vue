@@ -1,7 +1,14 @@
+<script setup>
+import ProjectCard from '@/components/ProjectCard.vue';
+</script>
+
 <template>
-  <div class="projects">
-    <h1>This is the Projects page</h1>
-  </div>
+  <main>
+    <div class="projects">
+      <h1>This is the Projects page</h1>
+    </div>
+    <ProjectCard />
+  </main>
 </template>
 
 <style>
