@@ -6,17 +6,28 @@ import ProjectCard from '@/components/ProjectCard.vue';
   <main>
     <div class="projects">
       <h1>This is the Projects page</h1>
+      <ProjectCard 
+        :heading="'Project 1'"
+        :introParagraph="'This is the intro paragraph.'"
+      >
+        Test content from parent!
+      </ProjectCard>
     </div>
-    <ProjectCard />
   </main>
 </template>
 
 <style>
-@media (min-width: 1024px) {
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* @media (min-width: 1024px) {
   .projects {
     min-height: 100vh;
     display: flex;
     align-items: center;
   }
-}
+} */
 </style>
