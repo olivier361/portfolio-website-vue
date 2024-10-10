@@ -1,5 +1,5 @@
 <script setup>
-// import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
   heading: {
@@ -16,6 +16,12 @@ const props = defineProps({
   }
 });
 
+const isExpanded = ref(false);
+
+function handleCardExpand(){
+  isExpanded.value = !isExpanded.value;
+}
+
 </script>
 
 <template>
@@ -24,9 +30,12 @@ const props = defineProps({
     <div class="preview-section">
       <h2>{{ heading }}</h2>
       <p>{{ introParagraph }}</p>
+      <div class="uk-flex uk-flex-center">
+        <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
+      </div>
     </div>
-    <hr class="preview-divider"/>
-    <div class="info-section">
+    <hr class="preview-divider" v-if="isExpanded"/>
+    <div class="info-section" v-if="isExpanded">
       <slot>This is where the content coming from the parent should go.</slot>
     </div>
   </div>
@@ -43,7 +52,8 @@ const props = defineProps({
   /* transition: all 0.3s; */
 
   .preview-section {
-    margin: var(--card-border-radius) var(--card-border-radius) calc(var(--card-border-radius) / 2);
+    /* -5px in the margin calculation is to account for .expand-button padding to have 25px total spacing */
+    margin: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
   }
 
   .info-section {
@@ -56,10 +66,19 @@ const props = defineProps({
     color: var(--color-card-heading);
   }
 
+  button.expand-button {
+    padding: 5px;
+    background-color: transparent;
+    color: var(--color-card-button-text);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
   hr.preview-divider {
     width: 100%;
     border-top: 5px solid var(--color-card-divider);
-    margin: calc(var(--card-border-radius) / 2) 0px;
+    margin: 0px;
   }
 }
 
