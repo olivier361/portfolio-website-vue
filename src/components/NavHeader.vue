@@ -20,6 +20,7 @@ function handleSetMobileNavMenu(state = true) {
     </RouterLink>
     <div class="nav-links">
       <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
+      <RouterLink to="/projects" @click="handleSetMobileNavMenu(false)">Projects</RouterLink>
       <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
       <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
     </div>
@@ -35,6 +36,7 @@ function handleSetMobileNavMenu(state = true) {
   </div>
   <div v-if="isMobileNavMenuOpen" id="nav-links-mobile">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
+    <RouterLink to="/projects" @click="handleSetMobileNavMenu(false)">Projects</RouterLink>
     <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
     <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
     <button id="nav-mobile-close" @click="handleSetMobileNavMenu(false)" type="button">
