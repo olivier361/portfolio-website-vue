@@ -12,6 +12,12 @@ import ProjectCard from '@/components/ProjectCard.vue';
       >
         Test content from parent!
       </ProjectCard>
+      <ProjectCard 
+        :heading="'Project 2'"
+        :introParagraph="'This is another intro paragraph.'"
+      >
+        More test content from parent!
+      </ProjectCard>
     </div>
   </main>
 </template>
@@ -23,6 +29,11 @@ import ProjectCard from '@/components/ProjectCard.vue';
   flex-direction: column;
   align-items: center;
 }
+
+.project-card {
+  margin: 20px 0px;
+}
+
 /* @media (min-width: 1024px) {
   .projects {
     min-height: 100vh;
