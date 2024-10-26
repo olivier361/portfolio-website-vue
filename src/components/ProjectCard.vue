@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch, nextTick } from 'vue';
+import { ref, onMounted, onBeforeMount, watch, nextTick } from 'vue';
 
 const props = defineProps({
   heading: {
@@ -20,21 +20,31 @@ const previewSection = ref(null);
 const infoSection = ref(null);
 const previewSectionHeight = ref(0);
 const infoSectionHeight = ref(0);
-const content = ref('Initial content');
+// const content = ref('Initial content'); // See note for watch() function
 
 const isExpanded = ref(false);
 
 onMounted(() => {
   previewSectionHeight.value = computeHeight(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
+  console.log(`on mount: previewSection Height: ${computeHeight(previewSection)}`);
+  console.log(`on mount: infoSection Height: ${computeHeight(infoSection)}`);
+});
+
+onBeforeMount(() => {
+  console.log(`previewSection Height: ${computeHeight(previewSection)}`);
+  console.log(`infoSection Height: ${computeHeight(infoSection)}`);
 });
 
 // Watch content for changes and recompute height
-watch(content, async () => {
-  await nextTick(); // Wait for DOM to update
-  computeHeight(previewSection);
-  computeHeight(infoSection);
-});
+// NOTE: This is only needed if the height of the content can change
+// A resize event listener would maybe be better for this if this is the
+// only case in which the content height of project cards can change.
+// watch(content, async () => {
+//   await nextTick(); // Wait for DOM to update
+//   computeHeight(previewSection);
+//   computeHeight(infoSection);
+// });
 
 function handleCardExpand(){
   isExpanded.value = !isExpanded.value;
@@ -115,7 +125,7 @@ function computeHeight(ref){
   }
 }
 
-.fade-enter-active,
+/* .fade-enter-active,
 .fade-leave-active {
   transition: opacity 2.5s ease;
 }
@@ -123,7 +133,7 @@ function computeHeight(ref){
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-}
+} */
 
 
 /* .slide-fade-enter-active {
