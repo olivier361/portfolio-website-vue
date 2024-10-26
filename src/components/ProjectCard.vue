@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeMount, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const props = defineProps({
   heading: {
@@ -31,13 +31,6 @@ onMounted(() => {
   // get --card-border-radius CSS variable value
   const rootStyles = getComputedStyle(document.documentElement);
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
-
-  console.log('CSS Variable --card-border-radius:', cardBorderRadius.value);
-});
-
-onBeforeMount(() => {
-  console.log(`previewSection Height: ${computeHeight(previewSection)}`);
-  console.log(`infoSection Height: ${computeHeight(infoSection)}`);
 });
 
 onBeforeUnmount(() => {
@@ -54,28 +47,17 @@ function handleResize() {
   // we would need to switch to using a watcher instead of a resize event listener.
   previewSectionHeight.value = computeHeight(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
-  console.log(`on mount: previewSection Height: ${computeHeight(previewSection)}`);
-  console.log(`on mount: infoSection Height: ${computeHeight(infoSection)}`);
 }
 
 function computeHeight(ref){
   if (!ref?.value) return 0;
-  var height = ref.value.getBoundingClientRect().height;
-  // var style = window.getComputedStyle(ref.value);
-  // var marginTop = parseFloat(style.getPropertyValue('margin-top'));
-  // var marginBottom = parseFloat(style.getPropertyValue('margin-bottom'));
-  var marginBottom = cardBorderRadius.value;
-  // console.log(`height: ${height}, marginTop: ${marginTop}, marginBottom: ${marginBottom}`);
-  console.log(`height: ${height}, marginBottom: ${marginBottom}`);
-  return height + marginBottom;
-  // return ref.value.getBoundingClientRect().height;
+  return ref.value.getBoundingClientRect().height;
 }
 
 </script>
 
 <template>
 
-<!-- TODO: Remove magic numbers -->
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection">
       <h2>{{ heading }}</h2>
@@ -84,25 +66,21 @@ function computeHeight(ref){
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
     </div>
-    <!-- TODO: WIP not sure if this is the good approach -->
-    <!-- <transition name="fade"> -->
-    <div class="info-wrapper" :style="{ height: (isExpanded ? infoSectionHeight + cardBorderRadius : 0) + 'px' }">
+    <div class="info-animation-wrapper" :style="{ height: (isExpanded ? infoSectionHeight + cardBorderRadius : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider"/>
         <div class="content">
-          <slot>This is where the content coming from the parent should go.</slot>
+          <slot>No content available to display.</slot>
         </div>
       </div>
-    </div>
-    
-    <!-- </transition> -->
+    </div>    
   </div>
 
 </template>
 
 <style scoped>
 
-.info-wrapper {
+.info-animation-wrapper {
   height: 0px;
   overflow: hidden;
   transition: height 0.5s ease;
@@ -113,10 +91,6 @@ function computeHeight(ref){
   color: var(--color-card-text);
   background-color: var(--color-card-background);
   border-radius: var(--card-border-radius);
-  /* transition: all 0.3s; */
-  /* max-height: 200px; */
-  /* transition: max-height 3.0s ease; */
-  /* transition: height 1.0s ease; */
   overflow: hidden;
 
   .preview-section {
@@ -140,7 +114,11 @@ function computeHeight(ref){
     color: var(--color-card-button-text);
     border: none;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: color 200ms;
+  }
+
+  button.expand-button:hover {
+    color: var(--color-card-button-text-hover);
   }
 
   hr.preview-divider {
@@ -149,36 +127,5 @@ function computeHeight(ref){
     margin: 0px;
   }
 }
-
-/* .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 2.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-} */
-
-
-/* .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
-} */
-
-
-/* .project-card.expanded {
-  max-height: 2000px;
-  transition: max-height 3.0s ease;
-} */
 
 </style>

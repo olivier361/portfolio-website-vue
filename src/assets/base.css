@@ -52,6 +52,7 @@
 
   --color-card-background: var(--c-background-primary);
   --color-card-text: var(--c-accent-primary);
+  --color-card-button-text-hover: var(--c-accent-secondary);
   --color-card-heading: var(--c-accent-primary);
   --color-card-button-text: var(--c-accent-primary);
   --color-card-divider: var(--c-accent-primary);
