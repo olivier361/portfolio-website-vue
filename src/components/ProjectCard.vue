@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, watch, nextTick } from 'vue';
 
 const props = defineProps({
   heading: {
@@ -16,31 +16,57 @@ const props = defineProps({
   }
 });
 
+const previewSection = ref(null);
+const infoSection = ref(null);
+const previewSectionHeight = ref(0);
+const infoSectionHeight = ref(0);
+const content = ref('Initial content');
+
 const isExpanded = ref(false);
+
+onMounted(() => {
+  previewSectionHeight.value = computeHeight(previewSection);
+  infoSectionHeight.value = computeHeight(infoSection);
+});
+
+// Watch content for changes and recompute height
+watch(content, async () => {
+  await nextTick(); // Wait for DOM to update
+  computeHeight(previewSection);
+  computeHeight(infoSection);
+});
 
 function handleCardExpand(){
   isExpanded.value = !isExpanded.value;
+}
+
+function computeHeight(ref){
+  if (!ref?.value) return 0;
+  return ref.value.getBoundingClientRect().height;
 }
 
 </script>
 
 <template>
 
-  <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
-    <div class="preview-section">
+<!-- TODO: Remove magic numbers -->
+  <div :class="isExpanded ? 'project-card expanded' : 'project-card'" :style="{ height: (previewSectionHeight + (isExpanded ? infoSectionHeight + 50 : 0) + 70) + 'px' }">
+    <div class="preview-section" ref="previewSection">
       <h2>{{ heading }}</h2>
       <p>{{ introParagraph }}</p>
       <div class="uk-flex uk-flex-center">
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
     </div>
-    <hr class="preview-divider" v-if="isExpanded"/>
     <!-- TODO: WIP not sure if this is the good approach -->
-    <transition name="fade">
-      <div class="info-section" v-if="isExpanded">
-      <slot>This is where the content coming from the parent should go.</slot>
+    <!-- <transition name="fade"> -->
+    <div class="info-section" ref="infoSection">
+      <hr class="preview-divider"/>
+      <div class="content">
+        <slot>This is where the content coming from the parent should go.</slot>
       </div>
-    </transition>
+    </div>
+    <!-- </transition> -->
   </div>
 
 </template>
@@ -53,8 +79,9 @@ function handleCardExpand(){
   background-color: var(--color-card-background);
   border-radius: var(--card-border-radius);
   /* transition: all 0.3s; */
-  max-height: 200px;
-  transition: max-height 3.0s ease;
+  /* max-height: 200px; */
+  /* transition: max-height 3.0s ease; */
+  transition: height 1.0s ease;
   overflow: hidden;
 
   .preview-section {
@@ -62,7 +89,7 @@ function handleCardExpand(){
     margin: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
   }
 
-  .info-section {
+  .info-section .content {
     margin: calc(var(--card-border-radius) / 2) var(--card-border-radius) var(--card-border-radius);
   }
 
@@ -114,9 +141,9 @@ function handleCardExpand(){
 } */
 
 
-.project-card.expanded {
+/* .project-card.expanded {
   max-height: 2000px;
   transition: max-height 3.0s ease;
-}
+} */
 
 </style>
