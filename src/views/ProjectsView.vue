@@ -21,6 +21,12 @@ import ProjectCard from '@/components/ProjectCard.vue';
         is on multiple<br>
         lines.
       </ProjectCard>
+      <ProjectCard
+        :heading="'Project 3'"
+        :introParagraph="'This is the third intro paragraph. This card has no expandable content.'"
+        :isExpandable="false"
+      >
+      </ProjectCard>
     </div>
   </main>
 </template>

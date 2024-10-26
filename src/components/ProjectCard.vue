@@ -10,6 +10,11 @@ const props = defineProps({
     type: String,
     required: true
   },
+  isExpandable: {
+    type: Boolean,
+    required: false,
+    default: true
+  },
   previewBackgroundImage: {
     type: String,
     required: false
@@ -59,14 +64,14 @@ function computeHeight(ref){
 <template>
 
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
-    <div class="preview-section" ref="previewSection">
+    <div class="preview-section" ref="previewSection" :style="isExpandable ? {} : { marginBottom: (cardBorderRadius + 'px') }">
       <h2>{{ heading }}</h2>
       <p>{{ introParagraph }}</p>
-      <div class="uk-flex uk-flex-center">
+      <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
     </div>
-    <div class="info-animation-wrapper" :style="{ height: (isExpanded ? infoSectionHeight + cardBorderRadius : 0) + 'px' }">
+    <div class="info-animation-wrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + cardBorderRadius : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider"/>
         <div class="content">
