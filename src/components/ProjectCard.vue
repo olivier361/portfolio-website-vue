@@ -21,6 +21,7 @@ const infoSection = ref(null);
 const previewSectionHeight = ref(0);
 const infoSectionHeight = ref(0);
 // const content = ref('Initial content'); // See note for watch() function
+const cardBorderRadius = ref(0);
 
 const isExpanded = ref(false);
 
@@ -29,6 +30,12 @@ onMounted(() => {
   infoSectionHeight.value = computeHeight(infoSection);
   console.log(`on mount: previewSection Height: ${computeHeight(previewSection)}`);
   console.log(`on mount: infoSection Height: ${computeHeight(infoSection)}`);
+
+  // get --card-border-radius CSS variable value
+  const rootStyles = getComputedStyle(document.documentElement);
+  cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
+
+  console.log('CSS Variable --card-border-radius:', cardBorderRadius.value);
 });
 
 onBeforeMount(() => {
@@ -52,7 +59,15 @@ function handleCardExpand(){
 
 function computeHeight(ref){
   if (!ref?.value) return 0;
-  return ref.value.getBoundingClientRect().height;
+  var height = ref.value.getBoundingClientRect().height;
+  // var style = window.getComputedStyle(ref.value);
+  // var marginTop = parseFloat(style.getPropertyValue('margin-top'));
+  // var marginBottom = parseFloat(style.getPropertyValue('margin-bottom'));
+  var marginBottom = cardBorderRadius.value;
+  // console.log(`height: ${height}, marginTop: ${marginTop}, marginBottom: ${marginBottom}`);
+  console.log(`height: ${height}, marginBottom: ${marginBottom}`);
+  return height + marginBottom;
+  // return ref.value.getBoundingClientRect().height;
 }
 
 </script>
@@ -70,7 +85,7 @@ function computeHeight(ref){
     </div>
     <!-- TODO: WIP not sure if this is the good approach -->
     <!-- <transition name="fade"> -->
-    <div class="info-wrapper" :style="{ height: (isExpanded ? infoSectionHeight + 50 : 0) + 'px' }">
+    <div class="info-wrapper" :style="{ height: (isExpanded ? infoSectionHeight + cardBorderRadius : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider"/>
         <div class="content">
@@ -88,9 +103,8 @@ function computeHeight(ref){
 
 .info-wrapper {
   height: 0px;
-  background-color: gray;
   overflow: hidden;
-  transition: height 1.0s ease;
+  transition: height 0.5s ease;
 }
 
 .project-card {

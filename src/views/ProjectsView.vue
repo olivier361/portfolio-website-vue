@@ -16,7 +16,10 @@ import ProjectCard from '@/components/ProjectCard.vue';
         :heading="'Project 2'"
         :introParagraph="'This is another intro paragraph.'"
       >
-        More test content from parent!
+        More test content from parent!<br>
+        This content<br>
+        is on multiple<br>
+        lines.
       </ProjectCard>
     </div>
   </main>
