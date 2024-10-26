@@ -60,7 +60,7 @@ function computeHeight(ref){
 <template>
 
 <!-- TODO: Remove magic numbers -->
-  <div :class="isExpanded ? 'project-card expanded' : 'project-card'" :style="{ height: (previewSectionHeight + (isExpanded ? infoSectionHeight + 50 : 0) + 70) + 'px' }">
+  <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection">
       <h2>{{ heading }}</h2>
       <p>{{ introParagraph }}</p>
@@ -70,18 +70,28 @@ function computeHeight(ref){
     </div>
     <!-- TODO: WIP not sure if this is the good approach -->
     <!-- <transition name="fade"> -->
-    <div class="info-section" ref="infoSection">
-      <hr class="preview-divider"/>
-      <div class="content">
-        <slot>This is where the content coming from the parent should go.</slot>
+    <div class="info-wrapper" :style="{ height: (isExpanded ? infoSectionHeight + 50 : 0) + 'px' }">
+      <div class="info-section" ref="infoSection">
+        <hr class="preview-divider"/>
+        <div class="content">
+          <slot>This is where the content coming from the parent should go.</slot>
+        </div>
       </div>
     </div>
+    
     <!-- </transition> -->
   </div>
 
 </template>
 
 <style scoped>
+
+.info-wrapper {
+  height: 0px;
+  background-color: gray;
+  overflow: hidden;
+  transition: height 1.0s ease;
+}
 
 .project-card {
   width: 1100px;
@@ -91,7 +101,7 @@ function computeHeight(ref){
   /* transition: all 0.3s; */
   /* max-height: 200px; */
   /* transition: max-height 3.0s ease; */
-  transition: height 1.0s ease;
+  /* transition: height 1.0s ease; */
   overflow: hidden;
 
   .preview-section {
