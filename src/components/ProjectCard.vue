@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeMount, watch, nextTick } from 'vue';
+import { ref, onMounted, onBeforeMount, onBeforeUnmount } from 'vue';
 
 const props = defineProps({
   heading: {
@@ -20,17 +20,14 @@ const previewSection = ref(null);
 const infoSection = ref(null);
 const previewSectionHeight = ref(0);
 const infoSectionHeight = ref(0);
-// const content = ref('Initial content'); // See note for watch() function
 const cardBorderRadius = ref(0);
 
 const isExpanded = ref(false);
 
 onMounted(() => {
-  previewSectionHeight.value = computeHeight(previewSection);
-  infoSectionHeight.value = computeHeight(infoSection);
-  console.log(`on mount: previewSection Height: ${computeHeight(previewSection)}`);
-  console.log(`on mount: infoSection Height: ${computeHeight(infoSection)}`);
-
+  window.addEventListener('resize', handleResize);
+  handleResize();
+  
   // get --card-border-radius CSS variable value
   const rootStyles = getComputedStyle(document.documentElement);
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
@@ -43,18 +40,22 @@ onBeforeMount(() => {
   console.log(`infoSection Height: ${computeHeight(infoSection)}`);
 });
 
-// Watch content for changes and recompute height
-// NOTE: This is only needed if the height of the content can change
-// A resize event listener would maybe be better for this if this is the
-// only case in which the content height of project cards can change.
-// watch(content, async () => {
-//   await nextTick(); // Wait for DOM to update
-//   computeHeight(previewSection);
-//   computeHeight(infoSection);
-// });
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
 
 function handleCardExpand(){
   isExpanded.value = !isExpanded.value;
+}
+
+function handleResize() {
+  // recompute card section heights on resize as the card height may change.
+  // NOTE: If the content of the card can change it's height dynamically
+  // we would need to switch to using a watcher instead of a resize event listener.
+  previewSectionHeight.value = computeHeight(previewSection);
+  infoSectionHeight.value = computeHeight(infoSection);
+  console.log(`on mount: previewSection Height: ${computeHeight(previewSection)}`);
+  console.log(`on mount: infoSection Height: ${computeHeight(infoSection)}`);
 }
 
 function computeHeight(ref){
