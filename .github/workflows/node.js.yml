@@ -5,7 +5,14 @@
 name: 🧪 Tests & Linting
 
 on:
-  push
+  push:
+    branches:
+      - 'main'
+      - 'develop'
+      - 'release-v*'
+  
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build-and-test:
