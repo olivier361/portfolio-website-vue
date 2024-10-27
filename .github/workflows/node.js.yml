@@ -4,6 +4,9 @@
 
 name: 🧪 Tests & Linting
 
+# just a commit to test that tests are run on an open PR
+# when new commits are pushed to the PR
+
 on:
   push:
     branches:
