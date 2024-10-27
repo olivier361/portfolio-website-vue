@@ -50,6 +50,15 @@
   --color-splashscreen-text: var(--c-accent-primary);
   --color-splashscreen-image-overlay: rgba(0,0,0,0.2);
 
+  --color-card-background: var(--c-background-primary);
+  --color-card-text: var(--c-accent-primary);
+  --color-card-button-text-hover: var(--c-accent-secondary);
+  --color-card-heading: var(--c-accent-primary);
+  --color-card-button-text: var(--c-accent-primary);
+  --color-card-divider: var(--c-accent-primary);
+
+  --card-border-radius: 50px;
+
   --section-gap: 160px;
 
   /* See https://getuikit.com/docs/visibility#visible */
