@@ -1,5 +1,6 @@
 <script setup>
 import ProjectCard from '@/components/ProjectCard.vue';
+import ImageCollection from '@/components/ImageCollection.vue';
 </script>
 
 <template>
@@ -11,6 +12,13 @@ import ProjectCard from '@/components/ProjectCard.vue';
         :introParagraph="'This is the intro paragraph.'"
       >
         Test content from parent!
+        <ImageCollection :imgList="[
+            { imgPath: '@/assets/2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game' },
+            { imgPath: '@/assets/cube-game.png', captionText: 'Cube Game' },
+            { imgPath: '@/assets/ruby-adventure.png', captionText: 'Ruby\'s Adventure Game' }
+          ]"
+          height="200px"
+        />
       </ProjectCard>
       <ProjectCard 
         :heading="'Project 2'"
