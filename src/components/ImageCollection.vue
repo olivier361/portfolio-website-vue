@@ -3,11 +3,10 @@ import ImageFrame from '@/components/ImageFrame.vue';
 import { onBeforeMount, ref } from 'vue';
 
 const props = defineProps({
-
-  // EX: imgList: [{imgPath: 'path/to/img', captionText: 'caption text', altText: 'alt text'}, ...]
-  // NOTE: if captionText is not provided, the <figcaption> tag will not be rendered.
-  // NOTE: if altText is not provided, the imgPath will be used as the alt text.
   imgList: {
+    // EX: imgList: [{imgPath: 'path/to/img', captionText: 'caption text', altText: 'alt text'}, ...]
+    // NOTE: if captionText is not provided, the <figcaption> tag will not be rendered.
+    // NOTE: if altText is not provided, the imgPath will be used as the alt text.
     type: Array,
     required: true,
     validator(value) {
@@ -34,14 +33,12 @@ const widthPx = ref(undefined);
 const widthPercent = ref(undefined);
 
 onBeforeMount(() => {
-  console.log(`before mount: width: ${props.width}`);
   if (props.width.includes('%')) {
     widthPercent.value = props.width;
   }
   else {
     widthPx.value = props.width;
   }
-  console.log(`before mount: widthPx: ${widthPx.value}, widthPercent: ${widthPercent.value}`);
 });
 
 </script>
@@ -49,7 +46,14 @@ onBeforeMount(() => {
 <template>
 
   <div v-for="item in imgList" :key="item.imgPath">
-    <ImageFrame :imgPath="item.imgPath" :captionText="item.captionText" :altText="item.altText" :height="height" :widthPx="widthPx" :widthPercent="widthPercent" />
+    <ImageFrame
+      :imgPath="item.imgPath"
+      :captionText="item.captionText"
+      :altText="item.altText"
+      :height="height"
+      :widthPx="widthPx"
+      :widthPercent="widthPercent"
+    />
   </div>
 
 </template>
