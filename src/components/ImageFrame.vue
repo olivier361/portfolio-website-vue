@@ -1,11 +1,15 @@
 <script setup>
 
-const props = defineProps({
+defineProps({
   imgPath: {
     type: String,
     required: true
   },
   captionText: {
+    type: String,
+    required: false
+  },
+  altText: {
     type: String,
     required: false
   },
@@ -26,8 +30,8 @@ const props = defineProps({
 <template>
 
   <figure>
-    <img src="@/assets/2D-Pixel-Game.png" alt="2D Pixel Platformer Game" :style="{ height: height, width: width}">
-    <figcaption>2D Pixel Platformer Game</figcaption>
+    <img :src="`./src/assets/${imgPath}`" :alt="(altText === undefined ? imgPath : altText)" :style="{ height: height, width: width}">
+    <figcaption v-if="captionText">{{ captionText }}</figcaption>
   </figure>
 
 </template>

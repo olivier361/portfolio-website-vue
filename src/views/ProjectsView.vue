@@ -13,9 +13,9 @@ import ImageCollection from '@/components/ImageCollection.vue';
       >
         Test content from parent!
         <ImageCollection :imgList="[
-            { imgPath: '@/assets/2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game' },
-            { imgPath: '@/assets/cube-game.png', captionText: 'Cube Game' },
-            { imgPath: '@/assets/ruby-adventure.png', captionText: 'Ruby\'s Adventure Game' }
+            { imgPath: '2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
+            { imgPath: 'cube-game.png', captionText: 'Cube Game', altText: 'An endless runner game featuring a red cube character on a green surface with obstacles ahead.' },
+            { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' }
           ]"
           height="200px"
         />
