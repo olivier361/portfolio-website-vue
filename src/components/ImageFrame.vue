@@ -20,41 +20,44 @@ const props = defineProps({
     required: false,
     default: 'auto'
   },
-  width: {
+  widthPx: {
     type: String,
     required: false,
-    default: 'auto'
+  },
+  widthPercent: {
+    type: String,
+    required: false,
   }
 });
 
-const imageTag = ref(null);
-const captionWidth = ref(props.width);
+// const imageTag = ref(null);
+// const captionWidth = ref(props.width);
 
-onMounted(() => {
-  window.addEventListener('resize', handleResize);
-  handleResize();
-});
+// onMounted(() => {
+//   window.addEventListener('resize', handleResize);
+//   handleResize();
+// });
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize);
-});
+// onBeforeUnmount(() => {
+//   window.removeEventListener('resize', handleResize);
+// });
 
-function handleResize() {
-  captionWidth.value = computeWidth(imageTag) + 'px';
-  console.log(`captionWidth.value: ${captionWidth.value}`);
-}
+// function handleResize() {
+//   captionWidth.value = computeWidth(imageTag) + 'px';
+//   console.log(`captionWidth.value: ${captionWidth.value}`);
+// }
 
-function computeWidth(ref){
-  if (!ref?.value) return 0;
-  return ref.value.getBoundingClientRect().width;
-}
+// function computeWidth(ref){
+//   if (!ref?.value) return 0;
+//   return ref.value.getBoundingClientRect().width;
+// }
 
 </script>
 
 <template>
 
-  <figure :style="{ width: width }">
-    <img ref="imageTag" :src="`./src/assets/${imgPath}`" :alt="(altText === undefined ? imgPath : altText)" :style="{ height: height, width: width}">
+  <figure :style="widthPercent ? { width: widthPercent } : {}">
+    <img ref="imageTag" :src="`./src/assets/${imgPath}`" :alt="(altText === undefined ? imgPath : altText)" :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }">
     <figcaption v-if="captionText">{{ captionText }}</figcaption>
   </figure>
 
@@ -72,7 +75,6 @@ figure {
 img {
   object-fit: cover;
   border: var(--image-frame-border-width) solid var(--color-image-frame-border);
-  /* flex: 1; */
 }
 
 figcaption {
@@ -83,8 +85,5 @@ figcaption {
   font-size: var(--image-frame-caption-text-size);
   color: var(--color-image-frame-caption-text);
   margin-top: 10px;
-  width: 100%;
-  /* width: 200px; */
-  /* flex: 1; */
 }
 </style>

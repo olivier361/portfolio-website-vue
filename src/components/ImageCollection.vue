@@ -1,7 +1,8 @@
 <script setup>
 import ImageFrame from '@/components/ImageFrame.vue';
+import { onBeforeMount, ref } from 'vue';
 
-defineProps({
+const props = defineProps({
 
   // EX: imgList: [{imgPath: 'path/to/img', captionText: 'caption text', altText: 'alt text'}, ...]
   // NOTE: if captionText is not provided, the <figcaption> tag will not be rendered.
@@ -29,12 +30,26 @@ defineProps({
   }
 });
 
+const widthPx = ref(undefined);
+const widthPercent = ref(undefined);
+
+onBeforeMount(() => {
+  console.log(`before mount: width: ${props.width}`);
+  if (props.width.includes('%')) {
+    widthPercent.value = props.width;
+  }
+  else {
+    widthPx.value = props.width;
+  }
+  console.log(`before mount: widthPx: ${widthPx.value}, widthPercent: ${widthPercent.value}`);
+});
+
 </script>
 
 <template>
 
   <div v-for="item in imgList" :key="item.imgPath">
-    <ImageFrame :imgPath="item.imgPath" :captionText="item.captionText" :altText="item.altText" :height="height" :width="width" />
+    <ImageFrame :imgPath="item.imgPath" :captionText="item.captionText" :altText="item.altText" :height="height" :widthPx="widthPx" :widthPercent="widthPercent" />
   </div>
 
 </template>
