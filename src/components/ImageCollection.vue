@@ -17,27 +17,38 @@ const props = defineProps({
         && (!Object.hasOwn(item, 'altText') || (Object.hasOwn(item, 'altText') && typeof item.imgPath === 'string'))); // altText is optional but must be a string if provided
     }
   },
-  height: {
+  imgHeight: {
     type: String,
     required: false,
     default: 'auto'
   },
-  width: {
+  imgWidth: {
     type: String,
     required: false,
     default: 'auto'
+  },
+  imgMargin: {
+    type: String,
+    required: false,
+    default: '0px 20px 20px 0px'
+  },
+  isColumnView: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 });
 
 const widthPx = ref(undefined);
 const widthPercent = ref(undefined);
 
+
 onBeforeMount(() => {
-  if (props.width.includes('%')) {
-    widthPercent.value = props.width;
+  if (props.imgWidth.includes('%')) {
+    widthPercent.value = props.imgWidth;
   }
   else {
-    widthPx.value = props.width;
+    widthPx.value = props.imgWidth;
   }
 });
 
@@ -45,19 +56,28 @@ onBeforeMount(() => {
 
 <template>
 
-  <div v-for="item in imgList" :key="item.imgPath">
-    <ImageFrame
-      :imgPath="item.imgPath"
-      :captionText="item.captionText"
-      :altText="item.altText"
-      :height="height"
-      :widthPx="widthPx"
-      :widthPercent="widthPercent"
-    />
+  <div class="image-collection">
+    <div class="frame-wrapper" v-for="item in imgList" :key="item.imgPath" :style="{ margin: imgMargin }">
+      <ImageFrame
+        :imgPath="item.imgPath"
+        :captionText="item.captionText"
+        :altText="item.altText"
+        :height="imgHeight"
+        :widthPx="widthPx"
+        :widthPercent="widthPercent"
+      />
+    </div>
   </div>
+  
 
 </template>
 
 <style scoped>
+
+.image-collection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
 
 </style>

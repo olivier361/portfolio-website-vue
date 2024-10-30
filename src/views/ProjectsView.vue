@@ -18,7 +18,7 @@ import ImageCollection from '@/components/ImageCollection.vue';
             { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
             { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
           ]"
-          width="50%"
+          imgWidth="320px"
         />
       </ProjectCard>
       <ProjectCard 

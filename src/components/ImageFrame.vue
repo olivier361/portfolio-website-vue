@@ -51,6 +51,7 @@ defineProps({
 
 figure {
   display: table;
+  margin: 0px;
 }
 
 img {
