@@ -19,10 +19,14 @@ defineProps({
     default: 'auto'
   },
   widthPx: {
+    // use this prop if you want to set the width of the image in pixels
+    // NOTE: having seperate width variables is necessary with the current implementation
+    // due to the width settings affecting different elements in the component if it's a percentage or pixels.
     type: String,
     required: false,
   },
   widthPercent: {
+    // use this prop if you want to set the width of the image as a percentage
     type: String,
     required: false,
   }
