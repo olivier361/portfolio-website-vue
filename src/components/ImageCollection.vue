@@ -1,6 +1,6 @@
 <script setup>
 import ImageFrame from '@/components/ImageFrame.vue';
-import { onBeforeMount, onMounted, ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 
 const props = defineProps({
   imgList: {
@@ -39,10 +39,6 @@ onBeforeMount(() => {
   else {
     widthPx.value = props.width;
   }
-});
-
-onMounted(() => {
-  console.log('ImageCollection mounted');
 });
 
 </script>

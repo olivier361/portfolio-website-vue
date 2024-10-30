@@ -1,6 +1,4 @@
 <script setup>
-import { onMounted } from 'vue';
-
 
 defineProps({
   imgPath: {
@@ -28,10 +26,6 @@ defineProps({
     type: String,
     required: false,
   }
-});
-
-onMounted(() => {
-  console.log('ImageFrame mounted');
 });
 
 </script>

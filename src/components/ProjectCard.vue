@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-const props = defineProps({
+defineProps({
   heading: {
     type: String,
     required: true
@@ -30,7 +30,7 @@ const cardBorderRadius = ref(0);
 const isExpanded = ref(false);
 
 onMounted(() => {
-  // window.addEventListener('resize', handleResize);
+  window.addEventListener('resize', handleResize);
   handleResize();
   
   // get --card-border-radius CSS variable value
@@ -38,24 +38,11 @@ onMounted(() => {
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
 });
 
-// onBeforeUnmount(() => {
-//   window.removeEventListener('resize', handleResize);
-// });
-
-// Watch content for changes and recompute height
-// NOTE: This is only needed if the height of the content can change
-// A resize event listener would maybe be better for this if this is the
-// only case in which the content height of project cards can change.
-watch(() => infoSection.value, async () => {
-  console.log('watch called');
-  console.log(infoSection.value);
-  // await nextTick(); // Wait for DOM to update
-  handleResize();
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
 });
 
-
 function handleCardExpand(){
-  handleResize();
   isExpanded.value = !isExpanded.value;
 }
 
@@ -65,13 +52,10 @@ function handleResize() {
   // we would need to switch to using a watcher instead of a resize event listener.
   previewSectionHeight.value = computeHeight(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
-  console.log(`handleResize infoSection called for '${props.heading}: height: ${infoSectionHeight.value}`);
 }
 
 function computeHeight(ref){
-  // console.log(`computeHeight called for '${props.heading}'`);
   if (!ref?.value) return 0;
-  // console.log(`computeHeight for '${props.heading}': height: ${ref.value.getBoundingClientRect().height}`);
   return ref.value.getBoundingClientRect().height;
 }
 
