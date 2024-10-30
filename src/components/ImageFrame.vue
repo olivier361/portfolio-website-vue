@@ -59,6 +59,7 @@ figcaption {
   caption-side: bottom;
   text-align: left;
   font-style: italic;
+  line-height: 1.2;
   font-size: var(--image-frame-caption-text-size);
   color: var(--color-image-frame-caption-text);
   margin-top: 10px;
