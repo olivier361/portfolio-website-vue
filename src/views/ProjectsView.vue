@@ -19,6 +19,7 @@ import ImageCollection from '@/components/ImageCollection.vue';
             { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
           ]"
           imgWidth="320px"
+          imgHeight="180px"
         />
       </ProjectCard>
       <ProjectCard 

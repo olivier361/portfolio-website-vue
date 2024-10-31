@@ -27,10 +27,15 @@ const props = defineProps({
     required: false,
     default: 'auto'
   },
-  imgMargin: {
+  rowGap: {
     type: String,
     required: false,
-    default: '0px 20px 20px 0px'
+    default: '20px'
+  },
+  columnGap: {
+    type: String,
+    required: false,
+    default: '20px'
   },
   isColumnView: {
     type: Boolean,
@@ -56,8 +61,8 @@ onBeforeMount(() => {
 
 <template>
 
-  <div class="image-collection">
-    <div class="frame-wrapper" v-for="item in imgList" :key="item.imgPath" :style="{ margin: imgMargin }">
+  <div class="image-collection" :style="{ rowGap: rowGap, columnGap: columnGap }">
+    <div class="frame-wrapper" v-for="item in imgList" :key="item.imgPath">
       <ImageFrame
         :imgPath="item.imgPath"
         :captionText="item.captionText"
