@@ -68,6 +68,7 @@ onBeforeMount(() => {
         :altText="item.altText"
         :height="imgHeight"
         :widthPx="widthPx"
+        :widthPercent="widthPercent ? '100%' : undefined"
       />
     </div>
   </div>
