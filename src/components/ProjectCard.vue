@@ -43,6 +43,7 @@ onBeforeUnmount(() => {
 });
 
 function handleCardExpand(){
+  handleResize();
   isExpanded.value = !isExpanded.value;
 }
 
