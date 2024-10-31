@@ -47,7 +47,6 @@ const props = defineProps({
 const widthPx = ref(undefined);
 const widthPercent = ref(undefined);
 
-
 onBeforeMount(() => {
   if (props.imgWidth.includes('%')) {
     widthPercent.value = props.imgWidth;
@@ -62,14 +61,13 @@ onBeforeMount(() => {
 <template>
 
   <div class="image-collection" :style="{ rowGap: rowGap, columnGap: columnGap }">
-    <div class="frame-wrapper" v-for="item in imgList" :key="item.imgPath">
+    <div class="frame-wrapper" v-for="item in imgList" :key="item.imgPath" :style="widthPercent ? { width: widthPercent } : {}">
       <ImageFrame
         :imgPath="item.imgPath"
         :captionText="item.captionText"
         :altText="item.altText"
         :height="imgHeight"
         :widthPx="widthPx"
-        :widthPercent="widthPercent"
       />
     </div>
   </div>
