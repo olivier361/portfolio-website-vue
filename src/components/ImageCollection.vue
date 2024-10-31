@@ -36,11 +36,6 @@ const props = defineProps({
     type: String,
     required: false,
     default: '20px'
-  },
-  isColumnView: {
-    type: Boolean,
-    required: false,
-    default: false
   }
 });
 
@@ -72,7 +67,6 @@ onBeforeMount(() => {
       />
     </div>
   </div>
-  
 
 </template>
 

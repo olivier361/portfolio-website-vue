@@ -2,6 +2,8 @@
 
 defineProps({
   imgPath: {
+    // the image path relative to the assets directory.
+    // EX: ./src/assets/[imgPath]
     type: String,
     required: true
   },
