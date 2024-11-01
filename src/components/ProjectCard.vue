@@ -36,12 +36,14 @@ const isExpanded = ref(false);
 const previewSectionStyle = ref({});
 
 onBeforeMount(() => {
-  previewSectionStyle.value = {
-    backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    // backgroundRepeat: 'no-repeat'
-  };
+  if (props.previewBackgroundImgPath) {
+    previewSectionStyle.value = {
+      backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      // backgroundRepeat: 'no-repeat'
+    };
+  }
 });
 
 onMounted(() => {
