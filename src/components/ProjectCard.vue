@@ -1,12 +1,9 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeMount, onBeforeUnmount } from 'vue';
+import ImageCollection from './ImageCollection.vue';
 
-defineProps({
+const props = defineProps({
   heading: {
-    type: String,
-    required: true
-  },
-  introParagraph: {
     type: String,
     required: true
   },
@@ -15,8 +12,16 @@ defineProps({
     required: false,
     default: true
   },
-  previewBackgroundImage: {
+  previewBackgroundImgPath: {
+    // the image path relative to the assets directory.
+    // EX: ./src/assets/[previewBackgroundImgPath]
     type: String,
+    required: false
+  },
+  previewImgList: {
+    // See ImageCollection.vue imgList prop validation
+    // for correct format to use for this prop.
+    type: Array,
     required: false
   }
 });
@@ -28,6 +33,18 @@ const infoSectionHeight = ref(0);
 const cardBorderRadius = ref(0);
 
 const isExpanded = ref(false);
+const previewSectionStyle = ref({});
+
+onBeforeMount(() => {
+  if (props.previewBackgroundImgPath) {
+    previewSectionStyle.value = {
+      backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      // backgroundRepeat: 'no-repeat'
+    };
+  }
+});
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
@@ -36,6 +53,10 @@ onMounted(() => {
   // get --card-border-radius CSS variable value
   const rootStyles = getComputedStyle(document.documentElement);
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
+
+  if (!props.isExpandable) {
+    previewSectionStyle.value.marginBottom = `${cardBorderRadius.value / 2}px`;
+  }
 });
 
 onBeforeUnmount(() => {
@@ -65,18 +86,28 @@ function computeHeight(ref){
 <template>
 
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
-    <div class="preview-section" ref="previewSection" :style="isExpandable ? {} : { marginBottom: (cardBorderRadius + 'px') }">
+    <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
       <h2>{{ heading }}</h2>
-      <p>{{ introParagraph }}</p>
+      <p class="intro-paragraph" v-if="$slots.introParagraph">
+        <slot name="introParagraph"></slot>
+      </p>
+      <ImageCollection v-if="previewImgList"
+        :imgList="previewImgList"
+        imgWidth="320px"
+        imgHeight="180px"
+      />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
     </div>
-    <div class="info-animation-wrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + cardBorderRadius : 0) + 'px' }">
+    <div class="info-animation-wrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider"/>
         <div class="content">
           <slot>No content available to display.</slot>
+        </div>
+        <div class="uk-flex uk-flex-center">
+          <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
         </div>
       </div>
     </div>    
@@ -93,6 +124,8 @@ function computeHeight(ref){
 }
 
 .project-card {
+  --content-margin-bottom: 25px;
+
   width: 1100px;
   color: var(--color-card-text);
   background-color: var(--color-card-background);
@@ -101,21 +134,38 @@ function computeHeight(ref){
 
   .preview-section {
     /* -5px in the margin calculation is to account for .expand-button padding to have 25px total spacing */
-    margin: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
+    padding: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
   }
 
   .info-section .content {
-    margin: calc(var(--card-border-radius) / 2) var(--card-border-radius) var(--card-border-radius);
+    margin: calc(var(--card-border-radius) / 2) var(--card-border-radius);
   }
 
   h1, h2, h3, h4 {
     margin: 0px;
-    margin-bottom: 25px;
+    margin-bottom: var(--content-margin-bottom);
     color: var(--color-card-heading);
+  }
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0px;
+    margin-bottom: var(--content-margin-bottom);
+  }
+
+  p.intro-paragraph {
+    /* max-width: calc(50% - calc(var(--card-border-radius) / 2)); */ /* 50% of the card width minus 25px padding for a two column layout with 50px between columns. */
+    max-width: 400px;
+    margin-bottom: calc(2 * var(--content-margin-bottom));
   }
 
   button.expand-button {
     padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
     background-color: transparent;
     color: var(--color-card-button-text);
     border: none;
@@ -125,6 +175,10 @@ function computeHeight(ref){
 
   button.expand-button:hover {
     color: var(--color-card-button-text-hover);
+  }
+
+  .preview-section .image-collection {
+    margin-bottom: var(--content-margin-bottom);
   }
 
   hr.preview-divider {
