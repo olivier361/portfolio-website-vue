@@ -39,7 +39,7 @@ onBeforeMount(() => {
   previewSectionStyle.value = {
     backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
     backgroundSize: 'cover',
-    // backgroundPosition: 'center',
+    backgroundPosition: 'center',
     // backgroundRepeat: 'no-repeat'
   };
 });
@@ -145,6 +145,10 @@ function computeHeight(ref){
     color: var(--color-card-heading);
   }
 
+  h2 {
+    text-transform: uppercase;
+  }
+
   p {
     margin: 0px;
     margin-bottom: var(--content-margin-bottom);
@@ -153,6 +157,7 @@ function computeHeight(ref){
   p.intro-paragraph {
     /* max-width: calc(50% - calc(var(--card-border-radius) / 2)); */ /* 50% of the card width minus 25px padding for a two column layout with 50px between columns. */
     max-width: 400px;
+    margin-bottom: calc(2 * var(--content-margin-bottom));
   }
 
   button.expand-button {
