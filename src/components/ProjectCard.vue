@@ -53,7 +53,7 @@ onMounted(() => {
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
 
   if (!props.isExpandable) {
-    previewSectionStyle.value.marginBottom = `${cardBorderRadius.value}px`;
+    previewSectionStyle.value.marginBottom = `${cardBorderRadius.value / 2}px`;
   }
 });
 
