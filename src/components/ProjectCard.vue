@@ -7,10 +7,6 @@ const props = defineProps({
     type: String,
     required: true
   },
-  introParagraph: {
-    type: String,
-    required: true
-  },
   isExpandable: {
     type: Boolean,
     required: false,
@@ -90,7 +86,9 @@ function computeHeight(ref){
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
       <h2>{{ heading }}</h2>
-      <p class="intro-paragraph">{{ introParagraph }}</p>
+      <p class="intro-paragraph" v-if="$slots.introParagraph">
+        <slot name="introParagraph"></slot>
+      </p>
       <ImageCollection v-if="previewImgList"
         :imgList="previewImgList"
         imgWidth="320px"
