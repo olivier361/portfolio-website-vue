@@ -72,11 +72,14 @@ function computeHeight(ref){
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
     </div>
-    <div class="info-animation-wrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + cardBorderRadius : 0) + 'px' }">
+    <div class="info-animation-wrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider"/>
         <div class="content">
           <slot>No content available to display.</slot>
+        </div>
+        <div class="uk-flex uk-flex-center">
+          <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
         </div>
       </div>
     </div>    
@@ -105,7 +108,7 @@ function computeHeight(ref){
   }
 
   .info-section .content {
-    margin: calc(var(--card-border-radius) / 2) var(--card-border-radius) var(--card-border-radius);
+    margin: calc(var(--card-border-radius) / 2) var(--card-border-radius);
   }
 
   h1, h2, h3, h4 {
