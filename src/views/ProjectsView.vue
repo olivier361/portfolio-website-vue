@@ -9,7 +9,8 @@ import ImageCollection from '@/components/ImageCollection.vue';
       <h1>This is the Projects page</h1>
       <ProjectCard 
         :heading="'Project 1'"
-        :introParagraph="'This is the intro paragraph.'"
+        :introParagraph="'One or two sentence paragraphs describing the section in general. EX: I\'ve been making games in Unity since 2020. Below are a handful of game prototypes I have made.\n\nA few more lines of text for these cards to be a bit longer. These cards will have a \'view all\' button to open and close the details of the card below the thich white line.'"
+        :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
             { imgPath: '2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
             { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },

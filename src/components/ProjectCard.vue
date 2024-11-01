@@ -1,8 +1,8 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeMount, onBeforeUnmount } from 'vue';
 import ImageCollection from './ImageCollection.vue';
 
-defineProps({
+const props = defineProps({
   heading: {
     type: String,
     required: true
@@ -16,7 +16,9 @@ defineProps({
     required: false,
     default: true
   },
-  previewBackgroundImage: {
+  previewBackgroundImgPath: {
+    // the image path relative to the assets directory.
+    // EX: ./src/assets/[previewBackgroundImgPath]
     type: String,
     required: false
   },
@@ -35,6 +37,16 @@ const infoSectionHeight = ref(0);
 const cardBorderRadius = ref(0);
 
 const isExpanded = ref(false);
+const previewSectionStyle = ref({});
+
+onBeforeMount(() => {
+  previewSectionStyle.value = {
+    backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
+    backgroundSize: 'cover',
+    // backgroundPosition: 'center',
+    // backgroundRepeat: 'no-repeat'
+  };
+});
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
@@ -43,6 +55,10 @@ onMounted(() => {
   // get --card-border-radius CSS variable value
   const rootStyles = getComputedStyle(document.documentElement);
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
+
+  if (!props.isExpandable) {
+    previewSectionStyle.value.marginBottom = `${cardBorderRadius.value}px`;
+  }
 });
 
 onBeforeUnmount(() => {
@@ -72,7 +88,7 @@ function computeHeight(ref){
 <template>
 
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
-    <div class="preview-section" ref="previewSection" :style="isExpandable ? {} : { marginBottom: (cardBorderRadius + 'px') }">
+    <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
       <h2>{{ heading }}</h2>
       <p>{{ introParagraph }}</p>
       <ImageCollection v-if="previewImgList"
@@ -118,7 +134,7 @@ function computeHeight(ref){
 
   .preview-section {
     /* -5px in the margin calculation is to account for .expand-button padding to have 25px total spacing */
-    margin: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
+    padding: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
   }
 
   .info-section .content {
