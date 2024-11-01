@@ -138,6 +138,7 @@ function computeHeight(ref){
 
   button.expand-button {
     padding: 5px;
+    font-weight: bold;
     background-color: transparent;
     color: var(--color-card-button-text);
     border: none;
