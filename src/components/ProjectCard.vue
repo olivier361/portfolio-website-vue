@@ -90,7 +90,7 @@ function computeHeight(ref){
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
       <h2>{{ heading }}</h2>
-      <p>{{ introParagraph }}</p>
+      <p class="intro-paragraph">{{ introParagraph }}</p>
       <ImageCollection v-if="previewImgList"
         :imgList="previewImgList"
         imgWidth="320px"
@@ -150,6 +150,11 @@ function computeHeight(ref){
   p {
     margin: 0px;
     margin-bottom: var(--content-margin-bottom);
+  }
+
+  p.intro-paragraph {
+    /* max-width: calc(50% - calc(var(--card-border-radius) / 2)); */ /* 50% of the card width minus 25px padding for a two column layout with 50px between columns. */
+    max-width: 400px;
   }
 
   button.expand-button {
