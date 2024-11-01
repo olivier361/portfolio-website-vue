@@ -19,6 +19,10 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --c-accent-primary: white;
+  --c-accent-secondary: #FFD700;
+  --c-background-primary: #232323;
 }
 
 /* semantic color variables for this project */
@@ -33,7 +37,44 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
+  --color-page-overlay: black;
+
+  --color-header-background: var(--c-background-primary);
+  --color-header-link: var(--c-accent-primary);
+  --color-header-button: var(--c-accent-primary);
+  --color-header-button-click: var(--c-accent-secondary);
+  --color-header-link-hover: var(--c-accent-secondary);
+
+  --color-splashscreen-social-links-background: var(--c-background-primary);
+  --color-splashscreen-social-links-border: var(--c-background-primary);
+  --color-splashscreen-text: var(--c-accent-primary);
+  --color-splashscreen-image-overlay: rgba(0,0,0,0.2);
+
+  --color-card-background: var(--c-background-primary);
+  --color-card-text: var(--c-accent-primary);
+  --color-card-button-text-hover: var(--c-accent-secondary);
+  --color-card-heading: var(--c-accent-primary);
+  --color-card-button-text: var(--c-accent-primary);
+  --color-card-divider: var(--c-accent-primary);
+
+  --card-border-radius: 50px;
+
+  --color-image-frame-caption-text: var(--c-accent-primary);
+  --color-image-frame-border: var(--c-accent-primary);
+
+  --image-frame-border-width: 5px;
+  --image-frame-caption-text-size: 14px;
+
   --section-gap: 160px;
+
+  /* See https://getuikit.com/docs/visibility#visible */
+  --width-mini: 480px;
+  --width-small: 640px;
+  --width-medium: 960px;
+  --width-large: 1200px;
+  --width-extra-large: 1600px;
+
+  --header-height: 50px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,4 +124,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  /* smoothly scroll to section anchors when href clicked */
+  scroll-behavior: smooth;
 }
