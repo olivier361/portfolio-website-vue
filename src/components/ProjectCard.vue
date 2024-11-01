@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import ImageCollection from './ImageCollection.vue';
 
 defineProps({
   heading: {
@@ -17,6 +18,12 @@ defineProps({
   },
   previewBackgroundImage: {
     type: String,
+    required: false
+  },
+  previewImgList: {
+    // See ImageCollection.vue imgList prop validation
+    // for correct format to use for this prop.
+    type: Array,
     required: false
   }
 });
@@ -68,6 +75,11 @@ function computeHeight(ref){
     <div class="preview-section" ref="previewSection" :style="isExpandable ? {} : { marginBottom: (cardBorderRadius + 'px') }">
       <h2>{{ heading }}</h2>
       <p>{{ introParagraph }}</p>
+      <ImageCollection v-if="previewImgList"
+        :imgList="previewImgList"
+        imgWidth="320px"
+        imgHeight="180px"
+      />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
@@ -96,6 +108,8 @@ function computeHeight(ref){
 }
 
 .project-card {
+  --content-margin-bottom: 25px;
+
   width: 1100px;
   color: var(--color-card-text);
   background-color: var(--color-card-background);
@@ -113,8 +127,13 @@ function computeHeight(ref){
 
   h1, h2, h3, h4 {
     margin: 0px;
-    margin-bottom: 25px;
+    margin-bottom: var(--content-margin-bottom);
     color: var(--color-card-heading);
+  }
+
+  p {
+    margin: 0px;
+    margin-bottom: var(--content-margin-bottom);
   }
 
   button.expand-button {
@@ -128,6 +147,10 @@ function computeHeight(ref){
 
   button.expand-button:hover {
     color: var(--color-card-button-text-hover);
+  }
+
+  .preview-section .image-collection {
+    margin-bottom: var(--content-margin-bottom);
   }
 
   hr.preview-divider {
