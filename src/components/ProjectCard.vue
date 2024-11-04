@@ -141,17 +141,17 @@ function computeHeight(ref){
     margin: calc(var(--card-border-radius) / 2) var(--card-border-radius);
   }
 
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, :slotted(h1), :slotted(h2), :slotted(h3), :slotted(h4) {
     margin: 0px;
     margin-bottom: var(--content-margin-bottom);
     color: var(--color-card-heading);
   }
 
-  h2 {
+  h2, :slotted(h2) {
     text-transform: uppercase;
   }
 
-  p {
+  p, :slotted(p) {
     margin: 0px;
     margin-bottom: var(--content-margin-bottom);
   }
