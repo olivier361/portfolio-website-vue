@@ -53,6 +53,7 @@ defineProps({
 
 figure {
   display: table;
+  height: fit-content;
   margin: 0px;
 }
 
