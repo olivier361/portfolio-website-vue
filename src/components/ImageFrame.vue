@@ -7,6 +7,12 @@ defineProps({
     type: String,
     required: true
   },
+  isUrlPath: {
+    // set to true if the imgPath is a URL path instead of local.
+    type: Boolean,
+    required: false,
+    default: false
+  },
   captionText: {
     type: String,
     required: false
@@ -40,7 +46,7 @@ defineProps({
 
   <figure :style="widthPercent ? { width: widthPercent } : {}">
     <img
-      :src="`./src/assets/${imgPath}`"
+      :src="isUrlPath ? `${imgPath}` : `./src/assets/${imgPath}`"
       :alt="(altText === undefined ? imgPath : altText)"
       :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }"
     >
