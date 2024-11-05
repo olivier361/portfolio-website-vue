@@ -2,6 +2,15 @@
 import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
+
+// TODO: remove this code after the performance test is done
+let placeholderImageCounter = 0;
+
+// TODO: remove this code after the performance test is done
+function incrementPlaceholderImageCounter(){
+  return ++placeholderImageCounter;
+}
+
 </script>
 
 <template>
@@ -132,6 +141,115 @@ import ImageFrame from '@/components/ImageFrame.vue';
           This is the third intro paragraph. This card has no expandable content.
         </template>
       </ProjectCard>
+
+      <!-- Start of auto-generated cards for performance test -->
+
+      <ProjectCard v-for="i in 5" :key="i"
+        :heading="`Project Auto-generated ${i}`"
+        :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
+        :previewImgList="[
+            {
+              imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+              isUrlPath: true,
+              captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+            },
+            {
+              imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+              isUrlPath: true,
+              captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+            },
+            {
+              imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+              isUrlPath: true,
+              captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+            }
+          ]"
+      >
+        <template #introParagraph>
+          One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made. 
+          <br><br>
+          A few more lines of text for these cards to be a bit longer. These cards will have a "view all" button to open and close the details of the card below the thich white line.
+        </template>
+
+        <template v-for="j in 2" :key="j">
+          <h3>Project Title A{{j}} - Auto-generated {{i}}</h3>
+          <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+            <p class="uk-flex-1">
+              Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
+              Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
+              on the project page. They will include a button at the end of their project section. This button will direct users to a full
+              dedicated page talking about the project.
+              <br><br>
+              Projects that can be summarized more concisely may opt to not have a dedicated page and instead explain the entirety of what
+              needs to be said right here in the general project page, given that it fits in the 3 to 12 sentence approximate requirement.
+              <br><br>
+              <b>
+                Projects with many photos like this one will likely not have a read more button since everything is likely well explained
+                and showcased here.
+              </b>
+              <br><br>
+              Notice how we used bold sentences mid-paragraph above.
+            </p>
+            <ImageFrame
+              class="uk-flex-1"
+              :imgPath="`https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`"
+              :isUrlPath="true"
+              captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
+            />
+          </div>
+          <ImageCollection :imgList="[
+              {
+                imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+                isUrlPath: true,
+                captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+              },
+              {
+                imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+                isUrlPath: true,
+                captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+              },
+              {
+                imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+                isUrlPath: true,
+                captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+              }
+            ]"
+            imgWidth="320px"
+            imgHeight="180px"
+          />
+
+          <hr class="info-divider"/>
+
+          <h3>Project Title B{{j}} - Auto-generated {{i}}</h3>
+          <div class="uk-flex" :style="{columnGap: '50px'}">
+            <p class="uk-flex-1">
+              Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
+              Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
+              on the project page. They will include a button at the end of their project section. This button will direct users to a full
+              dedicated page talking about the project.
+              <br><br>
+              Projects that can be summarized more concisely may opt to not have a dedicated page and instead explain the entirety of what
+              needs to be said right here in the general project page, given that it fits in the 3 to 12 sentence approximate requirement.
+              <br><br>
+              <b>
+                Projects with many photos like this one will likely not have a read more button since everything is likely well explained
+                and showcased here.
+              </b>
+              <br><br>
+              Notice how we used bold sentences mid-paragraph above.
+            </p>
+            <ImageFrame
+              class="uk-flex-1"
+              :imgPath="`https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`"
+              :isUrlPath="true"
+              captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
+            />
+          </div>
+
+          <hr class="info-divider"/>
+        </template>
+      </ProjectCard>
+
     </div>
   </main>
 </template>
