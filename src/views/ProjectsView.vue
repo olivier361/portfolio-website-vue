@@ -254,7 +254,7 @@ function incrementPlaceholderImageCounter(){
   </main>
 </template>
 
-<style>
+<style scoped>
 
 h1 {
   text-transform: uppercase;
