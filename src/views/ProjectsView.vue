@@ -7,7 +7,7 @@ import ImageFrame from '@/components/ImageFrame.vue';
 <template>
   <main>
     <div class="projects">
-      <h1>This is the Projects page</h1>
+      <h1>Projects</h1>
       <ProjectCard 
         :heading="'Project 1'"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
@@ -137,6 +137,13 @@ import ImageFrame from '@/components/ImageFrame.vue';
 </template>
 
 <style>
+
+h1 {
+  text-transform: uppercase;
+  margin: 50px 0px;
+  color: var(--color-page-title-text);
+  font-size: var(--page-title-font-size);
+}
 
 .projects {
   display: flex;
