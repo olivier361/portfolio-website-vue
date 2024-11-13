@@ -28,6 +28,7 @@ const props = defineProps({
 
 const previewSection = ref(null);
 const infoSection = ref(null);
+const infoAnimationWrapper = ref(null);
 const previewSectionHeight = ref(0);
 const infoSectionHeight = ref(0);
 const cardBorderRadius = ref(0);
@@ -68,6 +69,41 @@ function handleCardExpand(){
   isExpanded.value = !isExpanded.value;
 }
 
+function handleCardShrink(){
+  // add .closing class to info-animation-wrapper element
+  // to prevent smooth height transition when closing the card
+  // from the info section close button as it causes too much complexity
+  // matching scrollTo speed with closing animation speed.
+  if (infoAnimationWrapper?.value) {
+    infoAnimationWrapper.value.classList.add('closing');
+  }
+
+  handleCardExpand();
+
+  // Adjust the scroll position to counteract the height of elements
+  // above shrinking due to closing a card.
+  window.scrollTo({
+    top: window.scrollY - infoSectionHeight.value,
+    behavior: 'instant'
+  });
+
+  // Remove the .closing class after the height transition is complete
+  // to allow for smooth height transitions when opening the card again.
+  setTimeout(() => {
+    if (infoAnimationWrapper?.value) {
+      infoAnimationWrapper.value.classList.remove('closing');
+    }
+  }, 500);
+}
+
+// TODO/REMOVE: Just for testing purposes
+// setTimeout(() => {
+//   window.scrollTo({
+//     top: window.scrollY + 1500,
+//     behavior: 'smooth'
+//   });
+// }, 5000);
+
 function handleResize() {
   // recompute card section heights on resize as the card height may change.
   // NOTE: If the content of the card can change it's height dynamically
@@ -100,14 +136,14 @@ function computeHeight(ref){
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
     </div>
-    <div class="info-animation-wrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
+    <div class="info-animation-wrapper" ref="infoAnimationWrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider"/>
         <div class="content">
           <slot>No content available to display.</slot>
         </div>
         <div class="uk-flex uk-flex-center">
-          <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
+          <button class="expand-button bottom" @click="handleCardShrink">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
         </div>
       </div>
     </div>    
@@ -121,6 +157,10 @@ function computeHeight(ref){
   height: 0px;
   overflow: hidden;
   transition: height 0.5s ease;
+}
+
+.info-animation-wrapper.closing {
+  transition: height 0.0s ease !important;
 }
 
 .project-card {
