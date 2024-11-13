@@ -70,39 +70,31 @@ function handleCardExpand(){
 }
 
 function handleCardShrink(){
-  // add .closing class to info-animation-wrapper element
+  // add .no-close-transition class to info-animation-wrapper element
   // to prevent smooth height transition when closing the card
   // from the info section close button as it causes too much complexity
   // matching scrollTo speed with closing animation speed.
   if (infoAnimationWrapper?.value) {
-    infoAnimationWrapper.value.classList.add('closing');
+    infoAnimationWrapper.value.classList.add('no-close-transition');
   }
 
   handleCardExpand();
 
   // Adjust the scroll position to counteract the height of elements
-  // above shrinking due to closing a card.
+  // above the viewport shrinking due to closing a card.
   window.scrollTo({
     top: window.scrollY - infoSectionHeight.value,
     behavior: 'instant'
   });
 
-  // Remove the .closing class after the height transition is complete
+  // Remove the .no-close-transition class after the scroll adjustment is complete
   // to allow for smooth height transitions when opening the card again.
   setTimeout(() => {
     if (infoAnimationWrapper?.value) {
-      infoAnimationWrapper.value.classList.remove('closing');
+      infoAnimationWrapper.value.classList.remove('no-close-transition');
     }
   }, 500);
 }
-
-// TODO/REMOVE: Just for testing purposes
-// setTimeout(() => {
-//   window.scrollTo({
-//     top: window.scrollY + 1500,
-//     behavior: 'smooth'
-//   });
-// }, 5000);
 
 function handleResize() {
   // recompute card section heights on resize as the card height may change.
@@ -159,7 +151,7 @@ function computeHeight(ref){
   transition: height 0.5s ease;
 }
 
-.info-animation-wrapper.closing {
+.info-animation-wrapper.no-close-transition {
   transition: height 0.0s ease !important;
 }
 
