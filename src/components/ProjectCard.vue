@@ -83,7 +83,7 @@ function handleCardShrink(){
   // Adjust the scroll position to counteract the height of elements
   // above the viewport shrinking due to closing a card.
   window.scrollTo({
-    top: window.scrollY - infoSectionHeight.value,
+    top: window.scrollY - computeHeight(infoAnimationWrapper),
     behavior: 'instant'
   });
 
