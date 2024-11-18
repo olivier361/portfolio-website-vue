@@ -144,7 +144,7 @@ function incrementPlaceholderImageCounter(){
 
       <!-- Start of auto-generated cards for performance test -->
 
-      <ProjectCard v-for="i in 5" :key="i"
+      <ProjectCard v-for="i in 15" :key="i"
         :heading="`Project Auto-generated ${i}`"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
