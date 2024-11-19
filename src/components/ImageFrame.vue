@@ -40,13 +40,17 @@ defineProps({
   }
 });
 
+function getImageUrl(fileName) {
+  return new URL(`./src/assets/${fileName}`, import.meta.url).href
+}
+
 </script>
 
 <template>
 
   <figure :style="widthPercent ? { width: widthPercent } : {}">
     <img
-      :src="isUrlPath ? `${imgPath}` : `./src/assets/${imgPath}`"
+      :src="isUrlPath ? `${imgPath}` : getImageUrl(imgPath)"
       :alt="(altText === undefined ? imgPath : altText)"
       :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }"
     >
