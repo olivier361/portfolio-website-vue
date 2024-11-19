@@ -39,7 +39,8 @@ const previewSectionStyle = ref({});
 onBeforeMount(() => {
   if (props.previewBackgroundImgPath) {
     previewSectionStyle.value = {
-      backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
+      // backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
+      backgroundImage: props.previewBackgroundImgPath,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       // backgroundRepeat: 'no-repeat'

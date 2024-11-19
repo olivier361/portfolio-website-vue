@@ -40,9 +40,9 @@ defineProps({
   }
 });
 
-function getImageUrl(fileName) {
-  return new URL(`./src/assets/${fileName}`, import.meta.url).href
-}
+// function getImageUrl(fileName) {
+//   return new URL(`./src/assets/${fileName}`, import.meta.url).href
+// }
 
 </script>
 
@@ -50,7 +50,7 @@ function getImageUrl(fileName) {
 
   <figure :style="widthPercent ? { width: widthPercent } : {}">
     <img
-      :src="isUrlPath ? `${imgPath}` : getImageUrl(imgPath)"
+      :src="isUrlPath ? `${imgPath}` : `${imgPath}`"
       :alt="(altText === undefined ? imgPath : altText)"
       :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }"
     >
