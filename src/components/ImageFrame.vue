@@ -1,6 +1,7 @@
 <script setup>
+import { computed } from 'vue';
 
-defineProps({
+const props = defineProps({
   imgPath: {
     // the image path relative to the assets directory.
     // EX: ./src/assets/[imgPath]
@@ -44,13 +45,17 @@ defineProps({
 //   return new URL(`./src/assets/${fileName}`, import.meta.url).href
 // }
 
+console.log(`imgPath: ${props.imgPath}`);
+// const imgUrl = props.isUrlPath ? props.imgPath : computed(() => new URL(`@/assets/${props.imgPath}`, import.meta.url).href);
+const imgUrl = props.isUrlPath ? props.imgPath : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
+
 </script>
 
 <template>
 
   <figure :style="widthPercent ? { width: widthPercent } : {}">
     <img
-      :src="isUrlPath ? `${imgPath}` : `${imgPath}`"
+      :src="isUrlPath ? `${imgPath}` : imgUrl"
       :alt="(altText === undefined ? imgPath : altText)"
       :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }"
     >

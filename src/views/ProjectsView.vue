@@ -2,6 +2,7 @@
 import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
+import { computed } from 'vue';
 
 // TODO: remove this code after the performance test is done
 let placeholderImageCounter = 0;
@@ -11,6 +12,13 @@ function incrementPlaceholderImageCounter(){
   return ++placeholderImageCounter;
 }
 
+// const testList = [
+//   { imgPath: computed(() => new URL('@/assets/2D-Pixel-Game.png', import.meta.url).href), captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
+//   { imgPath: computed(() => new URL('@/assets/ruby-adventure.png', import.meta.url).href), captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
+//   { imgPath: computed(() => new URL('@/assets/test-image.png', import.meta.url).href), captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
+// ];
+
+// console.log (testList);
 </script>
 
 <template>
@@ -21,9 +29,9 @@ function incrementPlaceholderImageCounter(){
         :heading="'Project 1'"
         :previewBackgroundImgPath="'@/assets/2d-pixel-game-fade.png'"
         :previewImgList="[
-            { imgPath: '@/assets/2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
-            { imgPath: '@/assets/ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
-            { imgPath: '@/assets/test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
+            { imgPath: '2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
+            { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
+            { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
           ]"
       >
         <template #introParagraph>
