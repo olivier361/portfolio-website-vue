@@ -38,8 +38,14 @@ const previewSectionStyle = ref({});
 
 onBeforeMount(() => {
   if (props.previewBackgroundImgPath) {
+    // This is needed to successfully resolve a path constructed with props
+    // in the production build given images are processed by Vite with a new name and location.
+    // See: https://vite.dev/guide/assets
+    // also see: https://stackoverflow.com/questions/66419471/vue-3-vite-dynamic-image-src
+    const imgUrl = new URL(`/src/assets/${props.previewBackgroundImgPath}`, import.meta.url).href;
+
     previewSectionStyle.value = {
-      backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
+      backgroundImage: `url(${imgUrl})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       // backgroundRepeat: 'no-repeat'

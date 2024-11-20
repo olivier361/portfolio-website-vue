@@ -1,6 +1,6 @@
 <script setup>
 
-defineProps({
+const props = defineProps({
   imgPath: {
     // the image path relative to the assets directory.
     // EX: ./src/assets/[imgPath]
@@ -40,15 +40,24 @@ defineProps({
   }
 });
 
+// This is needed to successfully resolve a path constructed with props
+// in the production build given images are processed by Vite with a new name and location.
+// See: https://vite.dev/guide/assets
+// also see: https://stackoverflow.com/questions/66419471/vue-3-vite-dynamic-image-src
+const imgUrl = props.isUrlPath ? props.imgPath : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
+
 </script>
 
 <template>
 
   <figure :style="widthPercent ? { width: widthPercent } : {}">
     <img
-      :src="isUrlPath ? `${imgPath}` : `./src/assets/${imgPath}`"
+      :src="imgUrl"
       :alt="(altText === undefined ? imgPath : altText)"
-      :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }"
+      :style="{
+        width: (widthPx ?? '100%'), minWidth: (widthPx ?? '100%'), maxWidth: (widthPx ?? '100%'),
+        height: height, minHeight: height, maxHeight: height
+      }"
     >
     <figcaption v-if="captionText">{{ captionText }}</figcaption>
   </figure>
