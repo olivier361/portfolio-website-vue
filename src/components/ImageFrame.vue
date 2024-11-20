@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from 'vue';
 
 const props = defineProps({
   imgPath: {
@@ -41,12 +40,10 @@ const props = defineProps({
   }
 });
 
-// function getImageUrl(fileName) {
-//   return new URL(`./src/assets/${fileName}`, import.meta.url).href
-// }
-
-console.log(`imgPath: ${props.imgPath}`);
-// const imgUrl = props.isUrlPath ? props.imgPath : computed(() => new URL(`@/assets/${props.imgPath}`, import.meta.url).href);
+// This is needed to successfully resolve a path constructed with props
+// in the production build given images are processed by Vite with a new name and location.
+// See: https://vite.dev/guide/assets
+// also see: https://stackoverflow.com/questions/66419471/vue-3-vite-dynamic-image-src
 const imgUrl = props.isUrlPath ? props.imgPath : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
 
 </script>
@@ -55,7 +52,7 @@ const imgUrl = props.isUrlPath ? props.imgPath : new URL(`/src/assets/${props.im
 
   <figure :style="widthPercent ? { width: widthPercent } : {}">
     <img
-      :src="isUrlPath ? `${imgPath}` : imgUrl"
+      :src="imgUrl"
       :alt="(altText === undefined ? imgPath : altText)"
       :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }"
     >
