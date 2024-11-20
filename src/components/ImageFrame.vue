@@ -54,7 +54,10 @@ const imgUrl = props.isUrlPath ? props.imgPath : new URL(`/src/assets/${props.im
     <img
       :src="imgUrl"
       :alt="(altText === undefined ? imgPath : altText)"
-      :style="widthPx ? { width: widthPx, height: height } : { width: '100%', height: height }"
+      :style="{
+        width: (widthPx ?? '100%'), minWidth: (widthPx ?? '100%'), maxWidth: (widthPx ?? '100%'),
+        height: height, minHeight: height, maxHeight: height
+      }"
     >
     <figcaption v-if="captionText">{{ captionText }}</figcaption>
   </figure>
