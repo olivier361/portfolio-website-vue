@@ -23,6 +23,8 @@
   --c-accent-primary: white;
   --c-accent-secondary: #FFD700;
   --c-background-primary: #232323;
+
+  --c-text-dark-primary: #151515;
 }
 
 /* semantic color variables for this project */
@@ -38,6 +40,10 @@
   --color-text: var(--vt-c-text-light-1);
 
   --color-page-overlay: black;
+
+  --color-page-title-text: var(--c-text-dark-primary);
+
+  --page-title-font-size: 64px;
 
   --color-header-background: var(--c-background-primary);
   --color-header-link: var(--c-accent-primary);
@@ -56,6 +62,7 @@
   --color-card-heading: var(--c-accent-primary);
   --color-card-button-text: var(--c-accent-primary);
   --color-card-divider: var(--c-accent-primary);
+  --color-card-info-divider: var(--c-accent-primary);
 
   --card-border-radius: 50px;
 

@@ -28,6 +28,7 @@ const props = defineProps({
 
 const previewSection = ref(null);
 const infoSection = ref(null);
+const infoAnimationWrapper = ref(null);
 const previewSectionHeight = ref(0);
 const infoSectionHeight = ref(0);
 const cardBorderRadius = ref(0);
@@ -37,8 +38,14 @@ const previewSectionStyle = ref({});
 
 onBeforeMount(() => {
   if (props.previewBackgroundImgPath) {
+    // This is needed to successfully resolve a path constructed with props
+    // in the production build given images are processed by Vite with a new name and location.
+    // See: https://vite.dev/guide/assets
+    // also see: https://stackoverflow.com/questions/66419471/vue-3-vite-dynamic-image-src
+    const imgUrl = new URL(`/src/assets/${props.previewBackgroundImgPath}`, import.meta.url).href;
+
     previewSectionStyle.value = {
-      backgroundImage: `url(./src/assets/${props.previewBackgroundImgPath})`,
+      backgroundImage: `url(${imgUrl})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       // backgroundRepeat: 'no-repeat'
@@ -66,6 +73,33 @@ onBeforeUnmount(() => {
 function handleCardExpand(){
   handleResize();
   isExpanded.value = !isExpanded.value;
+}
+
+function handleCardShrink(){
+  // add .no-close-transition class to info-animation-wrapper element
+  // to prevent smooth height transition when closing the card
+  // from the info section close button as it causes too much complexity
+  // matching scrollTo speed with closing animation speed.
+  if (infoAnimationWrapper?.value) {
+    infoAnimationWrapper.value.classList.add('no-close-transition');
+  }
+
+  handleCardExpand();
+
+  // Adjust the scroll position to counteract the height of elements
+  // above the viewport shrinking due to closing a card.
+  window.scrollTo({
+    top: window.scrollY - computeHeight(infoAnimationWrapper),
+    behavior: 'instant'
+  });
+
+  // Remove the .no-close-transition class after the scroll adjustment is complete
+  // to allow for smooth height transitions when opening the card again.
+  setTimeout(() => {
+    if (infoAnimationWrapper?.value) {
+      infoAnimationWrapper.value.classList.remove('no-close-transition');
+    }
+  }, 500);
 }
 
 function handleResize() {
@@ -100,14 +134,14 @@ function computeHeight(ref){
         <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
       </div>
     </div>
-    <div class="info-animation-wrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
+    <div class="info-animation-wrapper" ref="infoAnimationWrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider"/>
         <div class="content">
           <slot>No content available to display.</slot>
         </div>
         <div class="uk-flex uk-flex-center">
-          <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
+          <button class="expand-button bottom" @click="handleCardShrink">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
         </div>
       </div>
     </div>    
@@ -121,6 +155,10 @@ function computeHeight(ref){
   height: 0px;
   overflow: hidden;
   transition: height 0.5s ease;
+}
+
+.info-animation-wrapper.no-close-transition {
+  transition: height 0.0s ease !important;
 }
 
 .project-card {
@@ -141,17 +179,17 @@ function computeHeight(ref){
     margin: calc(var(--card-border-radius) / 2) var(--card-border-radius);
   }
 
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, :slotted(h1), :slotted(h2), :slotted(h3), :slotted(h4) {
     margin: 0px;
     margin-bottom: var(--content-margin-bottom);
     color: var(--color-card-heading);
   }
 
-  h2 {
+  h2, :slotted(h2) {
     text-transform: uppercase;
   }
 
-  p {
+  p, :slotted(p) {
     margin: 0px;
     margin-bottom: var(--content-margin-bottom);
   }
