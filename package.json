@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "test": "vitest",
+    "test:update-snapshots": "vitest --update",
     "test:unit": "vitest run 'tests/unit/'",
     "test:unit:watch": "vitest watch 'tests/unit/'",
     "test:component": "vitest run 'tests/component/'",
