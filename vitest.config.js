@@ -2,17 +2,17 @@ import { fileURLToPath } from 'node:url'
 import { mergeConfig, defineConfig, configDefaults } from 'vitest/config'
 import viteConfig from './vite.config'
 
-// IMPORTANT: since we have a separate config file for Vite and Vitest,
-// make sure to define the same Vite options in your Vitest config file
-// since it will override your Vite file, not extend it.
+// IMPORTANT: To learn more about configuring Vitest, visit:
 // Source: https://vitest.dev/guide/#configuring-vitest
+
+// NOTE: We are currently using 'mergeConfig'
+// to merge the Vite config with the Vitest config.
 
 export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
       environment: 'jsdom',
-      // include: [...configDefaults.include],
       exclude: [...configDefaults.exclude, 'e2e/*'],
       root: fileURLToPath(new URL('./', import.meta.url))
     }

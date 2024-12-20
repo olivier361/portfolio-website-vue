@@ -9,10 +9,10 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "test": "vitest",
-    "test:unit": "vitest 'tests/unit/'",
-    "test:unit:watch": "vitest 'tests/unit/**/*.{test,spec}.?(c|m)[jt]s?(x)' --watch",
-    "test:component": "vitest 'tests/component/'",
-    "test:component:watch": "vitest 'tests/component/**/*.{test,spec}.?(c|m)[jt]s?(x)' --watch"
+    "test:unit": "vitest run 'tests/unit/'",
+    "test:unit:watch": "vitest watch 'tests/unit/'",
+    "test:component": "vitest run 'tests/component/'",
+    "test:component:watch": "vitest watch 'tests/component/'"
   },
   "dependencies": {
     "uikit": "^3.17.11",
