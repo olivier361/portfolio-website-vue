@@ -114,4 +114,13 @@ suite('ImageFrame - Component Tests', () => {
     expect(wrapper.find('img').attributes('alt')).toBe(url);    
   });
 
+  // NOTE: This test is moreso to illustrate how we can use snapshot tests
+  // for component testing if needed. I would recommend avoiding snapshot tests
+  // for component testing unless absolutely necessary at this point.
+  test('ImageFrame content matches snapshot', () => {
+    const fileName = 'test-image.png';
+    const wrapper = mount(ImageFrame, { props: { imgPath: fileName } });
+
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });
