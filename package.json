@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "test:update-snapshots": "vitest --update",
     "test:unit": "vitest run 'tests/unit/'",
     "test:unit:watch": "vitest watch 'tests/unit/'",
@@ -28,6 +29,6 @@
     "jsdom": "^23.0.1",
     "less": "^4.2.0",
     "vite": "^5.0.10",
-    "vitest": "^1.0.4"
+    "vitest": "2.1.5"
   }
 }
