@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
+    "@vitest/coverage-v8": "^2.1.5",
     "@vue/test-utils": "^2.4.3",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
