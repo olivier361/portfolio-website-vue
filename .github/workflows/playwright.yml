@@ -1,23 +1,30 @@
-name: Playwright Tests
+name: 🎭 E2E Playwright Tests
+
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - 'main'
+      - 'develop'
+      - 'release-v*'
+  
   pull_request:
-    branches: [ main, master ]
+    types: [opened, synchronize, reopened]
+
 jobs:
   test:
-    timeout-minutes: 60
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Use Node.js v20 (lts/iron) # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+      uses: actions/setup-node@v4
       with:
-        node-version: lts/*
-    - name: Install dependencies
+        node-version: lts/iron
+    - name: 🔗 Install Dependencies
       run: npm ci
-    - name: Install Playwright Browsers
+    - name: 🌐 Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
+    - name: 🧪 Run E2E Playwright Tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
