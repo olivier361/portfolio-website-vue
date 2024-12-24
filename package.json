@@ -14,7 +14,9 @@
     "test:unit": "vitest run 'tests/unit/'",
     "test:unit:watch": "vitest watch 'tests/unit/'",
     "test:component": "vitest run 'tests/component/'",
-    "test:component:watch": "vitest watch 'tests/component/'"
+    "test:component:watch": "vitest watch 'tests/component/'",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui"
   },
   "dependencies": {
     "uikit": "^3.17.11",
