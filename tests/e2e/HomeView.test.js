@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('HomeView - E2E Tests', () => {
 
   test('HomeView should show NavBar', async ({ page }) => {
-    await page.goto('http://localhost:5173/');
+    await page.goto('/');
 
     // navbar should have website logo
     await expect(page.locator('.header')
@@ -21,9 +21,7 @@ test.describe('HomeView - E2E Tests', () => {
   });
 
   test('HomeView NavBar links should have correct href', async ({ page }) => {
-    const rootUrl = 'http://localhost:5173/';
-
-    await page.goto(rootUrl);
+    await page.goto('/');
 
     // navbar should have links to correct pages
     await expect(page.getByRole('link', { name: 'home'})).toHaveAttribute('href', '/');
@@ -38,7 +36,7 @@ test.describe('HomeView - E2E Tests', () => {
     {button: 'about', link: 'about', expectedHeader: 'This is an about page'}
   ].forEach(({button, link, expectedHeader}) => {
   test(`HomeView NavBar link click should go to correct pages - ${button}`, async ({ page }) => {
-    const rootUrl = 'http://localhost:5173/';
+    const rootUrl = '/';
 
     await page.goto(rootUrl);
 
