@@ -10,6 +10,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+  schedule:
+    # triggers at 6h40am/pm PT (i.e. 2h40 & 14h40 UTC) 
+    - cron: "40 2,14 * * *"
+
 jobs:
   test:
     timeout-minutes: 15
@@ -25,7 +29,13 @@ jobs:
     - name: 🌐 Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: 🧪 Run E2E Playwright Tests
-      run: npx playwright test
+      if: ${{ github.event_name != 'schedule' }}
+      run: npm run test:e2e
+    - name: 🧪 Run Production E2E Playwright Tests
+      if: ${{ github.event_name == 'schedule' }}
+      env:
+        E2E_URL: ${{ secrets.PROD_URL }}
+      run: npm run test:e2e
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
