@@ -52,5 +52,23 @@ test.describe('HomeView - E2E Tests', () => {
   });
   });
 
+  // This test was created with VS Code Playwright CodeGen and minor manual edits.
+  // SEE: https://playwright.dev/docs/getting-started-vscode#generating-tests
+  // SEE: https://playwright.dev/docs/codegen-intro
+  test('SplashScreen bottom arrow button should scroll down on click', async ({ page }) => {
+    await page.goto('/');
+
+    // only github link and bottom arrow visible in viewport at the start
+    await expect(page.getByRole('link', { name: 'GitHub' })).toBeInViewport();
+    await expect(page.locator('div').filter({ hasText: /^Check out my work$/ }).getByRole('link')).toBeInViewport();
+    await expect(page.getByRole('heading', { name: 'Hello from HomeView.vue' })).not.toBeInViewport();
+
+    // click bottom arrow
+    await page.locator('div').filter({ hasText: /^Check out my work$/ }).getByRole('link').click();
+
+    // page should scroll and content below splashscreen is now in viewport while github link is not.
+    await expect(page.getByRole('heading', { name: 'Hello from HomeView.vue' })).toBeInViewport();
+    await expect(page.getByRole('link', { name: 'GitHub' })).not.toBeInViewport();
+  });
 });
 

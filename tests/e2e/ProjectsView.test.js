@@ -18,4 +18,24 @@ test.describe('ProjectsView - E2E Tests', () => {
     await expect(page).toHaveScreenshot({timeout: 30000});
   });
 
+  // This test was created with Playwright CodeGen and minor manual edits.
+  // SEE: https://playwright.dev/docs/codegen-intro
+  test('ProjectCard should open on view details button click', async ({ page }) => {
+    await page.goto('/projects');
+
+    // open the card from the top button
+    await page.locator('.expand-button').first().click();
+    
+    await expect(page.getByRole('heading', { name: 'Project Title 1' })).toBeVisible();
+    await expect(page.getByRole('img', { name: 'A screenshot of a colorful 16' }).nth(1)).toBeVisible();
+    await expect(page.getByRole('button', { name: '▲ Close Details ▲' }).first()).toContainText('▲ Close Details ▲');
+    await expect(page.getByRole('button', { name: '▲ Close Details ▲' }).nth(1)).toContainText('▲ Close Details ▲');
+    
+    // close the card from the bottom button
+    await page.getByRole('button', { name: '▲ Close Details ▲' }).nth(1).click();
+
+    await expect(page.getByRole('button', { name: '▼ View Details ▼' }).first()).toContainText('▼ View Details ▼');
+    await expect(page.getByRole('button', { name: '▼ View Details ▼' }).nth(1)).toContainText('▼ View Details ▼');
+  });
+
 });
