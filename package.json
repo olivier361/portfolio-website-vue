@@ -16,7 +16,8 @@
     "test:component": "vitest run 'tests/component/'",
     "test:component:watch": "vitest watch 'tests/component/'",
     "test:e2e": "npx playwright test",
-    "test:e2e:ui": "npx playwright test --ui"
+    "test:e2e:ui": "npx playwright test --ui",
+    "test:e2e:update-snapshots": "npx playwright test --update-snapshots"
   },
   "dependencies": {
     "uikit": "^3.17.11",

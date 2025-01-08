@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe('HomeView - E2E Tests', () => {
 
+  test('HomeView page should match image snapshot', async ({ page }) => {
+    await page.goto('/');
+    await expect(page).toHaveScreenshot({fullPage: true});
+  });
+
   test('HomeView should show NavBar', async ({ page }) => {
     await page.goto('/');
 

@@ -16,6 +16,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests/e2e',
+  /* The location where image snapshots are saved */
+  snapshotPathTemplate: '{testDir}/__snapshots__/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -81,6 +83,19 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
+
+  /* configure parameters for playwright test expect statements */
+  expect: {
+    /* configure parameters for image snapshots/screenshot tests */
+    // See docs for available configurations:
+    // https://playwright.dev/docs/test-snapshots
+    // https://playwright.dev/docs/api/class-pageassertions#page-assertions-to-have-screenshot-1
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.02,
+      // maxDiffPixels: 100,
+    },
+    timeout: 10000,
+  },
 
 });
 
