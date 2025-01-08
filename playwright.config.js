@@ -1,3 +1,7 @@
+/* eslint-env node */
+// The above ESLint rule lets ESLint know using
+// "process.env" is allowed in this current context
+
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
