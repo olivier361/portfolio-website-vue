@@ -93,6 +93,8 @@ export default defineConfig({
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.02,
       // maxDiffPixels: 100,
+      stylePath: './tests/__testAssets__/snapshotStyling.css',
+      threshold: 0.05,
     },
     timeout: 10000,
   },

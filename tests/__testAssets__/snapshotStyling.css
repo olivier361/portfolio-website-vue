@@ -1,0 +1,11 @@
+/* This file applies CSS rules to Playwright image snapshot tests
+ * to ensure tests are more consistently repeatable accross different runners.
+ */
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: Arial !important;
+  /* Applying color helps to determine that
+   * these snapshot styles are taking effect
+   */
+  color: #FF0000 !important; 
+}
