@@ -1,5 +1,6 @@
 // @ts-check
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from './fixtures/testFixture.js';
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');

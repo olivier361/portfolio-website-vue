@@ -1,5 +1,7 @@
 // @ts-check
-import { test, expect } from '@playwright/test';
+// import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from './../fixtures/testFixture.js';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('https://demo.playwright.dev/todomvc');

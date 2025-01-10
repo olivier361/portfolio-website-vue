@@ -35,6 +35,9 @@ jobs:
       # if: ${{ github.event_name == 'schedule' }}
       env:
         E2E_URL: ${{ secrets.PROD_URL }}
+        TRUNCATED_STAGING_URL: ${{ secrets.TRUNCATED_STAGING_URL }}
+        CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+        CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
       run: npm run test:e2e
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
