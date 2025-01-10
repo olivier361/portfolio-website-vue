@@ -22,7 +22,7 @@ export const test = base.extend({
       !!process.env.CF_ACCESS_CLIENT_ID &&
       !!process.env.CF_ACCESS_CLIENT_SECRET
     ) {
-      const globPattern = '**/' + process.env.TRUNCATED_STAGING_URL + '/**';
+      const globPattern = '**/*' + process.env.TRUNCATED_STAGING_URL + '/**';
       await page.route(globPattern, async route => {
         // Add auth headers to our GET requests
         // if the requested route matches the above pattern.
