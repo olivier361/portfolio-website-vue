@@ -3,28 +3,6 @@ import { test } from './fixtures/testFixture.js';
 
 test.describe('HomeView - E2E Tests', () => {
 
-  // TODO: remove this after fixture is tested.
-  
-  // NOTE: this works, but we ended up using a fixture which seems to work well
-  // and avoids us having to have a beforeEach in all test files
-
-  // test.beforeEach(async ({ page }) => {
-  //   // Block any css requests for each test in this file.
-  //   // await context.route(/.css$/, route => route.abort());
-
-  //   // Add Auth headers
-  //   await page.route('**/ADD_TRUNCATED_STAGING_URL/**', async route => {
-  //   // await page.route('**/*', async route => {
-
-  //     const headers = route.request().headers();
-  //     // headers['Test-Header'] = 'Test Value';
-
-  //     headers['CF-Access-Client-Id'] = 'ADD-CLIENT-ID';
-  //     headers['CF-Access-Client-Secret'] = 'ADD-CLIENT-SECRET';
-  //     await route.continue({ headers });
-  //   });
-  // });
-
   test('HomeView page should match image snapshot', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveScreenshot({fullPage: true});

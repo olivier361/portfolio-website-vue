@@ -3,45 +3,7 @@
 // "process.env" is allowed in this current context
 
 // @ts-check
-import { defineConfig, devices, test as base } from '@playwright/test'; // TODO: remove unused
-
-// TODO: remove previous attempt
-
-// // Custom test fixture
-// export const test = base.extend({
-//   context: async ({ browser }, use) => {
-//     const context = await browser.newContext();
-
-//     // Wrap the context's newPage method to add headers conditionally
-//     context.newPage = async () => {
-//       const page = await context.newPage();
-      
-//       // Listen for page navigations
-//       page.on('request', request => {
-//         const url = request.url();
-//         console.log('I am here!');
-//         if (url.includes('https://ADD_PROD_URL_HERE')) {
-//           request.continue({
-//             headers: {
-//               ...request.headers(),
-//               // 'CF-Access-Client-Id': process.env.CF_CLIENT_ID,
-//               // 'CF-Access-Client-Secret': process.env.CF_CLIENT_SECRET,
-//               'CF-Access-Client-Id': 'ADD_CF_CLIENT_ID',
-//               'CF-Access-Client-Secret': 'ADD_CF_CLIENT_SECRET',
-//             }
-//           });
-//         } else {
-//           request.continue();
-//         }
-//       });
-
-//       await page.setRequestInterception(true);
-//       return page;
-//     };
-
-//     await use(context);
-//   }
-// });
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -73,15 +35,6 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    // TODO: Remove this. This simple setup works but
-    // also sends the headers to any site referenced in a test
-    // which exposes the secret to a 3rd party.
-    // extraHTTPHeaders: {
-    //   // 'CF-Access-Client-Id': process.env.CF_CLIENT_ID,
-    //   // 'CF-Access-Client-Secret': process.env.CF_CLIENT_SECRET,
-    //   'CF-Access-Client-Id': 'ADD_CF_CLIENT_ID',
-    //   'CF-Access-Client-Secret': 'ADD_CF_CLIENT_SECRET',
-    // }
   },
   /* Automatically run your local dev server before starting the tests.
    * The dev server is only launched if no prod/staging url is given (E2E_URL).
