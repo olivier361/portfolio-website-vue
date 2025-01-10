@@ -17,8 +17,13 @@ import { test as base } from '@playwright/test';
 // DOCS: https://playwright.dev/docs/test-fixtures
 export const test = base.extend({
   page: async ({ page }, use) => {
-    const globPattern = '**/' + process.env.TRUNCATED_STAGING_URL + '/**';
-    await page.route(globPattern, async route => {
+    if (
+      !!process.env.TRUNCATED_STAGING_URL &&
+      !!process.env.CF_ACCESS_CLIENT_ID &&
+      !!process.env.CF_ACCESS_CLIENT_SECRET
+    ) {
+      const globPattern = '**/' + process.env.TRUNCATED_STAGING_URL + '/**';
+      await page.route(globPattern, async route => {
         // Add auth headers to our GET requests
         // if the requested route matches the above pattern.
         const headers = route.request().headers();
@@ -26,7 +31,8 @@ export const test = base.extend({
         headers['CF-Access-Client-Secret'] = process.env.CF_ACCESS_CLIENT_SECRET;
         await route.continue({ headers });
       });
+    }
 
-      await use(page);
+    await use(page);
   },
 });
