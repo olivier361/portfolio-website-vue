@@ -14,7 +14,7 @@ test.describe('HomeView - E2E Tests', () => {
     // navbar should have website logo
     await expect(page.locator('.header')
       .getByRole('img'))
-      .toHaveAttribute('src', '/src/assets/ogg-logo-long.png');
+      .toHaveAttribute('src', /assets\/ogg-logo-long.*\.png/);
 
     // navbar should have 4 key page link items
     await expect(page.locator('.nav-links > a')).toHaveCount(4);
