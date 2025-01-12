@@ -1,0 +1,47 @@
+name: 🎭 E2E Playwright Tests
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'develop'
+      - 'release-v*'
+  
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+  schedule:
+    # triggers at 6h40am/pm PT (i.e. 2h40 & 14h40 UTC) 
+    - cron: "40 2,14 * * *"
+
+jobs:
+  test:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js v20 (lts/iron) # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/iron
+    - name: 🔗 Install Dependencies
+      run: npm ci
+    - name: 🌐 Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: 🧪 Run E2E Playwright Tests
+      if: ${{ github.event_name != 'schedule' }}
+      run: npm run test:e2e
+    - name: 🧪 Run Production E2E Playwright Tests
+      if: ${{ github.event_name == 'schedule' }}
+      env:
+        E2E_URL: ${{ secrets.PROD_URL }}
+        TRUNCATED_STAGING_URL: ${{ secrets.TRUNCATED_STAGING_URL }}
+        CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+        CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+      run: npm run test:e2e
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
