@@ -12,6 +12,7 @@ Disallow: /*.gif$
 Disallow: /*.GIF$
 Disallow: /*.pdf$
 Disallow: /*.PDF$
+Disallow: /version.txt
 Disallow: /README.md
 # Disallow: /dist/
 # Disallow: /assets/
