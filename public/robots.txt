@@ -10,6 +10,8 @@ Disallow: /*.jpeg$
 Disallow: /*.JPEG$
 Disallow: /*.gif$
 Disallow: /*.GIF$
+Disallow: /*.pdf$
+Disallow: /*.PDF$
 Disallow: /README.md
 # Disallow: /dist/
 # Disallow: /assets/
