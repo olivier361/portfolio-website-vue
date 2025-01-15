@@ -2,16 +2,16 @@ User-agent: Googlebot-Image
 Disallow: /
 
 User-agent: *
-Disallow: /*.png$
-Disallow: /*.PNG$
-Disallow: /*.jpg$
-Disallow: /*.JPG$
-Disallow: /*.jpeg$
-Disallow: /*.JPEG$
-Disallow: /*.gif$
-Disallow: /*.GIF$
-Disallow: /*.pdf$
-Disallow: /*.PDF$
+Disallow: /*.png
+Disallow: /*.PNG
+Disallow: /*.jpg
+Disallow: /*.JPG
+Disallow: /*.jpeg
+Disallow: /*.JPEG
+Disallow: /*.gif
+Disallow: /*.GIF
+Disallow: /*.pdf
+Disallow: /*.PDF
 Disallow: /version.txt
 Disallow: /README.md
 # Disallow: /dist/
