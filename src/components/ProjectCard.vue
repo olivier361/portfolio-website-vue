@@ -110,9 +110,9 @@ function handleResize() {
   infoSectionHeight.value = computeHeight(infoSection);
 }
 
-function computeHeight(ref){
-  if (!ref?.value) return 0;
-  return ref.value.getBoundingClientRect().height;
+function computeHeight(curRef){
+  if (!curRef?.value) return 0;
+  return curRef.value.getBoundingClientRect().height;
 }
 
 </script>
