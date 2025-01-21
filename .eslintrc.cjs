@@ -1,4 +1,9 @@
 /* eslint-env node */
+// TODO:  re-enable later after we are done configuring rules.
+// This makes commiting new rules easier without the files
+// formatting also getting changed all the time.
+
+/* eslint-disable */
 module.exports = {
   root: true,
   'extends': [
@@ -8,7 +13,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
+  'plugins': ['@stylistic'],
   'rules': {
+    //// CODE-QUALITY RULES:
+
     // ESLint Rule Docs: https://eslint.org/docs/latest/rules/
     /// ERRORS:
     // 'no-undef': 'warn' // default: 'error'
@@ -70,6 +78,16 @@ module.exports = {
     //   'terms': ['todo'],
     //   'decoration': ['/', '*']
     // }],
+
+    //// FORMATTING RULES:
+
+    // NOTE: ESLint formatting rules were deprecated in v8.53.0
+    // we are now using the '@stylistic/eslint-plugin' plugin for formatting rules.
+    // ESLint Stylistic Rule Docs: https://eslint.style/packages/default#rules
+    /// ERRORS:
+    '@stylistic/array-bracket-newline': ["error", { "multiline": true }],
+    '@stylistic/array-bracket-spacing': ["error", "never"],
+    '@stylistic/arrow-parens': ["error", "always"],
   },
   // 'overrides': [
   //   {
