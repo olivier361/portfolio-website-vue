@@ -1,9 +1,9 @@
+/* eslint-disable @stylistic/array-bracket-newline */
 /* eslint-env node */
-// TODO:  re-enable later after we are done configuring rules.
+// TODO:  re-enable ESLint later after we are done configuring rules.
 // This makes commiting new rules easier without the files
 // formatting also getting changed all the time.
 
-/* eslint-disable */
 module.exports = {
   root: true,
   'extends': [
