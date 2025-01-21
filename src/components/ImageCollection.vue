@@ -10,7 +10,7 @@ const props = defineProps({
     type: Array,
     required: true,
     validator(value) {
-      return value.every(item =>
+      return value.every((item) =>
         typeof item === 'object'
         && (Object.hasOwn(item, 'imgPath') && typeof item.imgPath === 'string' && item.imgPath.length > 0)
         && (!Object.hasOwn(item, 'captionText') || (Object.hasOwn(item, 'captionText') && typeof item.captionText === 'string')) // captionText is optional but must be a string if provided
