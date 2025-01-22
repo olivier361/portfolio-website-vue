@@ -5,25 +5,25 @@ import ImageCollection from './ImageCollection.vue';
 const props = defineProps({
   heading: {
     type: String,
-    required: true
+    required: true,
   },
   isExpandable: {
     type: Boolean,
     required: false,
-    default: true
+    default: true,
   },
   previewBackgroundImgPath: {
     // the image path relative to the assets directory.
     // EX: ./src/assets/[previewBackgroundImgPath]
     type: String,
-    required: false
+    required: false,
   },
   previewImgList: {
     // See ImageCollection.vue imgList prop validation
     // for correct format to use for this prop.
     type: Array,
-    required: false
-  }
+    required: false,
+  },
 });
 
 const previewSection = ref(null);
@@ -90,7 +90,7 @@ function handleCardShrink(){
   // above the viewport shrinking due to closing a card.
   window.scrollTo({
     top: window.scrollY - computeHeight(infoAnimationWrapper),
-    behavior: 'instant'
+    behavior: 'instant',
   });
 
   // Remove the .no-close-transition class after the scroll adjustment is complete

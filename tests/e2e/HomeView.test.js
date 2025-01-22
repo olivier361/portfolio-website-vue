@@ -39,7 +39,7 @@ test.describe('HomeView - E2E Tests', () => {
   [
     {button: 'projects', link: 'projects', expectedHeader: 'Projects'},
     {button: 'resume', link: 'about', expectedHeader: 'This is an about page'},
-    {button: 'about', link: 'about', expectedHeader: 'This is an about page'}
+    {button: 'about', link: 'about', expectedHeader: 'This is an about page'},
   ].forEach(({button, link, expectedHeader}) => {
   test(`HomeView NavBar link click should go to correct pages - ${button}`, async ({ page }) => {
     const rootUrl = '/';

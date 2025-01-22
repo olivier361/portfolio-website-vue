@@ -4,7 +4,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 const headingEntries = ref([
   'Software & Game Developer',
   'Video Content Creator',
-  'Design and Marketing'
+  'Design and Marketing',
 ]);
 
 const windowWidth = ref(window.innerWidth);

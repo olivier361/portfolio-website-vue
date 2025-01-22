@@ -5,26 +5,26 @@ const props = defineProps({
     // the image path relative to the assets directory.
     // EX: ./src/assets/[imgPath]
     type: String,
-    required: true
+    required: true,
   },
   isUrlPath: {
     // set to true if the imgPath is a URL path instead of local.
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   captionText: {
     type: String,
-    required: false
+    required: false,
   },
   altText: {
     type: String,
-    required: false
+    required: false,
   },
   height: {
     type: String,
     required: false,
-    default: 'auto'
+    default: 'auto',
   },
   widthPx: {
     // use this prop if you want to set the width of the image in pixels
@@ -37,7 +37,7 @@ const props = defineProps({
     // use this prop if you want to set the width of the image as a percentage
     type: String,
     required: false,
-  }
+  },
 });
 
 // This is needed to successfully resolve a path constructed with props

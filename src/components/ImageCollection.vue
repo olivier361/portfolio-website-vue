@@ -16,28 +16,28 @@ const props = defineProps({
         && (!Object.hasOwn(item, 'captionText') || (Object.hasOwn(item, 'captionText') && typeof item.captionText === 'string')) // captionText is optional but must be a string if provided
         && (!Object.hasOwn(item, 'altText') || (Object.hasOwn(item, 'altText') && typeof item.altText === 'string')) // altText is optional but must be a string if provided
         && (!Object.hasOwn(item, 'isUrlPath') || (Object.hasOwn(item, 'isUrlPath') && typeof item.isUrlPath === 'boolean'))); // isUrl is optional but must be a boolean if provided
-    }
+    },
   },
   imgHeight: {
     type: String,
     required: false,
-    default: 'auto'
+    default: 'auto',
   },
   imgWidth: {
     type: String,
     required: false,
-    default: 'auto'
+    default: 'auto',
   },
   rowGap: {
     type: String,
     required: false,
-    default: '20px'
+    default: '20px',
   },
   columnGap: {
     type: String,
     required: false,
-    default: '20px'
-  }
+    default: '20px',
+  },
 });
 
 const widthPx = ref(undefined);

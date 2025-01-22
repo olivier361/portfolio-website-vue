@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 const TODO_ITEMS = [
   'buy some cheese',
   'feed the cat',
-  'book a doctors appointment'
+  'book a doctors appointment',
 ];
 
 test.describe('New Todo', () => {
@@ -32,7 +32,7 @@ test.describe('New Todo', () => {
     // Make sure the list now has two todo items.
     await expect(page.getByTestId('todo-title')).toHaveText([
       TODO_ITEMS[0],
-      TODO_ITEMS[1]
+      TODO_ITEMS[1],
     ]);
 
     await checkNumberOfTodosInLocalStorage(page, 2);
@@ -186,7 +186,7 @@ test.describe('Item', () => {
     await expect(todoItems).toHaveText([
       TODO_ITEMS[0],
       'buy some sausages',
-      TODO_ITEMS[2]
+      TODO_ITEMS[2],
     ]);
     await checkTodosInLocalStorage(page, 'buy some sausages');
   });

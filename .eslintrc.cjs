@@ -8,10 +8,10 @@ module.exports = {
   root: true,
   'extends': [
     'plugin:vue/vue3-essential',
-    'eslint:recommended'
+    'eslint:recommended',
   ],
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
   },
   'plugins': ['@stylistic'],
   'rules': {
@@ -28,17 +28,17 @@ module.exports = {
     'default-case-last': 'error',
     'eqeqeq': ['error', 'smart'],
     'func-style': ['error', 'declaration', {
-      'allowArrowFunctions': true
+      'allowArrowFunctions': true,
     }],
     'max-classes-per-file': 'error',
     'no-use-before-define': ['error', {
         'functions': false,
         'classes': false,
         'variables': true,
-        'allowNamedExports': false
+        'allowNamedExports': false,
     }],
     'new-cap': ['error', {
-      'newIsCap': true
+      'newIsCap': true,
     }],
     'no-alert': 'error',
     'no-empty-function': 'error',
@@ -55,10 +55,10 @@ module.exports = {
     'no-script-url': 'error',
     'no-shadow': 'error',
     'no-unneeded-ternary': ['error', {
-      'defaultAssignment': false
+      'defaultAssignment': false,
     }],
     'no-unused-expressions': ['error', {
-      'allowTernary': true
+      'allowTernary': true,
     }],
     'no-useless-concat': 'error',
     'no-useless-escape': 'error',
