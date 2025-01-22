@@ -18,7 +18,7 @@ test.describe('HomeView - E2E Tests', () => {
 
     // navbar should have 4 key page link items
     await expect(page.locator('.nav-links > a')).toHaveCount(4);
-    
+
     // navbar should have links to key pages
     await expect(page.getByRole('link', { name: 'home'})).toBeVisible();
     await expect(page.getByRole('link', { name: 'projects'})).toBeVisible();

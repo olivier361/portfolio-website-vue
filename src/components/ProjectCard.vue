@@ -58,7 +58,7 @@ onBeforeMount(() => {
 onMounted(() => {
   window.addEventListener('resize', handleResize);
   handleResize();
-  
+
   // get --card-border-radius CSS variable value
   const rootStyles = getComputedStyle(document.documentElement);
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
@@ -147,7 +147,7 @@ function computeHeight(curRef){
           <button class="expand-button bottom" @click="handleCardShrink">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}</button>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 
 </template>

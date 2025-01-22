@@ -20,7 +20,7 @@ suite('Placeholder - Unit Tests', () => {
 
   test('Placeholder setValues() Test', () => {
     const myObj = {};
-    
+
     expect(myObj).toEqual({});
 
     const result = setValues(myObj, 'someObject', true, 3);

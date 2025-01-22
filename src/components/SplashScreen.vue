@@ -42,7 +42,7 @@ onBeforeUnmount(() => {
           <img src="@/assets/ruby-adventure.png" alt="Ruby's Adventure Game" uk-cover>
         </div>
       </div>
-      <div class="image-overlay uk-position-center" /> 
+      <div class="image-overlay uk-position-center" />
       <div class="splashscreen-content-wrapper uk-position-center" style="width: 100%;">
         <div class="match-height uk-flex uk-flex-column uk-flex-right">
           <ul class="social-links">
@@ -69,10 +69,10 @@ onBeforeUnmount(() => {
           </h3>
         </div>
       </div>
-      
+
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous" />
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next" />
-    
+
       <div class="uk-position-bottom-center uk-flex uk-flex-column uk-flex-middle">
         <ul
           class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"
@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
 
 .image-overlay {
   width: 100%;
-  height: 100%; 
+  height: 100%;
   background-color: var(--color-splashscreen-image-overlay);
 
   pointer-events: none;
@@ -129,7 +129,7 @@ onBeforeUnmount(() => {
   }
 
   h3 {
-    margin: 30px 0px 0px 0px;  
+    margin: 30px 0px 0px 0px;
     color: var(--color-splashscreen-text);
     text-shadow: 2px 2px 10px rgba(0,0,0,0.70); /* Horizontal, Vertical, Blur, Color */
     text-align: center;
@@ -173,7 +173,7 @@ onBeforeUnmount(() => {
 }
 
 .social-links {
-	list-style: none;	
+	list-style: none;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -181,7 +181,7 @@ onBeforeUnmount(() => {
 	align-items: flex-end;
   padding: 0px;
 }
-	
+
 .social-links img {
 	background-color: var(--color-splashscreen-social-links-background);
 	border: 1px var(--color-splashscreen-social-links-border) solid;

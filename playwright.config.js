@@ -40,7 +40,7 @@ export default defineConfig({
    * The dev server is only launched if no prod/staging url is given (E2E_URL).
   */
   webServer: process.env.E2E_URL
-    ? undefined 
+    ? undefined
     : {
       command: 'npm run dev',
       url: 'http://localhost:5173',

@@ -129,10 +129,10 @@ span {
 
 #nav-links-mobile {
   display: flex;
-  opacity:    0.85; 
-  background: var(--color-page-overlay); 
+  opacity:    0.85;
+  background: var(--color-page-overlay);
   width:      100%;
-  height:     100%; 
+  height:     100%;
   z-index:    10;
   position:   fixed;
   flex-direction: column;

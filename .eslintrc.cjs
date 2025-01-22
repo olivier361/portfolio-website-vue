@@ -115,6 +115,7 @@ module.exports = {
     '@stylistic/no-mixed-spaces-and-tabs': ["error", "smart-tabs"],
     '@stylistic/no-multi-spaces': "error",
     '@stylistic/no-multiple-empty-lines': ["error", { "max": 1, "maxBOF": 0}],
+    '@stylistic/no-trailing-spaces': "error",
 
     // TODO: resume from 'no-tabs' rule. https://eslint.style/packages/default#rules
 

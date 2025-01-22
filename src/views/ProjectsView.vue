@@ -17,7 +17,7 @@ function incrementPlaceholderImageCounter(){
   <main>
     <div class="projects">
       <h1>Projects</h1>
-      <ProjectCard 
+      <ProjectCard
         :heading="'Project 1'"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
@@ -27,7 +27,7 @@ function incrementPlaceholderImageCounter(){
         ]"
       >
         <template #introParagraph>
-          One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made. 
+          One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made.
           <br><br>
           A few more lines of text for these cards to be a bit longer. These cards will have a "view all" button to open and close the details of the card below the thich white line.
         </template>
@@ -123,7 +123,7 @@ function incrementPlaceholderImageCounter(){
           />
         </div>
       </ProjectCard>
-      <ProjectCard 
+      <ProjectCard
         :heading="'Project 2'"
       >
         <template #introParagraph>
@@ -168,7 +168,7 @@ function incrementPlaceholderImageCounter(){
         ]"
       >
         <template #introParagraph>
-          One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made. 
+          One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made.
           <br><br>
           A few more lines of text for these cards to be a bit longer. These cards will have a "view all" button to open and close the details of the card below the thich white line.
         </template>

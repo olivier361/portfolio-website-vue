@@ -8,12 +8,12 @@ import { test as base } from '@playwright/test';
 // to intercept any page.goto() requests in all our tests. If the specific request goes to our protected prod and staging sites,
 // the fixture adds the needed authentication headers in the GET request to gain access to the site.
 // If the page.goto() request goes to another site, we don't add the headers to avoid leaking them to a 3rd party.
-// 
+//
 // For this fixture to take effect in our test files, we need to import
 // { test } from './fixtures/testFixture.js' instead of { test } from '@playwright/test'.
 // This shouldn't cause any issues as our fixture extends '@playwright/test' so it includes
 // all the existing functionality we expect in addition to our own add-ons below.
-// 
+//
 // DOCS: https://playwright.dev/docs/test-fixtures
 export const test = base.extend({
   page: async ({ page }, use) => {

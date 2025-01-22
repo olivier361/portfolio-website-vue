@@ -111,7 +111,7 @@ suite('ImageFrame - Component Tests', () => {
     expect(wrapper.find('img').attributes('src')).not.toBe('file:///src/assets/' + url);
 
     // Test that default alt text is correct
-    expect(wrapper.find('img').attributes('alt')).toBe(url);    
+    expect(wrapper.find('img').attributes('alt')).toBe(url);
   });
 
   // NOTE: This test is moreso to illustrate how we can use snapshot tests
