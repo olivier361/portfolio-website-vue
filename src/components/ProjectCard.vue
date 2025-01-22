@@ -17,12 +17,14 @@ const props = defineProps({
     // EX: ./src/assets/[previewBackgroundImgPath]
     type: String,
     required: false,
+    default: undefined,
   },
   previewImgList: {
     // See ImageCollection.vue imgList prop validation
     // for correct format to use for this prop.
     type: Array,
     required: false,
+    default: undefined,
   },
 });
 
@@ -123,25 +125,26 @@ function computeHeight(curRef){
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
       <h2>{{ heading }}</h2>
       <p class="intro-paragraph" v-if="$slots.introParagraph">
-        <slot name="introParagraph"></slot>
+        <slot name="introParagraph" />
       </p>
-      <ImageCollection v-if="previewImgList"
+      <ImageCollection
+        v-if="previewImgList"
         :imgList="previewImgList"
         imgWidth="320px"
         imgHeight="180px"
       />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
-        <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
+        <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}</button>
       </div>
     </div>
     <div class="info-animation-wrapper" ref="infoAnimationWrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
       <div class="info-section" ref="infoSection">
-        <hr class="preview-divider"/>
+        <hr class="preview-divider">
         <div class="content">
           <slot>No content available to display.</slot>
         </div>
         <div class="uk-flex uk-flex-center">
-          <button class="expand-button bottom" @click="handleCardShrink">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
+          <button class="expand-button bottom" @click="handleCardShrink">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}</button>
         </div>
       </div>
     </div>    

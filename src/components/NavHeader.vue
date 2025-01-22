@@ -16,7 +16,7 @@ function handleSetMobileNavMenu(state = true) {
 <template>
   <div class="header header-desktop">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
-      <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
+      <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26">
     </RouterLink>
     <div class="nav-links">
       <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
@@ -27,11 +27,11 @@ function handleSetMobileNavMenu(state = true) {
   </div>
   <div class="header header-mobile">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
-      <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
+      <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26">
     </RouterLink>
     <button @click="handleMobileNavMenu" type="button">
-      <span v-if="isMobileNavMenuOpen" id="nav-menu" href="" uk-icon="icon: close; ratio: 1.3"></span>
-      <span v-else id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3"></span>
+      <span v-if="isMobileNavMenuOpen" id="nav-menu" href="" uk-icon="icon: close; ratio: 1.3" />
+      <span v-else id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3" />
     </button>
   </div>
   <div v-if="isMobileNavMenuOpen" id="nav-links-mobile">
@@ -40,7 +40,7 @@ function handleSetMobileNavMenu(state = true) {
     <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
     <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
     <button id="nav-mobile-close" @click="handleSetMobileNavMenu(false)" type="button">
-      <span href="" uk-icon="icon: close; ratio: 1.6"></span>
+      <span href="" uk-icon="icon: close; ratio: 1.6" />
     </button>
   </div>
 </template>

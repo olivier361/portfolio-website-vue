@@ -10,7 +10,6 @@ const headingEntries = ref([
 const windowWidth = ref(window.innerWidth);
 const windowHeight = ref(window.innerHeight);
 
-
 function handleResize() {
   windowWidth.value = window.innerWidth;
   windowHeight.value = window.innerHeight;
@@ -43,7 +42,7 @@ onBeforeUnmount(() => {
           <img src="@/assets/ruby-adventure.png" alt="Ruby's Adventure Game" uk-cover>
         </div>
       </div>
-      <div class="image-overlay uk-position-center"></div> 
+      <div class="image-overlay uk-position-center" /> 
       <div class="splashscreen-content-wrapper uk-position-center" style="width: 100%;">
         <div class="match-height uk-flex uk-flex-column uk-flex-right">
           <ul class="social-links">
@@ -60,28 +59,29 @@ onBeforeUnmount(() => {
 
         <div class="match-height">
           <h3 v-if="windowWidth > 960">
-            {{headingEntries[0]}} • {{headingEntries[1]}} • {{headingEntries[2]}}
+            {{ headingEntries[0] }} • {{ headingEntries[1] }} • {{ headingEntries[2] }}
           </h3>
           <h3 v-else-if="640 < windowWidth && windowWidth <= 960">
-            {{headingEntries[0]}} • {{headingEntries[1]}}<br>{{headingEntries[2]}}
+            {{ headingEntries[0] }} • {{ headingEntries[1] }}<br>{{ headingEntries[2] }}
           </h3>
           <h3 style="line-height: 0.8;" v-else>
-            {{headingEntries[0]}}<br>—<br>{{headingEntries[1]}}<br>—<br>{{headingEntries[2]}}
+            {{ headingEntries[0] }}<br>—<br>{{ headingEntries[1] }}<br>—<br>{{ headingEntries[2] }}
           </h3>
         </div>
       </div>
       
-      <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous"></a>
-      <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next"></a>
+      <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous" />
+      <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next" />
     
       <div class="uk-position-bottom-center uk-flex uk-flex-column uk-flex-middle">
-        <ul class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"
+        <ul
+          class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"
           :style="{visibility: (windowHeight >= 720 || (windowHeight >= 620 && windowWidth > 640) || (windowHeight >= 550 && windowWidth > 960) ? 'visible' : 'hidden')}"
-        ></ul>
+        />
 
         <p id="splashscreen-cta" v-if="windowHeight >= 650 || (windowHeight >= 550 && windowWidth > 640) || (windowHeight >= 500 && windowWidth > 960)">Check out my work</p>
 
-        <a v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)" href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5"></a>
+        <a v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)" href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5" />
       </div>
 
     </div>

@@ -16,10 +16,12 @@ const props = defineProps({
   captionText: {
     type: String,
     required: false,
+    default: undefined,
   },
   altText: {
     type: String,
     required: false,
+    default: undefined,
   },
   height: {
     type: String,
@@ -32,11 +34,13 @@ const props = defineProps({
     // due to the width settings affecting different elements in the component if it's a percentage or pixels.
     type: String,
     required: false,
+    default: undefined,
   },
   widthPercent: {
     // use this prop if you want to set the width of the image as a percentage
     type: String,
     required: false,
+    default: undefined,
   },
 });
 

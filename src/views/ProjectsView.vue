@@ -21,10 +21,10 @@ function incrementPlaceholderImageCounter(){
         :heading="'Project 1'"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
-            { imgPath: '2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
-            { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
-            { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
-          ]"
+          { imgPath: '2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
+          { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
+          { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
+        ]"
       >
         <template #introParagraph>
           One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made. 
@@ -57,7 +57,8 @@ function incrementPlaceholderImageCounter(){
             altText="A screenshot of a colorful 16-bit 2D platformer featuring a fox character."
           />
         </div>
-        <ImageCollection :imgList="[
+        <ImageCollection
+          :imgList="[
             { imgPath: 'cube-game.png', captionText: 'Cube Game. Making the text longer to test how captions wrap when they are longer than the displayed image above. Let\'s make this row even longer to test image spacing when a caption is longer than others.', altText: 'An endless runner game featuring a red cube character on a green surface with obstacles ahead.' },
             { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
             { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
@@ -66,7 +67,7 @@ function incrementPlaceholderImageCounter(){
           imgHeight="180px"
         />
 
-        <hr class="info-divider"/>
+        <hr class="info-divider">
 
         <h3>Project Title 2</h3>
         <div class="uk-flex" :style="{columnGap: '50px'}">
@@ -94,7 +95,7 @@ function incrementPlaceholderImageCounter(){
           />
         </div>
 
-        <hr class="info-divider"/>
+        <hr class="info-divider">
 
         <h3>Project Title 3</h3>
         <div class="uk-flex" :style="{columnGap: '50px'}">
@@ -144,26 +145,27 @@ function incrementPlaceholderImageCounter(){
 
       <!-- Start of auto-generated cards for performance test -->
 
-      <ProjectCard v-for="i in 15" :key="i"
+      <ProjectCard
+        v-for="i in 15" :key="i"
         :heading="`Project Auto-generated ${i}`"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
-            {
-              imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-              isUrlPath: true,
-              captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-            },
-            {
-              imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-              isUrlPath: true,
-              captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-            },
-            {
-              imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-              isUrlPath: true,
-              captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-            }
-          ]"
+          {
+            imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+            isUrlPath: true,
+            captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+          },
+          {
+            imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+            isUrlPath: true,
+            captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+          },
+          {
+            imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
+            isUrlPath: true,
+            captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
+          }
+        ]"
       >
         <template #introParagraph>
           One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made. 
@@ -172,7 +174,7 @@ function incrementPlaceholderImageCounter(){
         </template>
 
         <template v-for="j in 2" :key="j">
-          <h3>Project Title A{{j}} - Auto-generated {{i}}</h3>
+          <h3>Project Title A{{ j }} - Auto-generated {{ i }}</h3>
           <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
             <p class="uk-flex-1">
               Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
@@ -197,7 +199,8 @@ function incrementPlaceholderImageCounter(){
               captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
             />
           </div>
-          <ImageCollection :imgList="[
+          <ImageCollection
+            :imgList="[
               {
                 imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
                 isUrlPath: true,
@@ -218,9 +221,9 @@ function incrementPlaceholderImageCounter(){
             imgHeight="180px"
           />
 
-          <hr class="info-divider"/>
+          <hr class="info-divider">
 
-          <h3>Project Title B{{j}} - Auto-generated {{i}}</h3>
+          <h3>Project Title B{{ j }} - Auto-generated {{ i }}</h3>
           <div class="uk-flex" :style="{columnGap: '50px'}">
             <p class="uk-flex-1">
               Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
@@ -246,7 +249,7 @@ function incrementPlaceholderImageCounter(){
             />
           </div>
 
-          <hr class="info-divider"/>
+          <hr class="info-divider">
         </template>
       </ProjectCard>
 

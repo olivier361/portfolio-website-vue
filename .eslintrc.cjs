@@ -7,7 +7,7 @@
 module.exports = {
   root: true,
   'extends': [
-    'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-strongly-recommended', // https://eslint.vuejs.org/
     'eslint:recommended',
   ],
   parserOptions: {
@@ -99,6 +99,20 @@ module.exports = {
     '@stylistic/function-call-spacing': 'error',
     '@stylistic/implicit-arrow-linebreak': ["error", "beside"],
     '@stylistic/indent': ["error", 2],
+
+    '@stylistic/no-multiple-empty-lines': ["error", { "max": 1, "maxBOF": 0}],
+
+    //// ESLINT-PLUGIN-VUE RULES:
+    // eslint-plugin-vue Rule Docs: https://eslint.vuejs.org/rules/
+    /// OVERRIDE RECOMMENED RULES:
+    'vue/singleline-html-element-content-newline': 'off',
+    "vue/multiline-html-element-content-newline": ["error", {
+      "ignoreWhenEmpty": true,
+      // "ignores": ["pre", "textarea", ...INLINE_ELEMENTS],
+      "allowEmptyLines": true,
+    }],
+    'vue/max-attributes-per-line': ['error', { 'singleline': 5, 'multiline': 5 }],
+    'vue/attribute-hyphenation': ["error", "never"],
   },
   // 'overrides': [
   //   {
