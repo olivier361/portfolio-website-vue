@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/quote-props */
 /* eslint-disable @stylistic/array-bracket-newline */
 /* eslint-env node */
 // TODO:  re-enable ESLint later after we are done configuring rules.
@@ -114,8 +115,14 @@ module.exports = {
     '@stylistic/no-mixed-operators': "error",
     '@stylistic/no-mixed-spaces-and-tabs': ["error", "smart-tabs"],
     '@stylistic/no-multi-spaces': "error",
-    '@stylistic/no-multiple-empty-lines': ["error", { "max": 1, "maxBOF": 0}],
+    '@stylistic/no-multiple-empty-lines': ["error", { "max": 1, "maxBOF": 0 }],
     '@stylistic/no-trailing-spaces': "error",
+    '@stylistic/no-whitespace-before-property': "error",
+    '@stylistic/nonblock-statement-body-position': ["error", "beside"],
+    '@stylistic/object-curly-newline': ["error", { "consistent": true }],
+    '@stylistic/object-curly-spacing': ["error", "always"],
+    '@stylistic/object-property-newline': ["error", { "allowAllPropertiesOnSameLine": true }],
+    '@stylistic/quote-props': ["error", "consistent-as-needed"],
 
     // TODO: resume from 'no-tabs' rule. https://eslint.style/packages/default#rules
 
