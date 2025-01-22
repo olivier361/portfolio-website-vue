@@ -92,6 +92,12 @@ module.exports = {
     '@stylistic/block-spacing': "error",
     '@stylistic/brace-style': ["error", "stroustrup", { "allowSingleLine": true }],
     '@stylistic/comma-dangle': ["error", "always-multiline"],
+    '@stylistic/comma-spacing': "error",
+    '@stylistic/computed-property-spacing': ["error", "never"],
+    '@stylistic/dot-location': ["error", "property"],
+    '@stylistic/eol-last': ["error", "always"],
+    '@stylistic/function-call-spacing': 'error',
+    '@stylistic/implicit-arrow-linebreak': ["error", "beside"],
   },
   // 'overrides': [
   //   {
