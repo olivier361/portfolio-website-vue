@@ -99,8 +99,24 @@ module.exports = {
     '@stylistic/function-call-spacing': 'error',
     '@stylistic/implicit-arrow-linebreak': ["error", "beside"],
     '@stylistic/indent': ["error", 2],
-
+    '@stylistic/indent-binary-ops': ["error", 2],
+    '@stylistic/key-spacing': 'error',
+    '@stylistic/keyword-spacing': 'error',
+    '@stylistic/linebreak-style': ["error", "unix"],
+    // '@stylistic/max-len': ["warn", { "code": 100, ignoreUrls: true }], // TODO: enable once we reduced line lenghts
+    '@stylistic/max-statements-per-line': ["error", { "max": 2 }],
+    '@stylistic/multiline-ternary': ["error", "always-multiline"],
+    '@stylistic/new-parens': "error",
+    '@stylistic/newline-per-chained-call': ["error", { "ignoreChainWithDepth": 4 }],
+    '@stylistic/no-confusing-arrow': 'error',
+    '@stylistic/no-extra-semi': "error",
+    '@stylistic/no-floating-decimal': "error",
+    '@stylistic/no-mixed-operators': "error",
+    '@stylistic/no-mixed-spaces-and-tabs': ["error", "smart-tabs"],
+    '@stylistic/no-multi-spaces': "error",
     '@stylistic/no-multiple-empty-lines': ["error", { "max": 1, "maxBOF": 0}],
+
+    // TODO: resume from 'no-tabs' rule. https://eslint.style/packages/default#rules
 
     //// ESLINT-PLUGIN-VUE RULES:
     // eslint-plugin-vue Rule Docs: https://eslint.vuejs.org/rules/
