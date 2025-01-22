@@ -1,7 +1,7 @@
-import { suite, test, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { suite, test, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
 
-import ImageFrame from '@/components/ImageFrame.vue'
+import ImageFrame from '@/components/ImageFrame.vue';
 // import testImage from '../__testAssets__/test-image.png'
 
 suite('ImageFrame - Component Tests', () => {

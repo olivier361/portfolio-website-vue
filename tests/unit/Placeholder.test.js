@@ -1,14 +1,14 @@
-import { suite, test, expect } from 'vitest'
+import { suite, test, expect } from 'vitest';
 
 // import { function } from '@/helpers/placeholder.js'
 
 // Just a sample of the types of functions that could be tested
 // in the unit test section.
 function setValues(obj, name, isEnabled, count) {
-  obj.name = name
-  obj.isEnabled = isEnabled
-  obj.count = count
-  return obj
+  obj.name = name;
+  obj.isEnabled = isEnabled;
+  obj.count = count;
+  return obj;
 }
 
 suite('Placeholder - Unit Tests', () => {

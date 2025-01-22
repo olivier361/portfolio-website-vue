@@ -1,15 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
 
-const isMobileNavMenuOpen = ref(false)
+const isMobileNavMenuOpen = ref(false);
 
 function handleMobileNavMenu() {
-  isMobileNavMenuOpen.value = !isMobileNavMenuOpen.value
+  isMobileNavMenuOpen.value = !isMobileNavMenuOpen.value;
 }
 
 function handleSetMobileNavMenu(state = true) {
-  isMobileNavMenuOpen.value = state
+  isMobileNavMenuOpen.value = state;
 }
 </script>
 
