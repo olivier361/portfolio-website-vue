@@ -32,10 +32,10 @@ module.exports = {
     }],
     'max-classes-per-file': 'error',
     'no-use-before-define': ['error', {
-        'functions': false,
-        'classes': false,
-        'variables': true,
-        'allowNamedExports': false,
+      'functions': false,
+      'classes': false,
+      'variables': true,
+      'allowNamedExports': false,
     }],
     'new-cap': ['error', {
       'newIsCap': true,
@@ -98,6 +98,7 @@ module.exports = {
     '@stylistic/eol-last': ["error", "always"],
     '@stylistic/function-call-spacing': 'error',
     '@stylistic/implicit-arrow-linebreak': ["error", "beside"],
+    '@stylistic/indent': ["error", 2],
   },
   // 'overrides': [
   //   {

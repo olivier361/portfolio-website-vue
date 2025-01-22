@@ -41,16 +41,16 @@ test.describe('HomeView - E2E Tests', () => {
     {button: 'resume', link: 'about', expectedHeader: 'This is an about page'},
     {button: 'about', link: 'about', expectedHeader: 'This is an about page'},
   ].forEach(({button, link, expectedHeader}) => {
-  test(`HomeView NavBar link click should go to correct pages - ${button}`, async ({ page }) => {
-    const rootUrl = '/';
+    test(`HomeView NavBar link click should go to correct pages - ${button}`, async ({ page }) => {
+      const rootUrl = '/';
 
-    await page.goto(rootUrl);
+      await page.goto(rootUrl);
 
-    // click on link and check that the page loads
-    await page.getByRole('link', { name: button}).click();
-    await expect(page).toHaveURL(rootUrl + link);
-    await expect(page.locator('h1')).toHaveText(expectedHeader);
-  });
+      // click on link and check that the page loads
+      await page.getByRole('link', { name: button}).click();
+      await expect(page).toHaveURL(rootUrl + link);
+      await expect(page.locator('h1')).toHaveText(expectedHeader);
+    });
   });
 
   // This test was created with VS Code Playwright CodeGen and minor manual edits.
