@@ -106,7 +106,7 @@ suite('ImageFrame - Component Tests', () => {
     expect(wrapper.find('figure').find('img').exists()).toBeTruthy();
 
     // Test that the prop is set correctly
-    expect(wrapper.getComponent({name: 'ImageFrame'}).props('isUrlPath')).toBe(true);
+    expect(wrapper.getComponent({ name: 'ImageFrame' }).props('isUrlPath')).toBe(true);
     expect(wrapper.find('img').attributes('src')).toBe(url);
     expect(wrapper.find('img').attributes('src')).not.toBe('file:///src/assets/' + url);
 

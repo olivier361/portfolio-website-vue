@@ -11,12 +11,12 @@ test.describe('ProjectsView - E2E Tests', () => {
 
     test.setTimeout(60000);
     await page.goto('/projects');
-    await expect(page).toHaveScreenshot({fullPage: true, timeout: 60000});
+    await expect(page).toHaveScreenshot({ fullPage: true, timeout: 60000 });
   });
 
   test('ProjectsView page top should match image snapshot', async ({ page }) => {
     await page.goto('/projects');
-    await expect(page).toHaveScreenshot({timeout: 30000});
+    await expect(page).toHaveScreenshot({ timeout: 30000 });
   });
 
   // This test was created with Playwright CodeGen and minor manual edits.

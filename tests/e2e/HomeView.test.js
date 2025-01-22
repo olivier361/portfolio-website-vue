@@ -5,7 +5,7 @@ test.describe('HomeView - E2E Tests', () => {
 
   test('HomeView page should match image snapshot', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveScreenshot({fullPage: true});
+    await expect(page).toHaveScreenshot({ fullPage: true });
   });
 
   test('HomeView should show NavBar', async ({ page }) => {
@@ -20,34 +20,34 @@ test.describe('HomeView - E2E Tests', () => {
     await expect(page.locator('.nav-links > a')).toHaveCount(4);
 
     // navbar should have links to key pages
-    await expect(page.getByRole('link', { name: 'home'})).toBeVisible();
-    await expect(page.getByRole('link', { name: 'projects'})).toBeVisible();
-    await expect(page.getByRole('link', { name: 'resume'})).toBeVisible();
-    await expect(page.getByRole('link', { name: 'about'})).toBeVisible();
+    await expect(page.getByRole('link', { name: 'home' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'projects' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'resume' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'about' })).toBeVisible();
   });
 
   test('HomeView NavBar links should have correct href', async ({ page }) => {
     await page.goto('/');
 
     // navbar should have links to correct pages
-    await expect(page.getByRole('link', { name: 'home'})).toHaveAttribute('href', '/');
-    await expect(page.getByRole('link', { name: 'projects'})).toHaveAttribute('href', '/projects');
-    await expect(page.getByRole('link', { name: 'resume'})).toHaveAttribute('href', '/about');
-    await expect(page.getByRole('link', { name: 'about'})).toHaveAttribute('href', '/about');
+    await expect(page.getByRole('link', { name: 'home' })).toHaveAttribute('href', '/');
+    await expect(page.getByRole('link', { name: 'projects' })).toHaveAttribute('href', '/projects');
+    await expect(page.getByRole('link', { name: 'resume' })).toHaveAttribute('href', '/about');
+    await expect(page.getByRole('link', { name: 'about' })).toHaveAttribute('href', '/about');
   });
 
   [
-    {button: 'projects', link: 'projects', expectedHeader: 'Projects'},
-    {button: 'resume', link: 'about', expectedHeader: 'This is an about page'},
-    {button: 'about', link: 'about', expectedHeader: 'This is an about page'},
-  ].forEach(({button, link, expectedHeader}) => {
+    { button: 'projects', link: 'projects', expectedHeader: 'Projects' },
+    { button: 'resume', link: 'about', expectedHeader: 'This is an about page' },
+    { button: 'about', link: 'about', expectedHeader: 'This is an about page' },
+  ].forEach(({ button, link, expectedHeader }) => {
     test(`HomeView NavBar link click should go to correct pages - ${button}`, async ({ page }) => {
       const rootUrl = '/';
 
       await page.goto(rootUrl);
 
       // click on link and check that the page loads
-      await page.getByRole('link', { name: button}).click();
+      await page.getByRole('link', { name: button }).click();
       await expect(page).toHaveURL(rootUrl + link);
       await expect(page.locator('h1')).toHaveText(expectedHeader);
     });
