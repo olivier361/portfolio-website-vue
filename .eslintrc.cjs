@@ -88,6 +88,10 @@ module.exports = {
     '@stylistic/array-bracket-newline': ["error", { "multiline": true }],
     '@stylistic/array-bracket-spacing': ["error", "never"],
     '@stylistic/arrow-parens': ["error", "always"],
+    '@stylistic/arrow-spacing': "error",
+    '@stylistic/block-spacing': "error",
+    '@stylistic/brace-style': ["error", "stroustrup", { "allowSingleLine": true }],
+    '@stylistic/comma-dangle': ["error", "always-multiline"],
   },
   // 'overrides': [
   //   {
