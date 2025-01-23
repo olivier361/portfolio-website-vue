@@ -1,5 +1,4 @@
 /* eslint-disable @stylistic/quote-props */
-/* eslint-disable @stylistic/array-bracket-newline */
 /* eslint-env node */
 
 module.exports = {
@@ -13,7 +12,7 @@ module.exports = {
   },
   'plugins': ['@stylistic'],
   'rules': {
-    //// CODE-QUALITY RULES:
+    //// CODE-QUALITY RULES: ////
 
     // ESLint Rule Docs: https://eslint.org/docs/latest/rules/
     /// ERRORS:
@@ -25,19 +24,17 @@ module.exports = {
     'default-case': 'error',
     'default-case-last': 'error',
     'eqeqeq': ['error', 'smart'],
-    'func-style': ['error', 'declaration', {
-      'allowArrowFunctions': true,
-    }],
+    'func-style': ['error', 'declaration', { 'allowArrowFunctions': true }],
     'max-classes-per-file': 'error',
-    'no-use-before-define': ['error', {
-      'functions': false,
-      'classes': false,
-      'variables': true,
-      'allowNamedExports': false,
-    }],
-    'new-cap': ['error', {
-      'newIsCap': true,
-    }],
+    'no-use-before-define': [
+      'error', {
+        'functions': false,
+        'classes': false,
+        'variables': true,
+        'allowNamedExports': false,
+      },
+    ],
+    'new-cap': ['error', { 'newIsCap': true }],
     'no-alert': 'error',
     'no-empty-function': 'error',
     'no-eval': 'error',
@@ -52,12 +49,8 @@ module.exports = {
     'no-return-assign': 'error',
     'no-script-url': 'error',
     'no-shadow': 'error',
-    'no-unneeded-ternary': ['error', {
-      'defaultAssignment': false,
-    }],
-    'no-unused-expressions': ['error', {
-      'allowTernary': true,
-    }],
+    'no-unneeded-ternary': ['error', { 'defaultAssignment': false }],
+    'no-unused-expressions': ['error', { 'allowTernary': true }],
     'no-useless-concat': 'error',
     'no-useless-escape': 'error',
     'no-var': 'error',
@@ -77,7 +70,7 @@ module.exports = {
     //   'decoration': ['/', '*']
     // }],
 
-    //// FORMATTING RULES:
+    //// FORMATTING RULES: ////
 
     // NOTE: ESLint formatting rules were deprecated in v8.53.0
     // we are now using the '@stylistic/eslint-plugin' plugin for formatting rules.
@@ -118,7 +111,11 @@ module.exports = {
     '@stylistic/nonblock-statement-body-position': ['error', 'beside'],
     '@stylistic/object-curly-newline': ['error', { 'consistent': true }],
     '@stylistic/object-curly-spacing': ['error', 'always'],
-    '@stylistic/object-property-newline': ['error', { 'allowAllPropertiesOnSameLine': true }],
+    '@stylistic/object-property-newline': [
+      'error', {
+        'allowAllPropertiesOnSameLine': true,
+      },
+    ],
     '@stylistic/quote-props': ['error', 'consistent-as-needed'],
     '@stylistic/quotes': ['error', 'single', { 'avoidEscape': true }],
     '@stylistic/rest-spread-spacing': ['error', 'never'],
@@ -126,25 +123,36 @@ module.exports = {
     '@stylistic/semi-spacing': 'error',
     '@stylistic/semi-style': ['error', 'last'],
     '@stylistic/space-before-blocks': 'error',
-    '@stylistic/space-before-function-paren': ['error', { 'anonymous': 'never', 'named': 'never', 'asyncArrow': 'always' }],
+    '@stylistic/space-before-function-paren': [
+      'error', {
+        'anonymous': 'never',
+        'named': 'never',
+        'asyncArrow': 'always',
+      },
+    ],
     '@stylistic/space-in-parens': ['error', 'never'],
     '@stylistic/space-infix-ops': 'error',
     '@stylistic/space-unary-ops': 'error',
-    // '@stylistic/spaced-comment': ['error', 'always', { 'block': { 'balanced': true } }],
+    // '@stylistic/spaced-comment': ['error', 'always', {
+    //   'block': { 'balanced': true }
+    // }],
     '@stylistic/switch-colon-spacing': 'error',
     '@stylistic/template-curly-spacing': 'error',
     '@stylistic/wrap-iife': ['error', 'any'],
     '@stylistic/wrap-regex': 'error',
 
-    //// ESLINT-PLUGIN-VUE RULES:
+    //// ESLINT-PLUGIN-VUE RULES: ////
+
     // eslint-plugin-vue Rule Docs: https://eslint.vuejs.org/rules/
     /// OVERRIDE RECOMMENED RULES:
     'vue/singleline-html-element-content-newline': 'off',
-    'vue/multiline-html-element-content-newline': ['error', {
-      'ignoreWhenEmpty': true,
-      // 'ignores': ['pre', 'textarea', ...INLINE_ELEMENTS],
-      'allowEmptyLines': true,
-    }],
+    'vue/multiline-html-element-content-newline': [
+      'error', {
+        'ignoreWhenEmpty': true,
+        // 'ignores': ['pre', 'textarea', ...INLINE_ELEMENTS],
+        'allowEmptyLines': true,
+      },
+    ],
     'vue/max-attributes-per-line': ['error', { 'singleline': 5, 'multiline': 5 }],
     'vue/attribute-hyphenation': ['error', 'never'],
   },
@@ -156,5 +164,4 @@ module.exports = {
   //     }
   //   }
   // ]
-
 };
