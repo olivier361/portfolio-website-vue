@@ -2,11 +2,6 @@
 /* eslint-disable @stylistic/array-bracket-newline */
 /* eslint-env node */
 
-// TODO:  re-enable ESLint later after we are done configuring rules.
-// This makes commiting new rules easier without the files
-// formatting also getting changed all the time.
-/* eslint-disable @stylistic/quotes */
-
 module.exports = {
   root: true,
   'extends': [
@@ -126,20 +121,20 @@ module.exports = {
     '@stylistic/object-property-newline': ['error', { 'allowAllPropertiesOnSameLine': true }],
     '@stylistic/quote-props': ['error', 'consistent-as-needed'],
     '@stylistic/quotes': ['error', 'single', { 'avoidEscape': true }],
-    '@stylistic/rest-spread-spacing': ["error", "never"],
-    '@stylistic/semi': ["error", "always"],
-    '@stylistic/semi-spacing': "error",
-    '@stylistic/semi-style': ["error", "last"],
-    '@stylistic/space-before-blocks': "error",
-    '@stylistic/space-before-function-paren': ["error", { "anonymous": "never", "named": "never", "asyncArrow": "always" }],
-    '@stylistic/space-in-parens': ["error", "never"],
-    '@stylistic/space-infix-ops': "error",
-    '@stylistic/space-unary-ops': "error",
-    // '@stylistic/spaced-comment': ["error", "always", { "block": { "balanced": true } }],
-    '@stylistic/switch-colon-spacing': "error",
-    '@stylistic/template-curly-spacing': "error",
-    '@stylistic/wrap-iife': ["error", "any"],
-    '@stylistic/wrap-regex': "error",
+    '@stylistic/rest-spread-spacing': ['error', 'never'],
+    '@stylistic/semi': ['error', 'always'],
+    '@stylistic/semi-spacing': 'error',
+    '@stylistic/semi-style': ['error', 'last'],
+    '@stylistic/space-before-blocks': 'error',
+    '@stylistic/space-before-function-paren': ['error', { 'anonymous': 'never', 'named': 'never', 'asyncArrow': 'always' }],
+    '@stylistic/space-in-parens': ['error', 'never'],
+    '@stylistic/space-infix-ops': 'error',
+    '@stylistic/space-unary-ops': 'error',
+    // '@stylistic/spaced-comment': ['error', 'always', { 'block': { 'balanced': true } }],
+    '@stylistic/switch-colon-spacing': 'error',
+    '@stylistic/template-curly-spacing': 'error',
+    '@stylistic/wrap-iife': ['error', 'any'],
+    '@stylistic/wrap-regex': 'error',
 
     //// ESLINT-PLUGIN-VUE RULES:
     // eslint-plugin-vue Rule Docs: https://eslint.vuejs.org/rules/
