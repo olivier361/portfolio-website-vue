@@ -125,7 +125,6 @@ module.exports = {
     '@stylistic/object-curly-spacing': ['error', 'always'],
     '@stylistic/object-property-newline': ['error', { 'allowAllPropertiesOnSameLine': true }],
     '@stylistic/quote-props': ['error', 'consistent-as-needed'],
-    // '@stylistic/quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': 'avoidEscape' }],
     '@stylistic/quotes': ['error', 'single', { 'avoidEscape': true }],
     '@stylistic/rest-spread-spacing': ["error", "never"],
     '@stylistic/semi': ["error", "always"],
@@ -136,8 +135,11 @@ module.exports = {
     '@stylistic/space-in-parens': ["error", "never"],
     '@stylistic/space-infix-ops': "error",
     '@stylistic/space-unary-ops': "error",
-
-    // TODO: resume from 'spaced-comment' rule. https://eslint.style/packages/default#rules
+    // '@stylistic/spaced-comment': ["error", "always", { "block": { "balanced": true } }],
+    '@stylistic/switch-colon-spacing': "error",
+    '@stylistic/template-curly-spacing': "error",
+    '@stylistic/wrap-iife': ["error", "any"],
+    '@stylistic/wrap-regex': "error",
 
     //// ESLINT-PLUGIN-VUE RULES:
     // eslint-plugin-vue Rule Docs: https://eslint.vuejs.org/rules/
