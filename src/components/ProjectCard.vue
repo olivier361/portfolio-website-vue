@@ -72,12 +72,12 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
 });
 
-function handleCardExpand(){
+function handleCardExpand() {
   handleResize();
   isExpanded.value = !isExpanded.value;
 }
 
-function handleCardShrink(){
+function handleCardShrink() {
   // add .no-close-transition class to info-animation-wrapper element
   // to prevent smooth height transition when closing the card
   // from the info section close button as it causes too much complexity
@@ -112,7 +112,7 @@ function handleResize() {
   infoSectionHeight.value = computeHeight(infoSection);
 }
 
-function computeHeight(curRef){
+function computeHeight(curRef) {
   if (!curRef?.value) return 0;
   return curRef.value.getBoundingClientRect().height;
 }

@@ -7,7 +7,7 @@ import ImageFrame from '@/components/ImageFrame.vue';
 let placeholderImageCounter = 0;
 
 // TODO: remove this code after the performance test is done
-function incrementPlaceholderImageCounter(){
+function incrementPlaceholderImageCounter() {
   return ++placeholderImageCounter;
 }
 
