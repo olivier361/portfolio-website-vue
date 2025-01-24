@@ -75,7 +75,8 @@ onBeforeMount(() => {
     <div
       class="frame-wrapper"
       v-for="item in imgList"
-      :key="item.imgPath" :style="widthPercent ? { width: widthPercent } : {}"
+      :key="item.imgPath"
+      :style="widthPercent ? { width: widthPercent } : {}"
     >
       <ImageFrame
         :imgPath="item.imgPath"
