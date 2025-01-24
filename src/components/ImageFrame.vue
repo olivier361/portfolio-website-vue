@@ -5,46 +5,53 @@ const props = defineProps({
     // the image path relative to the assets directory.
     // EX: ./src/assets/[imgPath]
     type: String,
-    required: true
+    required: true,
   },
   isUrlPath: {
     // set to true if the imgPath is a URL path instead of local.
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   captionText: {
     type: String,
-    required: false
+    required: false,
+    default: undefined,
   },
   altText: {
     type: String,
-    required: false
+    required: false,
+    default: undefined,
   },
   height: {
     type: String,
     required: false,
-    default: 'auto'
+    default: 'auto',
   },
   widthPx: {
     // use this prop if you want to set the width of the image in pixels
     // NOTE: having seperate width variables is necessary with the current implementation
-    // due to the width settings affecting different elements in the component if it's a percentage or pixels.
+    // due to the width settings affecting different elements in the component
+    // if it's a percentage or pixels.
     type: String,
     required: false,
+    default: undefined,
   },
   widthPercent: {
     // use this prop if you want to set the width of the image as a percentage
     type: String,
     required: false,
-  }
+    default: undefined,
+  },
 });
 
 // This is needed to successfully resolve a path constructed with props
 // in the production build given images are processed by Vite with a new name and location.
 // See: https://vite.dev/guide/assets
 // also see: https://stackoverflow.com/questions/66419471/vue-3-vite-dynamic-image-src
-const imgUrl = props.isUrlPath ? props.imgPath : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
+const imgUrl = props.isUrlPath
+  ? props.imgPath
+  : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
 
 </script>
 

@@ -1,7 +1,7 @@
-import { suite, test, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { suite, test, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
 
-import ImageFrame from '@/components/ImageFrame.vue'
+import ImageFrame from '@/components/ImageFrame.vue';
 // import testImage from '../__testAssets__/test-image.png'
 
 suite('ImageFrame - Component Tests', () => {
@@ -62,7 +62,9 @@ suite('ImageFrame - Component Tests', () => {
     const width = '80%';
     const height = '50%';
 
-    const wrapper = mount(ImageFrame, { props: { imgPath: fileName, widthPercent: width, height: height } });
+    const wrapper = mount(ImageFrame, { props: {
+      imgPath: fileName, widthPercent: width, height: height,
+    } });
 
     // console.log(wrapper.html());
 
@@ -81,7 +83,9 @@ suite('ImageFrame - Component Tests', () => {
     const width = '300px';
     const height = '200px';
 
-    const wrapper = mount(ImageFrame, { props: { imgPath: fileName, widthPx: width, height: height } });
+    const wrapper = mount(ImageFrame, { props: {
+      imgPath: fileName, widthPx: width, height: height,
+    } });
 
     // console.log(wrapper.html());
 
@@ -106,12 +110,12 @@ suite('ImageFrame - Component Tests', () => {
     expect(wrapper.find('figure').find('img').exists()).toBeTruthy();
 
     // Test that the prop is set correctly
-    expect(wrapper.getComponent({name: 'ImageFrame'}).props('isUrlPath')).toBe(true);
+    expect(wrapper.getComponent({ name: 'ImageFrame' }).props('isUrlPath')).toBe(true);
     expect(wrapper.find('img').attributes('src')).toBe(url);
     expect(wrapper.find('img').attributes('src')).not.toBe('file:///src/assets/' + url);
 
     // Test that default alt text is correct
-    expect(wrapper.find('img').attributes('alt')).toBe(url);    
+    expect(wrapper.find('img').attributes('alt')).toBe(url);
   });
 
   // NOTE: This test is moreso to illustrate how we can use snapshot tests

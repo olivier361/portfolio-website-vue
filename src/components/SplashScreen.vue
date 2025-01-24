@@ -4,12 +4,11 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 const headingEntries = ref([
   'Software & Game Developer',
   'Video Content Creator',
-  'Design and Marketing'
+  'Design and Marketing',
 ]);
 
 const windowWidth = ref(window.innerWidth);
 const windowHeight = ref(window.innerHeight);
-
 
 function handleResize() {
   windowWidth.value = window.innerWidth;
@@ -31,7 +30,11 @@ onBeforeUnmount(() => {
 <template>
 
   <div class="splashscreen">
-    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: pull; autoplay: true; pause-on-hover: false">
+    <div
+      class="uk-position-relative uk-visible-toggle uk-light"
+      tabindex="-1"
+      uk-slideshow="animation: pull; autoplay: true; pause-on-hover: false"
+    >
       <div class="uk-slideshow-items">
         <div>
           <img src="@/assets/2D-Pixel-Game.png" alt="2D Pixel Platformer Game" uk-cover>
@@ -43,7 +46,7 @@ onBeforeUnmount(() => {
           <img src="@/assets/ruby-adventure.png" alt="Ruby's Adventure Game" uk-cover>
         </div>
       </div>
-      <div class="image-overlay uk-position-center"></div> 
+      <div class="image-overlay uk-position-center" />
       <div class="splashscreen-content-wrapper uk-position-center" style="width: 100%;">
         <div class="match-height uk-flex uk-flex-column uk-flex-right">
           <ul class="social-links">
@@ -55,33 +58,56 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="splashscreen-banner">
-          <img id="main-logo" src="@/assets/ogg-logo-tall.png" alt="Olivier Gervais-Gougeon" width="100%">
+          <img
+            id="main-logo"
+            src="@/assets/ogg-logo-tall.png"
+            alt="Olivier Gervais-Gougeon"
+            width="100%"
+          >
         </div>
 
         <div class="match-height">
           <h3 v-if="windowWidth > 960">
-            {{headingEntries[0]}} • {{headingEntries[1]}} • {{headingEntries[2]}}
+            {{ headingEntries[0] }} • {{ headingEntries[1] }} • {{ headingEntries[2] }}
           </h3>
           <h3 v-else-if="640 < windowWidth && windowWidth <= 960">
-            {{headingEntries[0]}} • {{headingEntries[1]}}<br>{{headingEntries[2]}}
+            {{ headingEntries[0] }} • {{ headingEntries[1] }}<br>{{ headingEntries[2] }}
           </h3>
           <h3 style="line-height: 0.8;" v-else>
-            {{headingEntries[0]}}<br>—<br>{{headingEntries[1]}}<br>—<br>{{headingEntries[2]}}
+            {{ headingEntries[0] }}<br>—<br>{{ headingEntries[1] }}<br>—<br>{{ headingEntries[2] }}
           </h3>
         </div>
       </div>
-      
-      <a class="uk-position-center-left uk-position-small uk-hidden-hover" uk-slidenav-previous uk-slideshow-item="previous"></a>
-      <a class="uk-position-center-right uk-position-small uk-hidden-hover" uk-slidenav-next uk-slideshow-item="next"></a>
-    
+
+      <a
+        class="uk-position-center-left uk-position-small uk-hidden-hover"
+        uk-slidenav-previous uk-slideshow-item="previous"
+      />
+      <a
+        class="uk-position-center-right uk-position-small uk-hidden-hover"
+        uk-slidenav-next uk-slideshow-item="next"
+      />
+
       <div class="uk-position-bottom-center uk-flex uk-flex-column uk-flex-middle">
-        <ul class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"
+        <!-- eslint-disable @stylistic/max-len -->
+        <ul
+          class="uk-slideshow-nav uk-dotnav uk-margin-small-bottom"
           :style="{visibility: (windowHeight >= 720 || (windowHeight >= 620 && windowWidth > 640) || (windowHeight >= 550 && windowWidth > 960) ? 'visible' : 'hidden')}"
-        ></ul>
+        />
 
-        <p id="splashscreen-cta" v-if="windowHeight >= 650 || (windowHeight >= 550 && windowWidth > 640) || (windowHeight >= 500 && windowWidth > 960)">Check out my work</p>
+        <p
+          id="splashscreen-cta"
+          v-if="windowHeight >= 650 || (windowHeight >= 550 && windowWidth > 640) || (windowHeight >= 500 && windowWidth > 960)"
+        >
+          Check out my work
+        </p>
 
-        <a v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)" href="#homepage-section1" uk-icon="icon: chevron-down; ratio: 2.5"></a>
+        <a
+          v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)"
+          href="#homepage-section1"
+          uk-icon="icon: chevron-down; ratio: 2.5"
+        />
+        <!-- eslint-enable @stylistic/max-len -->
       </div>
 
     </div>
@@ -106,7 +132,7 @@ onBeforeUnmount(() => {
 
 .image-overlay {
   width: 100%;
-  height: 100%; 
+  height: 100%;
   background-color: var(--color-splashscreen-image-overlay);
 
   pointer-events: none;
@@ -129,7 +155,7 @@ onBeforeUnmount(() => {
   }
 
   h3 {
-    margin: 30px 0px 0px 0px;  
+    margin: 30px 0px 0px 0px;
     color: var(--color-splashscreen-text);
     text-shadow: 2px 2px 10px rgba(0,0,0,0.70); /* Horizontal, Vertical, Blur, Color */
     text-align: center;
@@ -173,7 +199,7 @@ onBeforeUnmount(() => {
 }
 
 .social-links {
-	list-style: none;	
+	list-style: none;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -181,7 +207,7 @@ onBeforeUnmount(() => {
 	align-items: flex-end;
   padding: 0px;
 }
-	
+
 .social-links img {
 	background-color: var(--color-splashscreen-social-links-background);
 	border: 1px var(--color-splashscreen-social-links-border) solid;

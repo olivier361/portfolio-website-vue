@@ -1,8 +1,8 @@
 <script setup>
-import UIkit from 'uikit'
+import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
-import { RouterView } from 'vue-router'
-import NavHeader from './components/NavHeader.vue'
+import { RouterView } from 'vue-router';
+import NavHeader from './components/NavHeader.vue';
 
 UIkit.use(Icons);
 </script>
