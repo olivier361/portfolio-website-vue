@@ -57,17 +57,19 @@ test.describe('HomeView - E2E Tests', () => {
   // SEE: https://playwright.dev/docs/getting-started-vscode#generating-tests
   // SEE: https://playwright.dev/docs/codegen-intro
   test('SplashScreen bottom arrow button should scroll down on click', async ({ page }) => {
+    const re = /^\s?Check out my work\s?$/;
     await page.goto('/');
 
     // only github link and bottom arrow visible in viewport at the start
     await expect(page.getByRole('link', { name: 'GitHub' })).toBeInViewport();
-    await expect(page.locator('div').filter({ hasText: /^Check out my work$/ }).getByRole('link'))
+    await expect(page.locator('div').filter({ hasText: re }).getByRole('link'))
       .toBeInViewport();
     await expect(page.getByRole('heading', { name: 'Hello from HomeView.vue' }))
       .not.toBeInViewport();
 
     // click bottom arrow
-    await page.locator('div').filter({ hasText: /^Check out my work$/ }).getByRole('link').click();
+    await page.locator('div').filter({ hasText: re })
+      .getByRole('link').click();
 
     // page should scroll and content below splashscreen
     // is now in viewport while github link is not.
