@@ -85,7 +85,8 @@ test.describe('Mark all as completed', () => {
     await page.getByLabel('Mark all as complete').check();
 
     // Ensure all todos have 'completed' class.
-    await expect(page.getByTestId('todo-item')).toHaveClass(['completed', 'completed', 'completed']);
+    await expect(page.getByTestId('todo-item'))
+      .toHaveClass(['completed', 'completed', 'completed']);
     await checkNumberOfCompletedTodosInLocalStorage(page, 3);
   });
 
@@ -99,6 +100,7 @@ test.describe('Mark all as completed', () => {
     await expect(page.getByTestId('todo-item')).toHaveClass(['', '', '']);
   });
 
+  // eslint-disable-next-line @stylistic/max-len
   test('complete all checkbox should update state when items are completed / cleared', async ({ page }) => {
     const toggleAll = page.getByLabel('Mark all as complete');
     await toggleAll.check();

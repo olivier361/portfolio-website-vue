@@ -45,6 +45,12 @@ function handleSetMobileNavMenu(state = true) {
   </div>
 </template>
 
+<!-- eslint-disable @stylistic/max-len -->
+<!-- SEE: https://github.com/eslint/eslint/issues/11138
+          https://github.com/vuejs/vue-eslint-parser#%EF%B8%8F-known-limitations
+     (explanation for why we must disable this rule for the entire style block
+      rather than just the specific line.)
+-->
 <style scoped>
 img {
   height: 26px;

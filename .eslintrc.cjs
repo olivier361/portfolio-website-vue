@@ -94,7 +94,7 @@ module.exports = {
     '@stylistic/key-spacing': 'error',
     '@stylistic/keyword-spacing': 'error',
     '@stylistic/linebreak-style': ['error', 'unix'],
-    // '@stylistic/max-len': ['warn', { 'code': 100, ignoreUrls: true }], // TODO: enable once we reduced line lenghts
+    '@stylistic/max-len': ['warn', { 'code': 100, ignoreUrls: true }],
     '@stylistic/max-statements-per-line': ['error', { 'max': 2 }],
     '@stylistic/multiline-ternary': ['error', 'always-multiline'],
     '@stylistic/new-parens': 'error',

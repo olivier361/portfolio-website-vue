@@ -13,6 +13,8 @@ function incrementPlaceholderImageCounter() {
 
 </script>
 
+<!-- TODO: re-enable @stylistic/max-len once we add the real content -->
+<!-- eslint-disable @stylistic/max-len -->
 <template>
   <main>
     <div class="projects">
@@ -21,31 +23,51 @@ function incrementPlaceholderImageCounter() {
         :heading="'Project 1'"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
-          { imgPath: '2D-Pixel-Game.png', captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.' },
-          { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
-          { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
+          {
+            imgPath: '2D-Pixel-Game.png',
+            captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', // eslint-disable-line @stylistic/max-len
+            altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.'
+          },
+          {
+            imgPath: 'ruby-adventure.png',
+            captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', // eslint-disable-line @stylistic/max-len
+            altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' // eslint-disable-line @stylistic/max-len
+          },
+          {
+            imgPath: 'test-image.png',
+            captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', // eslint-disable-line @stylistic/max-len
+            altText: 'test image'
+          }
         ]"
       >
         <template #introParagraph>
-          One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made.
+          One or two sentence paragraphs describing the section in general.
+          EX: I've been making games in Unity since 2020.
+          Below are a handful of game prototypes I have made.
           <br><br>
-          A few more lines of text for these cards to be a bit longer. These cards will have a "view all" button to open and close the details of the card below the thich white line.
+          A few more lines of text for these cards to be a bit longer.
+          These cards will have a "view all" button to open and close
+          the details of the card below the thich white line.
         </template>
 
         <h3>Project Title 1</h3>
         <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
           <p class="uk-flex-1">
-            Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
-            Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
-            on the project page. They will include a button at the end of their project section. This button will direct users to a full
-            dedicated page talking about the project.
+            Three to twelve sentences describing the project in general.
+            These sentences can be split into multiple paragraphs if needed.
+            Projects that require lengthy detailed explanations will actually
+            only feature a brief summary of the key "must know" details
+            on the project page. They will include a button at the end of their project section.
+            This button will direct users to a full dedicated page talking about the project.
             <br><br>
-            Projects that can be summarized more concisely may opt to not have a dedicated page and instead explain the entirety of what
-            needs to be said right here in the general project page, given that it fits in the 3 to 12 sentence approximate requirement.
+            Projects that can be summarized more concisely may opt to not have a dedicated page
+            and instead explain the entirety of what needs to be said right here
+            in the general project page, given that it fits in the 3 to 12 sentence
+            approximate requirement.
             <br><br>
             <b>
-              Projects with many photos like this one will likely not have a read more button since everything is likely well explained
-              and showcased here.
+              Projects with many photos like this one will likely not have a read more button
+              since everything is likely well explained and showcased here.
             </b>
             <br><br>
             Notice how we used bold sentences mid-paragraph above.
@@ -59,9 +81,21 @@ function incrementPlaceholderImageCounter() {
         </div>
         <ImageCollection
           :imgList="[
-            { imgPath: 'cube-game.png', captionText: 'Cube Game. Making the text longer to test how captions wrap when they are longer than the displayed image above. Let\'s make this row even longer to test image spacing when a caption is longer than others.', altText: 'An endless runner game featuring a red cube character on a green surface with obstacles ahead.' },
-            { imgPath: 'ruby-adventure.png', captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' },
-            { imgPath: 'test-image.png', captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', altText: 'test image' }
+            {
+              imgPath: 'cube-game.png',
+              captionText: 'Cube Game. Making the text longer to test how captions wrap when they are longer than the displayed image above. Let\'s make this row even longer to test image spacing when a caption is longer than others.',
+              altText: 'An endless runner game featuring a red cube character on a green surface with obstacles ahead.'
+            },
+            {
+              imgPath: 'ruby-adventure.png',
+              captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.',
+              altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.'
+            },
+            {
+              imgPath: 'test-image.png',
+              captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.',
+              altText: 'test image'
+            }
           ]"
           imgWidth="320px"
           imgHeight="180px"

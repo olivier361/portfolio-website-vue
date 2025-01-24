@@ -31,7 +31,8 @@ const props = defineProps({
   widthPx: {
     // use this prop if you want to set the width of the image in pixels
     // NOTE: having seperate width variables is necessary with the current implementation
-    // due to the width settings affecting different elements in the component if it's a percentage or pixels.
+    // due to the width settings affecting different elements in the component
+    // if it's a percentage or pixels.
     type: String,
     required: false,
     default: undefined,
@@ -48,7 +49,9 @@ const props = defineProps({
 // in the production build given images are processed by Vite with a new name and location.
 // See: https://vite.dev/guide/assets
 // also see: https://stackoverflow.com/questions/66419471/vue-3-vite-dynamic-image-src
-const imgUrl = props.isUrlPath ? props.imgPath : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
+const imgUrl = props.isUrlPath
+  ? props.imgPath
+  : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
 
 </script>
 

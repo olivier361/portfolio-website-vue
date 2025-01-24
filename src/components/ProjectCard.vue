@@ -134,17 +134,24 @@ function computeHeight(curRef) {
         imgHeight="180px"
       />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
-        <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}</button>
+        <button class="expand-button" @click="handleCardExpand">
+          {{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}
+        </button>
       </div>
     </div>
-    <div class="info-animation-wrapper" ref="infoAnimationWrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
+    <div
+      class="info-animation-wrapper" ref="infoAnimationWrapper" v-if="isExpandable"
+      :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }"
+    >
       <div class="info-section" ref="infoSection">
         <hr class="preview-divider">
         <div class="content">
           <slot>No content available to display.</slot>
         </div>
         <div class="uk-flex uk-flex-center">
-          <button class="expand-button bottom" @click="handleCardShrink">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}</button>
+          <button class="expand-button bottom" @click="handleCardShrink">
+            {{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}
+          </button>
         </div>
       </div>
     </div>
@@ -152,6 +159,7 @@ function computeHeight(curRef) {
 
 </template>
 
+<!-- eslint-disable @stylistic/max-len -->
 <style scoped>
 
 .info-animation-wrapper {
@@ -174,7 +182,9 @@ function computeHeight(curRef) {
   overflow: hidden;
 
   .preview-section {
-    /* -5px in the margin calculation is to account for .expand-button padding to have 25px total spacing */
+    /* -5px in the margin calculation is to account for
+     * .expand-button padding to have 25px total spacing
+     */
     padding: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
   }
 
@@ -198,7 +208,10 @@ function computeHeight(curRef) {
   }
 
   p.intro-paragraph {
-    /* max-width: calc(50% - calc(var(--card-border-radius) / 2)); */ /* 50% of the card width minus 25px padding for a two column layout with 50px between columns. */
+    /* 50% of the card width minus 25px padding for a two column layout
+     * with 50px between columns.
+     */
+    /* max-width: calc(50% - calc(var(--card-border-radius) / 2)); */
     max-width: 400px;
     margin-bottom: calc(2 * var(--content-margin-bottom));
   }

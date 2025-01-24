@@ -62,7 +62,9 @@ suite('ImageFrame - Component Tests', () => {
     const width = '80%';
     const height = '50%';
 
-    const wrapper = mount(ImageFrame, { props: { imgPath: fileName, widthPercent: width, height: height } });
+    const wrapper = mount(ImageFrame, { props: {
+      imgPath: fileName, widthPercent: width, height: height,
+    } });
 
     // console.log(wrapper.html());
 
@@ -81,7 +83,9 @@ suite('ImageFrame - Component Tests', () => {
     const width = '300px';
     const height = '200px';
 
-    const wrapper = mount(ImageFrame, { props: { imgPath: fileName, widthPx: width, height: height } });
+    const wrapper = mount(ImageFrame, { props: {
+      imgPath: fileName, widthPx: width, height: height,
+    } });
 
     // console.log(wrapper.html());
 
