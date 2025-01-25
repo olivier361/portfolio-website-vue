@@ -16,6 +16,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests/e2e',
+  testIgnore: '**/tests-examples/**',
   /* The location where image snapshots are saved */
   snapshotPathTemplate: '{testDir}/__snapshots__/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   /* Run tests in files in parallel */
