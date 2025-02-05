@@ -2,6 +2,7 @@
 import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
+import CTAButton from '@/components/CTAButton.vue';
 
 // TODO: remove this code after the performance test is done
 let placeholderImageCounter = 0;
@@ -48,6 +49,15 @@ function incrementPlaceholderImageCounter() {
           A few more lines of text for these cards to be a bit longer.
           These cards will have a "view all" button to open and close
           the details of the card below the thich white line.
+          <br><br>
+          <CTAButton
+            url="/"
+            buttonText="View All"
+            showOutline
+            isFilled
+            showArrow
+            isNewTab
+          />
         </template>
 
         <h3>Project Title 1</h3>
