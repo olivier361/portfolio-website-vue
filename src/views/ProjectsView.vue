@@ -2,6 +2,7 @@
 import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
+import CTAButton from '@/components/CTAButton.vue';
 
 // TODO: remove this code after the performance test is done
 let placeholderImageCounter = 0;
@@ -174,6 +175,30 @@ function incrementPlaceholderImageCounter() {
       >
         <template #introParagraph>
           This is the third intro paragraph. This card has no expandable content.
+          <br><br>
+          Here are some samples of the CTAButton component:
+          <br><br>
+          <CTAButton
+            url="/"
+          />
+          <br><br>
+          <CTAButton
+            url="/"
+            showOutline
+          />
+          <br><br>
+          <CTAButton
+            url="/"
+            isFilled
+            isNewTab
+          />
+          <br><br>
+          <CTAButton
+            url="/"
+            buttonText="Custom Text!"
+            isFilled
+            :showSymbol="false"
+          />
         </template>
       </ProjectCard>
 
