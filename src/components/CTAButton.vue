@@ -24,7 +24,7 @@ const props = defineProps({
     required: false,
     default: false,
   },
-  showArrow: {
+  showSymbol: {
     // whether the arrow icon is shown to the right of the button text.
     type: Boolean,
     required: false,
@@ -32,6 +32,8 @@ const props = defineProps({
   },
   isNewTab: {
     // whether the link opens in the current or new tab.
+    // This also automatically changes the arrow symbol
+    // to an external link symbol if applicable.
     type: Boolean,
     required: false,
     default: false,
@@ -53,7 +55,15 @@ const props = defineProps({
     }"
   >
     <span class="cta-button-text">{{ buttonText }}</span>
-    <span v-if="showArrow" class="cta-symbol" uk-icon="icon: arrow-right; ratio: 1.5" />
+    <!-- TODO: Upgrade to UIKit 3.18 for link-external to be supported -->
+    <!-- SEE: https://getuikit.com/docs/migration -->
+    <span
+      v-if="showSymbol"
+      class="cta-symbol"
+      :uk-icon="isNewTab
+        ? 'icon: link-external; ratio: 1.5'
+        : 'icon: arrow-right; ratio: 1.5'"
+    />
   </a>
 
 </template>
