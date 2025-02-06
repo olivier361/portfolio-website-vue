@@ -21,7 +21,7 @@
     "test:e2e:update-snapshots": "npx playwright test --update-snapshots"
   },
   "dependencies": {
-    "uikit": "^3.17.11",
+    "uikit": "^3.23.0",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },
