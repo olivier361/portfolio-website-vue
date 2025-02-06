@@ -49,15 +49,6 @@ function incrementPlaceholderImageCounter() {
           A few more lines of text for these cards to be a bit longer.
           These cards will have a "view all" button to open and close
           the details of the card below the thich white line.
-          <br><br>
-          <CTAButton
-            url="/"
-            buttonText="View All"
-            showOutline
-            isFilled
-            showArrow
-            isNewTab
-          />
         </template>
 
         <h3>Project Title 1</h3>
@@ -184,6 +175,30 @@ function incrementPlaceholderImageCounter() {
       >
         <template #introParagraph>
           This is the third intro paragraph. This card has no expandable content.
+          <br><br>
+          Here are some samples of the CTAButton component:
+          <br><br>
+          <CTAButton
+            url="/"
+          />
+          <br><br>
+          <CTAButton
+            url="/"
+            showOutline
+          />
+          <br><br>
+          <CTAButton
+            url="/"
+            isFilled
+            isNewTab
+          />
+          <br><br>
+          <CTAButton
+            url="/"
+            buttonText="Custom Text!"
+            isFilled
+            :showSymbol="false"
+          />
         </template>
       </ProjectCard>
 

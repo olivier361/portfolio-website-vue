@@ -1,6 +1,6 @@
 <script setup>
 
-const props = defineProps({
+defineProps({
   url: {
     // the url that is opened when the button is clicked.
     type: String,
@@ -18,22 +18,28 @@ const props = defineProps({
     required: false,
     default: false,
   },
-  isFilled: {
-    // set to true if the button background should be filled with color.
-    type: Boolean,
-    required: false,
-    default: false,
-  },
   showSymbol: {
     // whether the arrow icon is shown to the right of the button text.
     type: Boolean,
     required: false,
     default: true,
   },
+  isFilled: {
+    // set to true if the button background should be filled with color.
+    type: Boolean,
+    required: false,
+    default: false,
+  },
   isNewTab: {
     // whether the link opens in the current or new tab.
     // This also automatically changes the arrow symbol
     // to an external link symbol if applicable.
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  isDarkVersion: {
+    // use the dark version of the button.
     type: Boolean,
     required: false,
     default: false,
@@ -52,6 +58,8 @@ const props = defineProps({
       'cta-button-base': !showOutline && !isFilled,
       'cta-button-outline': showOutline,
       'cta-button-filled': isFilled,
+      'light': !isDarkVersion,
+      'dark': isDarkVersion,
     }"
   >
     <span class="cta-button-text">{{ buttonText }}</span>
@@ -71,8 +79,12 @@ const props = defineProps({
 .cta-button {
   margin: 25px 0px;
   background-color: transparent;
-  color: var(--color-cta-button-text-dark);
+  color: var(--color-cta-button-text-light);
   text-decoration: none;
+}
+
+.cta-button.dark {
+  color: var(--color-cta-button-text-dark);
 }
 
 .cta-symbol {
@@ -104,16 +116,20 @@ const props = defineProps({
 }
 
 .cta-button-outline {
-  color: var(--color-cta-button-outline-text-dark);
+  color: var(--color-cta-button-outline-text-light);
   background-color: transparent;
-  border: 2px solid var(--color-cta-button-outline-dark);
+  border: 2px solid var(--color-cta-button-outline-light);
   border-radius: 25px;
   padding: 9px 14px 9px 16px;
 }
 
+.cta-button-outline.dark {
+  border-color: var(--color-cta-button-outline-dark);
+}
+
 .cta-button-filled {
-  color: var(--color-cta-button-text-light);
-  background-color: var(--color-cta-button-fill);
+  color: var(--color-cta-button-text-dark);
+  background-color: var(--color-cta-button-background);
   border: none;
   border-radius: 25px;
   padding: 9px 14px 9px 16px;
@@ -137,7 +153,7 @@ const props = defineProps({
 }
 
 .cta-button-filled:hover {
-  background-color: var(--color-cta-button-fill-hover);
+  background-color: var(--color-cta-button-background-hover);
   transition: all 200ms;
 }
 
