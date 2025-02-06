@@ -55,13 +55,11 @@ const props = defineProps({
     }"
   >
     <span class="cta-button-text">{{ buttonText }}</span>
-    <!-- TODO: Upgrade to UIKit 3.18 for link-external to be supported -->
-    <!-- SEE: https://getuikit.com/docs/migration -->
     <span
       v-if="showSymbol"
       class="cta-symbol"
       :uk-icon="isNewTab
-        ? 'icon: link-external; ratio: 1.5'
+        ? 'icon: link-external; ratio: 1.2'
         : 'icon: arrow-right; ratio: 1.5'"
     />
   </a>
