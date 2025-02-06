@@ -52,27 +52,31 @@ const props = defineProps({
       'cta-button-filled': isFilled,
     }"
   >
-    {{ buttonText }}
-    <!-- <span class="cta-button-text">{{ buttonText }}</span> -->
-    <span v-if="showArrow" uk-icon="arrow-right" />
+    <span class="cta-button-text">{{ buttonText }}</span>
+    <span v-if="showArrow" class="cta-symbol" uk-icon="icon: arrow-right; ratio: 1.5" />
   </a>
 
 </template>
 
 <style scoped>
 
-/* TODO */
 .cta-button {
   margin: 25px 0px;
+  background-color: transparent;
+  color: var(--color-cta-button-text-dark);
+  text-decoration: none;
+}
+
+.cta-symbol {
+  margin-left: 5px;
+  position: relative;
+  bottom: 1px;
+}
+
+.cta-button-text {
   font-family: 'Roboto Condensed', Arial; /* TODO: Add proper fonts to project */
   font-size: 18px;
   font-weight: 700;
-  text-decoration: none;
-  color: var(--color-cta-button-text-dark);
-  background-color: transparent;
-}
-
-.cta-button-base {
   background-image: linear-gradient(
     to right, var(--color-cta-button-text-hover)
     33%,var(--color-cta-button-text-hover) 33% 66%,
@@ -81,6 +85,14 @@ const props = defineProps({
   background-position: right bottom;
   background-size: 300% 2px;
   background-repeat: no-repeat;
+}
+
+.cta-button-base {
+  transition: color 200ms;
+}
+
+.cta-button-base > .cta-button-text {
+  padding-bottom: 4px;
 }
 
 .cta-button-outline {
@@ -101,12 +113,13 @@ const props = defineProps({
 
 .cta-button-base:hover {
   color: var(--color-cta-button-text-hover);
-  background-position: left bottom;
 
-  border-color: var(--color-cta-button-text-hover);
-  stroke: var(--color-cta-button-text-hover);
-
-  transition: background-position 0.5s;
+  .cta-button-text {
+    background-position: left bottom;
+    border-color: var(--color-cta-button-text-hover);
+    stroke: var(--color-cta-button-text-hover);
+    transition: background-position 0.5s;
+  }
 }
 
 .cta-button-outline:hover {
