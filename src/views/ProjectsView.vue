@@ -1,8 +1,20 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
 import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
+
+const { t } = useI18n({
+  messages: {
+    en: {
+      test: {
+        hello: 'Hello, from ProjectView Scope!',
+        hello3: 'Hello3, from ProjectView Scope!',
+      },
+    },
+  },
+});
 
 // TODO: remove this code after the performance test is done
 let placeholderImageCounter = 0;
@@ -177,7 +189,9 @@ function incrementPlaceholderImageCounter() {
           This is the third intro paragraph. This card has no expandable content.
           <br><br>
           <!-- TODO: remove once i18n is well tested -->
-          {{ $t('test.hello') }}
+          {{ t('test.hello') }}
+          <br><br>
+          {{ t('test.hello2') }}
           <br><br>
           Here are some samples of the CTAButton component:
           <br><br>

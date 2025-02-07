@@ -2,16 +2,20 @@
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import { RouterView } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import NavHeader from './components/NavHeader.vue';
 
 UIkit.use(Icons);
+const { t } = useI18n();
 </script>
 
 <template>
   <header>
     <NavHeader />
   </header>
-
+  {{ t('test.hello') }}
+  <br><br>
+  {{ t('test.hello3') }}
   <RouterView />
 </template>
 

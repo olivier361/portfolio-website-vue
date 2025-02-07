@@ -14,13 +14,14 @@ const i18n = createI18n({
   // even though the legacy API is deprecated.
   // See the warning we get in the browser console when legacy=false not provided.
 
-  // legacy: false, // Legacy API is deprecated but we must specify false to use Composition API.
+  legacy: false, // Legacy API is deprecated but we must specify 'false' to use Composition API.
   locale: 'en',
   fallbackLocale: 'en',
   messages: {
     en: {
       test: {
-        hello: 'hello world from i18n!',
+        hello: 'hello world from i18n global!',
+        hello2: 'hello2 global!',
       },
     },
     fr: {
