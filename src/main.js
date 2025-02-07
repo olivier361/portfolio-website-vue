@@ -19,15 +19,10 @@ const i18n = createI18n({
   fallbackLocale: 'en',
   messages: {
     en: {
-      test: {
-        hello: 'hello world from i18n global!',
-        hello2: 'hello2 global!',
-      },
+      currentLanguage: 'English',
     },
     fr: {
-      test: {
-        hello: 'bonjour le monde de i18n!',
-      },
+      currentLanguage: 'Français',
     },
   },
 });

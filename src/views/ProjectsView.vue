@@ -1,19 +1,24 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
+import en from '@/locales/en/ProjectsView.i18n.en.js';
+
 import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
 
+console.log(en);
+
 const { t } = useI18n({
-  messages: {
-    en: {
-      test: {
-        hello: 'Hello, from ProjectView Scope!',
-        hello3: 'Hello3, from ProjectView Scope!',
-      },
-    },
-  },
+  messages: { en: en.en },
+  // {
+  //   en: {
+  //     test: {
+  //       hello: 'Hello, from ProjectView Scope!',
+  //       hello3: 'Hello3, from ProjectView Scope!',
+  //     },
+  //   },
+  // },
 });
 
 // TODO: remove this code after the performance test is done
@@ -31,9 +36,9 @@ function incrementPlaceholderImageCounter() {
 <template>
   <main>
     <div class="projects">
-      <h1>Projects</h1>
+      <h1>{{ t('title') }}</h1>
       <ProjectCard
-        :heading="'Project 1'"
+        :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
           {
@@ -54,13 +59,9 @@ function incrementPlaceholderImageCounter() {
         ]"
       >
         <template #introParagraph>
-          One or two sentence paragraphs describing the section in general.
-          EX: I've been making games in Unity since 2020.
-          Below are a handful of game prototypes I have made.
+          {{ t('project1.introParaPart1') }}
           <br><br>
-          A few more lines of text for these cards to be a bit longer.
-          These cards will have a "view all" button to open and close
-          the details of the card below the thich white line.
+          {{ t('project1.introParaPart2') }}
         </template>
 
         <h3>Project Title 1</h3>

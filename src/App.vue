@@ -13,7 +13,7 @@ const { t } = useI18n();
   <header>
     <NavHeader />
   </header>
-  {{ t('test.hello') }}
+  {{ t('currentLanguage') }}
   <br><br>
   {{ t('test.hello3') }}
   <RouterView />
