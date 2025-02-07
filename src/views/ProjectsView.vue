@@ -176,6 +176,9 @@ function incrementPlaceholderImageCounter() {
         <template #introParagraph>
           This is the third intro paragraph. This card has no expandable content.
           <br><br>
+          <!-- TODO: remove once i18n is well tested -->
+          {{ $t('test.hello') }}
+          <br><br>
           Here are some samples of the CTAButton component:
           <br><br>
           <CTAButton
