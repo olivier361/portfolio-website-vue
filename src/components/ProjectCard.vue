@@ -123,7 +123,7 @@ function computeHeight(curRef) {
 
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
-      <h2>{{ heading }}</h2>
+      <h3>{{ heading }}</h3>
       <p class="intro-paragraph" v-if="$slots.introParagraph">
         <slot name="introParagraph" />
       </p>
@@ -198,8 +198,10 @@ function computeHeight(curRef) {
     color: var(--color-card-heading);
   }
 
-  h2, :slotted(h2) {
+  h3, :slotted(h3) {
     text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 400;
   }
 
   p, :slotted(p) {
