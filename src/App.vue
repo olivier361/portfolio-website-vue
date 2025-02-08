@@ -11,6 +11,7 @@ UIkit.use(Icons);
   <header>
     <NavHeader />
   </header>
+
   <RouterView />
 </template>
 
