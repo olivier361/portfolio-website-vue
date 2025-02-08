@@ -43,8 +43,10 @@
   --color-page-overlay: black;
 
   --color-page-title-text: var(--c-text-dark-primary);
+  --color-page-section-text: var(--c-text-dark-primary);
 
   --page-title-font-size: 64px;
+  --page-section-font-size: 48px;
 
   --color-header-background: var(--c-background-primary);
   --color-header-link: var(--c-accent-primary);

@@ -27,6 +27,41 @@ function incrementPlaceholderImageCounter() {
   <main>
     <div class="projects">
       <h1>{{ t('title') }}</h1>
+      <h2>{{ t('section.gameDev') }}</h2>
+      <ProjectCard
+        :heading="t('unity.title')"
+        :previewBackgroundImgPath="'projects/gameDev/unity/unity-card-background-fade.png'"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/unity/2d-pixel-game.png',
+            captionText: t('unity.previewImg.caption1'),
+            altText: t('unity.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/gameDev/unity/cube-game-4.png',
+            captionText: t('unity.previewImg.caption2'),
+            altText: t('unity.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/unity/ruby-adventure.png',
+            captionText: t('unity.previewImg.caption3'),
+            altText: t('unity.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introParagraph>
+          {{ t('unity.introPara1') }}
+          <i>
+            <a href="https://www.sfvictoria.ca/en/home-page/" target="_blank">
+              Société&nbsp;Francophone&nbsp;de&nbsp;Victoria
+            </a>
+          </i>
+          {{ t('unity.introPara2') }}
+          <br><br>
+          {{ t('unity.introPara3') }}
+        </template>
+        <!-- TODO: Add card details section here -->
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
@@ -326,6 +361,13 @@ h1 {
   margin: 50px 0px;
   color: var(--color-page-title-text);
   font-size: var(--page-title-font-size);
+}
+
+h2 {
+  text-transform: uppercase;
+  margin: 50px 0px 25px 0px;
+  color: var(--color-page-section-text);
+  font-size: var(--page-section-font-size);
 }
 
 .projects {
