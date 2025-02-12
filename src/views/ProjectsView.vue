@@ -60,7 +60,52 @@ function incrementPlaceholderImageCounter() {
           <br><br>
           {{ t('unity.introPara3') }}
         </template>
-        <!-- TODO: Add card details section here -->
+
+        <h4>{{ t('unity.details1.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <p class="uk-flex-1">
+            {{ t('unity.details1.para1') }}
+            <br><br>
+            {{ t('unity.details1.para2') }}
+          </p>
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/unity/unity-editor-2d-pixel-game.png"
+            :altText="t('unity.details1.altText1')"
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('unity.details2.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <p class="uk-flex-1">
+            {{ t('unity.details2.para1') }}
+            <br><br>
+            {{ t('unity.details2.para2') }}
+          </p>
+          <!-- TODO: Add Related Links Here -->
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/unity/unity-editor-cube-game.png"
+            :altText="t('unity.details2.altText1')"
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('unity.details3.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <p class="uk-flex-1">
+            {{ t('unity.details3.para1') }}
+          </p>
+          <!-- TODO: Add Related Links Here -->
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/unity/unity-editor-ruby-game.png"
+            :altText="t('unity.details3.altText1')"
+          />
+        </div>
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"

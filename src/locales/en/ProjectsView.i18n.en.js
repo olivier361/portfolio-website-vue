@@ -50,6 +50,43 @@ export default {
         altText2: 'The red cube character colliding with multiple grey obstacle blocks on a green pathway.',
         altText3: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.',
       },
+      details1: {
+        title: '2D Platformer Prototype',
+        para1: `
+          This prototype for a 2D platformer features a full character controller
+          and implements physics and collisions with various objects within the test levels.
+        `,
+        para2: `
+          The game which is built using sprites and tile maps also uses Unity's customisable
+          camera system and animation state graphs for character animations.
+        `,
+        altText1: 'A view of the Unity Editor showing the 2D platformer prototype in a game window, a character animation graph, and the scene view.',
+      },
+      details2: {
+        title: 'Auto-Runner Cube Game',
+        para1: `
+          This is a prototype of a 3D auto-runner style game featuring a handful of levels.
+          When starting a level, the red cube character automatically moves forward
+          and it is up to the player to move the red cube left or right to dodge
+          the continuous waves of incoming obstacles. The longer you survive,
+          the higher your score! Survive long enough and you'll unlock new levels.
+        `,
+        para2: `
+          The game also features a fully implemented menu and UI system,
+          along with an Audio Manager to control game music and sounds.
+        `,
+        altText1: 'A view of the Unity Editor showing the Cube Game in a game window and the scene view which is zoomed out to show the layout of the full level.',
+      },
+      details3: {
+        title: "Ruby's Adventure Course",
+        para1: `
+          While following a course on Unity fundamentals in 2020, I made a top-down adventure game prototype
+          which includes a full movement and attack system for both the main character and enemy characters.
+          It also implements features like spatial audio, a particle system for special effects,
+          UI for gameplay and menus, an NPC dialogue system, and a character health and damage system.
+        `,
+        altText1: "A view of the Unity Editor showing the scene view of a prototype level in the Ruby's Adventure game along with an animation graph and configurations for the player character.",
+      },
     },
   },
 };
