@@ -1,4 +1,4 @@
-import './assets/main.css';
+// import './assets/main.css'; // See comment in App.vue for why this import was removed.
 
 import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
