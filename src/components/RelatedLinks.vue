@@ -33,11 +33,7 @@ defineProps({
 });
 
 function shouldOpenNewTab(isNewTab) {
-  return isNewTab === undefined
-    ? '_blank'
-    : isNewTab
-      ? '_blank'
-      : '_self';
+  return isNewTab === undefined ? true : !!isNewTab;
 }
 
 // Given a URL string, truncates it to 50 characters
@@ -53,14 +49,17 @@ function formatDisplayUrl(url) {
     <p><b>Related Links:</b></p>
     <ul>
       <li v-for="linkObject in linkObjectsList" :key="linkObject.url">
-        <a :href="linkObject.url" :target="shouldOpenNewTab(linkObject.isNewTab)">
+        <a
+          :href="linkObject.url"
+          :target="shouldOpenNewTab(linkObject.isNewTab) ? '_blank' : '_self'"
+        >
           <span v-if="linkObject.teaserText" class="rl-text">
             {{ linkObject.teaserText }}&nbsp;
           </span>
           <span v-if="linkObject.teaserText">{{ '(' }}</span>
           <span class="rl-url">{{ formatDisplayUrl(linkObject.url) }}</span>
           <span
-            v-if="shouldOpenNewTab(linkObject.isNewTab) === '_blank'"
+            v-if="shouldOpenNewTab(linkObject.isNewTab)"
             uk-icon="icon: link-external; ratio: 1.0"
           />
           <span v-if="linkObject.teaserText">{{ ')' }}</span>
