@@ -6,6 +6,7 @@ import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
+import RelatedLinks from '@/components/RelatedLinks.vue';
 
 const { t } = useI18n({
   messages: { en: en.en },
@@ -79,12 +80,21 @@ function incrementPlaceholderImageCounter() {
 
         <h4>{{ t('unity.details2.title') }}</h4>
         <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
-          <p class="uk-flex-1">
-            {{ t('unity.details2.para1') }}
-            <br><br>
-            {{ t('unity.details2.para2') }}
-          </p>
-          <!-- TODO: Add Related Links Here -->
+          <div class="uk-flex-1">
+            <p>
+              {{ t('unity.details2.para1') }}
+              <br><br>
+              {{ t('unity.details2.para2') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                {
+                  url: 'https://github.com/olivier361/Cube-Game',
+                  teaserText: 'View “Cube Game” on GitHub',
+                },
+              ]"
+            />
+          </div>
           <ImageFrame
             class="uk-flex-1"
             imgPath="projects/gameDev/unity/unity-editor-cube-game.png"

@@ -23,6 +23,7 @@
   --c-accent-primary: white;
   --c-accent-secondary: #FFD700;
   --c-accent-tertiary: #ffc320;
+  --c-accent-quaternary: orange;
   --c-background-primary: #232323;
 
   --c-text-dark-primary: #151515;
@@ -39,6 +40,10 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
+
+  --color-link: var(--c-accent-secondary);
+  --color-link-hover: var(--c-accent-tertiary);
+  --color-link-visited: var(--c-accent-quaternary);
 
   --color-page-overlay: black;
 
