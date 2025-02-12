@@ -60,6 +60,7 @@ function formatDisplayUrl(url) {
           <span class="rl-url">{{ formatDisplayUrl(linkObject.url) }}</span>
           <span
             v-if="shouldOpenNewTab(linkObject.isNewTab)"
+            class="rl-icon uk-icon"
             uk-icon="icon: link-external; ratio: 1.0"
           />
           <span v-if="linkObject.teaserText">{{ ')' }}</span>
