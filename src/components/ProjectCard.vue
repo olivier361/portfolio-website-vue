@@ -204,6 +204,13 @@ function computeHeight(curRef) {
     font-weight: 400;
   }
 
+  h4, :slotted(h4) {
+    margin: 25px 0px;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
   p, :slotted(p) {
     margin: 0px;
     margin-bottom: var(--content-margin-bottom);

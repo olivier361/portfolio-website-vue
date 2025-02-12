@@ -54,7 +54,7 @@ function incrementPlaceholderImageCounter() {
           {{ t('unity.introPara1') }}
           <i>
             <a href="https://www.sfvictoria.ca/en/home-page/" target="_blank">
-              Société&nbsp;Francophone&nbsp;de&nbsp;Victoria
+              Société&nbsp;francophone&nbsp;de&nbsp;Victoria
             </a>
           </i>
           {{ t('unity.introPara2') }}
@@ -106,10 +106,19 @@ function incrementPlaceholderImageCounter() {
 
         <h4>{{ t('unity.details3.title') }}</h4>
         <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
-          <p class="uk-flex-1">
-            {{ t('unity.details3.para1') }}
-          </p>
-          <!-- TODO: Add Related Links Here -->
+          <div class="uk-flex-1">
+            <p>
+              {{ t('unity.details3.para1') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                {
+                  url: 'https://github.com/olivier361/Rubys-Adventure-2D',
+                  teaserText: `View “Ruby's Adventure 2D” on GitHub`,
+                },
+              ]"
+            />
+          </div>
           <ImageFrame
             class="uk-flex-1"
             imgPath="projects/gameDev/unity/unity-editor-ruby-game.png"
