@@ -245,7 +245,7 @@ function incrementPlaceholderImageCounter() {
         :heading="t('computerAnimAndRender.title')"
         :previewImgList="[
           {
-            imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree.png',
+            imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree-skybox.png',
             captionText: t('computerAnimAndRender.previewImg.caption1'),
             altText: t('computerAnimAndRender.previewImg.altText1'),
           },
@@ -281,6 +281,80 @@ function incrementPlaceholderImageCounter() {
           <br><br>
           {{ t('computerAnimAndRender.introPara10') }}
         </template>
+
+        <h4>{{ t('computerAnimAndRender.details1.title') }}</h4>
+        <p>
+          {{ t('computerAnimAndRender.details1.para1') }}
+          <br><br>
+          <u><b>{{ t('computerAnimAndRender.details1.para2') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details1.para3') }}
+        </p>
+        <ImageFrame
+          imgPath="projects/gameDev/computerAnimAndRender/raytrace-shadow.png"
+          :altText="t('computerAnimAndRender.details1.altText1')"
+          widthPercent="100%"
+        />
+        <br>
+        <p>
+          {{ t('computerAnimAndRender.details1.para4') }}
+        </p>
+        <ImageFrame
+          imgPath="projects/gameDev/computerAnimAndRender/raytrace-perlin-cubic.png"
+          :altText="t('computerAnimAndRender.details1.altText2')"
+          widthPercent="100%"
+        />
+        <br>
+        <p>
+          {{ t('computerAnimAndRender.details1.para5') }}
+          <br><br>
+          {{ t('computerAnimAndRender.details1.para6') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree-without-reflections.png',
+              altText: t('computerAnimAndRender.details1.altText3'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree.png',
+              altText: t('computerAnimAndRender.details1.altText4'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+        <br>
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: 'https://github.com/olivier361/Raytracer-AABB-Tree',
+              teaserText: t('computerAnimAndRender.details1.relatedLinks1'),
+            },
+          ]"
+        />
+        <br>
+        <p>
+          <u><b>{{ t('computerAnimAndRender.details1.para7') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details1.para8') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/pv-shading-animation.gif',
+              captionText: t('computerAnimAndRender.details1.caption1'),
+              altText: t('computerAnimAndRender.details1.altText5'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/flat-shading-animation.gif',
+              captionText: t('computerAnimAndRender.details1.caption2'),
+              altText: t('computerAnimAndRender.details1.altText6'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+
+        <hr class="info-divider">
 
       </ProjectCard>
       <ProjectCard
