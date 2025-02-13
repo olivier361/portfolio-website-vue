@@ -242,6 +242,48 @@ function incrementPlaceholderImageCounter() {
         /> -->
       </ProjectCard>
       <ProjectCard
+        :heading="t('computerAnimAndRender.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree.png',
+            captionText: t('computerAnimAndRender.previewImg.caption1'),
+            altText: t('computerAnimAndRender.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-initial-closeup.png',
+            captionText: t('computerAnimAndRender.previewImg.caption2'),
+            altText: t('computerAnimAndRender.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/computerAnimAndRender/tetris-mockup.png',
+            captionText: t('computerAnimAndRender.previewImg.caption3'),
+            altText: t('computerAnimAndRender.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introParagraph>
+          {{ t('computerAnimAndRender.introPara1') }}
+          <a href="https://en.wikipedia.org/wiki/Ray_tracing_(graphics)" target="_blank">
+            {{ t('computerAnimAndRender.introPara2') }}
+          </a>
+          {{ t('computerAnimAndRender.introPara3') }}
+          <a href="https://stackoverflow.com/questions/22512319/what-is-aabb-collision-detection" target="_blank">
+            {{ t('computerAnimAndRender.introPara4') }}
+          </a>
+          {{ t('computerAnimAndRender.introPara5') }}
+          <a href="https://en.wikipedia.org/wiki/Inverse_kinematics" target="_blank">
+            {{ t('computerAnimAndRender.introPara6') }}
+          </a>
+          {{ t('computerAnimAndRender.introPara7') }}
+          <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)" target="_blank">
+            {{ t('computerAnimAndRender.introPara8') }}
+          </a>{{ t('computerAnimAndRender.introPara9') }}
+          <br><br>
+          {{ t('computerAnimAndRender.introPara10') }}
+        </template>
+
+      </ProjectCard>
+      <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[

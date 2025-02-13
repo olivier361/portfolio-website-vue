@@ -203,5 +203,44 @@ export default {
         buttonText: 'Play the Game in your Browser!',
       },
     },
+    computerAnimAndRender: {
+      title: 'Computer Animation & Rendering',
+      introPara1: `
+        Since 2022, I have developed multiple computer animation and graphics rendering
+        projects, all done natively in C++. These projects range from building a 
+      `,
+      introPara2: 'ray tracing',
+      introPara3: ' image rendering program using optimizations like a ',
+      introPara4: 'BVH AABB Tree',
+      introPara5: `
+         structure to others like animating a skeleton
+         drawing hand-written words on a blackboard using 
+      `,
+      introPara6: 'inverse kinematics',
+      introPara7: ' and ',
+      introPara8: 'splines',
+      introPara9: '.',
+      introPara10: `
+        Below are a few sample screenshots of these projects.
+        You'll find even more projects like my OpenGL Tetris game
+        by clicking on the “View Details” button below.
+      `,
+      previewImg: {
+        caption1: `
+          A 3D Model of a dragon with nearly 1 million triangles
+          ray traced with reflections thanks to BVH optimizations.
+        `,
+        caption2: `
+          A humanoid skeleton drawing on a blackboard
+          by using inverse kinematics on a spline.
+        `,
+        caption3: `
+          A classic Tetris game made with C++ and OpenGL in Linux.
+        `,
+        altText1: 'A detailed 3D model of a dragon. The dragon is green and shiny. Around the dragon are some green reflective spheres on which we can see reflections of the dragon.',
+        altText2: 'A flat wiremesh outline of a human is drawing the word "Hello" on a blackboard. Each arm joint is depicted by a red circle.',
+        altText3: 'A Tetris board with multiple blocks clumsily stacked. A red block is currently falling. The game window has a blue background and instructions on how to play are on the left of the board with the score on the right.',
+      },
+    },
   },
 };
