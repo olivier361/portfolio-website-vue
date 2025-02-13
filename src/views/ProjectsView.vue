@@ -145,6 +145,7 @@ function incrementPlaceholderImageCounter() {
             altText: t('previousGames.previewImg.altText3'),
           }
         ]"
+        previewImgHeight="auto"
       >
         <template #introParagraph>
           <u><b>{{ t('previousGames.introPara1') }}</b></u>

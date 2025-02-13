@@ -26,6 +26,16 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
+  previewImgWidth: {
+    type: String,
+    required: false,
+    default: '320px',
+  },
+  previewImgHeight: {
+    type: String,
+    required: false,
+    default: '180px',
+  },
 });
 
 const previewSection = ref(null);
@@ -130,8 +140,8 @@ function computeHeight(curRef) {
       <ImageCollection
         v-if="previewImgList"
         :imgList="previewImgList"
-        imgWidth="320px"
-        imgHeight="180px"
+        :imgWidth="previewImgWidth"
+        :imgHeight="previewImgHeight"
       />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">
