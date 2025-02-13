@@ -128,6 +128,7 @@ function incrementPlaceholderImageCounter() {
       </ProjectCard>
       <ProjectCard
         :heading="t('previousGames.title')"
+        :previewBackgroundImgPath="'projects/gameDev/previousGames/previous-games-card-background-fade.png'"
         :previewImgList="[
           {
             imgPath: 'projects/gameDev/previousGames/cj-screenshot-1.png',
