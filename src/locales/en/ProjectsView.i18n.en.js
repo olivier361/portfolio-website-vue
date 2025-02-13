@@ -88,5 +88,58 @@ export default {
         altText1: "A view of the Unity Editor showing the scene view of a prototype level in the Ruby's Adventure game along with an animation graph and configurations for the player character.",
       },
     },
+    previousGames: {
+      title: 'Previous Game Releases',
+      introPara1: 'Carnet de Jeux (French Educational Game):',
+      introPara2: `
+        An interactive educational web game for kids to help them learn French
+        while uncovering the story behind one of Victoria's most important
+        historical figures for the French community.
+      `,
+      introPara3: `
+        From 2017 to 2019, I volunteered to develop a kids educational web game
+        for the
+      `,
+      introPara4: `
+        Société francophone de Victoria
+      `,
+      introPara5: `
+        non-profit organization.
+      `,
+      introPara6: `
+        As part of the organization's three year "Carnet de jeux" project
+        which aimed to release three paper activity booklets in the classrooms of
+        local french-immersion schools for kids aged 6 to 11, an accompanying web game
+        was also developed and published on the organization's website.
+      `,
+      introPara7: `
+        The goal of both the web game and the paper booklets was to help kids aged 6 to 11
+        learn French and discover the history behind three influential figures that helped
+        form the French community in Victoria throughout the past centuries.
+      `,
+      introPara8: `
+        * Myself and the Société francophone de Victoria would like to thank
+        Canadian Heritage for helping fund this project.
+      `,
+      relatedLinks1: 'Click here to play the game!',
+      relatedLinks2: 'Read the related magazine article.',
+      relatedLinks3: 'Learn more about the Société francophone de Victoria.',
+      previewImg: {
+        caption1: `
+          The main menu features sketchbook-styled art
+          made by the project's artists.
+        `,
+        caption2: `
+          An interactive puzzle with various difficulty options available.
+        `,
+        caption3: `
+          Find the right way out of the maze using
+          Pac-Man style controls to assemble a secret word.
+        `,
+        altText1: "The game's main menu featuring sketchbook-styled art of a canoe riding the waves in the foreground with an old world map serving as the background.",
+        altText2: 'A view of the puzzle mini-game showing 16 shuffled pieces on the game board and a preview image of the final result in the top right corner.',
+        altText3: "A view of the Pac-Man style maze mini-game. The maze has a paper white background and letters are scattered throughout the maze's many corridors.",
+      },
+    },
   },
 };

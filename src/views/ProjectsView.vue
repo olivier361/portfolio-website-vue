@@ -127,6 +127,61 @@ function incrementPlaceholderImageCounter() {
         </div>
       </ProjectCard>
       <ProjectCard
+        :heading="t('previousGames.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/previousGames/cj-screenshot-1.png',
+            captionText: t('previousGames.previewImg.caption1'),
+            altText: t('previousGames.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/gameDev/previousGames/cj-screenshot-2.png',
+            captionText: t('previousGames.previewImg.caption2'),
+            altText: t('previousGames.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/previousGames/cj-screenshot-3.png',
+            captionText: t('previousGames.previewImg.caption3'),
+            altText: t('previousGames.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introParagraph>
+          <u><b>{{ t('previousGames.introPara1') }}</b></u>
+          <br>
+          <b>{{ t('previousGames.introPara2') }}</b>
+          <br><br>
+          {{ t('previousGames.introPara3') }}
+          <i>{{ t('previousGames.introPara4') }}</i>
+          {{ t('previousGames.introPara5') }}
+          <br><br>
+          {{ t('previousGames.introPara6') }}
+          <br><br>
+          {{ t('previousGames.introPara7') }}
+          <br><br>
+          <i>{{ t('previousGames.introPara8') }}</i>
+          <br><br>
+          <RelatedLinks
+            :linkObjectsList="[
+              // TODO: Host these resources on our site
+              // {
+              //   url: '/TODO',
+              //   teaserText: t('previousGames.relatedLinks1'),
+              // },
+              // {
+              //   url: '/TODO',
+              //   teaserText: t('previousGames.relatedLinks2'),
+              // },
+              {
+                url: 'https://www.sfvictoria.ca/en/home-page/',
+                teaserText: t('previousGames.relatedLinks3'),
+              },
+            ]"
+          />
+        </template>
+
+      </ProjectCard>
+      <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
