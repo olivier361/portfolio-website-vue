@@ -140,6 +140,68 @@ export default {
         altText2: 'A view of the puzzle mini-game showing 16 shuffled pieces on the game board and a preview image of the final result in the top right corner.',
         altText3: "A view of the Pac-Man style maze mini-game. The maze has a paper white background and letters are scattered throughout the maze's many corridors.",
       },
+      details1: {
+        title: 'About the Game',
+        para1: `
+          "Carnet de jeux: Modeste Demers" is a companion web game to the second activity booklet
+          in the collection. This interactive game challenges kids to uncover
+          the name of one of Victoria's most important historical figures for the French community.
+          By unlocking a series of clues while playing through a handful of puzzles, enigmas,
+          and answering multiple-choice questions, more information
+          about the life of the mysterious historical figure will progressively be revealed.
+        `,
+        para2: `
+          Parents and teachers are encouraged to play along with their kids or students
+          in this approximately twenty minute long, fully-narrated, game as they guide them
+          through any language barriers and make them reflect on
+          the information they have learned.
+        `,
+        para3: `
+          Below are a few screenshots from some of the mini-games found within the web game:
+        `,
+        imgCollection: {
+          caption1: 'The fully-voiced dialog allows players of all ages to improve their French.',
+          caption2: 'Various multiple-choice questions provide a way to learn historical tidbits.',
+          caption3: 'Solving the puzzle reveals the name of an object needed in the following mini-game.',
+          altText1: 'One of the characters in the canoe is introducing the game to the player through a large comic book style speech bubble with text.',
+          altText2: 'A sample multiple-choice question screen. The question is written at the top and there are four answer choices below.',
+          altText3: 'A view of the puzzle mini-game showing 16 shuffled pieces on the game board and a preview image of the final result in the top right corner.',
+        },
+      },
+      details2: {
+        title: 'Collaborating with Artists & Stakeholders',
+        para1: `
+          The “Carnet de jeux” web game was developed in tandem with its
+          paper activity booklet counterpart. As such, the game makes use of the same
+          sketchbook art style that was decided upon by the project's artists
+          for the activity booklet. The art was hand drawn on paper to accurately depict
+          a sketchbook look and then digitally scanned for the game.
+          Thanks to regular collaboration and coordination with the artists,
+          they were able to draw the art on paper as separate layers so that some elements
+          could be dynamically animated in the web game. Additionally, thanks to various meetings
+          with the stakeholders of the activity booklet team, we were able to conceptualize
+          ways to adapt the paper booklet games into multiple mini-games that would ultimately
+          provide players with similar historical anecdotes and clues to uncover
+          the name of the mysterious historical figure.
+        `,
+        caption1: `
+          The front cover of the paper activity booklet. Translation:
+          "Activity Booklet - Discover the mystery historical character!"
+        `,
+        altText1: 'The front cover of the activity booklet. The green title at the top reads "Carnet de jeux" and the cover image depicts an old world map.',
+      },
+      details3: {
+        title: 'Technical Details',
+        para1: `
+          This HTML5 web game was made using GameMaker Studio and its GML object-oriented
+          programming language. At the time in 2017, this choice was made because of GameMaker's
+          ease of use for making 2D web games and my familiarity with the engine
+          when I was in high-school. Other tools used include using GIMP image editing software
+          to further edit the scanned art for use as game assets and Audacity
+          for recording and editing voice lines.
+        `,
+        buttonText: 'Play the Game in your Browser!',
+      },
     },
   },
 };

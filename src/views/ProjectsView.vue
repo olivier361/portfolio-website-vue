@@ -182,6 +182,64 @@ function incrementPlaceholderImageCounter() {
           />
         </template>
 
+        <h4>{{ t('previousGames.details1.title') }}</h4>
+        <p>
+          {{ t('previousGames.details1.para1') }}
+          <br><br>
+          {{ t('previousGames.details1.para2') }}
+          <br><br>
+          {{ t('previousGames.details1.para3') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/previousGames/cj-screenshot-5.png',
+              captionText: t('previousGames.details1.imgCollection.caption1'),
+              altText: t('previousGames.details1.imgCollection.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/previousGames/cj-screenshot-4.png',
+              captionText: t('previousGames.details1.imgCollection.caption2'),
+              altText: t('previousGames.details1.imgCollection.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/previousGames/cj-screenshot-2.png',
+              captionText: t('previousGames.details1.imgCollection.caption3'),
+              altText: t('previousGames.details1.imgCollection.altText3'),
+            }
+          ]"
+          imgWidth="320px"
+          imgHeight="auto"
+        />
+
+        <hr class="info-divider">
+
+        <h4>{{ t('previousGames.details2.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <p>
+            {{ t('previousGames.details2.para1') }}
+          </p>
+          <ImageFrame
+            imgPath="projects/gameDev/previousGames/carnet-de-jeux-cover.png"
+            :captionText="t('previousGames.details2.caption1')"
+            :altText="t('previousGames.details2.altText1')"
+            widthPx="250px"
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('previousGames.details3.title') }}</h4>
+        <p>
+          {{ t('previousGames.details3.para1') }}
+        </p>
+        <!-- TODO: Host the game on the site -->
+        <!-- <CTAButton
+          url="/games/TODO"
+          :buttonText="t('previousGames.details3.buttonText')"
+          isFilled
+          isNewTab
+        /> -->
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
