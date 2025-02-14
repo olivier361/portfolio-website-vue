@@ -411,6 +411,46 @@ function incrementPlaceholderImageCounter() {
           imgHeight="309px"
         />
 
+        <hr class="info-divider">
+
+        <h4>{{ t('computerAnimAndRender.details3.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px'}">
+          <div class="uk-flex-1">
+            <p>
+              {{ t('computerAnimAndRender.details3.para1') }}
+              <a href="https://www.opengl.org/" target="_blank">
+                {{ t('computerAnimAndRender.details3.para2') }}
+              </a>
+              {{ t('computerAnimAndRender.details3.para3') }}
+              <a href="https://freeglut.sourceforge.net/" target="_blank">
+                {{ t('computerAnimAndRender.details3.para4') }}
+              </a>
+              {{ t('computerAnimAndRender.details3.para5') }}
+              <br><br>
+              {{ t('computerAnimAndRender.details3.para6') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                // TODO: Create a public version of the repository for the tetris project
+                // {
+                //   url: '/TODO',
+                //   teaserText: t('computerAnimAndRender.details3.relatedLinks1'),
+                // },
+                {
+                  url: 'https://youtu.be/2A3-CP1nTuE',
+                  teaserText: t('computerAnimAndRender.details3.relatedLinks2'),
+                },
+              ]"
+            />
+          </div>
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/computerAnimAndRender/tetris-mockup.png"
+            :captionText="t('computerAnimAndRender.details3.caption1')"
+            :altText="t('computerAnimAndRender.details3.altText1')"
+          />
+        </div>
+
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"

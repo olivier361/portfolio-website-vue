@@ -336,6 +336,29 @@ export default {
           altText3: 'A side view of the wiremesh human drawing a spline that reads "animation" on the blackboard.',
         },
       },
+      details3: {
+        title: 'Tetris Game with OpenGL',
+        para1: 'Using C++ with legacy ',
+        para2: 'OpenGL',
+        para3: ' and ',
+        para4: 'GLUT',
+        para5: `
+          libraries, I created a classic Tetris game for Linux and Windows.
+          The game includes basic niceties like pausing the game and keeping track of your score,
+          the total amount of lines cleared, and your overall high score.
+        `,
+        para6: `
+          The big focus of this project was on code quality, readability,
+          and following object-oriented programming best practices for designing the codebase
+          with objects and classes. Interfaces were also carefully created for the
+          graphic functions so that the choice of graphical libraries can be easily changed
+          without requiring any changes to the gameplay logic code.
+        `,
+        relatedLinks1: 'View the “cpp-tetris” code on GitHub.',
+        relatedLinks2: 'Watch the video demo and presentation on YouTube.',
+        caption1: 'A screenshot of my C++ Tetris game.',
+        altText1: 'A Tetris board with multiple blocks clumsily stacked. A red block is currently falling. The game window has a blue background and instructions on how to play are on the left of the board with the score on the right.',
+      },
     },
   },
 };
