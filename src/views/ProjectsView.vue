@@ -290,11 +290,11 @@ function incrementPlaceholderImageCounter() {
           <br>
           {{ t('computerAnimAndRender.details1.para3') }}
         </p>
-        <!-- TODO: Add background color to image frames -->
         <ImageFrame
           imgPath="projects/gameDev/computerAnimAndRender/raytrace-shadow.png"
           :altText="t('computerAnimAndRender.details1.altText1')"
           widthPercent="100%"
+          backgroundColor="#707090"
         />
         <br>
         <p>
@@ -304,6 +304,7 @@ function incrementPlaceholderImageCounter() {
           imgPath="projects/gameDev/computerAnimAndRender/raytrace-perlin-cubic.png"
           :altText="t('computerAnimAndRender.details1.altText2')"
           widthPercent="100%"
+          backgroundColor="#707090"
         />
         <br>
         <p>
@@ -316,10 +317,12 @@ function incrementPlaceholderImageCounter() {
             {
               imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree-without-reflections.png',
               altText: t('computerAnimAndRender.details1.altText3'),
+              backgroundColor: '#9aceff',
             },
             {
               imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree.png',
               altText: t('computerAnimAndRender.details1.altText4'),
+              backgroundColor: '#9aceff',
             },
           ]"
           imgWidth="490px"

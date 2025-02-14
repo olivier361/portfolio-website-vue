@@ -43,6 +43,12 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
+  backgroundColor: {
+    // the background color of the image.
+    type: String,
+    required: false,
+    default: '#505050',
+  },
 });
 
 // This is needed to successfully resolve a path constructed with props
@@ -63,7 +69,7 @@ const imgUrl = props.isUrlPath
       :alt="(altText === undefined ? imgPath : altText)"
       :style="{
         width: (widthPx ?? '100%'), minWidth: (widthPx ?? '100%'), maxWidth: (widthPx ?? '100%'),
-        height: height, minHeight: height, maxHeight: height
+        height: height, minHeight: height, maxHeight: height, backgroundColor: backgroundColor,
       }"
     >
     <figcaption v-if="captionText">{{ captionText }}</figcaption>

@@ -5,7 +5,16 @@ import { onBeforeMount, ref } from 'vue';
 const props = defineProps({
   imgList: {
     // EX:
-    // imgList: [{imgPath: 'path/to/img', captionText: 'caption text', altText: 'alt text'}, ...]
+    // imgList: [
+    //  {
+    //    imgPath: 'path/to/img',
+    //    captionText?: 'caption text',
+    //    altText?: 'alt text',
+    //    isUrlPath?: true,
+    //    backgroundColor?: red,
+    //  },
+    //  ...
+    // ]
     // NOTE: if captionText is not provided, the <figcaption> tag will not be rendered.
     // NOTE: if altText is not provided, the imgPath will be used as the alt text.
     type: Array,
@@ -26,9 +35,13 @@ const props = defineProps({
             !Object.hasOwn(item, 'altText')
             || (Object.hasOwn(item, 'altText') && typeof item.altText === 'string')
           )
-          && ( // isUrl is optional but must be a boolean if provided
+          && ( // isUrlPath is optional but must be a boolean if provided
             !Object.hasOwn(item, 'isUrlPath')
             || (Object.hasOwn(item, 'isUrlPath') && typeof item.isUrlPath === 'boolean')
+          )
+          && ( // backgroundColor is optional but must be a string if provided
+            !Object.hasOwn(item, 'backgroundColor')
+            || (Object.hasOwn(item, 'backgroundColor') && typeof item.backgroundColor === 'string')
           );
       });
     },
@@ -86,6 +99,7 @@ onBeforeMount(() => {
         :height="imgHeight"
         :widthPx="widthPx"
         :widthPercent="widthPercent ? '100%' : undefined"
+        :backgroundColor="item.backgroundColor"
       />
     </div>
   </div>
