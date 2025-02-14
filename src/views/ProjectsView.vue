@@ -360,6 +360,57 @@ function incrementPlaceholderImageCounter() {
 
         <hr class="info-divider">
 
+        <h4>{{ t('computerAnimAndRender.details2.title') }}</h4>
+        <p>
+          {{ t('computerAnimAndRender.details2.para1') }}
+          <br><br>
+          <u><b>{{ t('computerAnimAndRender.details2.para2') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details2.para3') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/spring-mass-system-cube-complex-at-rest.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection1.caption1'),
+              altText: t('computerAnimAndRender.details2.imgCollection1.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/spring-mass-system-cube-complex-collision-2.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection1.caption2'),
+              altText: t('computerAnimAndRender.details2.imgCollection1.altText2'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+        <br>
+        <p>
+          <u><b>{{ t('computerAnimAndRender.details2.para4') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details2.para5') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-initial-closeup.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection2.caption1'),
+              altText: t('computerAnimAndRender.details2.imgCollection2.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-drawing.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection2.caption2'),
+              altText: t('computerAnimAndRender.details2.imgCollection2.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-drawing-2.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection2.caption3'),
+              altText: t('computerAnimAndRender.details2.imgCollection2.altText3'),
+            },
+          ]"
+          imgWidth="320px"
+          imgHeight="309px"
+        />
+
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"

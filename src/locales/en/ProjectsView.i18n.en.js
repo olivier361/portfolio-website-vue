@@ -294,6 +294,48 @@ export default {
         altText5: 'A GIF of a rotating 3D model of a bunny. The bunny is grey and has a smooth shading gradient across its surface.',
         altText6: 'The same bunny model using flat shading. Each triangle on the model has constant shading across its surface making the triangles more apparent.',
       },
+      details2: {
+        title: 'Computer Animation',
+        para1: `
+          In addition to creating image rendering programs in C++, I have also done some
+          computer animation work by implementing algorithms for a spring mass system
+          and for inverse kinematics.
+        `,
+        para2: 'Spring Mass System:',
+        para3: `
+          The implemented spring mass system allows users to add an arbitrary amount of
+          particles and springs, choose how they should connect together,
+          and set individual physical properties for each spring.
+        `,
+        para4: 'Inverse Kinematics:',
+        para5: `
+          This Inverse Kinematics program features a humanoid skeleton setup with various joints.
+          The wall present in the scene has a blackboard which can be used to display splines
+          loaded from a file. The humanoid skeleton will then proceed to draw the spline
+          on the blackboard using inverse kinematics to guide his right arm
+          into following the spline that was loaded.
+        `,
+        imgCollection1: {
+          caption1: 'A cube made of springs currently at rest.',
+          caption2: 'A cube made of springs after having just been dropped on the ground.',
+          altText1: 'A rendered wiremesh cube made of springs connected between each possible combination of vertices. The cube is at rest on a black surface.',
+          altText2: 'A rendered wiremesh cube made of springs that is deformed and squished from having just been dropped on the ground.',
+        },
+        imgCollection2: {
+          caption1: `
+            IK human at rest position with a spline reading “hello” loaded on the blackboard.
+          `,
+          caption2: `
+            The IK human starting to draw/follow the spline with his right arm.
+          `,
+          caption3: `
+            Another view of the IK human drawing a spline that reads “animation”.
+          `,
+          altText1: 'A flat wiremesh outline of a human at rest position in from of a blackboard with the spline "hello" drawn on it. Each arm joint is depicted by a red circle.',
+          altText2: 'The wiremesh human now has his right arm following the spline "hello" on the blackboard.',
+          altText3: 'A side view of the wiremesh human drawing a spline that reads "animation" on the blackboard.',
+        },
+      },
     },
   },
 };
