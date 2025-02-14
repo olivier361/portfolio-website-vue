@@ -360,5 +360,29 @@ export default {
         altText1: 'A Tetris board with multiple blocks clumsily stacked. A red block is currently falling. The game window has a blue background and instructions on how to play are on the left of the board with the score on the right.',
       },
     },
+    modelling3D: {
+      title: '3D Modelling',
+      introPara1: `
+        Since 2014, I have completed two 3D modelling courses using SketchUp and Blender.
+        The projects below mostly focus on object modelling and low-poly environment design.
+        An emphasis is placed on architecture, urban planning, and being true to scale
+        to the real life locations they represent.
+      `,
+      previewImg: {
+        caption1: `
+          A 1:1 Scale re-imagining of the Oak Bay Marina in Victoria if it were a park.
+        `,
+        caption2: `
+          A floor-plan accurate recreation of the Fifty-Fifty Arts Collective building
+          and the surrounding area.
+        `,
+        caption3: `
+          Various everyday objects modelled to scale.
+        `,
+        altText1: 'A zoomed out top view of the re-imagined Oak Bay Marina park 3D environment. A parking lot, walking paths through trees, a playground, and a water fountain with park benches can be seen.',
+        altText2: 'A zoomed out view of the 3D environment of the Fifty-Fifty Arts Collective building and the surrounding area. Golf carts can be seen driving on the street. There is also a parking lot and a mini-golf course along with picnic tables.',
+        altText3: 'An assortment of 3D models of to-scale everyday objects. From left to right: a human for scale, a tall orange traffic cone, a small traffic cone, a lamp with shade, a pencil, a disposable coffee cup, a wine bottle, and a metal door with large glass panels.',
+      },
+    },
   },
 };

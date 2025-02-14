@@ -453,6 +453,33 @@ function incrementPlaceholderImageCounter() {
 
       </ProjectCard>
       <ProjectCard
+        :heading="t('modelling3D.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/modelling3D/thw0.jpg',
+            captionText: t('modelling3D.previewImg.caption1'),
+            altText: t('modelling3D.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/gameDev/modelling3D/gallery-pictures-4.png',
+            captionText: t('modelling3D.previewImg.caption2'),
+            altText: t('modelling3D.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/modelling3D/everyday-objects.png',
+            captionText: t('modelling3D.previewImg.caption3'),
+            altText: t('modelling3D.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introParagraph>
+          {{ t('modelling3D.introPara1') }}
+        </template>
+
+        <!-- TODO: Add details -->
+
+      </ProjectCard>
+      <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
