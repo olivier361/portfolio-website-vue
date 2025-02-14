@@ -75,6 +75,7 @@ export default {
           The game also features a fully implemented menu and UI system,
           along with an Audio Manager to control game music and sounds.
         `,
+        relatedLinks1: 'View “Cube Game” on GitHub',
         altText1: 'A view of the Unity Editor showing the Cube Game in a game window and the scene view which is zoomed out to show the layout of the full level.',
       },
       details3: {
@@ -85,6 +86,7 @@ export default {
           It also implements features like spatial audio, a particle system for special effects,
           UI for gameplay and menus, an NPC dialogue system, and a character health and damage system.
         `,
+        relatedLinks1: "View “Ruby's Adventure” on GitHub",
         altText1: "A view of the Unity Editor showing the scene view of a prototype level in the Ruby's Adventure game along with an animation graph and configurations for the player character.",
       },
     },

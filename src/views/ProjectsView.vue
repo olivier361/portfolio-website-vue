@@ -90,7 +90,7 @@ function incrementPlaceholderImageCounter() {
               :linkObjectsList="[
                 {
                   url: 'https://github.com/olivier361/Cube-Game',
-                  teaserText: 'View “Cube Game” on GitHub',
+                  teaserText: t('unity.details2.relatedLinks1'),
                 },
               ]"
             />
@@ -114,7 +114,7 @@ function incrementPlaceholderImageCounter() {
               :linkObjectsList="[
                 {
                   url: 'https://github.com/olivier361/Rubys-Adventure-2D',
-                  teaserText: `View “Ruby's Adventure 2D” on GitHub`,
+                  teaserText: t('unity.details3.relatedLinks1'),
                 },
               ]"
             />
@@ -290,6 +290,7 @@ function incrementPlaceholderImageCounter() {
           <br>
           {{ t('computerAnimAndRender.details1.para3') }}
         </p>
+        <!-- TODO: Add background color to image frames -->
         <ImageFrame
           imgPath="projects/gameDev/computerAnimAndRender/raytrace-shadow.png"
           :altText="t('computerAnimAndRender.details1.altText1')"
