@@ -461,6 +461,7 @@ function incrementPlaceholderImageCounter() {
             altText: t('modelling3D.previewImg.altText1'),
           },
           {
+            // TODO: Update image to showcase final version of the project
             imgPath: 'projects/gameDev/modelling3D/gallery-pictures-4.png',
             captionText: t('modelling3D.previewImg.caption2'),
             altText: t('modelling3D.previewImg.altText2'),
@@ -476,7 +477,67 @@ function incrementPlaceholderImageCounter() {
           {{ t('modelling3D.introPara1') }}
         </template>
 
-        <!-- TODO: Add details -->
+        <h4>{{ t('modelling3D.details1.title') }}</h4>
+        <p>
+          {{ t('modelling3D.details1.para1') }}
+          <br><br>
+          {{ t('modelling3D.details1.para2') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw-google-maps-screenshot-large.png',
+              captionText: t('modelling3D.details1.imgCollection1.caption1'),
+              altText: t('modelling3D.details1.imgCollection1.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw0.jpg',
+              captionText: t('modelling3D.details1.imgCollection1.caption2'),
+              altText: t('modelling3D.details1.imgCollection1.altText2'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+        <br>
+        <CTAButton
+          url="https://maps.app.goo.gl/7QA4Te1UzBLRx7Dy9"
+          :buttonText="t('modelling3D.details1.buttonText')"
+          showOutline
+          isNewTab
+        />
+        <br><br><br>
+        <ImageFrame
+          imgPath="projects/gameDev/modelling3D/thw0.jpg"
+          :captionText="t('modelling3D.details1.imgFrame.caption1')"
+          :altText="t('modelling3D.details1.imgFrame.altText1')"
+          widthPercent="100%"
+        />
+        <br>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw3.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption1'),
+              altText: t('modelling3D.details1.imgCollection2.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw4.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption2'),
+              altText: t('modelling3D.details1.imgCollection2.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw5.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption3'),
+              altText: t('modelling3D.details1.imgCollection2.altText3'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw1.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption4'),
+              altText: t('modelling3D.details1.imgCollection2.altText4'),
+            },
+          ]"
+          imgWidth="490px"
+        />
 
       </ProjectCard>
       <ProjectCard

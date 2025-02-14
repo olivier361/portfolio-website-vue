@@ -383,6 +383,46 @@ export default {
         altText2: 'A zoomed out view of the 3D environment of the Fifty-Fifty Arts Collective building and the surrounding area. Golf carts can be seen driving on the street. There is also a parking lot and a mini-golf course along with picnic tables.',
         altText3: 'An assortment of 3D models of to-scale everyday objects. From left to right: a human for scale, a tall orange traffic cone, a small traffic cone, a lamp with shade, a pencil, a disposable coffee cup, a wine bottle, and a metal door with large glass panels.',
       },
+      details1: {
+        title: 'Oak Bay Marina Environment',
+        para1: `
+          This is a 1:1 scale recreation of the Oak Bay Marina in Victoria made using SketchUp.
+          This model reimagines the largely underutilized marina parking lot into an enjoyable
+          public space. I modelled both the environment and all the 3D models used within.
+        `,
+        para2: `
+          Below is a comparison of the current real-life location against my 3D model:
+        `,
+        imgCollection1: {
+          caption1: 'Google Maps view of the Oak Bay Marina.',
+          caption2: `
+            My 3D model of a reimagined Oak Bay Marina superimposed over the Google Map image.
+          `,
+          altText1: 'A Google Maps satellite view of the Oak Bay Marina. A large, mostly empty, parking lot takes up most of the space of the marina grounds.',
+          altText2: 'A 3D model of a re-imagined marina superimposed over the Google Maps image. The parking lot is now a park with walking paths, trees, a playground, and a water fountain.',
+        },
+        buttonText: 'View this Location in Google Maps',
+        imgFrame: {
+          caption1: 'Overview of the full 1:1 scale Oak Bay Marina 3D environment.',
+          altText1: 'A zoomed out top view of the re-imagined Oak Bay Marina park 3D environment. A parking lot, walking paths through trees, a playground, and a water fountain with park benches can be seen.',
+        },
+        imgCollection2: {
+          caption1: 'View of the Oak Bay Marina entrance and parking lot.',
+          caption2: `
+            The trail surrounding the park includes benches and picnic tables,
+            along with a view of the playground.
+          `,
+          caption3: 'Overview of the various trails, the playground, and the small pond.',
+          caption4: `
+            A plaza featuring a fountain with an abstract sculpture
+            and benches giving a view of the ocean.
+          `,
+          altText1: 'A view of the 3D models parking lot. It now takes only a fraction of the marina space. A wooden sign with white contour at the road entrance reads "Oak Bay Marina Park".',
+          altText2: "A view of the park's walking trails. 3D models of benches, picnic tables, trees, and lamp posts can be seen. The playground is visible in the background.",
+          altText3: 'An aerial view of the park showing the walking trails, the playground with volleyball courts, and a small pond surrounded by trees.',
+          altText4: 'At the end of the breakwater, a plaza with a fountain and abstract sculpture is surrounded by benches. The plaza is elevated and has large stairs surrounded by water basins leading up to it.',
+        },
+      },
     },
   },
 };
