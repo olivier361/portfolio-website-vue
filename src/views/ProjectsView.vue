@@ -579,6 +579,43 @@ function incrementPlaceholderImageCounter() {
           imgWidth="490px"
         />
 
+        <hr class="info-divider">
+
+        <h4>{{ t('modelling3D.details3.title') }}</h4>
+        <p>
+          {{ t('modelling3D.details3.para1') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/modelling3D/everyday-objects.png',
+              altText: t('modelling3D.details3.imgCollection.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/everyday-objects-2.jpg',
+              altText: t('modelling3D.details3.imgCollection.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/room-2.png',
+              altText: t('modelling3D.details3.imgCollection.altText3'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/room-1.png',
+              altText: t('modelling3D.details3.imgCollection.altText4'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/tables-2.png',
+              altText: t('modelling3D.details3.imgCollection.altText5'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/projector-model.png',
+              altText: t('modelling3D.details3.imgCollection.altText6'),
+            },
+          ]"
+          imgWidth="490px"
+          imgHeight="275px"
+        />
+
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"

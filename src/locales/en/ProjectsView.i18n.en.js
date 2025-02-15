@@ -448,6 +448,22 @@ export default {
           altText4: 'A staging area for various work in progress 3D models. An analog clock face, billboards, doors, and a golf cart are being built.',
         },
       },
+      details3: {
+        title: 'Everyday Objects',
+        para1: `
+          Below are a few samples of an assortment of everyday objects
+          I've modelled using SketchUp. Some of these objects are used
+          in the 3D environments showcased above.
+        `,
+        imgCollection: {
+          altText1: 'An assortment of 3D models of to-scale everyday objects. From left to right: a human for scale, a tall orange traffic cone, a small traffic cone, a lamp with shade, a pencil, a disposable coffee cup, a wine bottle, and a metal door with large glass panels.',
+          altText2: 'More 3D models of everyday objects. From left to right: a human for scale, a pedestrian crossing sign, a wooden park bench, a bike rack, a bolard, and a classic street lamp.',
+          altText3: 'A model of a living room furnished with black chairs, wooden coffee tables, a wooden kitchen table with bar stools, a bookshelf, and two large wooden french doors with glass motifs.',
+          altText4: 'Top view of the same living room model. Behind the couch and chairs are three tall windows. There are some abstract art pieces on the walls.',
+          altText5: 'Close-up view of the wooden coffee table and kitchen table. The kitchen table has tapered legs and the coffee table makes use of rabbet and dado joints to interlock wood pieces.',
+          altText6: 'A 3D model of a white video projector. The lens is made of multiple pieces of convex glass. A control panel with buttons can be seen at the top and multiple vents are on all sides of the projector.',
+        },
+      },
     },
   },
 };
