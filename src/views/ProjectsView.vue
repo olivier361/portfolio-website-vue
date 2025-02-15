@@ -539,6 +539,46 @@ function incrementPlaceholderImageCounter() {
           imgWidth="490px"
         />
 
+        <hr class="info-divider">
+
+        <h4>{{ t('modelling3D.details2.title') }}</h4>
+        <p>
+          {{ t('modelling3D.details2.para1') }}
+        </p>
+        <CTAButton
+          url="https://maps.app.goo.gl/oMG3qv5EoJfQjtMu7"
+          :buttonText="t('modelling3D.details2.buttonText')"
+          showOutline
+          isNewTab
+        />
+        <br><br><br>
+        <ImageCollection
+          :imgList="[
+            {
+              // TODO: Update image to showcase final version of the project
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-4.png',
+              captionText: t('modelling3D.details2.imgCollection.caption1'),
+              altText: t('modelling3D.details2.imgCollection.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-1.png',
+              captionText: t('modelling3D.details2.imgCollection.caption2'),
+              altText: t('modelling3D.details2.imgCollection.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-2.png',
+              captionText: t('modelling3D.details2.imgCollection.caption3'),
+              altText: t('modelling3D.details2.imgCollection.altText3'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-6.png',
+              captionText: t('modelling3D.details2.imgCollection.caption4'),
+              altText: t('modelling3D.details2.imgCollection.altText4'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"

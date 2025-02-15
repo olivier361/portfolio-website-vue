@@ -423,6 +423,31 @@ export default {
           altText4: 'At the end of the breakwater, a plaza with a fountain and abstract sculpture is surrounded by benches. The plaza is elevated and has large stairs surrounded by water basins leading up to it.',
         },
       },
+      details2: {
+        title: 'Fifty-Fifty Arts Collective Remodelled',
+        para1: `
+          This is another 1:1 scale recreation of a real-life location following
+          the same idea of enhancing an existing public space. It features the
+          Fifty-Fifty Arts Collective building in Victoria modelled to scale using
+          their actual building plan and the surrounding Douglas street area.
+        `,
+        buttonText: 'View this Location in Google Maps',
+        imgCollection: {
+          caption1: `
+            Overview of the Fifty-Fifty Arts Collective building and Douglas street environment.
+          `,
+          caption2: 'Early modelling work on the buildings showing their interiors.',
+          caption3: 'A work-in-progress model of a golf cart used to decorate the streets.',
+          caption4: `
+            Work-in-progress modelling of various objects such as a clock, doors,
+            and components for the golf cart.
+          `,
+          altText1: 'A zoomed out view of the 3D environment of the Fifty-Fifty Arts Collective building and the surrounding area. Golf carts can be seen driving on the street. There is also a parking lot and a mini-golf course along with picnic tables.',
+          altText2: 'An early version of the environment showing the buildings with their roofs raised to show the interior rooms.',
+          altText3: 'A 3D model of a white golf cart on the street. Many mesuring guide lines are present to help with the modelling.',
+          altText4: 'A staging area for various work in progress 3D models. An analog clock face, billboards, doors, and a golf cart are being built.',
+        },
+      },
     },
   },
 };
