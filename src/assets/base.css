@@ -22,6 +22,7 @@
 
   --c-accent-primary: white;
   --c-accent-secondary: #FFD700;
+  --c-accent-tertiary: #ffc320;
   --c-background-primary: #232323;
 
   --c-text-dark-primary: #151515;
@@ -71,6 +72,15 @@
 
   --image-frame-border-width: 5px;
   --image-frame-caption-text-size: 14px;
+
+  --color-cta-button-outline-dark: black;
+  --color-cta-button-outline-light: var(--c-accent-primary);
+  --color-cta-button-outline-hover: var(--c-accent-secondary);
+  --color-cta-button-text-dark: black;
+  --color-cta-button-text-light: var(--c-accent-primary);
+  --color-cta-button-text-hover: var(--c-accent-secondary);
+  --color-cta-button-background: var(--c-accent-secondary);
+  --color-cta-button-background-hover: var(--c-accent-tertiary);
 
   --section-gap: 160px;
 

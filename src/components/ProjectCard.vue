@@ -5,25 +5,27 @@ import ImageCollection from './ImageCollection.vue';
 const props = defineProps({
   heading: {
     type: String,
-    required: true
+    required: true,
   },
   isExpandable: {
     type: Boolean,
     required: false,
-    default: true
+    default: true,
   },
   previewBackgroundImgPath: {
     // the image path relative to the assets directory.
     // EX: ./src/assets/[previewBackgroundImgPath]
     type: String,
-    required: false
+    required: false,
+    default: undefined,
   },
   previewImgList: {
     // See ImageCollection.vue imgList prop validation
     // for correct format to use for this prop.
     type: Array,
-    required: false
-  }
+    required: false,
+    default: undefined,
+  },
 });
 
 const previewSection = ref(null);
@@ -56,7 +58,7 @@ onBeforeMount(() => {
 onMounted(() => {
   window.addEventListener('resize', handleResize);
   handleResize();
-  
+
   // get --card-border-radius CSS variable value
   const rootStyles = getComputedStyle(document.documentElement);
   cardBorderRadius.value = parseFloat(rootStyles.getPropertyValue('--card-border-radius').trim());
@@ -70,12 +72,12 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
 });
 
-function handleCardExpand(){
+function handleCardExpand() {
   handleResize();
   isExpanded.value = !isExpanded.value;
 }
 
-function handleCardShrink(){
+function handleCardShrink() {
   // add .no-close-transition class to info-animation-wrapper element
   // to prevent smooth height transition when closing the card
   // from the info section close button as it causes too much complexity
@@ -90,7 +92,7 @@ function handleCardShrink(){
   // above the viewport shrinking due to closing a card.
   window.scrollTo({
     top: window.scrollY - computeHeight(infoAnimationWrapper),
-    behavior: 'instant'
+    behavior: 'instant',
   });
 
   // Remove the .no-close-transition class after the scroll adjustment is complete
@@ -110,9 +112,9 @@ function handleResize() {
   infoSectionHeight.value = computeHeight(infoSection);
 }
 
-function computeHeight(ref){
-  if (!ref?.value) return 0;
-  return ref.value.getBoundingClientRect().height;
+function computeHeight(curRef) {
+  if (!curRef?.value) return 0;
+  return curRef.value.getBoundingClientRect().height;
 }
 
 </script>
@@ -123,32 +125,41 @@ function computeHeight(ref){
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
       <h2>{{ heading }}</h2>
       <p class="intro-paragraph" v-if="$slots.introParagraph">
-        <slot name="introParagraph"></slot>
+        <slot name="introParagraph" />
       </p>
-      <ImageCollection v-if="previewImgList"
+      <ImageCollection
+        v-if="previewImgList"
         :imgList="previewImgList"
         imgWidth="320px"
         imgHeight="180px"
       />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
-        <button class="expand-button" @click="handleCardExpand">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
+        <button class="expand-button" @click="handleCardExpand">
+          {{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}
+        </button>
       </div>
     </div>
-    <div class="info-animation-wrapper" ref="infoAnimationWrapper" v-if="isExpandable" :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }">
+    <div
+      class="info-animation-wrapper" ref="infoAnimationWrapper" v-if="isExpandable"
+      :style="{ height: (isExpanded ? infoSectionHeight + (cardBorderRadius / 2) : 0) + 'px' }"
+    >
       <div class="info-section" ref="infoSection">
-        <hr class="preview-divider"/>
+        <hr class="preview-divider">
         <div class="content">
           <slot>No content available to display.</slot>
         </div>
         <div class="uk-flex uk-flex-center">
-          <button class="expand-button bottom" @click="handleCardShrink">{{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼"}}</button>
+          <button class="expand-button bottom" @click="handleCardShrink">
+            {{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}
+          </button>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 
 </template>
 
+<!-- eslint-disable @stylistic/max-len -->
 <style scoped>
 
 .info-animation-wrapper {
@@ -171,7 +182,9 @@ function computeHeight(ref){
   overflow: hidden;
 
   .preview-section {
-    /* -5px in the margin calculation is to account for .expand-button padding to have 25px total spacing */
+    /* -5px in the margin calculation is to account for
+     * .expand-button padding to have 25px total spacing
+     */
     padding: var(--card-border-radius) var(--card-border-radius) calc((var(--card-border-radius) / 2) - 5px);
   }
 
@@ -195,7 +208,10 @@ function computeHeight(ref){
   }
 
   p.intro-paragraph {
-    /* max-width: calc(50% - calc(var(--card-border-radius) / 2)); */ /* 50% of the card width minus 25px padding for a two column layout with 50px between columns. */
+    /* 50% of the card width minus 25px padding for a two column layout
+     * with 50px between columns.
+     */
+    /* max-width: calc(50% - calc(var(--card-border-radius) / 2)); */
     max-width: 400px;
     margin-bottom: calc(2 * var(--content-margin-bottom));
   }

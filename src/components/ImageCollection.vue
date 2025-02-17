@@ -4,40 +4,55 @@ import { onBeforeMount, ref } from 'vue';
 
 const props = defineProps({
   imgList: {
-    // EX: imgList: [{imgPath: 'path/to/img', captionText: 'caption text', altText: 'alt text'}, ...]
+    // EX:
+    // imgList: [{imgPath: 'path/to/img', captionText: 'caption text', altText: 'alt text'}, ...]
     // NOTE: if captionText is not provided, the <figcaption> tag will not be rendered.
     // NOTE: if altText is not provided, the imgPath will be used as the alt text.
     type: Array,
     required: true,
     validator(value) {
-      return value.every(item =>
-        typeof item === 'object'
-        && (Object.hasOwn(item, 'imgPath') && typeof item.imgPath === 'string' && item.imgPath.length > 0)
-        && (!Object.hasOwn(item, 'captionText') || (Object.hasOwn(item, 'captionText') && typeof item.captionText === 'string')) // captionText is optional but must be a string if provided
-        && (!Object.hasOwn(item, 'altText') || (Object.hasOwn(item, 'altText') && typeof item.altText === 'string')) // altText is optional but must be a string if provided
-        && (!Object.hasOwn(item, 'isUrlPath') || (Object.hasOwn(item, 'isUrlPath') && typeof item.isUrlPath === 'boolean'))); // isUrl is optional but must be a boolean if provided
-    }
+      return value.every((item) => {
+        return typeof item === 'object'
+          && (
+            Object.hasOwn(item, 'imgPath')
+            && typeof item.imgPath === 'string'
+            && item.imgPath.length > 0
+          )
+          && ( // captionText is optional but must be a string if provided
+            !Object.hasOwn(item, 'captionText')
+            || (Object.hasOwn(item, 'captionText') && typeof item.captionText === 'string')
+          )
+          && ( // altText is optional but must be a string if provided
+            !Object.hasOwn(item, 'altText')
+            || (Object.hasOwn(item, 'altText') && typeof item.altText === 'string')
+          )
+          && ( // isUrl is optional but must be a boolean if provided
+            !Object.hasOwn(item, 'isUrlPath')
+            || (Object.hasOwn(item, 'isUrlPath') && typeof item.isUrlPath === 'boolean')
+          );
+      });
+    },
   },
   imgHeight: {
     type: String,
     required: false,
-    default: 'auto'
+    default: 'auto',
   },
   imgWidth: {
     type: String,
     required: false,
-    default: 'auto'
+    default: 'auto',
   },
   rowGap: {
     type: String,
     required: false,
-    default: '20px'
+    default: '20px',
   },
   columnGap: {
     type: String,
     required: false,
-    default: '20px'
-  }
+    default: '20px',
+  },
 });
 
 const widthPx = ref(undefined);
@@ -57,7 +72,12 @@ onBeforeMount(() => {
 <template>
 
   <div class="image-collection" :style="{ rowGap: rowGap, columnGap: columnGap }">
-    <div class="frame-wrapper" v-for="item in imgList" :key="item.imgPath" :style="widthPercent ? { width: widthPercent } : {}">
+    <div
+      class="frame-wrapper"
+      v-for="item in imgList"
+      :key="item.imgPath"
+      :style="widthPercent ? { width: widthPercent } : {}"
+    >
       <ImageFrame
         :imgPath="item.imgPath"
         :isUrlPath="item.isUrlPath"

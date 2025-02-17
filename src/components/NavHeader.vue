@@ -1,22 +1,22 @@
 <script setup>
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
 
-const isMobileNavMenuOpen = ref(false)
+const isMobileNavMenuOpen = ref(false);
 
 function handleMobileNavMenu() {
-  isMobileNavMenuOpen.value = !isMobileNavMenuOpen.value
+  isMobileNavMenuOpen.value = !isMobileNavMenuOpen.value;
 }
 
 function handleSetMobileNavMenu(state = true) {
-  isMobileNavMenuOpen.value = state
+  isMobileNavMenuOpen.value = state;
 }
 </script>
 
 <template>
   <div class="header header-desktop">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
-      <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
+      <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26">
     </RouterLink>
     <div class="nav-links">
       <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
@@ -27,11 +27,11 @@ function handleSetMobileNavMenu(state = true) {
   </div>
   <div class="header header-mobile">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
-      <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26" />
+      <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26">
     </RouterLink>
     <button @click="handleMobileNavMenu" type="button">
-      <span v-if="isMobileNavMenuOpen" id="nav-menu" href="" uk-icon="icon: close; ratio: 1.3"></span>
-      <span v-else id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3"></span>
+      <span v-if="isMobileNavMenuOpen" id="nav-menu" href="" uk-icon="icon: close; ratio: 1.3" />
+      <span v-else id="nav-menu" href="" uk-icon="icon: menu; ratio: 1.3" />
     </button>
   </div>
   <div v-if="isMobileNavMenuOpen" id="nav-links-mobile">
@@ -40,11 +40,17 @@ function handleSetMobileNavMenu(state = true) {
     <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
     <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
     <button id="nav-mobile-close" @click="handleSetMobileNavMenu(false)" type="button">
-      <span href="" uk-icon="icon: close; ratio: 1.6"></span>
+      <span href="" uk-icon="icon: close; ratio: 1.6" />
     </button>
   </div>
 </template>
 
+<!-- eslint-disable @stylistic/max-len -->
+<!-- SEE: https://github.com/eslint/eslint/issues/11138
+          https://github.com/vuejs/vue-eslint-parser#%EF%B8%8F-known-limitations
+     (explanation for why we must disable this rule for the entire style block
+      rather than just the specific line.)
+-->
 <style scoped>
 img {
   height: 26px;
@@ -129,10 +135,10 @@ span {
 
 #nav-links-mobile {
   display: flex;
-  opacity:    0.85; 
-  background: var(--color-page-overlay); 
+  opacity:    0.85;
+  background: var(--color-page-overlay);
   width:      100%;
-  height:     100%; 
+  height:     100%;
   z-index:    10;
   position:   fixed;
   flex-direction: column;

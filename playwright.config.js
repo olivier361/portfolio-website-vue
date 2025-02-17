@@ -16,6 +16,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests/e2e',
+  testIgnore: '**/tests-examples/**',
   /* The location where image snapshots are saved */
   snapshotPathTemplate: '{testDir}/__snapshots__/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   /* Run tests in files in parallel */
@@ -39,12 +40,14 @@ export default defineConfig({
   /* Automatically run your local dev server before starting the tests.
    * The dev server is only launched if no prod/staging url is given (E2E_URL).
   */
-  webServer: process.env.E2E_URL ? undefined : {
-    command: 'npm run dev',
-    url: 'http://localhost:5173',
-    reuseExistingServer: !process.env.CI,
-    timeout: 30 * 1000,
-  },
+  webServer: process.env.E2E_URL
+    ? undefined
+    : {
+      command: 'npm run dev',
+      url: 'http://localhost:5173',
+      reuseExistingServer: !process.env.CI,
+      timeout: 30 * 1000,
+    },
 
   /* Configure projects for major browsers */
   projects: [
