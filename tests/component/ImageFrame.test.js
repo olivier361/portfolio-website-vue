@@ -26,6 +26,9 @@ suite('ImageFrame - Component Tests', () => {
     // Test that auto width and height set
     expect(wrapper.find('img').attributes('style')).toContain('height: auto;');
     expect(wrapper.find('img').attributes('style')).toContain('width: 100%;');
+
+    // Test that the default background color is set
+    expect(wrapper.find('img').attributes('style')).toContain('background-color: rgb(80, 80, 80);');
   });
 
   test('ImageFrame renders correctly with caption', () => {
@@ -116,6 +119,35 @@ suite('ImageFrame - Component Tests', () => {
 
     // Test that default alt text is correct
     expect(wrapper.find('img').attributes('alt')).toBe(url);
+  });
+
+  test('ImageFrame uses backgroundColor prop correctly', () => {
+    const fileName = 'test-image.png';
+    const color = 'rgb(255, 0, 0)';
+
+    const wrapper = mount(ImageFrame, { props: { imgPath: fileName, backgroundColor: color } });
+
+    // Test that the component renders
+    expect(wrapper.find('figure').exists()).toBeTruthy();
+    expect(wrapper.find('figure').find('img').exists()).toBeTruthy();
+
+    // Test that the background color is set correctly
+    expect(wrapper.find('img').attributes('style')).toContain('background-color: ' + color + ';');
+  });
+
+  test('ImageFrame that undefined backgroundColor prop uses default color', () => {
+    const fileName = 'test-image.png';
+    const defaultColor = 'rgb(80, 80, 80)';
+
+    const wrapper = mount(ImageFrame, { props: { imgPath: fileName, backgroundColor: undefined } });
+
+    // Test that the component renders
+    expect(wrapper.find('figure').exists()).toBeTruthy();
+    expect(wrapper.find('figure').find('img').exists()).toBeTruthy();
+
+    // Test that the background color is set correctly
+    expect(wrapper.find('img').attributes('style'))
+      .toContain('background-color: ' + defaultColor + ';');
   });
 
   // NOTE: This test is moreso to illustrate how we can use snapshot tests

@@ -103,6 +103,7 @@ onBeforeUnmount(() => {
         </p>
 
         <a
+          id="splashcreen-cta-arrow"
           v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)"
           href="#homepage-section1"
           uk-icon="icon: chevron-down; ratio: 2.5"
@@ -229,6 +230,10 @@ onBeforeUnmount(() => {
   top: 10px;
   text-shadow: 1px 1px 10px rgba(0,0,0,0.40); /* Horizontal, Vertical, Blur, Color */
   user-select: none;
+}
+
+#splashcreen-cta-arrow {
+  color: var(--color-splashscreen-text);
 }
 
 </style>

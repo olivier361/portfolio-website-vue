@@ -26,6 +26,16 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
+  previewImgWidth: {
+    type: String,
+    required: false,
+    default: '320px',
+  },
+  previewImgHeight: {
+    type: String,
+    required: false,
+    default: '180px',
+  },
 });
 
 const previewSection = ref(null);
@@ -123,15 +133,15 @@ function computeHeight(curRef) {
 
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
-      <h2>{{ heading }}</h2>
+      <h3>{{ heading }}</h3>
       <p class="intro-paragraph" v-if="$slots.introParagraph">
         <slot name="introParagraph" />
       </p>
       <ImageCollection
         v-if="previewImgList"
         :imgList="previewImgList"
-        imgWidth="320px"
-        imgHeight="180px"
+        :imgWidth="previewImgWidth"
+        :imgHeight="previewImgHeight"
       />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">
@@ -198,8 +208,16 @@ function computeHeight(curRef) {
     color: var(--color-card-heading);
   }
 
-  h2, :slotted(h2) {
+  h3, :slotted(h3) {
     text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  h4, :slotted(h4) {
+    margin: 25px 0px;
+    font-size: 30px;
+    font-weight: 400;
   }
 
   p, :slotted(p) {

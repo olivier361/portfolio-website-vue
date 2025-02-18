@@ -23,6 +23,7 @@
   --c-accent-primary: white;
   --c-accent-secondary: #FFD700;
   --c-accent-tertiary: #ffc320;
+  --c-accent-quaternary: orange;
   --c-background-primary: #232323;
 
   --c-text-dark-primary: #151515;
@@ -40,11 +41,17 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
+  --color-link: var(--c-accent-secondary);
+  --color-link-hover: var(--c-accent-tertiary);
+  --color-link-visited: var(--c-accent-quaternary);
+
   --color-page-overlay: black;
 
   --color-page-title-text: var(--c-text-dark-primary);
+  --color-page-section-text: var(--c-text-dark-primary);
 
   --page-title-font-size: 64px;
+  --page-section-font-size: 48px;
 
   --color-header-background: var(--c-background-primary);
   --color-header-link: var(--c-accent-primary);
@@ -146,4 +153,16 @@ body {
 html {
   /* smoothly scroll to section anchors when href clicked */
   scroll-behavior: smooth;
+}
+
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+a:visited {
+  color: var(--color-link-visited);
 }

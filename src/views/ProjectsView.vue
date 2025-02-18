@@ -6,6 +6,7 @@ import ProjectCard from '@/components/ProjectCard.vue';
 import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
+import RelatedLinks from '@/components/RelatedLinks.vue';
 
 const { t } = useI18n({
   messages: { en: en.en },
@@ -27,6 +28,595 @@ function incrementPlaceholderImageCounter() {
   <main>
     <div class="projects">
       <h1>{{ t('title') }}</h1>
+      <h2>{{ t('section.gameDev') }}</h2>
+      <ProjectCard
+        :heading="t('unity.title')"
+        :previewBackgroundImgPath="'projects/gameDev/unity/unity-card-background-fade.png'"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/unity/2d-pixel-game.png',
+            captionText: t('unity.previewImg.caption1'),
+            altText: t('unity.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/gameDev/unity/cube-game-4.png',
+            captionText: t('unity.previewImg.caption2'),
+            altText: t('unity.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/unity/ruby-adventure.png',
+            captionText: t('unity.previewImg.caption3'),
+            altText: t('unity.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introParagraph>
+          {{ t('unity.introPara1') }}
+          <i>
+            <a href="https://www.sfvictoria.ca/en/home-page/" target="_blank">
+              Société&nbsp;francophone&nbsp;de&nbsp;Victoria
+            </a>
+          </i>
+          {{ t('unity.introPara2') }}
+          <br><br>
+          {{ t('unity.introPara3') }}
+        </template>
+
+        <h4>{{ t('unity.details1.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <p class="uk-flex-1">
+            {{ t('unity.details1.para1') }}
+            <br><br>
+            {{ t('unity.details1.para2') }}
+          </p>
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/unity/unity-editor-2d-pixel-game.png"
+            :altText="t('unity.details1.altText1')"
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('unity.details2.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <div class="uk-flex-1">
+            <p>
+              {{ t('unity.details2.para1') }}
+              <br><br>
+              {{ t('unity.details2.para2') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                {
+                  url: 'https://github.com/olivier361/Cube-Game',
+                  teaserText: t('unity.details2.relatedLinks1'),
+                },
+              ]"
+            />
+          </div>
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/unity/unity-editor-cube-game.png"
+            :altText="t('unity.details2.altText1')"
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('unity.details3.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <div class="uk-flex-1">
+            <p>
+              {{ t('unity.details3.para1') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                {
+                  url: 'https://github.com/olivier361/Rubys-Adventure-2D',
+                  teaserText: t('unity.details3.relatedLinks1'),
+                },
+              ]"
+            />
+          </div>
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/unity/unity-editor-ruby-game.png"
+            :altText="t('unity.details3.altText1')"
+          />
+        </div>
+      </ProjectCard>
+      <ProjectCard
+        :heading="t('previousGames.title')"
+        :previewBackgroundImgPath="'projects/gameDev/previousGames/previous-games-card-background-fade.png'"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/previousGames/cj-screenshot-1.png',
+            captionText: t('previousGames.previewImg.caption1'),
+            altText: t('previousGames.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/gameDev/previousGames/cj-screenshot-2.png',
+            captionText: t('previousGames.previewImg.caption2'),
+            altText: t('previousGames.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/previousGames/cj-screenshot-3.png',
+            captionText: t('previousGames.previewImg.caption3'),
+            altText: t('previousGames.previewImg.altText3'),
+          }
+        ]"
+        previewImgHeight="auto"
+      >
+        <template #introParagraph>
+          <u><b>{{ t('previousGames.introPara1') }}</b></u>
+          <br>
+          <b>{{ t('previousGames.introPara2') }}</b>
+          <br><br>
+          {{ t('previousGames.introPara3') }}
+          <i>{{ t('previousGames.introPara4') }}</i>
+          {{ t('previousGames.introPara5') }}
+          <br><br>
+          {{ t('previousGames.introPara6') }}
+          <br><br>
+          {{ t('previousGames.introPara7') }}
+          <br><br>
+          <i>{{ t('previousGames.introPara8') }}</i>
+          <br><br>
+          <RelatedLinks
+            :linkObjectsList="[
+              // TODO: Host these resources on our site
+              // {
+              //   url: '/TODO',
+              //   teaserText: t('previousGames.relatedLinks1'),
+              // },
+              // {
+              //   url: '/TODO',
+              //   teaserText: t('previousGames.relatedLinks2'),
+              // },
+              {
+                url: 'https://www.sfvictoria.ca/en/home-page/',
+                teaserText: t('previousGames.relatedLinks3'),
+              },
+            ]"
+          />
+        </template>
+
+        <h4>{{ t('previousGames.details1.title') }}</h4>
+        <p>
+          {{ t('previousGames.details1.para1') }}
+          <br><br>
+          {{ t('previousGames.details1.para2') }}
+          <br><br>
+          {{ t('previousGames.details1.para3') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/previousGames/cj-screenshot-5.png',
+              captionText: t('previousGames.details1.imgCollection.caption1'),
+              altText: t('previousGames.details1.imgCollection.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/previousGames/cj-screenshot-4.png',
+              captionText: t('previousGames.details1.imgCollection.caption2'),
+              altText: t('previousGames.details1.imgCollection.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/previousGames/cj-screenshot-2.png',
+              captionText: t('previousGames.details1.imgCollection.caption3'),
+              altText: t('previousGames.details1.imgCollection.altText3'),
+            }
+          ]"
+          imgWidth="320px"
+          imgHeight="auto"
+        />
+
+        <hr class="info-divider">
+
+        <h4>{{ t('previousGames.details2.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <p>
+            {{ t('previousGames.details2.para1') }}
+          </p>
+          <ImageFrame
+            imgPath="projects/gameDev/previousGames/carnet-de-jeux-cover.png"
+            :captionText="t('previousGames.details2.caption1')"
+            :altText="t('previousGames.details2.altText1')"
+            widthPx="250px"
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('previousGames.details3.title') }}</h4>
+        <p>
+          {{ t('previousGames.details3.para1') }}
+        </p>
+        <!-- TODO: Host the game on the site -->
+        <!-- <CTAButton
+          url="/games/TODO"
+          :buttonText="t('previousGames.details3.buttonText')"
+          isFilled
+          isNewTab
+        /> -->
+      </ProjectCard>
+      <ProjectCard
+        :heading="t('computerAnimAndRender.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree-skybox.png',
+            captionText: t('computerAnimAndRender.previewImg.caption1'),
+            altText: t('computerAnimAndRender.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-initial-closeup.png',
+            captionText: t('computerAnimAndRender.previewImg.caption2'),
+            altText: t('computerAnimAndRender.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/computerAnimAndRender/tetris-mockup.png',
+            captionText: t('computerAnimAndRender.previewImg.caption3'),
+            altText: t('computerAnimAndRender.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introParagraph>
+          {{ t('computerAnimAndRender.introPara1') }}
+          <a href="https://en.wikipedia.org/wiki/Ray_tracing_(graphics)" target="_blank">
+            {{ t('computerAnimAndRender.introPara2') }}
+          </a>
+          {{ t('computerAnimAndRender.introPara3') }}
+          <a href="https://stackoverflow.com/questions/22512319/what-is-aabb-collision-detection" target="_blank">
+            {{ t('computerAnimAndRender.introPara4') }}
+          </a>
+          {{ t('computerAnimAndRender.introPara5') }}
+          <a href="https://en.wikipedia.org/wiki/Inverse_kinematics" target="_blank">
+            {{ t('computerAnimAndRender.introPara6') }}
+          </a>
+          {{ t('computerAnimAndRender.introPara7') }}
+          <a href="https://en.wikipedia.org/wiki/Spline_(mathematics)" target="_blank">
+            {{ t('computerAnimAndRender.introPara8') }}
+          </a>{{ t('computerAnimAndRender.introPara9') }}
+          <br><br>
+          {{ t('computerAnimAndRender.introPara10') }}
+        </template>
+
+        <h4>{{ t('computerAnimAndRender.details1.title') }}</h4>
+        <p>
+          {{ t('computerAnimAndRender.details1.para1') }}
+          <br><br>
+          <u><b>{{ t('computerAnimAndRender.details1.para2') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details1.para3') }}
+        </p>
+        <ImageFrame
+          imgPath="projects/gameDev/computerAnimAndRender/raytrace-shadow.png"
+          :altText="t('computerAnimAndRender.details1.altText1')"
+          widthPercent="100%"
+          backgroundColor="#707090"
+        />
+        <br>
+        <p>
+          {{ t('computerAnimAndRender.details1.para4') }}
+        </p>
+        <ImageFrame
+          imgPath="projects/gameDev/computerAnimAndRender/raytrace-perlin-cubic.png"
+          :altText="t('computerAnimAndRender.details1.altText2')"
+          widthPercent="100%"
+          backgroundColor="#707090"
+        />
+        <br>
+        <p>
+          {{ t('computerAnimAndRender.details1.para5') }}
+          <br><br>
+          {{ t('computerAnimAndRender.details1.para6') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree-without-reflections.png',
+              altText: t('computerAnimAndRender.details1.altText3'),
+              backgroundColor: '#9aceff',
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/raytrace-dragon-tree.png',
+              altText: t('computerAnimAndRender.details1.altText4'),
+              backgroundColor: '#9aceff',
+            },
+          ]"
+          imgWidth="490px"
+        />
+        <br>
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: 'https://github.com/olivier361/Raytracer-AABB-Tree',
+              teaserText: t('computerAnimAndRender.details1.relatedLinks1'),
+            },
+          ]"
+        />
+        <br>
+        <p>
+          <u><b>{{ t('computerAnimAndRender.details1.para7') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details1.para8') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/pv-shading-animation.gif',
+              captionText: t('computerAnimAndRender.details1.caption1'),
+              altText: t('computerAnimAndRender.details1.altText5'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/flat-shading-animation.gif',
+              captionText: t('computerAnimAndRender.details1.caption2'),
+              altText: t('computerAnimAndRender.details1.altText6'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+
+        <hr class="info-divider">
+
+        <h4>{{ t('computerAnimAndRender.details2.title') }}</h4>
+        <p>
+          {{ t('computerAnimAndRender.details2.para1') }}
+          <br><br>
+          <u><b>{{ t('computerAnimAndRender.details2.para2') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details2.para3') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/spring-mass-system-cube-complex-at-rest.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection1.caption1'),
+              altText: t('computerAnimAndRender.details2.imgCollection1.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/spring-mass-system-cube-complex-collision-2.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection1.caption2'),
+              altText: t('computerAnimAndRender.details2.imgCollection1.altText2'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+        <br>
+        <p>
+          <u><b>{{ t('computerAnimAndRender.details2.para4') }}</b></u>
+          <br>
+          {{ t('computerAnimAndRender.details2.para5') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-initial-closeup.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection2.caption1'),
+              altText: t('computerAnimAndRender.details2.imgCollection2.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-drawing.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection2.caption2'),
+              altText: t('computerAnimAndRender.details2.imgCollection2.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/computerAnimAndRender/ik-human-spline-drawing-2.png',
+              captionText: t('computerAnimAndRender.details2.imgCollection2.caption3'),
+              altText: t('computerAnimAndRender.details2.imgCollection2.altText3'),
+            },
+          ]"
+          imgWidth="320px"
+          imgHeight="309px"
+        />
+
+        <hr class="info-divider">
+
+        <h4>{{ t('computerAnimAndRender.details3.title') }}</h4>
+        <div class="uk-flex" :style="{columnGap: '50px'}">
+          <div class="uk-flex-1">
+            <p>
+              {{ t('computerAnimAndRender.details3.para1') }}
+              <a href="https://www.opengl.org/" target="_blank">
+                {{ t('computerAnimAndRender.details3.para2') }}
+              </a>
+              {{ t('computerAnimAndRender.details3.para3') }}
+              <a href="https://freeglut.sourceforge.net/" target="_blank">
+                {{ t('computerAnimAndRender.details3.para4') }}
+              </a>
+              {{ t('computerAnimAndRender.details3.para5') }}
+              <br><br>
+              {{ t('computerAnimAndRender.details3.para6') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                // TODO: Create a public version of the repository for the tetris project
+                // {
+                //   url: '/TODO',
+                //   teaserText: t('computerAnimAndRender.details3.relatedLinks1'),
+                // },
+                {
+                  url: 'https://youtu.be/2A3-CP1nTuE',
+                  teaserText: t('computerAnimAndRender.details3.relatedLinks2'),
+                },
+              ]"
+            />
+          </div>
+          <ImageFrame
+            class="uk-flex-1"
+            imgPath="projects/gameDev/computerAnimAndRender/tetris-mockup.png"
+            :captionText="t('computerAnimAndRender.details3.caption1')"
+            :altText="t('computerAnimAndRender.details3.altText1')"
+          />
+        </div>
+
+      </ProjectCard>
+      <ProjectCard
+        :heading="t('modelling3D.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/gameDev/modelling3D/thw0.jpg',
+            captionText: t('modelling3D.previewImg.caption1'),
+            altText: t('modelling3D.previewImg.altText1'),
+          },
+          {
+            // TODO: Update image to showcase final version of the project
+            imgPath: 'projects/gameDev/modelling3D/gallery-pictures-4.png',
+            captionText: t('modelling3D.previewImg.caption2'),
+            altText: t('modelling3D.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/gameDev/modelling3D/everyday-objects.png',
+            captionText: t('modelling3D.previewImg.caption3'),
+            altText: t('modelling3D.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introParagraph>
+          {{ t('modelling3D.introPara1') }}
+        </template>
+
+        <h4>{{ t('modelling3D.details1.title') }}</h4>
+        <p>
+          {{ t('modelling3D.details1.para1') }}
+          <br><br>
+          {{ t('modelling3D.details1.para2') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw-google-maps-screenshot-large.png',
+              captionText: t('modelling3D.details1.imgCollection1.caption1'),
+              altText: t('modelling3D.details1.imgCollection1.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw0.jpg',
+              captionText: t('modelling3D.details1.imgCollection1.caption2'),
+              altText: t('modelling3D.details1.imgCollection1.altText2'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+        <br>
+        <CTAButton
+          url="https://maps.app.goo.gl/7QA4Te1UzBLRx7Dy9"
+          :buttonText="t('modelling3D.details1.buttonText')"
+          showOutline
+          isNewTab
+        />
+        <br><br><br>
+        <ImageFrame
+          imgPath="projects/gameDev/modelling3D/thw0.jpg"
+          :captionText="t('modelling3D.details1.imgFrame.caption1')"
+          :altText="t('modelling3D.details1.imgFrame.altText1')"
+          widthPercent="100%"
+        />
+        <br>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw3.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption1'),
+              altText: t('modelling3D.details1.imgCollection2.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw4.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption2'),
+              altText: t('modelling3D.details1.imgCollection2.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw5.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption3'),
+              altText: t('modelling3D.details1.imgCollection2.altText3'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/thw1.jpg',
+              captionText: t('modelling3D.details1.imgCollection2.caption4'),
+              altText: t('modelling3D.details1.imgCollection2.altText4'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+
+        <hr class="info-divider">
+
+        <h4>{{ t('modelling3D.details2.title') }}</h4>
+        <p>
+          {{ t('modelling3D.details2.para1') }}
+        </p>
+        <CTAButton
+          url="https://maps.app.goo.gl/oMG3qv5EoJfQjtMu7"
+          :buttonText="t('modelling3D.details2.buttonText')"
+          showOutline
+          isNewTab
+        />
+        <br><br><br>
+        <ImageCollection
+          :imgList="[
+            {
+              // TODO: Update image to showcase final version of the project
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-4.png',
+              captionText: t('modelling3D.details2.imgCollection.caption1'),
+              altText: t('modelling3D.details2.imgCollection.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-1.png',
+              captionText: t('modelling3D.details2.imgCollection.caption2'),
+              altText: t('modelling3D.details2.imgCollection.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-2.png',
+              captionText: t('modelling3D.details2.imgCollection.caption3'),
+              altText: t('modelling3D.details2.imgCollection.altText3'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/gallery-pictures-6.png',
+              captionText: t('modelling3D.details2.imgCollection.caption4'),
+              altText: t('modelling3D.details2.imgCollection.altText4'),
+            },
+          ]"
+          imgWidth="490px"
+        />
+
+        <hr class="info-divider">
+
+        <h4>{{ t('modelling3D.details3.title') }}</h4>
+        <p>
+          {{ t('modelling3D.details3.para1') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/gameDev/modelling3D/everyday-objects.png',
+              altText: t('modelling3D.details3.imgCollection.altText1'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/everyday-objects-2.jpg',
+              altText: t('modelling3D.details3.imgCollection.altText2'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/room-2.png',
+              altText: t('modelling3D.details3.imgCollection.altText3'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/room-1.png',
+              altText: t('modelling3D.details3.imgCollection.altText4'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/tables-2.png',
+              altText: t('modelling3D.details3.imgCollection.altText5'),
+            },
+            {
+              imgPath: 'projects/gameDev/modelling3D/projector-model.png',
+              altText: t('modelling3D.details3.imgCollection.altText6'),
+            },
+          ]"
+          imgWidth="490px"
+          imgHeight="275px"
+        />
+
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
@@ -326,6 +916,13 @@ h1 {
   margin: 50px 0px;
   color: var(--color-page-title-text);
   font-size: var(--page-title-font-size);
+}
+
+h2 {
+  text-transform: uppercase;
+  margin: 50px 0px 25px 0px;
+  color: var(--color-page-section-text);
+  font-size: var(--page-section-font-size);
 }
 
 .projects {
