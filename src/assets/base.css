@@ -155,7 +155,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* TODO: Solve the issue with .uk-link overriding this */
 a {
   color: var(--color-link);
 }
