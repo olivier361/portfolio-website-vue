@@ -42,11 +42,13 @@ const previewSection = ref(null);
 const infoSection = ref(null);
 const infoAnimationWrapper = ref(null);
 const previewSectionHeight = ref(0);
+const previewSectionWidth = ref(0);
 const infoSectionHeight = ref(0);
 const cardBorderRadius = ref(0);
 
 const isExpanded = ref(false);
 const previewSectionStyle = ref({});
+const curColumnCount = ref(undefined);
 
 onBeforeMount(() => {
   if (props.previewBackgroundImgPath) {
@@ -119,12 +121,29 @@ function handleResize() {
   // NOTE: If the content of the card can change it's height dynamically
   // we would need to switch to using a watcher instead of a resize event listener.
   previewSectionHeight.value = computeHeight(previewSection);
+  previewSectionWidth.value = computeWidth(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
+  console.log('previewSectionWidth: ' + previewSectionWidth.value);
+
+  if (previewSectionWidth.value < 760) {
+    curColumnCount.value = 1;
+  }
+  else if (previewSectionWidth.value < 1100) {
+    curColumnCount.value = 3;
+  }
+  else {
+    curColumnCount.value = undefined;
+  }
 }
 
 function computeHeight(curRef) {
   if (!curRef?.value) return 0;
   return curRef.value.getBoundingClientRect().height;
+}
+
+function computeWidth(curRef) {
+  if (!curRef?.value) return 0;
+  return curRef.value.getBoundingClientRect().width;
 }
 
 </script>
@@ -142,6 +161,7 @@ function computeHeight(curRef) {
         :imgList="previewImgList"
         :imgWidth="previewImgWidth"
         :imgHeight="previewImgHeight"
+        :autoSpanColumnCount="curColumnCount"
       />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">
@@ -185,6 +205,7 @@ function computeHeight(curRef) {
 .project-card {
   --content-margin-bottom: 25px;
 
+  width: calc(100% - 40px);
   max-width: 1100px;
   color: var(--color-card-text);
   background-color: var(--color-card-background);

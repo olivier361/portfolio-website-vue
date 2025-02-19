@@ -1,6 +1,6 @@
 <script setup>
 import ImageFrame from '@/components/ImageFrame.vue';
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, onMounted, onBeforeUnmount, onUpdated, ref } from 'vue';
 
 const props = defineProps({
   imgList: {
@@ -46,6 +46,11 @@ const props = defineProps({
       });
     },
   },
+  autoSpanColumnCount: {
+    type: Number,
+    required: false,
+    default: undefined,
+  },
   imgHeight: {
     type: String,
     required: false,
@@ -70,6 +75,8 @@ const props = defineProps({
 
 const widthPx = ref(undefined);
 const widthPercent = ref(undefined);
+const collectionRef = ref(null);
+const curCollectionWidth = ref(0);
 
 onBeforeMount(() => {
   if (props.imgWidth.includes('%')) {
@@ -80,11 +87,45 @@ onBeforeMount(() => {
   }
 });
 
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  handleResize();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+function handleResize() {
+  curCollectionWidth.value = computeWidth(collectionRef);
+  console.log(curCollectionWidth.value);
+}
+
+function computeWidth(curRef) {
+  if (!curRef?.value) return 0;
+  return curRef.value.getBoundingClientRect().width;
+}
+
+// onUpdated(() => {
+//   console.log('test: ' +
+//     Math.floor(
+//       (curCollectionWidth.value
+//         - (parseInt(props.rowGap)
+//           * (props.autoSpanColumnCount - 1))) / props.autoSpanColumnCount,
+//     )
+//     + 'px',
+//   );
+// });
+
 </script>
 
 <template>
 
-  <div class="image-collection" :style="{ rowGap: rowGap, columnGap: columnGap }">
+  <div
+    class="image-collection"
+    ref="collectionRef"
+    :style="{ rowGap: rowGap, columnGap: columnGap }"
+  >
     <div
       class="frame-wrapper"
       v-for="item in imgList"
@@ -96,8 +137,20 @@ onBeforeMount(() => {
         :isUrlPath="item.isUrlPath"
         :captionText="item.captionText"
         :altText="item.altText"
-        :height="imgHeight"
-        :widthPx="widthPx"
+        :height="autoSpanColumnCount
+          ? (
+            Math.floor((
+              (curCollectionWidth - (parseInt(rowGap) * (autoSpanColumnCount - 1)) ) / autoSpanColumnCount
+            ) * (parseInt(imgHeight) / parseInt(imgWidth))) + 'px')
+          : imgHeight"
+        :widthPx="autoSpanColumnCount
+          ? (
+            Math.floor(
+              (curCollectionWidth - (parseInt(rowGap) * (autoSpanColumnCount - 1)) ) / autoSpanColumnCount
+            )
+            + 'px'
+          )
+          : widthPx"
         :widthPercent="widthPercent ? '100%' : undefined"
         :backgroundColor="item.backgroundColor"
       />
