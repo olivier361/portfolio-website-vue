@@ -50,6 +50,12 @@ const isExpanded = ref(false);
 const previewSectionStyle = ref({});
 const curColumnCount = ref(undefined);
 
+// 760px =
+// (320px (previewImg width) * 2)
+// + 20px (previewImg column gap)
+// + (2 * 50px) (ProjectCard padding)
+const mobileBreakpointPx = 760;
+
 onBeforeMount(() => {
   if (props.previewBackgroundImgPath) {
     // This is needed to successfully resolve a path constructed with props
@@ -123,9 +129,8 @@ function handleResize() {
   previewSectionHeight.value = computeHeight(previewSection);
   previewSectionWidth.value = computeWidth(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
-  console.log('previewSectionWidth: ' + previewSectionWidth.value);
 
-  if (previewSectionWidth.value < 760) {
+  if (previewSectionWidth.value < mobileBreakpointPx) {
     curColumnCount.value = 1;
   }
   else if (previewSectionWidth.value < 1100) {
@@ -205,6 +210,7 @@ function computeWidth(curRef) {
 .project-card {
   --content-margin-bottom: 25px;
 
+  /* this width gives 20px margins on each side of card */
   width: calc(100% - 40px);
   max-width: 1100px;
   color: var(--color-card-text);

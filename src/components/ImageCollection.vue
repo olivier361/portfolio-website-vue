@@ -1,6 +1,6 @@
 <script setup>
 import ImageFrame from '@/components/ImageFrame.vue';
-import { onBeforeMount, onMounted, onBeforeUnmount, onUpdated, ref } from 'vue';
+import { onBeforeMount, onMounted, onBeforeUnmount, ref } from 'vue';
 
 const props = defineProps({
   imgList: {
@@ -47,16 +47,26 @@ const props = defineProps({
     },
   },
   autoSpanColumnCount: {
+    // if provided, the image collection will span the available width of the parent
+    // and image frames are organized by the number of columns specified.
     type: Number,
     required: false,
     default: undefined,
   },
   imgHeight: {
+    // if autoSpanColumnCount is provided, the exact value of this prop is ignored
+    // and instead becomes part of an aspect ratio calculation between imgHeight and imgWidth.
+    // This aspect ratio is then applied to the image with the width
+    // computed based on autoSpanColumnCount.
     type: String,
     required: false,
     default: 'auto',
   },
   imgWidth: {
+    // if autoSpanColumnCount is provided, the exact value of this prop is ignored
+    // and instead becomes part of an aspect ratio calculation between imgHeight and imgWidth.
+    // This aspect ratio is then applied to the image with the width
+    // computed based on autoSpanColumnCount.
     type: String,
     required: false,
     default: 'auto',
@@ -98,7 +108,6 @@ onBeforeUnmount(() => {
 
 function handleResize() {
   curCollectionWidth.value = computeWidth(collectionRef);
-  console.log(curCollectionWidth.value);
 }
 
 function computeWidth(curRef) {
@@ -106,16 +115,42 @@ function computeWidth(curRef) {
   return curRef.value.getBoundingClientRect().width;
 }
 
-// onUpdated(() => {
-//   console.log('test: ' +
-//     Math.floor(
-//       (curCollectionWidth.value
-//         - (parseInt(props.rowGap)
-//           * (props.autoSpanColumnCount - 1))) / props.autoSpanColumnCount,
-//     )
-//     + 'px',
-//   );
-// });
+// When using autoSpanColumnCount, the width of the image frames
+// are dynamically computed by this function so that the collection spans
+// the width of the parent with the specified column count.
+//
+// Returns and integer value.
+// Returns 0 if autoSpanColumnCount is invalid.
+function computeAutoImgFrameWidth() {
+  if (!props.autoSpanColumnCount || props.autoSpanColumnCount < 1) return 0;
+
+  return Math.floor(
+    (
+      curCollectionWidth.value
+      - (parseInt(props.rowGap) * (props.autoSpanColumnCount - 1))
+    ) / props.autoSpanColumnCount,
+  );
+}
+
+// Given a width number in pixels, this function computes the height in pixels
+// based on the aspect ratio of provided imgHeight and imgWidth.
+//
+// returns a valid CSS string for the height property.
+// NOTE: if the ratio cannot be computed, 'auto' or the existing imgHeight is returned
+// depending on the scenario.
+function computeAspectRatioHeight(width) {
+  if (props.imgHeight === 'auto'
+    || props.imgHeight.includes('%')
+    || props.imgWidth.includes('%')
+  ) {
+    return props.imgHeight;
+  }
+  if (props.imgWidth === 'auto') return 'auto';
+
+  return Math.floor(
+    width * (parseInt(props.imgHeight) / parseInt(widthPx.value)),
+  ) + 'px';
+}
 
 </script>
 
@@ -138,18 +173,10 @@ function computeWidth(curRef) {
         :captionText="item.captionText"
         :altText="item.altText"
         :height="autoSpanColumnCount
-          ? (
-            Math.floor((
-              (curCollectionWidth - (parseInt(rowGap) * (autoSpanColumnCount - 1)) ) / autoSpanColumnCount
-            ) * (parseInt(imgHeight) / parseInt(imgWidth))) + 'px')
+          ? computeAspectRatioHeight(computeAutoImgFrameWidth())
           : imgHeight"
         :widthPx="autoSpanColumnCount
-          ? (
-            Math.floor(
-              (curCollectionWidth - (parseInt(rowGap) * (autoSpanColumnCount - 1)) ) / autoSpanColumnCount
-            )
-            + 'px'
-          )
+          ? (computeAutoImgFrameWidth() + 'px')
           : widthPx"
         :widthPercent="widthPercent ? '100%' : undefined"
         :backgroundColor="item.backgroundColor"
