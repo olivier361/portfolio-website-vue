@@ -185,7 +185,7 @@ function computeHeight(curRef) {
 .project-card {
   --content-margin-bottom: 25px;
 
-  width: 1100px;
+  max-width: 1100px;
   color: var(--color-card-text);
   background-color: var(--color-card-background);
   border-radius: var(--card-border-radius);

@@ -916,6 +916,7 @@ h1 {
   margin: 50px 0px;
   color: var(--color-page-title-text);
   font-size: var(--page-title-font-size);
+  text-align: center;
 }
 
 h2 {
@@ -923,6 +924,7 @@ h2 {
   margin: 50px 0px 25px 0px;
   color: var(--color-page-section-text);
   font-size: var(--page-section-font-size);
+  text-align: center;
 }
 
 .projects {
@@ -932,7 +934,7 @@ h2 {
 }
 
 .project-card {
-  margin: 20px 0px;
+  margin: 20px;
 }
 
 hr.info-divider {
