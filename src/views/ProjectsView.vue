@@ -639,6 +639,42 @@ function handleResize() {
         />
 
       </ProjectCard>
+
+      <h2>{{ t('section.softwareDev') }}</h2>
+
+      <ProjectCard
+        :heading="t('uhub.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/softwareDev/uhub/uhub-insta-ad-1.png',
+            captionText: t('uhub.previewImg.caption1'),
+            altText: t('uhub.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/softwareDev/uhub/uhub-insta-ad-2.png',
+            captionText: t('uhub.previewImg.caption2'),
+            altText: t('uhub.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/softwareDev/uhub/uhub-insta-ad-3.png',
+            captionText: t('uhub.previewImg.caption3'),
+            altText: t('uhub.previewImg.altText3'),
+          }
+        ]"
+        previewImgHeight="auto"
+      >
+        <template #introParagraph>
+          {{ t('uhub.introPara1') }}
+          <br><br>
+          {{ t('uhub.introPara2') }}
+          <br><br>
+          {{ t('uhub.introPara3') }}
+          <br><br>
+          {{ t('uhub.introPara4') }}
+        </template>
+
+        <!-- TODO: Add details section -->
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"

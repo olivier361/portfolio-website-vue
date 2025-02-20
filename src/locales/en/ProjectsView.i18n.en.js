@@ -6,6 +6,7 @@ export default {
     title: 'Projects',
     section: {
       gameDev: 'Game Development',
+      softwareDev: 'Software & App Development',
     },
     project1: {
       title: 'Project 1',
@@ -463,6 +464,46 @@ export default {
           altText5: 'Close-up view of the wooden coffee table and kitchen table. The kitchen table has tapered legs and the coffee table makes use of rabbet and dado joints to interlock wood pieces.',
           altText6: 'A 3D model of a white video projector. The lens is made of multiple pieces of convex glass. A control panel with buttons can be seen at the top and multiple vents are on all sides of the projector.',
         },
+      },
+    },
+    uhub: {
+      title: 'UHub App',
+      introPara1: `
+        The UHub app is a centralized platform to discover and explore resources on
+        university campuses made for iOS and Android using React Native.
+      `,
+      introPara2: `
+        As a team of four University of Victoria students, we set out to solve
+        a problem many students face on campus daily:
+        the lack of easy ways to find resources and information on various disjoint campus services.
+        Notably, we first wanted to tackle food outlets which do not always document
+        their menus, ingredients, or daily specials.
+      `,
+      introPara3: `
+        With the UHub app, students can find the locations of food outlets on campus,
+        browse their menus, and see crowdsourced data on daily specials.
+        With various search options available to find specific food items, dietary restrictions,
+        and more, UHub removes the stress of finding what to eat on campus.
+      `,
+      introPara4: `
+        Thanks to UHub, students can stop googling for lackluster campus resources
+        and find everything they need in a centralized user-friendly experience.
+      `,
+      previewImg: {
+        caption1: `
+          Promotional images from our Instagram campaign to get students to beta test our app.
+        `,
+        caption2: `
+          Find the location of all food vendors on the campus map,
+          check their business hours, and browse their menu.
+        `,
+        caption3: `
+          Instantly search from all food items on campus
+          and filter by dietary restrictions and buildings.
+        `,
+        altText1: 'A UHub app promotional image showing the app logo, a slogan which reads "Find food on campus fast!", and a message that reads "Download the app today on iOS and Android". There is a screenshot of the app showing a food outlet\'s location on the map and it\'s menu.',
+        altText2: 'A screenshot of the app showing a map of food outlet locations on the top of the screen. The bottom half shows the menu of a food outlet called the Chopbox. The image header reads: "Browse the menu for all food vendors".',
+        altText3: 'A screenshot of the app showing the search feature. There is a search bar at the top where the user has typed "salad". Below are a list of results from multiple food outlets. Below the search bar are filter buttons for dietary restrictions, building locations, and open now.',
       },
     },
   },
