@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import en from '@/locales/en/ProjectsView.i18n.en.js';
 
@@ -12,12 +13,29 @@ const { t } = useI18n({
   messages: { en: en.en },
 });
 
+const curViewportWidth = ref(undefined);
+
+const mobileBreakpointPx = 799;
+
 // TODO: remove this code after the performance test is done
 let placeholderImageCounter = 0;
 
 // TODO: remove this code after the performance test is done
 function incrementPlaceholderImageCounter() {
   return ++placeholderImageCounter;
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  handleResize();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+function handleResize() {
+  curViewportWidth.value = window.innerWidth;
 }
 
 </script>
@@ -210,6 +228,7 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="320px"
           imgHeight="auto"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
         />
 
         <hr class="info-divider">
@@ -325,7 +344,7 @@ function incrementPlaceholderImageCounter() {
               backgroundColor: '#9aceff',
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
         <br>
         <RelatedLinks
@@ -355,7 +374,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('computerAnimAndRender.details1.altText6'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
         <hr class="info-divider">
@@ -381,7 +400,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('computerAnimAndRender.details2.imgCollection1.altText2'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
         <br>
         <p>
@@ -409,6 +428,7 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="320px"
           imgHeight="309px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
         />
 
         <hr class="info-divider">
@@ -496,7 +516,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('modelling3D.details1.imgCollection1.altText2'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
         <br>
         <CTAButton
@@ -536,7 +556,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('modelling3D.details1.imgCollection2.altText4'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
         <hr class="info-divider">
@@ -576,7 +596,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('modelling3D.details2.imgCollection.altText4'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
         <hr class="info-divider">
@@ -614,6 +634,7 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="490px"
           imgHeight="275px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
       </ProjectCard>
@@ -693,6 +714,7 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="320px"
           imgHeight="180px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
         />
 
         <hr class="info-divider">
@@ -871,6 +893,7 @@ function incrementPlaceholderImageCounter() {
             ]"
             imgWidth="320px"
             imgHeight="180px"
+            :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
           />
 
           <hr class="info-divider">
