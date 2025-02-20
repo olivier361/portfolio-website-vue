@@ -81,7 +81,7 @@ function handleResize() {
         </template>
 
         <h4>{{ t('unity.details1.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <p class="uk-flex-1">
             {{ t('unity.details1.para1') }}
             <br><br>
@@ -97,7 +97,7 @@ function handleResize() {
         <hr class="info-divider">
 
         <h4>{{ t('unity.details2.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <div class="uk-flex-1">
             <p>
               {{ t('unity.details2.para1') }}
@@ -123,7 +123,7 @@ function handleResize() {
         <hr class="info-divider">
 
         <h4>{{ t('unity.details3.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <div class="uk-flex-1">
             <p>
               {{ t('unity.details3.para1') }}
@@ -234,7 +234,7 @@ function handleResize() {
         <hr class="info-divider">
 
         <h4>{{ t('previousGames.details2.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div :class="curViewportWidth <= 760 ? 'uk-flex image-first-mobile' : 'uk-flex'" :style="{columnGap: '50px', marginBottom: '50px'}">
           <p>
             {{ t('previousGames.details2.para1') }}
           </p>
@@ -242,7 +242,8 @@ function handleResize() {
             imgPath="projects/gameDev/previousGames/carnet-de-jeux-cover.png"
             :captionText="t('previousGames.details2.caption1')"
             :altText="t('previousGames.details2.altText1')"
-            widthPx="250px"
+            :widthPx="curViewportWidth > 480 ? '250px': undefined"
+            :widthPercent="curViewportWidth <= 480 ? '100%' : undefined"
           />
         </div>
 
@@ -434,7 +435,7 @@ function handleResize() {
         <hr class="info-divider">
 
         <h4>{{ t('computerAnimAndRender.details3.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
           <div class="uk-flex-1">
             <p>
               {{ t('computerAnimAndRender.details3.para1') }}
@@ -666,7 +667,7 @@ function handleResize() {
         </template>
 
         <h3>Project Title 1</h3>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <p class="uk-flex-1">
             Three to twelve sentences describing the project in general.
             These sentences can be split into multiple paragraphs if needed.
@@ -720,7 +721,7 @@ function handleResize() {
         <hr class="info-divider">
 
         <h3>Project Title 2</h3>
-        <div class="uk-flex" :style="{columnGap: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
           <p class="uk-flex-1">
             Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
             Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -748,7 +749,7 @@ function handleResize() {
         <hr class="info-divider">
 
         <h3>Project Title 3</h3>
-        <div class="uk-flex" :style="{columnGap: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
           <p class="uk-flex-1">
             Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
             Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -849,7 +850,7 @@ function handleResize() {
 
         <template v-for="j in 2" :key="j">
           <h3>Project Title A{{ j }} - Auto-generated {{ i }}</h3>
-          <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
             <p class="uk-flex-1">
               Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
               Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -899,7 +900,7 @@ function handleResize() {
           <hr class="info-divider">
 
           <h3>Project Title B{{ j }} - Auto-generated {{ i }}</h3>
-          <div class="uk-flex" :style="{columnGap: '50px'}">
+          <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
             <p class="uk-flex-1">
               Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
               Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -964,6 +965,14 @@ hr.info-divider {
   width: 100%;
   border-top: 1px solid var(--color-card-info-divider);
   margin: 50px 0px;
+}
+
+@media (max-width: 799px) {
+  .image-first-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 25px;
+  }
 }
 
 @media (max-width: 640px) {
