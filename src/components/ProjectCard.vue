@@ -42,11 +42,19 @@ const previewSection = ref(null);
 const infoSection = ref(null);
 const infoAnimationWrapper = ref(null);
 const previewSectionHeight = ref(0);
+const previewSectionWidth = ref(0);
 const infoSectionHeight = ref(0);
 const cardBorderRadius = ref(0);
 
 const isExpanded = ref(false);
 const previewSectionStyle = ref({});
+const curColumnCount = ref(undefined);
+
+// 760px =
+// (320px (previewImg width) * 2)
+// + 20px (previewImg column gap)
+// + (2 * 50px) (ProjectCard padding)
+const mobileBreakpointPx = 760;
 
 onBeforeMount(() => {
   if (props.previewBackgroundImgPath) {
@@ -119,12 +127,28 @@ function handleResize() {
   // NOTE: If the content of the card can change it's height dynamically
   // we would need to switch to using a watcher instead of a resize event listener.
   previewSectionHeight.value = computeHeight(previewSection);
+  previewSectionWidth.value = computeWidth(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
+
+  if (previewSectionWidth.value < mobileBreakpointPx) {
+    curColumnCount.value = 1;
+  }
+  else if (previewSectionWidth.value < 1100) {
+    curColumnCount.value = 3;
+  }
+  else {
+    curColumnCount.value = undefined;
+  }
 }
 
 function computeHeight(curRef) {
   if (!curRef?.value) return 0;
   return curRef.value.getBoundingClientRect().height;
+}
+
+function computeWidth(curRef) {
+  if (!curRef?.value) return 0;
+  return curRef.value.getBoundingClientRect().width;
 }
 
 </script>
@@ -142,6 +166,7 @@ function computeHeight(curRef) {
         :imgList="previewImgList"
         :imgWidth="previewImgWidth"
         :imgHeight="previewImgHeight"
+        :autoSpanColumnCount="curColumnCount"
       />
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">
@@ -185,7 +210,9 @@ function computeHeight(curRef) {
 .project-card {
   --content-margin-bottom: 25px;
 
-  width: 1100px;
+  /* this width gives 20px margins on each side of card */
+  width: calc(100% - 40px);
+  max-width: 1100px;
   color: var(--color-card-text);
   background-color: var(--color-card-background);
   border-radius: var(--card-border-radius);
@@ -257,6 +284,33 @@ function computeHeight(curRef) {
     width: 100%;
     border-top: 5px solid var(--color-card-divider);
     margin: 0px;
+  }
+}
+
+@media (max-width: 799px) {
+  .project-card {
+    p.intro-paragraph {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card {
+    /* this width gives 10px margins on each side of card */
+    width: calc(100% - 20px);
+
+    .preview-section {
+      /* -5px in the margin calculation is to account for
+      * .expand-button padding to have 25px total spacing
+      */
+      padding: var(--card-border-radius) calc(var(--card-border-radius) / 2) calc((var(--card-border-radius) / 2) - 5px);
+    }
+
+    .info-section .content {
+      margin: calc(var(--card-border-radius) / 2);
+    }
   }
 }
 

@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import en from '@/locales/en/ProjectsView.i18n.en.js';
 
@@ -12,12 +13,29 @@ const { t } = useI18n({
   messages: { en: en.en },
 });
 
+const curViewportWidth = ref(undefined);
+
+const mobileBreakpointPx = 799;
+
 // TODO: remove this code after the performance test is done
 let placeholderImageCounter = 0;
 
 // TODO: remove this code after the performance test is done
 function incrementPlaceholderImageCounter() {
   return ++placeholderImageCounter;
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  handleResize();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+function handleResize() {
+  curViewportWidth.value = window.innerWidth;
 }
 
 </script>
@@ -63,7 +81,7 @@ function incrementPlaceholderImageCounter() {
         </template>
 
         <h4>{{ t('unity.details1.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <p class="uk-flex-1">
             {{ t('unity.details1.para1') }}
             <br><br>
@@ -79,7 +97,7 @@ function incrementPlaceholderImageCounter() {
         <hr class="info-divider">
 
         <h4>{{ t('unity.details2.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <div class="uk-flex-1">
             <p>
               {{ t('unity.details2.para1') }}
@@ -105,7 +123,7 @@ function incrementPlaceholderImageCounter() {
         <hr class="info-divider">
 
         <h4>{{ t('unity.details3.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <div class="uk-flex-1">
             <p>
               {{ t('unity.details3.para1') }}
@@ -210,12 +228,13 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="320px"
           imgHeight="auto"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
         />
 
         <hr class="info-divider">
 
         <h4>{{ t('previousGames.details2.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div :class="curViewportWidth <= 760 ? 'uk-flex image-first-mobile' : 'uk-flex'" :style="{columnGap: '50px', marginBottom: '50px'}">
           <p>
             {{ t('previousGames.details2.para1') }}
           </p>
@@ -223,7 +242,8 @@ function incrementPlaceholderImageCounter() {
             imgPath="projects/gameDev/previousGames/carnet-de-jeux-cover.png"
             :captionText="t('previousGames.details2.caption1')"
             :altText="t('previousGames.details2.altText1')"
-            widthPx="250px"
+            :widthPx="curViewportWidth > 480 ? '250px': undefined"
+            :widthPercent="curViewportWidth <= 480 ? '100%' : undefined"
           />
         </div>
 
@@ -325,7 +345,7 @@ function incrementPlaceholderImageCounter() {
               backgroundColor: '#9aceff',
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
         <br>
         <RelatedLinks
@@ -355,7 +375,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('computerAnimAndRender.details1.altText6'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
         <hr class="info-divider">
@@ -381,7 +401,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('computerAnimAndRender.details2.imgCollection1.altText2'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
         <br>
         <p>
@@ -409,12 +429,13 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="320px"
           imgHeight="309px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
         />
 
         <hr class="info-divider">
 
         <h4>{{ t('computerAnimAndRender.details3.title') }}</h4>
-        <div class="uk-flex" :style="{columnGap: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
           <div class="uk-flex-1">
             <p>
               {{ t('computerAnimAndRender.details3.para1') }}
@@ -496,7 +517,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('modelling3D.details1.imgCollection1.altText2'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
         <br>
         <CTAButton
@@ -536,7 +557,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('modelling3D.details1.imgCollection2.altText4'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
         <hr class="info-divider">
@@ -576,7 +597,7 @@ function incrementPlaceholderImageCounter() {
               altText: t('modelling3D.details2.imgCollection.altText4'),
             },
           ]"
-          imgWidth="490px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
         <hr class="info-divider">
@@ -614,6 +635,7 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="490px"
           imgHeight="275px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
         />
 
       </ProjectCard>
@@ -645,7 +667,7 @@ function incrementPlaceholderImageCounter() {
         </template>
 
         <h3>Project Title 1</h3>
-        <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
           <p class="uk-flex-1">
             Three to twelve sentences describing the project in general.
             These sentences can be split into multiple paragraphs if needed.
@@ -693,12 +715,13 @@ function incrementPlaceholderImageCounter() {
           ]"
           imgWidth="320px"
           imgHeight="180px"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
         />
 
         <hr class="info-divider">
 
         <h3>Project Title 2</h3>
-        <div class="uk-flex" :style="{columnGap: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
           <p class="uk-flex-1">
             Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
             Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -726,7 +749,7 @@ function incrementPlaceholderImageCounter() {
         <hr class="info-divider">
 
         <h3>Project Title 3</h3>
-        <div class="uk-flex" :style="{columnGap: '50px'}">
+        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
           <p class="uk-flex-1">
             Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
             Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -827,7 +850,7 @@ function incrementPlaceholderImageCounter() {
 
         <template v-for="j in 2" :key="j">
           <h3>Project Title A{{ j }} - Auto-generated {{ i }}</h3>
-          <div class="uk-flex" :style="{columnGap: '50px', marginBottom: '50px'}">
+          <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
             <p class="uk-flex-1">
               Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
               Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -871,12 +894,13 @@ function incrementPlaceholderImageCounter() {
             ]"
             imgWidth="320px"
             imgHeight="180px"
+            :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
           />
 
           <hr class="info-divider">
 
           <h3>Project Title B{{ j }} - Auto-generated {{ i }}</h3>
-          <div class="uk-flex" :style="{columnGap: '50px'}">
+          <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
             <p class="uk-flex-1">
               Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
               Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
@@ -916,6 +940,7 @@ h1 {
   margin: 50px 0px;
   color: var(--color-page-title-text);
   font-size: var(--page-title-font-size);
+  text-align: center;
 }
 
 h2 {
@@ -923,6 +948,7 @@ h2 {
   margin: 50px 0px 25px 0px;
   color: var(--color-page-section-text);
   font-size: var(--page-section-font-size);
+  text-align: center;
 }
 
 .projects {
@@ -932,13 +958,27 @@ h2 {
 }
 
 .project-card {
-  margin: 20px 0px;
+  margin: 20px;
 }
 
 hr.info-divider {
   width: 100%;
   border-top: 1px solid var(--color-card-info-divider);
   margin: 50px 0px;
+}
+
+@media (max-width: 799px) {
+  .image-first-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card {
+    margin: 20px 10px;
+  }
 }
 
 /* @media (min-width: 1024px) {
