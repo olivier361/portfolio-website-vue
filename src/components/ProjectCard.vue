@@ -287,4 +287,31 @@ function computeWidth(curRef) {
   }
 }
 
+@media (max-width: 799px) {
+  .project-card {
+    p.intro-paragraph {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card {
+    /* this width gives 10px margins on each side of card */
+    width: calc(100% - 20px);
+
+    .preview-section {
+      /* -5px in the margin calculation is to account for
+      * .expand-button padding to have 25px total spacing
+      */
+      padding: var(--card-border-radius) calc(var(--card-border-radius) / 2) calc((var(--card-border-radius) / 2) - 5px);
+    }
+
+    .info-section .content {
+      margin: calc(var(--card-border-radius) / 2);
+    }
+  }
+}
+
 </style>

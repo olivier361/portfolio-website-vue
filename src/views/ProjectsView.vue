@@ -943,6 +943,12 @@ hr.info-divider {
   margin: 50px 0px;
 }
 
+@media (max-width: 640px) {
+  .project-card {
+    margin: 20px 10px;
+  }
+}
+
 /* @media (min-width: 1024px) {
   .projects {
     min-height: 100vh;
