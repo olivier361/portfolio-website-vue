@@ -505,6 +505,67 @@ export default {
         altText2: 'A screenshot of the app showing a map of food outlet locations on the top of the screen. The bottom half shows the menu of a food outlet called the Chopbox. The image header reads: "Browse the menu for all food vendors".',
         altText3: 'A screenshot of the app showing the search feature. There is a search bar at the top where the user has typed "salad". Below are a list of results from multiple food outlets. Below the search bar are filter buttons for dietary restrictions, building locations, and open now.',
       },
+      details1: {
+        title: 'Key Features',
+        para1: `
+          UHub allows students to quickly get detailed information about food outlets on campus
+          and their menus. Furthermore, verified student accounts can contribute to the community
+          by “liking” their favorite foods so others know what's good.
+          Additionally, they can even snap a picture of a food outlet's daily specials menu and
+          ChatGPT will analyse the image in the backend and convert it into
+          a searchable menu item for the day within the app.
+        `,
+        para2: 'Overall, UHub allows students to',
+        list1: {
+          item1: 'discover and explore food outlets on campus with a fully interactive map',
+          item2: 'browse detailed menus of food outlets',
+          item3: 'see dietary restriction information',
+          item4: 'search the menu of all food outlets simultaneously',
+          item5: 'filter results by dietary restrictions, buildings, and open hours',
+          item6: "view an outlet's hours of operation",
+          item7: 'contribute or view the crowd-sourced menu of the day',
+          item8: 'like their favorite foods so other students know what is popular.',
+        },
+        para3: 'Additional planned features include',
+        list2: {
+          item1: 'viewing currently available study spaces on campus',
+          item2: 'showing microwave locations on the map',
+          item3: 'Showing upcoming events on the map.',
+        },
+        para4: 'You can download the UHub app for yourself from the UHub product page.',
+        buttonText: 'Go to the UHub Product Page',
+      },
+      details2: {
+        title: 'Development Process & Technical Details',
+        para1: `
+          The UHub app was created for Android and iOS using a React Native frontend
+          with Google Maps API integration and a Firebase backend which stores the menu and
+          user generated content. The adjacent architecture diagram outlines this at a high level.
+        `,
+        caption1: 'High-level architecture diagram for the UHub codebase.',
+        altText1: 'An architecture diagram showing the React Native frontend communicating with the Google Maps API and Firebase backend storing data and images. A self-hosted server handles OTP and the crowdsourced Daily Soup Menu.',
+        para2: `
+          Beyond the technical details of the project, lots of planning and research was also done
+          regarding the business potential of the idea and consulting with students to refine
+          our user experience and determine which features to prioritize.
+        `,
+        para3: `
+          This includes building out user personas based on the interviews we conducted
+          in our user discovery process and even manually testing out the viability of
+          our value proposition before starting to code by creating an Instagram account
+          that would post pictures of the daily specials menu to see if there was interest
+          among students for that type of information.
+        `,
+        para4: `
+          More details about the app's development process can be found over on our
+          GitHub repository Wiki which includes UI mockups, user studies, personas,
+          business pitch presentations, dev logs, and more!
+        `,
+        buttonText: 'Read More on Our Wiki!',
+        relatedLinks1: 'View the code on GitHub.',
+        relatedLinks2: 'Visit our Product Landing Page.',
+        relatedLinks3: 'Find More Development Info on Our Wiki.',
+      },
     },
   },
 };
