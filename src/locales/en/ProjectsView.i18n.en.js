@@ -567,5 +567,25 @@ export default {
         relatedLinks3: 'Find More Development Info on Our Wiki.',
       },
     },
+    dayTrading: {
+      title: 'Day Trading App',
+      introPara1: `
+        In 2023, I built a mock stock trading application as part of a team of three students
+        to practice implementing a robust backend server which makes use of Docker containers
+        to run a microservice infrastructure.
+      `,
+      introPara2: `
+        The goal of the project was to build a scalable and resilient microservice architecture
+        that can handle thousands of simultaneous user requests with a minimal performance impact
+        while also implementing redundancy and error handling to avoid server downtime.
+      `,
+      introPara3: `
+        This was done using tech like NGINX, Redis, MongoDB, Node.js, and React, among others.
+      `,
+      previewImg: {
+        caption1: 'UI mockup of our client-side web dashboard for stock trading.',
+        altText1: 'A UI mockup of the Day Trading client web dashboard. The dashboard has sections showing the account balance, a list of owned stocks, and recent transactions.',
+      },
+    },
   },
 };

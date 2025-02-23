@@ -771,6 +771,28 @@ function handleResize() {
 
       </ProjectCard>
       <ProjectCard
+        :heading="t('dayTrading.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/softwareDev/dayTrading/day-trading-account-dashboard.png',
+            captionText: t('dayTrading.previewImg.caption1'),
+            altText: t('dayTrading.previewImg.altText1'),
+          },
+        ]"
+        previewImgHeight="auto"
+        previewImgWidth="100%"
+      >
+        <template #introParagraph>
+          {{ t('dayTrading.introPara1') }}
+          <br><br>
+          {{ t('dayTrading.introPara2') }}
+          <br><br>
+          {{ t('dayTrading.introPara3') }}
+        </template>
+        <!-- TODO: Add details section -->
+
+      </ProjectCard>
+      <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
