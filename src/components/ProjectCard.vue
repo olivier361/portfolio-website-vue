@@ -130,7 +130,10 @@ function handleResize() {
   previewSectionWidth.value = computeWidth(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
 
-  if (previewSectionWidth.value < mobileBreakpointPx) {
+  if (props.previewImgList?.length === 1) {
+    curColumnCount.value = undefined;
+  }
+  else if (previewSectionWidth.value < mobileBreakpointPx) {
     curColumnCount.value = 1;
   }
   else if (previewSectionWidth.value < 1100) {
@@ -158,16 +161,18 @@ function computeWidth(curRef) {
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
       <h3>{{ heading }}</h3>
-      <p class="intro-paragraph" v-if="$slots.introParagraph">
-        <slot name="introParagraph" />
-      </p>
-      <ImageCollection
-        v-if="previewImgList"
-        :imgList="previewImgList"
-        :imgWidth="previewImgWidth"
-        :imgHeight="previewImgHeight"
-        :autoSpanColumnCount="curColumnCount"
-      />
+      <div :class="(previewImgList?.length === 1) ? 'single-preview-img-mode' : ''">
+        <p class="intro-paragraph" v-if="$slots.introParagraph">
+          <slot name="introParagraph" />
+        </p>
+        <ImageCollection
+          v-if="previewImgList"
+          :imgList="previewImgList"
+          :imgWidth="previewImgWidth"
+          :imgHeight="previewImgHeight"
+          :autoSpanColumnCount="curColumnCount"
+        />
+      </div>
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">
           {{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}
@@ -311,6 +316,19 @@ function computeWidth(curRef) {
     .info-section .content {
       margin: calc(var(--card-border-radius) / 2);
     }
+  }
+}
+
+.single-preview-img-mode {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+@media (max-width: 899px) {
+  .single-preview-img-mode {
+    flex-direction: column;
+    gap: 0px;
   }
 }
 
