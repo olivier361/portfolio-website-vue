@@ -674,7 +674,10 @@ function handleResize() {
         </template>
 
         <h4>{{ t('uhub.details1.title') }}</h4>
-        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div
+          :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+          :style="{columnGap: '50px', marginBottom: '50px'}"
+        >
           <div class="uk-flex-1">
             <p class="uk-margin-small-bottom">
               {{ t('uhub.details1.para1') }}
@@ -1101,6 +1104,12 @@ hr.info-divider {
     flex-direction: column-reverse;
     gap: 25px;
   }
+}
+
+.image-first-mobile-custom {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 25px;
 }
 
 @media (max-width: 640px) {
