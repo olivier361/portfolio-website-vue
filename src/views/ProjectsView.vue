@@ -789,7 +789,25 @@ function handleResize() {
           <br><br>
           {{ t('dayTrading.introPara3') }}
         </template>
-        <!-- TODO: Add details section -->
+
+        <h4>{{ t('dayTrading.details1.title') }}</h4>
+        <p class="uk-margin-small-bottom">
+          {{ t('dayTrading.details1.para1') }}
+          <br><br>
+          {{ t('dayTrading.details1.para2') }}
+        </p>
+        <ul class="uk-margin-small-top">
+          <li>{{ t('dayTrading.details1.list1.item1') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item2') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item3') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item4') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item5') }}</li>
+        </ul>
+        <p class="uk-margin-small-bottom">
+          {{ t('dayTrading.details1.para3') }}
+        </p>
+
+        <hr class="info-divider">
 
       </ProjectCard>
       <ProjectCard

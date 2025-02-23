@@ -586,6 +586,30 @@ export default {
         caption1: 'UI mockup of our client-side web dashboard for stock trading.',
         altText1: 'A UI mockup of the Day Trading client web dashboard. The dashboard has sections showing the account balance, a list of owned stocks, and recent transactions.',
       },
+      details1: {
+        title: 'Functionality',
+        para1: `
+          The Day Trading application allows users to create a user account and start
+          buying and selling fictional stocks with the fake funds they have added to their account.
+          The focus of the Day Trading system is to efficiently handle thousands of
+          simultaneous requests from various users, be it real users using the frontend client
+          or requests sent by workload files on the admin console to perform stress tests.
+        `,
+        para2: 'In essence, the Day Trading servers support various operations such as',
+        list1: {
+          item1: 'getting a quote for the current price of a certain stock',
+          item2: 'adding fictional funds to your account',
+          item3: 'buying stocks using your account balance',
+          item4: 'selling stocks you own',
+          item5: `
+            Setting triggers to automatically buy or sell stocks when it reaches a certain price.
+          `,
+        },
+        para3: `
+          To handle these operations, POST requests are sent to the server
+          from either the frontend client or the admin console.
+        `,
+      },
     },
   },
 };
