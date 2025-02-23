@@ -710,12 +710,9 @@ function handleResize() {
               isNewTab
             />
           </div>
-          <!-- TODO: Improve layout and potentially other settings for embeded YT player -->
           <!-- TODO: Update this embeded video to the new version -->
           <iframe
-            class="uk-flex-1"
-            width="480"
-            height="360"
+            class="uk-flex-1 yt-player"
             src="https://www.youtube.com/embed/gkK6rIjaYvw?si=q7Y5k-fOR3c72ZO4"
             title="YouTube video player"
             frameborder="0"
