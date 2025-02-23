@@ -610,6 +610,72 @@ export default {
           from either the frontend client or the admin console.
         `,
       },
+      details2: {
+        title: 'Architecture Details',
+        para1: `
+          Below is an architecture diagram which highlights what tools are used to build
+          the Day Trading system and demonstrates how the microservices
+          communicate with one another.
+        `,
+        para2: `
+          In short, we have a React frontend which communicates to the server via POST requests
+          to allow users to buy, sell, and get quotes for stocks. Similarly, we have
+          an admin console built in Python which can be used to run workflow files that
+          stress test the server by sending millions of requests from thousands of users.
+          The console essentially simulates what it would be like to receive requests
+          from thousands of clients simultaneously.
+        `,
+        para3: `
+          To manage this load, requests get routed by our NGINX reverse proxy which
+          evenly distributes requests to various PM2 managed server instances.
+          PM2 works great for a small project like this one as it runs one server instance
+          on each CPU core available and also automatically restarts any server processes
+          in the event of a crash. We chose to build our transaction server logic using Node.js
+          as it is pretty robust when it comes to handling events asynchronously
+          from incoming requests.
+        `,
+        para4: `
+          Another crucial aspect of this project was to implement a Redis cache to store
+          recent stock price quotes. This is particularly useful as there may be many users
+          asking for quotes to the same stock only mere seconds apart.
+          Furthermore, our Day Trading system had to send quote requests to an
+          external quote server which was purposefully throttled to simulate an old legacy system.
+          This means without the Redis cache, performance of our system would otherwise be
+          massively impacted by waiting for responses from the slow quote server
+          whenever a user wants to get a quote or buy and sell stocks.
+        `,
+        para5: `
+          Lastly, we used MongoDB to store user account data such as account balances,
+          the stocks they own, and any automatic buy or sell triggers a user might have set.
+          MongoDB was chosen because it is very scalable with its ability to shard the database
+          into different clusters and partitions while maintaining good consistency.
+        `,
+        para6: `
+          Overall, all the above mentioned microservices run in their own Docker containers
+          and communicate with each other through ports within Docker's network.
+          This allows the Day Trading application to be easier to scale and reduces the potential
+          for a single point of failure compared to a monolithic architecture.
+          Additionally, it allows the whole system to be fairly portable as the system can be run
+          on any machine using a simple “docker compose up” command to launch all the services.
+        `,
+        para7: `
+          Therefore, thanks to a combination of containerization, caching, and queuing tools used
+          in combination with a NoSQL database and JavaScript based programming languages,
+          we were able to make a resilient Day Trading system
+          that maximizes performance and availability.
+        `,
+        para8: `
+          For further details on our implementation, you can read our
+          “Day Trading Application Architecture and Implementation” report below.
+        `,
+        caption1: 'An overview of the architecture of the Day Trading app.',
+        altText1: 'A high-level architecture diagram showing the React frontend and Python admin console communicating with the NGINX reverse proxy which routes requests to the PM2 managed Node.js servers. These servers use a Redis cache and MongoDB database.',
+        buttonText: 'Read the Full Architecture Report',
+        relatedLinks1: 'View the "Day-Trading-App" codebase on GitHub.',
+        relatedLinks2: `
+          Read the "Day Trading Application - Architecture and Implementation" Report.
+        `,
+      },
     },
   },
 };

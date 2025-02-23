@@ -809,6 +809,53 @@ function handleResize() {
 
         <hr class="info-divider">
 
+        <h4>{{ t('dayTrading.details2.title') }}</h4>
+        <p>
+          {{ t('dayTrading.details2.para1') }}
+        </p>
+        <ImageFrame
+          imgPath="projects/softwareDev/dayTrading/day-trading-architecture-overview.png"
+          :captionText="t('dayTrading.details2.caption1')"
+          :altText="t('dayTrading.details2.altText1')"
+          widthPercent="100%"
+        />
+        <br>
+        <p>
+          {{ t('dayTrading.details2.para2') }}
+          <br><br>
+          {{ t('dayTrading.details2.para3') }}
+          <br><br>
+          {{ t('dayTrading.details2.para4') }}
+          <br><br>
+          {{ t('dayTrading.details2.para5') }}
+          <br><br>
+          {{ t('dayTrading.details2.para6') }}
+          <br><br>
+          {{ t('dayTrading.details2.para7') }}
+          <br><br>
+          {{ t('dayTrading.details2.para8') }}
+        </p>
+        <!-- TODO: upload this PDF file to the site -->
+        <!-- <CTAButton
+          url="/TODO/localPath"
+          :buttonText="t('dayTrading.details2.buttonText')"
+          showOutline
+          isNewTab
+        />
+        <br><br> -->
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: 'https://github.com/olivier361/Day-Trading-App',
+              teaserText: t('dayTrading.details2.relatedLinks1'),
+            },
+            // TODO: upload this PDF file to the site, same as button above
+            // {
+            //   url: '/TODO/localPath',
+            //   teaserText: t('dayTrading.details2.relatedLinks2'),
+            // },
+          ]"
+        />
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
