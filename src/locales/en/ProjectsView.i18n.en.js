@@ -6,6 +6,7 @@ export default {
     title: 'Projects',
     section: {
       gameDev: 'Game Development',
+      softwareDev: 'Software & App Development',
     },
     project1: {
       title: 'Project 1',
@@ -463,6 +464,217 @@ export default {
           altText5: 'Close-up view of the wooden coffee table and kitchen table. The kitchen table has tapered legs and the coffee table makes use of rabbet and dado joints to interlock wood pieces.',
           altText6: 'A 3D model of a white video projector. The lens is made of multiple pieces of convex glass. A control panel with buttons can be seen at the top and multiple vents are on all sides of the projector.',
         },
+      },
+    },
+    uhub: {
+      title: 'UHub App',
+      introPara1: `
+        The UHub app is a centralized platform to discover and explore resources on
+        university campuses made for iOS and Android using React Native.
+      `,
+      introPara2: `
+        As a team of four University of Victoria students, we set out to solve
+        a problem many students face on campus daily:
+        the lack of easy ways to find resources and information on various disjoint campus services.
+        Notably, we first wanted to tackle food outlets which do not always document
+        their menus, ingredients, or daily specials.
+      `,
+      introPara3: `
+        With the UHub app, students can find the locations of food outlets on campus,
+        browse their menus, and see crowdsourced data on daily specials.
+        With various search options available to find specific food items, dietary restrictions,
+        and more, UHub removes the stress of finding what to eat on campus.
+      `,
+      introPara4: `
+        Thanks to UHub, students can stop googling for lackluster campus resources
+        and find everything they need in a centralized user-friendly experience.
+      `,
+      previewImg: {
+        caption1: `
+          Promotional images from our Instagram campaign to get students to beta test our app.
+        `,
+        caption2: `
+          Find the location of all food vendors on the campus map,
+          check their business hours, and browse their menu.
+        `,
+        caption3: `
+          Instantly search from all food items on campus
+          and filter by dietary restrictions and buildings.
+        `,
+        altText1: 'A UHub app promotional image showing the app logo, a slogan which reads "Find food on campus fast!", and a message that reads "Download the app today on iOS and Android". There is a screenshot of the app showing a food outlet\'s location on the map and it\'s menu.',
+        altText2: 'A screenshot of the app showing a map of food outlet locations on the top of the screen. The bottom half shows the menu of a food outlet called the Chopbox. The image header reads: "Browse the menu for all food vendors".',
+        altText3: 'A screenshot of the app showing the search feature. There is a search bar at the top where the user has typed "salad". Below are a list of results from multiple food outlets. Below the search bar are filter buttons for dietary restrictions, building locations, and open now.',
+      },
+      details1: {
+        title: 'Key Features',
+        para1: `
+          UHub allows students to quickly get detailed information about food outlets on campus
+          and their menus. Furthermore, verified student accounts can contribute to the community
+          by “liking” their favorite foods so others know what's good.
+          Additionally, they can even snap a picture of a food outlet's daily specials menu and
+          ChatGPT will analyse the image in the backend and convert it into
+          a searchable menu item for the day within the app.
+        `,
+        para2: 'Overall, UHub allows students to',
+        list1: {
+          item1: 'discover and explore food outlets on campus with a fully interactive map',
+          item2: 'browse detailed menus of food outlets',
+          item3: 'see dietary restriction information',
+          item4: 'search the menu of all food outlets simultaneously',
+          item5: 'filter results by dietary restrictions, buildings, and open hours',
+          item6: "view an outlet's hours of operation",
+          item7: 'contribute or view the crowd-sourced menu of the day',
+          item8: 'like their favorite foods so other students know what is popular.',
+        },
+        para3: 'Additional planned features include',
+        list2: {
+          item1: 'viewing currently available study spaces on campus',
+          item2: 'showing microwave locations on the map',
+          item3: 'Showing upcoming events on the map.',
+        },
+        para4: 'You can download the UHub app for yourself from the UHub product page.',
+        buttonText: 'Go to the UHub Product Page',
+      },
+      details2: {
+        title: 'Development Process & Technical Details',
+        para1: `
+          The UHub app was created for Android and iOS using a React Native frontend
+          with Google Maps API integration and a Firebase backend which stores the menu and
+          user generated content. The adjacent architecture diagram outlines this at a high level.
+        `,
+        caption1: 'High-level architecture diagram for the UHub codebase.',
+        altText1: 'An architecture diagram showing the React Native frontend communicating with the Google Maps API and Firebase backend storing data and images. A self-hosted server handles OTP and the crowdsourced Daily Soup Menu.',
+        para2: `
+          Beyond the technical details of the project, lots of planning and research was also done
+          regarding the business potential of the idea and consulting with students to refine
+          our user experience and determine which features to prioritize.
+        `,
+        para3: `
+          This includes building out user personas based on the interviews we conducted
+          in our user discovery process and even manually testing out the viability of
+          our value proposition before starting to code by creating an Instagram account
+          that would post pictures of the daily specials menu to see if there was interest
+          among students for that type of information.
+        `,
+        para4: `
+          More details about the app's development process can be found over on our
+          GitHub repository Wiki which includes UI mockups, user studies, personas,
+          business pitch presentations, dev logs, and more!
+        `,
+        buttonText: 'Read More on Our Wiki!',
+        relatedLinks1: 'View the code on GitHub.',
+        relatedLinks2: 'Visit our Product Landing Page.',
+        relatedLinks3: 'Find More Development Info on Our Wiki.',
+      },
+    },
+    dayTrading: {
+      title: 'Day Trading App',
+      introPara1: `
+        In 2023, I built a mock stock trading application as part of a team of three students
+        to practice implementing a robust backend server which makes use of Docker containers
+        to run a microservice infrastructure.
+      `,
+      introPara2: `
+        The goal of the project was to build a scalable and resilient microservice architecture
+        that can handle thousands of simultaneous user requests with a minimal performance impact
+        while also implementing redundancy and error handling to avoid server downtime.
+      `,
+      introPara3: `
+        This was done using tech like NGINX, Redis, MongoDB, Node.js, and React, among others.
+      `,
+      previewImg: {
+        caption1: 'UI mockup of our client-side web dashboard for stock trading.',
+        altText1: 'A UI mockup of the Day Trading client web dashboard. The dashboard has sections showing the account balance, a list of owned stocks, and recent transactions.',
+      },
+      details1: {
+        title: 'Functionality',
+        para1: `
+          The Day Trading application allows users to create a user account and start
+          buying and selling fictional stocks with the fake funds they have added to their account.
+          The focus of the Day Trading system is to efficiently handle thousands of
+          simultaneous requests from various users, be it real users using the frontend client
+          or requests sent by workload files on the admin console to perform stress tests.
+        `,
+        para2: 'In essence, the Day Trading servers support various operations such as',
+        list1: {
+          item1: 'getting a quote for the current price of a certain stock',
+          item2: 'adding fictional funds to your account',
+          item3: 'buying stocks using your account balance',
+          item4: 'selling stocks you own',
+          item5: `
+            Setting triggers to automatically buy or sell stocks when it reaches a certain price.
+          `,
+        },
+        para3: `
+          To handle these operations, POST requests are sent to the server
+          from either the frontend client or the admin console.
+        `,
+      },
+      details2: {
+        title: 'Architecture Details',
+        para1: `
+          Below is an architecture diagram which highlights what tools are used to build
+          the Day Trading system and demonstrates how the microservices
+          communicate with one another.
+        `,
+        para2: `
+          In short, we have a React frontend which communicates to the server via POST requests
+          to allow users to buy, sell, and get quotes for stocks. Similarly, we have
+          an admin console built in Python which can be used to run workflow files that
+          stress test the server by sending millions of requests from thousands of users.
+          The console essentially simulates what it would be like to receive requests
+          from thousands of clients simultaneously.
+        `,
+        para3: `
+          To manage this load, requests get routed by our NGINX reverse proxy which
+          evenly distributes requests to various PM2 managed server instances.
+          PM2 works great for a small project like this one as it runs one server instance
+          on each CPU core available and also automatically restarts any server processes
+          in the event of a crash. We chose to build our transaction server logic using Node.js
+          as it is pretty robust when it comes to handling events asynchronously
+          from incoming requests.
+        `,
+        para4: `
+          Another crucial aspect of this project was to implement a Redis cache to store
+          recent stock price quotes. This is particularly useful as there may be many users
+          asking for quotes to the same stock only mere seconds apart.
+          Furthermore, our Day Trading system had to send quote requests to an
+          external quote server which was purposefully throttled to simulate an old legacy system.
+          This means without the Redis cache, performance of our system would otherwise be
+          massively impacted by waiting for responses from the slow quote server
+          whenever a user wants to get a quote or buy and sell stocks.
+        `,
+        para5: `
+          Lastly, we used MongoDB to store user account data such as account balances,
+          the stocks they own, and any automatic buy or sell triggers a user might have set.
+          MongoDB was chosen because it is very scalable with its ability to shard the database
+          into different clusters and partitions while maintaining good consistency.
+        `,
+        para6: `
+          Overall, all the above mentioned microservices run in their own Docker containers
+          and communicate with each other through ports within Docker's network.
+          This allows the Day Trading application to be easier to scale and reduces the potential
+          for a single point of failure compared to a monolithic architecture.
+          Additionally, it allows the whole system to be fairly portable as the system can be run
+          on any machine using a simple “docker compose up” command to launch all the services.
+        `,
+        para7: `
+          Therefore, thanks to a combination of containerization, caching, and queuing tools used
+          in combination with a NoSQL database and JavaScript based programming languages,
+          we were able to make a resilient Day Trading system
+          that maximizes performance and availability.
+        `,
+        para8: `
+          For further details on our implementation, you can read our
+          “Day Trading Application Architecture and Implementation” report below.
+        `,
+        caption1: 'An overview of the architecture of the Day Trading app.',
+        altText1: 'A high-level architecture diagram showing the React frontend and Python admin console communicating with the NGINX reverse proxy which routes requests to the PM2 managed Node.js servers. These servers use a Redis cache and MongoDB database.',
+        buttonText: 'Read the Full Architecture Report',
+        relatedLinks1: 'View the "Day-Trading-App" codebase on GitHub.',
+        relatedLinks2: `
+          Read the "Day Trading Application - Architecture and Implementation" Report.
+        `,
       },
     },
   },

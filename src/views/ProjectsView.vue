@@ -639,6 +639,224 @@ function handleResize() {
         />
 
       </ProjectCard>
+
+      <h2>{{ t('section.softwareDev') }}</h2>
+
+      <ProjectCard
+        :heading="t('uhub.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/softwareDev/uhub/uhub-insta-ad-1.png',
+            captionText: t('uhub.previewImg.caption1'),
+            altText: t('uhub.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/softwareDev/uhub/uhub-insta-ad-2.png',
+            captionText: t('uhub.previewImg.caption2'),
+            altText: t('uhub.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/softwareDev/uhub/uhub-insta-ad-3.png',
+            captionText: t('uhub.previewImg.caption3'),
+            altText: t('uhub.previewImg.altText3'),
+          }
+        ]"
+        previewImgHeight="auto"
+      >
+        <template #introParagraph>
+          {{ t('uhub.introPara1') }}
+          <br><br>
+          {{ t('uhub.introPara2') }}
+          <br><br>
+          {{ t('uhub.introPara3') }}
+          <br><br>
+          {{ t('uhub.introPara4') }}
+        </template>
+
+        <h4>{{ t('uhub.details1.title') }}</h4>
+        <div
+          :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+          :style="{columnGap: '50px', marginBottom: '50px'}"
+        >
+          <div class="uk-flex-1">
+            <p class="uk-margin-small-bottom">
+              {{ t('uhub.details1.para1') }}
+              <br><br>
+              {{ t('uhub.details1.para2') }}
+            </p>
+            <ul class="uk-margin-small-top">
+              <li>{{ t('uhub.details1.list1.item1') }}</li>
+              <li>{{ t('uhub.details1.list1.item2') }}</li>
+              <li>{{ t('uhub.details1.list1.item3') }}</li>
+              <li>{{ t('uhub.details1.list1.item4') }}</li>
+              <li>{{ t('uhub.details1.list1.item5') }}</li>
+              <li>{{ t('uhub.details1.list1.item6') }}</li>
+              <li>{{ t('uhub.details1.list1.item7') }}</li>
+              <li>{{ t('uhub.details1.list1.item8') }}</li>
+            </ul>
+            <p class="uk-margin-small-bottom">
+              {{ t('uhub.details1.para3') }}
+            </p>
+            <ul class="uk-margin-small-top">
+              <li>{{ t('uhub.details1.list2.item1') }}</li>
+              <li>{{ t('uhub.details1.list2.item2') }}</li>
+              <li>{{ t('uhub.details1.list2.item3') }}</li>
+            </ul>
+            <p>
+              {{ t('uhub.details1.para4') }}
+            </p>
+            <br>
+            <CTAButton
+              url="https://lbare.github.io/UHub/"
+              :buttonText="t('uhub.details1.buttonText')"
+              showOutline
+              isNewTab
+            />
+          </div>
+          <!-- TODO: Update this embeded video to the new version -->
+          <iframe
+            class="uk-flex-1 yt-player"
+            src="https://www.youtube.com/embed/gkK6rIjaYvw?si=q7Y5k-fOR3c72ZO4"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('uhub.details2.title') }}</h4>
+        <p>
+          {{ t('uhub.details2.para1') }}
+        </p>
+        <ImageFrame
+          imgPath="projects/softwareDev/uhub/uhub-architecture-diagram.jpg"
+          :captionText="t('uhub.details2.caption1')"
+          :altText="t('uhub.details2.altText1')"
+          widthPercent="100%"
+        />
+        <br>
+        <p>
+          {{ t('uhub.details2.para2') }}
+          <br><br>
+          {{ t('uhub.details2.para3') }}
+          <br><br>
+          {{ t('uhub.details2.para4') }}
+        </p>
+        <CTAButton
+          url="https://github.com/olivier361/UHub/wiki"
+          :buttonText="t('uhub.details2.buttonText')"
+          showOutline
+          isNewTab
+        />
+        <br><br>
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: 'https://github.com/olivier361/UHub',
+              teaserText: t('uhub.details2.relatedLinks1'),
+            },
+            {
+              url: 'https://lbare.github.io/UHub/',
+              teaserText: t('uhub.details2.relatedLinks2'),
+            },
+            {
+              url: 'https://github.com/olivier361/UHub/wiki',
+              teaserText: t('uhub.details2.relatedLinks3'),
+            },
+          ]"
+        />
+
+      </ProjectCard>
+      <ProjectCard
+        :heading="t('dayTrading.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/softwareDev/dayTrading/day-trading-account-dashboard.png',
+            captionText: t('dayTrading.previewImg.caption1'),
+            altText: t('dayTrading.previewImg.altText1'),
+          },
+        ]"
+        previewImgHeight="auto"
+        previewImgWidth="100%"
+      >
+        <template #introParagraph>
+          {{ t('dayTrading.introPara1') }}
+          <br><br>
+          {{ t('dayTrading.introPara2') }}
+          <br><br>
+          {{ t('dayTrading.introPara3') }}
+        </template>
+
+        <h4>{{ t('dayTrading.details1.title') }}</h4>
+        <p class="uk-margin-small-bottom">
+          {{ t('dayTrading.details1.para1') }}
+          <br><br>
+          {{ t('dayTrading.details1.para2') }}
+        </p>
+        <ul class="uk-margin-small-top">
+          <li>{{ t('dayTrading.details1.list1.item1') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item2') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item3') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item4') }}</li>
+          <li>{{ t('dayTrading.details1.list1.item5') }}</li>
+        </ul>
+        <p class="uk-margin-small-bottom">
+          {{ t('dayTrading.details1.para3') }}
+        </p>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('dayTrading.details2.title') }}</h4>
+        <p>
+          {{ t('dayTrading.details2.para1') }}
+        </p>
+        <ImageFrame
+          imgPath="projects/softwareDev/dayTrading/day-trading-architecture-overview.png"
+          :captionText="t('dayTrading.details2.caption1')"
+          :altText="t('dayTrading.details2.altText1')"
+          widthPercent="100%"
+        />
+        <br>
+        <p>
+          {{ t('dayTrading.details2.para2') }}
+          <br><br>
+          {{ t('dayTrading.details2.para3') }}
+          <br><br>
+          {{ t('dayTrading.details2.para4') }}
+          <br><br>
+          {{ t('dayTrading.details2.para5') }}
+          <br><br>
+          {{ t('dayTrading.details2.para6') }}
+          <br><br>
+          {{ t('dayTrading.details2.para7') }}
+          <br><br>
+          {{ t('dayTrading.details2.para8') }}
+        </p>
+        <!-- TODO: upload this PDF file to the site -->
+        <!-- <CTAButton
+          url="/TODO/localPath"
+          :buttonText="t('dayTrading.details2.buttonText')"
+          showOutline
+          isNewTab
+        />
+        <br><br> -->
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: 'https://github.com/olivier361/Day-Trading-App',
+              teaserText: t('dayTrading.details2.relatedLinks1'),
+            },
+            // TODO: upload this PDF file to the site, same as button above
+            // {
+            //   url: '/TODO/localPath',
+            //   teaserText: t('dayTrading.details2.relatedLinks2'),
+            // },
+          ]"
+        />
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
@@ -973,6 +1191,12 @@ hr.info-divider {
     flex-direction: column-reverse;
     gap: 25px;
   }
+}
+
+.image-first-mobile-custom {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 25px;
 }
 
 @media (max-width: 640px) {

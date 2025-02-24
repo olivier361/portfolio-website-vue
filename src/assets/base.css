@@ -166,3 +166,12 @@ a:hover {
 a:visited {
   color: var(--color-link-visited);
 }
+
+iframe {
+  border: var(--image-frame-border-width) solid var(--color-image-frame-border);
+}
+
+.yt-player {
+  aspect-ratio: 16/9;
+  height: fit-content;
+}
