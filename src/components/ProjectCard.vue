@@ -165,6 +165,9 @@ function computeWidth(curRef) {
         <p class="intro-paragraph" v-if="$slots.introParagraph">
           <slot name="introParagraph" />
         </p>
+        <div v-if="$slots.introCustom">
+          <slot name="introCustom" />
+        </div>
         <ImageCollection
           v-if="previewImgList"
           :imgList="previewImgList"
@@ -257,7 +260,7 @@ function computeWidth(curRef) {
     margin-bottom: var(--content-margin-bottom);
   }
 
-  p.intro-paragraph {
+  p.intro-paragraph, :slotted(p.intro-paragraph) {
     /* 50% of the card width minus 25px padding for a two column layout
      * with 50px between columns.
      */
@@ -294,7 +297,7 @@ function computeWidth(curRef) {
 
 @media (max-width: 799px) {
   .project-card {
-    p.intro-paragraph {
+    p.intro-paragraph, :slotted(p.intro-paragraph) {
       width: 100%;
       max-width: 100%;
     }
