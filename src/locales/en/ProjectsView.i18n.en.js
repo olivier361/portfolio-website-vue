@@ -7,6 +7,7 @@ export default {
     section: {
       gameDev: 'Game Development',
       softwareDev: 'Software & App Development',
+      videoEditing: 'Video Editing & Production',
     },
     project1: {
       title: 'Project 1',
@@ -675,6 +676,44 @@ export default {
         relatedLinks2: `
           Read the "Day Trading Application - Architecture and Implementation" Report.
         `,
+      },
+    },
+    ytChannel: {
+      title: 'My YouTube Channel',
+      introPara1: `
+        For over eight years, I've been running my own YouTube channel in the gaming space.
+        With more than 400+ videos produced and hundreds of community livestreams hosted,
+        I've developed solid video editing and production experience since 2016.
+      `,
+      introPara2: `
+        My YouTube channel, Skullkid Gaming (whose name originates from a fan favorite character
+        seen in Zelda games), features a whole range of gaming related videos! Whether it's
+        making viewers discover cool new indie games thanks to my Indie Showcase series,
+        sharing my thoughts on recent games and industry news with my in-depth discussion videos,
+        or chatting with our friendly community during my weekly Nintendo gaming livestreams,
+        video game enthusiasts will be sure to find something they like on Skullkid Gaming!
+      `,
+      introPara3: `
+        Overall, thanks to my channel, I have gained extensive experience in videography,
+        video & photo editing, script writing, hosting & voice overs, social media marketing,
+        community management, the technical know-how to run live events, and more over the years.
+      `,
+      buttonText: 'Visit the Channel!',
+      previewImg: {
+        caption1: `
+          Indie Showcase is a series that highlights amazing indie games!
+        `,
+        caption2: `
+          I make various in-depth discussion videos covering games industry news
+          and game design analyses.
+        `,
+        caption3: `
+          My weekly community livestreams are an opportunity for viewers to chat,
+          have fun, and play games together.
+        `,
+        altText1: "A YouTube thumbnail for an episode of the Indie Showcase series about Grapple Dogs: Cosmic Canines. The game's logo and characters Pablo and Luna are featured.",
+        altText2: 'A YouTube thumbnail for a discussion video about Mario Maker 2. It reads "Making Super Mario Maker 2 Better". Builder Mario can be seen gluing wings to a question mark block.',
+        altText3: 'A YouTube thumbnail for a Super Mario Maker 2 livestream. There is a yellow side panel with the game\'s logo and toads playing a game with Joycons. To the right is a screenshot of a level with the text "playing YOUR levels!" on top.',
       },
     },
   },

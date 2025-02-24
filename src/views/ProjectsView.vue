@@ -857,6 +857,67 @@ function handleResize() {
           ]"
         />
       </ProjectCard>
+
+      <h2>{{ t('section.videoEditing') }}</h2>
+
+      <ProjectCard
+        :heading="t('ytChannel.title')"
+        :previewBackgroundImgPath="'projects/videoEditing/ytChannel/yt-channel-card-background-fade.png'"
+        :previewImgList="[
+          {
+            imgPath: 'projects/videoEditing/ytChannel/grapple-dogs-cosmic-canines-indie-showcase-c.png',
+            captionText: t('ytChannel.previewImg.caption1'),
+            altText: t('ytChannel.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/videoEditing/ytChannel/mario-maker-2-post-release-discussion.png',
+            captionText: t('ytChannel.previewImg.caption2'),
+            altText: t('ytChannel.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/videoEditing/ytChannel/mario-maker-2-live-day4.png',
+            captionText: t('ytChannel.previewImg.caption3'),
+            altText: t('ytChannel.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introCustom>
+          <div
+            :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+            :style="{columnGap: '50px'}"
+          >
+            <p
+              class="intro-paragraph"
+              :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
+            >
+              <!-- TODO: make hardcoded experience years dynamically calculated -->
+              {{ t('ytChannel.introPara1') }}
+              <br><br>
+              {{ t('ytChannel.introPara2') }}
+              <br><br>
+              {{ t('ytChannel.introPara3') }}
+              <br><br>
+              <CTAButton
+                url="https://youtube.com/@skullkid_gaming"
+                :buttonText="t('ytChannel.buttonText')"
+                showOutline
+                isNewTab
+              />
+            </p>
+            <iframe
+              class="uk-flex-1 yt-player"
+              src="https://www.youtube.com/embed/j_YLEYkKQvs?si=CGaiFsYtrKDcCGD4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            />
+          </div>
+        </template>
+
+        <!-- TODO Add details section -->
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
