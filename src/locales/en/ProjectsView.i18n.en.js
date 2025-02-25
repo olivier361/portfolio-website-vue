@@ -763,5 +763,17 @@ export default {
         relatedLinks1: 'View the full "Livestreams" Playlist on YouTube.',
       },
     },
+    videoEditor: {
+      title: 'Freelance Video Editor',
+      introPara1: `
+        I've done some work as a freelance video editor in the past. Here are a few samples of videos, social media promos, and trailers I have edited for clients.
+      `,
+      introPara2: `
+        If you are looking for a video editor for your YouTube channel, business, or project,
+        please don't hesitate to reach out via my
+      `,
+      introPara3: ' contact page',
+      introPara4: '.',
+    },
   },
 };

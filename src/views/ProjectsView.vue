@@ -1055,6 +1055,39 @@ function handleResize() {
         </div>
       </ProjectCard>
       <ProjectCard
+        :heading="t('videoEditor.title')"
+      >
+        <template #introCustom>
+          <div
+            :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+            :style="curViewportWidth <= 899 ? {columnGap: '50px'} : {columnGap: '50px', marginBottom: '25px'}"
+          >
+            <p
+              class="intro-paragraph uk-margin-small-bottom"
+              :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
+            >
+              {{ t('videoEditor.introPara1') }}
+              <br><br>
+              {{ t('videoEditor.introPara2') }}
+              <!-- TODO: Make sure to implement the contact page or remove this link -->
+              <a href="/contact">{{ t('videoEditor.introPara3') }}</a>{{ t('videoEditor.introPara4') }}
+            </p>
+            <iframe
+              class="uk-flex-1 yt-player"
+              src="https://www.youtube.com/embed/dtKAsSJu2Jo?si=u1yoGGkYcEj78wo6"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            />
+          </div>
+        </template>
+
+        <!-- TODO: Add details section -->
+
+      </ProjectCard>
+      <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
