@@ -774,6 +774,29 @@ export default {
       `,
       introPara3: ' contact page',
       introPara4: '.',
+      details1: {
+        title: 'For The Love Of The Game Inc.',
+        para1: `
+          This non-profit organisation does workshops, interviews, and events to provide training
+          to youth sport coaches and promote their message of keeping sports
+          fun for kids rather than being overly competitive.
+        `,
+        para2: `
+          I edited over 40 interview and workshop teasers along with a few trailers
+          for a sports summer camp which the organisation is partnered with.
+          These short videos were published on the organisation's YouTube channel
+          and social media pages from May 2021 to September 2021.
+        `,
+        para3: `
+          While editing, I was in charge of creating custom intros, transitions, end cards,
+          and templates that match the style of the company's branding.
+          In addition, I created custom motion graphics for them such as membership subscription
+          CTA animations and animated lower third banners for presenter names.
+        `,
+        para4: `
+          Below are a few short videos which showcase these effects:
+        `,
+      },
     },
   },
 };

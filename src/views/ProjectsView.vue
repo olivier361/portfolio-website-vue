@@ -1084,8 +1084,56 @@ function handleResize() {
           </div>
         </template>
 
-        <!-- TODO: Add details section -->
-
+        <h4>{{ t('videoEditor.details1.title') }}</h4>
+        <p>
+          {{ t('videoEditor.details1.para1') }}
+          <br><br>
+          {{ t('videoEditor.details1.para2') }}
+          <br><br>
+          {{ t('videoEditor.details1.para3') }}
+          <br><br>
+          {{ t('videoEditor.details1.para4') }}
+        </p>
+        <div class="grid-2-column">
+          <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/Vuz1db7gqwM?si=64EOQq_5Dda8OI8H"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+          <!-- TODO: Add link for outro CTA video -->
+          <!-- <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          /> -->
+          <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/4iEIe07z5Z0?si=akiMtHUyZpOqfWUk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+          <!-- TODO: Add link to discussion panel video -->
+          <!-- <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          /> -->
+        </div>
       </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
@@ -1462,6 +1510,28 @@ hr.info-divider {
       calc(-1 * calc(var(--card-border-radius) / 2))
       0px
       calc(-1 * calc(var(--card-border-radius) / 2))
+  }
+}
+
+.grid-2-column {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.grid-2-column > * {
+  width: calc(50% - 12.5px);
+}
+
+@media (max-width: 899px) {
+  .grid-2-column {
+    flex-direction: column;
+  }
+
+  .grid-2-column > * {
+    width: 100%;
   }
 }
 
