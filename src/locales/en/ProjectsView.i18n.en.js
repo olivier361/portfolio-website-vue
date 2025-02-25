@@ -766,7 +766,8 @@ export default {
     videoEditor: {
       title: 'Freelance Video Editor',
       introPara1: `
-        I've done some work as a freelance video editor in the past. Here are a few samples of videos, social media promos, and trailers I have edited for clients.
+        I've done some work as a freelance video editor in the past. Here are a few samples
+        of videos, social media promos, and trailers I have edited for clients.
       `,
       introPara2: `
         If you are looking for a video editor for your YouTube channel, business, or project,
