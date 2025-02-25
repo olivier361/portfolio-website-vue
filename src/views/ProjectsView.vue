@@ -857,6 +857,284 @@ function handleResize() {
           ]"
         />
       </ProjectCard>
+
+      <h2>{{ t('section.videoEditing') }}</h2>
+
+      <ProjectCard
+        :heading="t('ytChannel.title')"
+        :previewBackgroundImgPath="'projects/videoEditing/ytChannel/yt-channel-card-background-fade.png'"
+        :previewImgList="[
+          {
+            imgPath: 'projects/videoEditing/ytChannel/grapple-dogs-cosmic-canines-indie-showcase-c.png',
+            captionText: t('ytChannel.previewImg.caption1'),
+            altText: t('ytChannel.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/videoEditing/ytChannel/mario-maker-2-post-release-discussion.png',
+            captionText: t('ytChannel.previewImg.caption2'),
+            altText: t('ytChannel.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/videoEditing/ytChannel/mario-maker-2-live-day4.png',
+            captionText: t('ytChannel.previewImg.caption3'),
+            altText: t('ytChannel.previewImg.altText3'),
+          }
+        ]"
+      >
+        <template #introCustom>
+          <div
+            :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+            :style="{columnGap: '50px'}"
+          >
+            <p
+              class="intro-paragraph"
+              :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
+            >
+              <!-- TODO: make hardcoded experience years dynamically calculated -->
+              {{ t('ytChannel.introPara1') }}
+              <br><br>
+              {{ t('ytChannel.introPara2') }}
+              <br><br>
+              {{ t('ytChannel.introPara3') }}
+              <br><br>
+              <CTAButton
+                url="https://youtube.com/@skullkid_gaming"
+                :buttonText="t('ytChannel.buttonText')"
+                showOutline
+                isNewTab
+              />
+            </p>
+            <iframe
+              class="uk-flex-1 yt-player"
+              src="https://www.youtube.com/embed/j_YLEYkKQvs?si=CGaiFsYtrKDcCGD4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            />
+          </div>
+        </template>
+
+        <img
+          class="ignore-info-section-padding"
+          src="@/assets/projects/videoEditing/ytChannel/channel-art-banner.png"
+          :alt="t('ytChannel.details1.altText1')"
+        >
+        <h4>{{ t('ytChannel.details1.title') }}</h4>
+        <p>
+          {{ t('ytChannel.details1.para1') }}
+          <br><br>
+          {{ t('ytChannel.details1.para2') }}
+        </p>
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: 'https://www.youtube.com/playlist?list=PLVJBFGg5a3Kde9MNa6N2SP1hQbW_5_53w',
+              teaserText: t('ytChannel.details1.relatedLinks1'),
+            },
+          ]"
+        />
+        <div
+          class="uk-flex"
+          :style="curViewportWidth <= 899 ? {flexDirection: 'column', gap: '25px'} : {gap: '25px'}"
+        >
+          <iframe
+            class="uk-flex-1 yt-player"
+            src="https://www.youtube.com/embed/DnjNQs8edRg?si=5wSAFmQ_6Xd4uNsZ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+          <iframe
+            class="uk-flex-1 yt-player"
+            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('ytChannel.details2.title') }}</h4>
+        <div
+          :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+          :style="{columnGap: '50px'}"
+        >
+          <div class="uk-flex-1">
+            <p>
+              {{ t('ytChannel.details2.para1') }}
+              <br><br>
+              {{ t('ytChannel.details2.para2') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                {
+                  url: 'https://www.youtube.com/playlist?list=PLVJBFGg5a3KeeyuhUlxwrVxV4vLif1Xea',
+                  teaserText: t('ytChannel.details2.relatedLinks1'),
+                },
+              ]"
+            />
+          </div>
+          <iframe
+            class="uk-flex-1 yt-player"
+            src="https://www.youtube.com/embed/SLfkUEi9uas?si=u0ssolygWuXG_SeT"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('ytChannel.details3.title') }}</h4>
+        <div
+          :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+          :style="{columnGap: '50px'}"
+        >
+          <div class="uk-flex-1">
+            <p>
+              {{ t('ytChannel.details3.para1') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                {
+                  url: 'https://www.youtube.com/playlist?list=PLVJBFGg5a3KeYWbCrKsfVZj-jdDEKQouw',
+                  teaserText: t('ytChannel.details3.relatedLinks1'),
+                },
+              ]"
+            />
+          </div>
+          <iframe
+            class="uk-flex-1 yt-player"
+            src="https://www.youtube.com/embed/mI3L5TY7wMs?si=aKL52Bo6xzlYwdLs"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+        </div>
+
+        <hr class="info-divider">
+
+        <h4>{{ t('ytChannel.details4.title') }}</h4>
+        <div
+          :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+          :style="{columnGap: '50px'}"
+        >
+          <div class="uk-flex-1">
+            <p>
+              {{ t('ytChannel.details4.para1') }}
+            </p>
+            <RelatedLinks
+              :linkObjectsList="[
+                {
+                  url: 'https://www.youtube.com/playlist?list=PLVJBFGg5a3Kc4kcmKdOi2uAAiRekXoCfC',
+                  teaserText: t('ytChannel.details4.relatedLinks1'),
+                },
+              ]"
+            />
+          </div>
+          <iframe
+            class="uk-flex-1 yt-player"
+            src="https://www.youtube.com/embed/SbvzrEPGuPo?si=iDL-ME4a1r68s5Rb"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+        </div>
+      </ProjectCard>
+      <ProjectCard
+        :heading="t('videoEditor.title')"
+      >
+        <template #introCustom>
+          <div
+            :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+            :style="curViewportWidth <= 899 ? {columnGap: '50px'} : {columnGap: '50px', marginBottom: '25px'}"
+          >
+            <p
+              class="intro-paragraph uk-margin-small-bottom"
+              :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
+            >
+              {{ t('videoEditor.introPara1') }}
+              <br><br>
+              {{ t('videoEditor.introPara2') }}
+              <!-- TODO: Make sure to implement the contact page or remove this link -->
+              <a href="/contact">{{ t('videoEditor.introPara3') }}</a>{{ t('videoEditor.introPara4') }}
+            </p>
+            <iframe
+              class="uk-flex-1 yt-player"
+              src="https://www.youtube.com/embed/dtKAsSJu2Jo?si=u1yoGGkYcEj78wo6"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            />
+          </div>
+        </template>
+
+        <h4>{{ t('videoEditor.details1.title') }}</h4>
+        <p>
+          {{ t('videoEditor.details1.para1') }}
+          <br><br>
+          {{ t('videoEditor.details1.para2') }}
+          <br><br>
+          {{ t('videoEditor.details1.para3') }}
+          <br><br>
+          {{ t('videoEditor.details1.para4') }}
+        </p>
+        <div class="grid-2-column">
+          <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/Vuz1db7gqwM?si=64EOQq_5Dda8OI8H"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+          <!-- TODO: Add link for outro CTA video -->
+          <!-- <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          /> -->
+          <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/4iEIe07z5Z0?si=akiMtHUyZpOqfWUk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
+          <!-- TODO: Add link to discussion panel video -->
+          <!-- <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          /> -->
+        </div>
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
@@ -1212,4 +1490,49 @@ hr.info-divider {
     align-items: center;
   }
 } */
+
+.ignore-info-section-padding {
+  width: calc(100% + calc(var(--card-border-radius) * 2));
+  max-width: calc(100% + calc(var(--card-border-radius) * 2));
+  margin:
+    calc(-1 * calc(var(--card-border-radius) / 2))
+    calc(-1 * var(--card-border-radius))
+    0px
+    calc(-1 * var(--card-border-radius));
+}
+
+@media (max-width: 640px) {
+  .ignore-info-section-padding {
+    width: calc(100% + var(--card-border-radius));
+    max-width: calc(100% + var(--card-border-radius));
+    margin:
+      calc(-1 * calc(var(--card-border-radius) / 2))
+      calc(-1 * calc(var(--card-border-radius) / 2))
+      0px
+      calc(-1 * calc(var(--card-border-radius) / 2))
+  }
+}
+
+.grid-2-column {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.grid-2-column > * {
+  width: calc(50% - 12.5px);
+}
+
+@media (max-width: 899px) {
+  .grid-2-column {
+    flex-direction: column;
+  }
+
+  .grid-2-column > * {
+    width: 100%;
+  }
+}
+
 </style>

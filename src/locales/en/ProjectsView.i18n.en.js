@@ -7,6 +7,7 @@ export default {
     section: {
       gameDev: 'Game Development',
       softwareDev: 'Software & App Development',
+      videoEditing: 'Video Editing & Production',
     },
     project1: {
       title: 'Project 1',
@@ -674,6 +675,127 @@ export default {
         relatedLinks1: 'View the "Day-Trading-App" codebase on GitHub.',
         relatedLinks2: `
           Read the "Day Trading Application - Architecture and Implementation" Report.
+        `,
+      },
+    },
+    ytChannel: {
+      title: 'My YouTube Channel',
+      introPara1: `
+        For over eight years, I've been running my own YouTube channel in the gaming space.
+        With more than 400+ videos produced and hundreds of community livestreams hosted,
+        I've developed solid video editing and production experience since 2016.
+      `,
+      introPara2: `
+        My YouTube channel, Skullkid Gaming (whose name originates from a fan favorite character
+        seen in Zelda games), features a whole range of gaming related videos! Whether it's
+        making viewers discover cool new indie games thanks to my Indie Showcase series,
+        sharing my thoughts on recent games and industry news with my in-depth discussion videos,
+        or chatting with our friendly community during my weekly Nintendo gaming livestreams,
+        video game enthusiasts will be sure to find something they like on Skullkid Gaming!
+      `,
+      introPara3: `
+        Overall, thanks to my channel, I have gained extensive experience in videography,
+        video & photo editing, script writing, hosting & voice overs, social media marketing,
+        community management, the technical know-how to run live events, and more over the years.
+      `,
+      buttonText: 'Visit the Channel!',
+      previewImg: {
+        caption1: `
+          Indie Showcase is a series that highlights amazing indie games!
+        `,
+        caption2: `
+          I make various in-depth discussion videos covering games industry news
+          and game design analyses.
+        `,
+        caption3: `
+          My weekly community livestreams are an opportunity for viewers to chat,
+          have fun, and play games together.
+        `,
+        altText1: "A YouTube thumbnail for an episode of the Indie Showcase series about Grapple Dogs: Cosmic Canines. The game's logo and characters Pablo and Luna are featured.",
+        altText2: 'A YouTube thumbnail for a discussion video about Mario Maker 2. It reads "Making Super Mario Maker 2 Better". Builder Mario can be seen gluing wings to a question mark block.',
+        altText3: 'A YouTube thumbnail for a Super Mario Maker 2 livestream. There is a yellow side panel with the game\'s logo and toads playing a game with Joycons. To the right is a screenshot of a level with the text "playing YOUR levels!" on top.',
+      },
+      details1: {
+        title: 'Video Essays & Discussions',
+        para1: `
+          From reviews to game retrospectives and topical gaming related news,
+          my gaming discussion videos cover a wide range of topics regarding the games industry.
+        `,
+        para2: `
+          Whether it's my unscripted thoughts on recent gaming news or one of my
+          meticulously crafted scripted game retrospectives full of video edits,
+          I always take great care in doing thorough research on the topics I present.
+        `,
+        relatedLinks1: 'View the full "Discussion Videos" Playlist on YouTube.',
+        altText1: 'The YouTube banner for the Skullkid Gaming channel. The channel name is in the center surrounded by video game characters such as Tracer from Overwatch, Shovel Knight, Link from Zelda, and Builder Mario from Mario Maker.',
+      },
+      details2: {
+        title: 'Indie Showcase Series',
+        para1: `
+          The Indie Showcase series is a Let's Play series that focuses on showcasing
+          the opening moments of awesome games from independent developers!
+        `,
+        para2: `
+          Throughout each video I take a look at a new indie game and share my thoughts
+          and opinions about its gameplay, story, design, etc. All of this wrapped in a
+          nice fun and entertaining package where viewers can easily decide
+          if the game is worth their penny!
+        `,
+        relatedLinks1: 'View the full "Indie Showcase" Playlist on YouTube.',
+      },
+      details3: {
+        title: 'Unboxings & Vlogs',
+        para1: `
+          While a good portion of my videos rely on using captured game footage,
+          I also have a handful of gaming unboxing videos and vacation vlogs which have
+          enabled me to gain more videography and camera experience over the years.
+        `,
+        relatedLinks1: 'View the full "Unboxing Videos" Playlist on YouTube.',
+      },
+      details4: {
+        title: 'Community Livestreams',
+        para1: `
+          On a weekly basis, I host community livestreams where I play Nintendo games
+          like Zelda, Mario Maker, or Splatoon with viewers and catch up with them in the chat.
+          We also often play online games where viewers can join in on the fun directly
+          with their Nintendo Switch.
+        `,
+        relatedLinks1: 'View the full "Livestreams" Playlist on YouTube.',
+      },
+    },
+    videoEditor: {
+      title: 'Freelance Video Editor',
+      introPara1: `
+        I've done some work as a freelance video editor in the past. Here are a few samples
+        of videos, social media promos, and trailers I have edited for clients.
+      `,
+      introPara2: `
+        If you are looking for a video editor for your YouTube channel, business, or project,
+        please don't hesitate to reach out via my
+      `,
+      introPara3: ' contact page',
+      introPara4: '.',
+      details1: {
+        title: 'For The Love Of The Game Inc.',
+        para1: `
+          This non-profit organisation does workshops, interviews, and events to provide training
+          to youth sport coaches and promote their message of keeping sports
+          fun for kids rather than being overly competitive.
+        `,
+        para2: `
+          I edited over 40 interview and workshop teasers along with a few trailers
+          for a sports summer camp which the organisation is partnered with.
+          These short videos were published on the organisation's YouTube channel
+          and social media pages from May 2021 to September 2021.
+        `,
+        para3: `
+          While editing, I was in charge of creating custom intros, transitions, end cards,
+          and templates that match the style of the company's branding.
+          In addition, I created custom motion graphics for them such as membership subscription
+          CTA animations and animated lower third banners for presenter names.
+        `,
+        para4: `
+          Below are a few short videos which showcase these effects:
         `,
       },
     },
