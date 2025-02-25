@@ -916,6 +916,11 @@ function handleResize() {
           </div>
         </template>
 
+        <img
+          class="ignore-info-section-padding"
+          src="@/assets/projects/videoEditing/ytChannel/channel-art-banner.png"
+          :alt="t('ytChannel.details1.altText1')"
+        >
         <!-- TODO Add details section -->
       </ProjectCard>
       <ProjectCard
@@ -1273,4 +1278,27 @@ hr.info-divider {
     align-items: center;
   }
 } */
+
+.ignore-info-section-padding {
+  width: calc(100% + calc(var(--card-border-radius) * 2));
+  max-width: calc(100% + calc(var(--card-border-radius) * 2));
+  margin:
+    calc(-1 * calc(var(--card-border-radius) / 2))
+    calc(-1 * var(--card-border-radius))
+    0px
+    calc(-1 * var(--card-border-radius));
+}
+
+@media (max-width: 640px) {
+  .ignore-info-section-padding {
+    width: calc(100% + var(--card-border-radius));
+    max-width: calc(100% + var(--card-border-radius));
+    margin:
+      calc(-1 * calc(var(--card-border-radius) / 2))
+      calc(-1 * calc(var(--card-border-radius) / 2))
+      0px
+      calc(-1 * calc(var(--card-border-radius) / 2))
+  }
+}
+
 </style>

@@ -715,6 +715,13 @@ export default {
         altText2: 'A YouTube thumbnail for a discussion video about Mario Maker 2. It reads "Making Super Mario Maker 2 Better". Builder Mario can be seen gluing wings to a question mark block.',
         altText3: 'A YouTube thumbnail for a Super Mario Maker 2 livestream. There is a yellow side panel with the game\'s logo and toads playing a game with Joycons. To the right is a screenshot of a level with the text "playing YOUR levels!" on top.',
       },
+      details1: {
+        title: 'Video Essays & Discussions',
+        para1: `
+          
+        `,
+        altText1: 'The YouTube banner for the Skullkid Gaming channel. The channel name is in the center surrounded by video game characters such as Tracer from Overwatch, Shovel Knight, Link from Zelda, and Builder Mario from Mario Maker.',
+      },
     },
   },
 };
