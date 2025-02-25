@@ -718,9 +718,49 @@ export default {
       details1: {
         title: 'Video Essays & Discussions',
         para1: `
-          
+          From reviews to game retrospectives and topical gaming related news,
+          my gaming discussion videos cover a wide range of topics regarding the games industry.
         `,
+        para2: `
+          Whether it's my unscripted thoughts on recent gaming news or one of my
+          meticulously crafted scripted game retrospectives full of video edits,
+          I always take great care in doing thorough research on the topics I present.
+        `,
+        relatedLinks1: 'View the full "Discussion Videos" Playlist on YouTube.',
         altText1: 'The YouTube banner for the Skullkid Gaming channel. The channel name is in the center surrounded by video game characters such as Tracer from Overwatch, Shovel Knight, Link from Zelda, and Builder Mario from Mario Maker.',
+      },
+      details2: {
+        title: 'Indie Showcase Series',
+        para1: `
+          The Indie Showcase series is a Let's Play series that focuses on showcasing
+          the opening moments of awesome games from independent developers!
+        `,
+        para2: `
+          Throughout each video I take a look at a new indie game and share my thoughts
+          and opinions about its gameplay, story, design, etc. All of this wrapped in a
+          nice fun and entertaining package where viewers can easily decide
+          if the game is worth their penny!
+        `,
+        relatedLinks1: 'View the full "Indie Showcase" Playlist on YouTube.',
+      },
+      details3: {
+        title: 'Unboxings & Vlogs',
+        para1: `
+          While a good portion of my videos rely on using captured game footage,
+          I also have a handful of gaming unboxing videos and vacation vlogs which have
+          enabled me to gain more videography and camera experience over the years.
+        `,
+        relatedLinks1: 'View the full "Unboxing Videos" Playlist on YouTube.',
+      },
+      details4: {
+        title: 'Community Livestreams',
+        para1: `
+          On a weekly basis, I host community livestreams where I play Nintendo games
+          like Zelda, Mario Maker, or Splatoon with viewers and catch up with them in the chat.
+          We also often play online games where viewers can join in on the fun directly
+          with their Nintendo Switch.
+        `,
+        relatedLinks1: 'View the full "Livestreams" Playlist on YouTube.',
       },
     },
   },

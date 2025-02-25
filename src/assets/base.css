@@ -25,6 +25,7 @@
   --c-accent-tertiary: #ffc320;
   --c-accent-quaternary: orange;
   --c-background-primary: #232323;
+  --c-background-secondary: #505050;
 
   --c-text-dark-primary: #151515;
 }
@@ -44,6 +45,8 @@
   --color-link: var(--c-accent-secondary);
   --color-link-hover: var(--c-accent-tertiary);
   --color-link-visited: var(--c-accent-quaternary);
+
+  --color-img-background: var(--c-background-secondary);
 
   --color-page-overlay: black;
 
@@ -168,6 +171,7 @@ a:visited {
 }
 
 iframe {
+  background-color: var(--color-img-background);
   border: var(--image-frame-border-width) solid var(--color-image-frame-border);
 }
 
