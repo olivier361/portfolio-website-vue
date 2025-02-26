@@ -8,6 +8,7 @@ export default {
       gameDev: 'Game Development',
       softwareDev: 'Software & App Development',
       videoEditing: 'Video Editing & Production',
+      graphicDesign: 'Graphic Design',
     },
     project1: {
       title: 'Project 1',
@@ -797,6 +798,38 @@ export default {
         para4: `
           Below are a few short videos which showcase these effects:
         `,
+      },
+    },
+    flipnoteMag: {
+      title: 'Flipnote Magazine',
+      introPara1: `
+        I have experience in graphic design both self-taught and
+        thanks to a course taken at the University of Victoria.
+      `,
+      introPara2: `
+        Flipnote Magazine is a fictional 22-page travel magazine which I created as a
+        design project with Adobe InDesign. All pictures in the magazine were taken by me,
+        except for the fake advertisements which are made by other UVic students.
+        Additionally, the text which serves as a placeholder for this design project
+        mostly comes from Wikipedia, unless indicated otherwise.
+      `,
+      introPara3: 'You can check out the full magazine PDF below.',
+      introPara4: `
+        *NOTE: All Flipnote Magazine URLs and social media handles inside the magazine
+        are purely fictional and their real life counterparts have not been verified.
+      `,
+      buttonText: 'View the Full Magazine Issue',
+      imgFrame: {
+        caption1: 'The cover page of Flipnote Magazine.',
+        altText1: 'The cover of Flipnote magazine features a picture of the "Chateau de Versailles" in France with a clear blue sky. The magazine title is in the top right corner and the lower third has a slanted aqua blue banner with highlights of pictures and articles found inside the magazine.',
+      },
+      previewImg: {
+        caption1: 'The table of contents and credits spread at the start of the magazine.',
+        caption2: 'A travel article template about Mont-Saint-Michel in France.',
+        caption3: 'An article template designed to highlight full page bleed images.',
+        altText1: 'The opening spread of the magazine features the table of contents as an aqua blue vertical banner on the left and the article text credits on the right page. There is also a navy blue text box giving details about the cover image.',
+        altText2: 'A travel article about Mont-Saint-Michel. It has a three column layout with light blue borders around the page edges and large images in the first third of each page. There is a banner with three smaller images at the bottom of the right page.',
+        altText3: 'An article featuring two full page bleed images. On the left page is an old growth forest with a fallen tree, and on the right page is a waterfall surrounded by trees. The article text is on a semi-transparent box in the lower third of the left page.',
       },
     },
   },

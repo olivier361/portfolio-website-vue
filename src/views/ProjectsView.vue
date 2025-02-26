@@ -1135,6 +1135,66 @@ function handleResize() {
           /> -->
         </div>
       </ProjectCard>
+
+      <h2>{{ t('section.graphicDesign') }}</h2>
+
+      <ProjectCard
+        :heading="t('flipnoteMag.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/graphicDesign/flipnoteMag/flipnote-magazine-spread-2-3.png',
+            captionText: t('flipnoteMag.previewImg.caption1'),
+            altText: t('flipnoteMag.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/flipnoteMag/flipnote-magazine-spread-14-15.png',
+            captionText: t('flipnoteMag.previewImg.caption2'),
+            altText: t('flipnoteMag.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/flipnoteMag/flipnote-magazine-spread-18-19.png',
+            captionText: t('flipnoteMag.previewImg.caption3'),
+            altText: t('flipnoteMag.previewImg.altText3'),
+          }
+        ]"
+        :isExpandable="false"
+        previewImgHeight="auto"
+      >
+        <template #introCustom>
+          <div
+            :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+            :style="{columnGap: '50px'}"
+          >
+            <p
+              class="intro-paragraph"
+              :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
+            >
+              {{ t('flipnoteMag.introPara1') }}
+              <br><br>
+              {{ t('flipnoteMag.introPara2') }}
+              <br><br>
+              {{ t('flipnoteMag.introPara3') }}
+              <br><br>
+              <!-- TODO: Upload magazine PDF to site -->
+              <CTAButton
+                url="/TODO"
+                :buttonText="t('flipnoteMag.buttonText')"
+                showOutline
+                isNewTab
+              />
+              <br><br>
+              <i>{{ t('flipnoteMag.introPara4') }}</i>
+            </p>
+            <ImageFrame
+              imgPath="projects/graphicDesign/flipnoteMag/flipnote-magazine-cover.png"
+              :captionText="t('flipnoteMag.imgFrame.caption1')"
+              :altText="t('flipnoteMag.imgFrame.altText1')"
+              :height="curViewportWidth <= 899 ? 'fit-content' : '400px'"
+              :style="curViewportWidth <= 899 ? {} : { marginBottom: '50px' }"
+            />
+          </div>
+        </template>
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
