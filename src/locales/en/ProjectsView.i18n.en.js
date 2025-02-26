@@ -832,5 +832,49 @@ export default {
         altText3: 'An article featuring two full page bleed images. On the left page is an old growth forest with a fallen tree, and on the right page is a waterfall surrounded by trees. The article text is on a semi-transparent box in the lower third of the left page.',
       },
     },
+    ytThumbnails: {
+      title: 'YouTube Thumbnails',
+      introPara1: `
+        With more than 500+ video thumbnails created, I have over eight years of design
+        experience making eye-catching thumbnails to attract viewers to my videos.
+      `,
+      introPara2: `
+        You'll find even more thumbnail samples by clicking the “View Details” button below.
+      `,
+      previewImg: {
+        altText1: '',
+        altText2: '',
+        altText3: '',
+      },
+      details1: {
+        title: 'Sample Thumbnails',
+        para1: `
+          Below are a few video thumbnail samples featuring
+          a diverse range of styles within the gaming niche.
+        `,
+        para2: `
+          You can find even more thumbnails I've created by browsing my catalogue
+          of published videos over on my
+        `,
+        para3: ' YouTube channel',
+        para4: '.',
+        imgCollection1: {
+          altText1: '',
+          altText2: '',
+          altText3: '',
+          altText4: '',
+          altText5: '',
+          altText6: '',
+          altText7: '',
+          altText8: '',
+          altText9: '',
+          altText10: '',
+          altText11: '',
+          altText12: '',
+          altText13: '',
+          altText14: '',
+        },
+      },
+    },
   },
 };

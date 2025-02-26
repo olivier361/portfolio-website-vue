@@ -1196,6 +1196,101 @@ function handleResize() {
         </template>
       </ProjectCard>
       <ProjectCard
+        :heading="t('ytThumbnails.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/graphicDesign/ytThumbnails/kirby-and-the-forgotten-land-livestream-1.png',
+            altText: t('ytThumbnails.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/ytThumbnails/state-of-the-switch-2019-discussion.png',
+            altText: t('ytThumbnails.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/ytThumbnails/zelda-links-awakening-zelda-maker-discussion.png',
+            altText: t('ytThumbnails.previewImg.altText3'),
+          }
+        ]"
+        previewImgHeight="auto"
+      >
+        <template #introParagraph>
+          <!-- TODO: make hardcoded experience years dynamically calculated -->
+          {{ t('ytThumbnails.introPara1') }}
+          <br><br>
+          {{ t('ytThumbnails.introPara2') }}
+        </template>
+
+        <h4>{{ t('ytThumbnails.details1.title') }}</h4>
+        <p>
+          {{ t('ytThumbnails.details1.para1') }}
+          <br><br>
+          {{ t('ytThumbnails.details1.para2') }}
+          <a href="https://youtube.com/@skullkid_gaming" target="_blank">
+            {{ t('ytThumbnails.details1.para3') }}</a>{{ t('ytThumbnails.details1.para4') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/mario-kart-8-dx-livestream-2.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText1'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/kirby-and-the-forgotten-land-livestream-1.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText2'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/zelda-links-awakening-zelda-maker-discussion.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText3'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/holiday-livestream-2022.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText4'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/portal-bridge-constructor.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText5'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/steamworld-heist.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText6'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/zelda-totk-unboxing-v2.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText7'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/zelda-links-awakening-part1.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText8'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/super-mario-bros-wonder-livestream-1.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText9'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/mario-maker-2-live-day4.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText10'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/state-of-the-switch-2019-discussion.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText11'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/Is-the-nintendo-switch-rushed.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText12'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/smash-ultimate-discussion.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText13'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/smash-ultimate-livestream.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText14'),
+            },
+          ]"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
+        />
+      </ProjectCard>
+      <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
