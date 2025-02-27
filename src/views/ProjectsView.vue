@@ -1275,7 +1275,7 @@ function handleResize() {
               altText: t('ytThumbnails.details1.imgCollection1.altText11'),
             },
             {
-              imgPath: 'projects/graphicDesign/ytThumbnails/Is-the-nintendo-switch-rushed.png',
+              imgPath: 'projects/graphicDesign/ytThumbnails/is-the-nintendo-switch-rushed.png',
               altText: t('ytThumbnails.details1.imgCollection1.altText12'),
             },
             {
