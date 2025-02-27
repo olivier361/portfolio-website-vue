@@ -876,5 +876,20 @@ export default {
         },
       },
     },
+    advertising: {
+      title: 'Digital Advertisements',
+      introPara1: `
+        Below are a few samples of digital advertisements I have created
+        to promote projects and products on social media and print media.
+      `,
+      previewImg: {
+        caption1: 'Fictional ad for PaperMate pencils suitable for print media or online ads.',
+        caption2: 'Promotional Instagram post to get students to beta test our UHub app.',
+        caption3: 'Social media ad to promote our youtuber Discord server.',
+        altText1: 'An ad for a PaperMate pencil. The ad is square with a yellow background. All we see is the image of a pencil at the center and a tagline above that reads "Got a great idea? Write it down with a PaperMate pencil!".',
+        altText2: 'A UHub app promotional image showing the app logo, a slogan which reads "Find food on campus fast!", and a message that reads "Download the app today on iOS and Android". There is a screenshot of the app showing a food outlet\'s location on the map and it\'s menu.',
+        altText3: 'A social media promo image for the "IndieTube Café" Discord server. We see the logo of the server to the left (a coffee cup with a blue play button on it) and text on the right that reads "Join our Discord today! A community for small Youtubers and their viewers to get together!".',
+      },
+    },
   },
 };

@@ -1291,6 +1291,32 @@ function handleResize() {
         />
       </ProjectCard>
       <ProjectCard
+        :heading="t('advertising.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/graphicDesign/advertising/pencil-ad.png',
+            captionText: t('advertising.previewImg.caption1'),
+            altText: t('advertising.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/advertising/uhub-insta-ad-1.png',
+            captionText: t('advertising.previewImg.caption2'),
+            altText: t('advertising.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/advertising/discord-server-ad-banner-v3.png',
+            captionText: t('advertising.previewImg.caption3'),
+            altText: t('advertising.previewImg.altText3'),
+          },
+        ]"
+        :isExpandable="false"
+        previewImgHeight="auto"
+      >
+        <template #introParagraph>
+          {{ t('advertising.introPara1') }}
+        </template>
+      </ProjectCard>
+      <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
         :previewImgList="[
