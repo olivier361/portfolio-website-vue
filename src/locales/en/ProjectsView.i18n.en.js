@@ -8,6 +8,7 @@ export default {
       gameDev: 'Game Development',
       softwareDev: 'Software & App Development',
       videoEditing: 'Video Editing & Production',
+      graphicDesign: 'Graphic Design',
     },
     project1: {
       title: 'Project 1',
@@ -797,6 +798,97 @@ export default {
         para4: `
           Below are a few short videos which showcase these effects:
         `,
+      },
+    },
+    flipnoteMag: {
+      title: 'Flipnote Magazine',
+      introPara1: `
+        I have experience in graphic design both self-taught and
+        thanks to a course taken at the University of Victoria.
+      `,
+      introPara2: `
+        Flipnote Magazine is a fictional 22-page travel magazine which I created as a
+        design project with Adobe InDesign. All pictures in the magazine were taken by me,
+        except for the fake advertisements which are made by other UVic students.
+        Additionally, the text which serves as a placeholder for this design project
+        mostly comes from Wikipedia, unless indicated otherwise.
+      `,
+      introPara3: 'You can check out the full magazine PDF below.',
+      introPara4: `
+        *NOTE: All Flipnote Magazine URLs and social media handles inside the magazine
+        are purely fictional and their real life counterparts have not been verified.
+      `,
+      buttonText: 'View the Full Magazine Issue',
+      imgFrame: {
+        caption1: 'The cover page of Flipnote Magazine.',
+        altText1: 'The cover of Flipnote magazine features a picture of the "Chateau de Versailles" in France with a clear blue sky. The magazine title is in the top right corner and the lower third has a slanted aqua blue banner with highlights of pictures and articles found inside the magazine.',
+      },
+      previewImg: {
+        caption1: 'The table of contents and credits spread at the start of the magazine.',
+        caption2: 'A travel article template about Mont-Saint-Michel in France.',
+        caption3: 'An article template designed to highlight full page bleed images.',
+        altText1: 'The opening spread of the magazine features the table of contents as an aqua blue vertical banner on the left and the article text credits on the right page. There is also a navy blue text box giving details about the cover image.',
+        altText2: 'A travel article about Mont-Saint-Michel. It has a three column layout with light blue borders around the page edges and large images in the first third of each page. There is a banner with three smaller images at the bottom of the right page.',
+        altText3: 'An article featuring two full page bleed images. On the left page is an old growth forest with a fallen tree, and on the right page is a waterfall surrounded by trees. The article text is on a semi-transparent box in the lower third of the left page.',
+      },
+    },
+    ytThumbnails: {
+      title: 'YouTube Thumbnails',
+      introPara1: `
+        With more than 500+ video thumbnails created, I have over eight years of design
+        experience making eye-catching thumbnails to attract viewers to my videos.
+      `,
+      introPara2: `
+        You'll find even more thumbnail samples by clicking the “View Details” button below.
+      `,
+      previewImg: {
+        altText1: 'A thumbnail for a Kirby Forgotten Land livestream. Kirby is in the center looking out into the distance. The word "Kirby" is written in semi-transparent bold letters spaning the whole thumbnail passing behind the character in the background',
+        altText2: 'A thumbnail for a discussion video about the Nintendo Switch\'s second anniversary. This is a clipart style thumbnail showing the switch flying above the clouds on a blue sky with angel wings and a halo. The screen of the console reads "TWO YEARS" on a bright red background.',
+        altText3: 'A thumbnail for a Zelda Link\'s Awakening discussion video. It reads "Hiding in Plain Sight?" with the game\'s logo. The thumbnail is black and features a magnifying glass which illuminates the game world behind it. References to Builder Link and the Oracle games can also be seen.',
+      },
+      details1: {
+        title: 'Sample Thumbnails',
+        para1: `
+          Below are a few video thumbnail samples featuring
+          a diverse range of styles within the gaming niche.
+        `,
+        para2: `
+          You can find even more thumbnails I've created by browsing my catalogue
+          of published videos over on my
+        `,
+        para3: ' YouTube channel',
+        para4: '.',
+        imgCollection1: {
+          altText1: 'A thumbnail for a Mario Kart 8 Deluxe livestream featuring Bowser and Skullkid\'s karts clashing together. This image typically features Mario but it has been edited to show Skullkid from Zelda instead.',
+          altText2: 'A thumbnail for a Kirby Forgotten Land livestream. Kirby is in the center looking out into the distance. The word "Kirby" is written in semi-transparent bold letters spaning the whole thumbnail passing behind the character in the background',
+          altText3: 'A thumbnail for a Zelda Link\'s Awakening discussion video. It reads "Hiding in Plain Sight?" with the game\'s logo. The thumbnail is black and features a magnifying glass which illuminates the game world behind it. References to Builder Link and the Oracle games can also be seen.',
+          altText4: 'A thumbnail for a Holiday livestream with viewers. There are three parallelogram boxes each showing a character and background for Mario Kart 8, Mario Maker 2, and Animal Crossing New Horizons games inside. The thumbnail background is light blue with snowflakes.',
+          altText5: 'A thumbnail for a Bridge Constructor: Portal Indie Showcase episode. The left side shows the game\' logo and game art of stick figure characters riding a forklift through a portal. The right side shows an image of a game level featuring multiple bridges.',
+          altText6: 'A thumbnail for a SteamWorld Heist Indie Showcase episode. The left side shows the game\'s logo and key characters from the game. The right side shows a game level with a robot character aiming a ricochet shot.',
+          altText7: 'A thumbnail for a Zelda Tears of the Kingdom Collector\'s Edition unboxing. The left shows the game\'s logo and words "Ultimate Unboxing". Boxes for the Collector\'s Edition, Zelda edition Pro Controller, Zelda Switch case, and Amiibo are shown on the right.',
+          altText8: 'A thumbnail for a Zelda Link\'s Awakening livestream. On the left is a vertical green banner with the game\'s logo and chibi versions of characters Link and Marin. On the right is an image of a chibi model of Koholint island.',
+          altText9: 'A thumbnail for a Super Mario Bros Wonder livestream. On the left is a vertical white banner with the game\'s logo and characters Mario, Luigi, Peach, and Daisy. The right side features an image of the game\'s opening level showing a flower shaped tree and a beautiful blue sky.',
+          altText10: 'A thumbnail for a Super Mario Maker 2 livestream. On the left is a vertical yellow banner with the game\'s logo and Builder Toad and Builder Toadette characters playing a game with Joycons. The right has a screenshot of a level and the text "playing YOUR levels!" on top.',
+          altText11: 'A thumbnail for a discussion video about the Nintendo Switch\'s second anniversary. This is a clipart style thumbnail showing the switch flying above the clouds on a blue sky with angel wings and a halo. The screen of the console reads "TWO YEARS" on a bright red background.',
+          altText12: 'A thumbnail for a discussion video about whether the release of the Nintendo Switch was rushed. On a bright yellow background, we see hands holding a Nintendo Switch console snapped in two at the center. Around it is written in bold black letters "WAS IT RUSHED?".',
+          altText13: 'A thumbnail for a Smash Bros Ultimate discussion video. It uses the style of a classic Smash character reveal image. Where the character\'s name would typically be, we can read "Truly the Ultimate Smash Bros". On the left is character art of King K. Rool with a question mark above his head.',
+          altText14: 'A thumbnail for a Smash Bros Ultimate livestream. On the left is Mario punching and kicking. There is a large black Smash emblem behind Mario. The thumbnail is otherwise white. The words "Ultimate Extravaganza" are written in black and shift to white when over the black Smash emblem.',
+        },
+      },
+    },
+    advertising: {
+      title: 'Digital Advertisements',
+      introPara1: `
+        Below are a few samples of digital advertisements I have created
+        to promote projects and products on social media and print media.
+      `,
+      previewImg: {
+        caption1: 'Fictional ad for PaperMate pencils suitable for print media or online ads.',
+        caption2: 'Promotional Instagram post to get students to beta test our UHub app.',
+        caption3: 'Social media ad to promote our youtuber Discord server.',
+        altText1: 'An ad for a PaperMate pencil. The ad is square with a yellow background. All we see is the image of a pencil at the center and a tagline above that reads "Got a great idea? Write it down with a PaperMate pencil!".',
+        altText2: 'A UHub app promotional image showing the app logo, a slogan which reads "Find food on campus fast!", and a message that reads "Download the app today on iOS and Android". There is a screenshot of the app showing a food outlet\'s location on the map and it\'s menu.',
+        altText3: 'A social media promo image for the "IndieTube Café" Discord server. We see the logo of the server to the left (a coffee cup with a blue play button on it) and text on the right that reads "Join our Discord today! A community for small Youtubers and their viewers to get together!".',
       },
     },
   },

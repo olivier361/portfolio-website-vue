@@ -1135,6 +1135,187 @@ function handleResize() {
           /> -->
         </div>
       </ProjectCard>
+
+      <h2>{{ t('section.graphicDesign') }}</h2>
+
+      <ProjectCard
+        :heading="t('flipnoteMag.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/graphicDesign/flipnoteMag/flipnote-magazine-spread-2-3.png',
+            captionText: t('flipnoteMag.previewImg.caption1'),
+            altText: t('flipnoteMag.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/flipnoteMag/flipnote-magazine-spread-14-15.png',
+            captionText: t('flipnoteMag.previewImg.caption2'),
+            altText: t('flipnoteMag.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/flipnoteMag/flipnote-magazine-spread-18-19.png',
+            captionText: t('flipnoteMag.previewImg.caption3'),
+            altText: t('flipnoteMag.previewImg.altText3'),
+          }
+        ]"
+        :isExpandable="false"
+        previewImgHeight="auto"
+      >
+        <template #introCustom>
+          <div
+            :class="curViewportWidth <= 899 ? 'uk-flex image-first-mobile-custom' : 'uk-flex'"
+            :style="{columnGap: '50px'}"
+          >
+            <p
+              class="intro-paragraph"
+              :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
+            >
+              {{ t('flipnoteMag.introPara1') }}
+              <br><br>
+              {{ t('flipnoteMag.introPara2') }}
+              <br><br>
+              {{ t('flipnoteMag.introPara3') }}
+              <br><br>
+              <!-- TODO: Upload magazine PDF to site -->
+              <CTAButton
+                url="/TODO"
+                :buttonText="t('flipnoteMag.buttonText')"
+                showOutline
+                isNewTab
+              />
+              <br><br>
+              <i>{{ t('flipnoteMag.introPara4') }}</i>
+            </p>
+            <ImageFrame
+              imgPath="projects/graphicDesign/flipnoteMag/flipnote-magazine-cover.png"
+              :captionText="t('flipnoteMag.imgFrame.caption1')"
+              :altText="t('flipnoteMag.imgFrame.altText1')"
+              :height="curViewportWidth <= 899 ? 'fit-content' : '400px'"
+              :style="curViewportWidth <= 899 ? {} : { marginBottom: '50px' }"
+            />
+          </div>
+        </template>
+      </ProjectCard>
+      <ProjectCard
+        :heading="t('ytThumbnails.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/graphicDesign/ytThumbnails/kirby-and-the-forgotten-land-livestream-1.png',
+            altText: t('ytThumbnails.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/ytThumbnails/state-of-the-switch-2019-discussion.png',
+            altText: t('ytThumbnails.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/ytThumbnails/zelda-links-awakening-zelda-maker-discussion.png',
+            altText: t('ytThumbnails.previewImg.altText3'),
+          }
+        ]"
+        previewImgHeight="auto"
+      >
+        <template #introParagraph>
+          <!-- TODO: make hardcoded experience years dynamically calculated -->
+          {{ t('ytThumbnails.introPara1') }}
+          <br><br>
+          {{ t('ytThumbnails.introPara2') }}
+        </template>
+
+        <h4>{{ t('ytThumbnails.details1.title') }}</h4>
+        <p>
+          {{ t('ytThumbnails.details1.para1') }}
+          <br><br>
+          {{ t('ytThumbnails.details1.para2') }}
+          <a href="https://youtube.com/@skullkid_gaming" target="_blank">
+            {{ t('ytThumbnails.details1.para3') }}</a>{{ t('ytThumbnails.details1.para4') }}
+        </p>
+        <ImageCollection
+          :imgList="[
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/mario-kart-8-dx-livestream-2.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText1'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/kirby-and-the-forgotten-land-livestream-1.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText2'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/zelda-links-awakening-zelda-maker-discussion.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText3'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/holiday-livestream-2022.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText4'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/portal-bridge-constructor.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText5'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/steamworld-heist.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText6'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/zelda-totk-unboxing-v2.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText7'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/zelda-links-awakening-part1.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText8'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/super-mario-bros-wonder-livestream-1.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText9'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/mario-maker-2-live-day4.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText10'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/state-of-the-switch-2019-discussion.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText11'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/is-the-nintendo-switch-rushed.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText12'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/smash-ultimate-discussion.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText13'),
+            },
+            {
+              imgPath: 'projects/graphicDesign/ytThumbnails/smash-ultimate-livestream.png',
+              altText: t('ytThumbnails.details1.imgCollection1.altText14'),
+            },
+          ]"
+          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 2"
+        />
+      </ProjectCard>
+      <ProjectCard
+        :heading="t('advertising.title')"
+        :previewImgList="[
+          {
+            imgPath: 'projects/graphicDesign/advertising/pencil-ad.png',
+            captionText: t('advertising.previewImg.caption1'),
+            altText: t('advertising.previewImg.altText1'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/advertising/uhub-insta-ad-1.png',
+            captionText: t('advertising.previewImg.caption2'),
+            altText: t('advertising.previewImg.altText2'),
+          },
+          {
+            imgPath: 'projects/graphicDesign/advertising/discord-server-ad-banner-v3.png',
+            captionText: t('advertising.previewImg.caption3'),
+            altText: t('advertising.previewImg.altText3'),
+          },
+        ]"
+        :isExpandable="false"
+        previewImgHeight="auto"
+      >
+        <template #introParagraph>
+          {{ t('advertising.introPara1') }}
+        </template>
+      </ProjectCard>
       <ProjectCard
         :heading="t('project1.title')"
         :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
