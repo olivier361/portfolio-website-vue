@@ -45,34 +45,11 @@ export function yearsSinceString(month, year, fallbackString) {
     return fallbackString;
   }
 
-  switch (yearDiff) {
-    case 0:
-      return 'less than a year';
-    case 1:
-      return 'one year';
-    case 2:
-      return 'two years';
-    case 3:
-      return 'three years';
-    case 4:
-      return 'four years';
-    case 5:
-      return 'five years';
-    case 6:
-      return 'six years';
-    case 7:
-      return 'seven years';
-    case 8:
-      return 'eight years';
-    case 9:
-      return 'nine years';
-    case 10:
-      return 'ten years';
-    case 11:
-      return 'eleven years';
-    case 12:
-      return 'twelve years';
-    default:
-      return `${yearDiff} years`;
-  }
+  const words = [
+    'less than a year', 'one year', 'two years', 'three years', 'four years',
+    'five years', 'six years', 'seven years', 'eight years', 'nine years',
+    'ten years', 'eleven years', 'twelve years',
+  ];
+
+  return yearDiff < words.length ? words[yearDiff] : `${yearDiff} years`;
 }
