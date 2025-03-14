@@ -5,25 +5,25 @@
  * from the given month and year to now.
  * @param {number} month an integer between 1 and 12.
  * @param {number} year a valid year integer.
+ * @param {string} fallbackString a string to return if the years since cannot be computed.
  * @returns {string} A string "X years" refering to
  * the number of years since the given month and year.
  */
-export function yearsSinceString(month, year) {
-  // Throw if the month and year are not integers
+export function yearsSinceString(month, year, fallbackString) {
+  // Log error and return fallback if the month and year are not integers
   if (!Number.isInteger(month) || !Number.isInteger(year)) {
-    throw new TypeError('Invalid month or year. These values must be integers.');
+    console.error('yearsSinceString() - Invalid month or year. These values must be integers.');
+    return fallbackString;
   }
 
-  // Throw if the month is not between 1 and 12
+  // Log error and return fallback if the month is not between 1 and 12
   if (month < 1 || month > 12) {
-    throw new RangeError('Invalid month. The month must be between 1 and 12.');
+    console.error('yearsSinceString() - Invalid month. The month must be between 1 and 12.');
+    return fallbackString;
   }
 
   const pastDate = new Date(year, month - 1);
   const now = new Date();
-
-  console.log(pastDate);
-  console.log(now);
 
   // compute the difference in years between the two dates
   let yearDiff = now.getFullYear() - pastDate.getFullYear();
@@ -35,9 +35,14 @@ export function yearsSinceString(month, year) {
     yearDiff--;
   }
 
+  // if the result is negative, log an error and return the fallback string
   if (yearDiff < 0) {
-    throw new Error('Could not compute years since. Either the provided year is not in the past, '
-      + 'or the function failed to get the correct current date.');
+    console.error(
+      'yearsSinceString() - Could not compute years since. '
+      + 'Either the provided year is not in the past, '
+      + 'or the function failed to get the correct current date.',
+    );
+    return fallbackString;
   }
 
   switch (yearDiff) {
