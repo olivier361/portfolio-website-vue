@@ -8,6 +8,7 @@ import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import RelatedLinks from '@/components/RelatedLinks.vue';
+import { yearsSinceString } from '@/utils/helpers';
 
 const { t } = useI18n({
   messages: { en: en.en },
@@ -890,8 +891,7 @@ function handleResize() {
               class="intro-paragraph"
               :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
             >
-              <!-- TODO: make hardcoded experience years dynamically calculated -->
-              {{ t('ytChannel.introPara1') }}
+              {{ t('ytChannel.introPara1', { years: yearsSinceString(6, 2016, 'eight years')}) }}
               <br><br>
               {{ t('ytChannel.introPara2') }}
               <br><br>
@@ -1214,8 +1214,7 @@ function handleResize() {
         previewImgHeight="auto"
       >
         <template #introParagraph>
-          <!-- TODO: make hardcoded experience years dynamically calculated -->
-          {{ t('ytThumbnails.introPara1') }}
+          {{ t('ytThumbnails.introPara1', { years: yearsSinceString(6, 2016, 'eight years')}) }}
           <br><br>
           {{ t('ytThumbnails.introPara2') }}
         </template>

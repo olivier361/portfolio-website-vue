@@ -682,7 +682,7 @@ export default {
     ytChannel: {
       title: 'My YouTube Channel',
       introPara1: `
-        For over eight years, I've been running my own YouTube channel in the gaming space.
+        For over {years}, I've been running my own YouTube channel in the gaming space.
         With more than 400+ videos produced and hundreds of community livestreams hosted,
         I've developed solid video editing and production experience since 2016.
       `,
@@ -835,7 +835,7 @@ export default {
     ytThumbnails: {
       title: 'YouTube Thumbnails',
       introPara1: `
-        With more than 500+ video thumbnails created, I have over eight years of design
+        With more than 500+ video thumbnails created, I have over {years} of design
         experience making eye-catching thumbnails to attract viewers to my videos.
       `,
       introPara2: `
