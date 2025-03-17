@@ -53,3 +53,28 @@ export function yearsSinceString(month, year, fallbackString) {
 
   return yearDiff < words.length ? words[yearDiff] : `${yearDiff} years`;
 }
+
+/**
+ * If the VITE_ASSETS_SITE_URL is defined in the environment variables,
+ * then this function returns that URL.
+ * Otherwise, it constructs and returns a URL based on the current hostname
+ * and sends a warning to the console to indicate that the URL
+ * was dynamically constructed rather than provided.
+ * @returns {string} the URL of the assets site.
+ */
+export function getAssetsSiteUrl() {
+  if (import.meta.env.VITE_ASSETS_SITE_URL) {
+    return import.meta.env.VITE_ASSETS_SITE_URL;
+  }
+  else {
+    const dynamicUrl = 'https://assets.' + window.location.hostname;
+
+    console.warn(
+      'getAssetsSiteUrl() - Assets Site URL was not provided. '
+      + 'Falling back to dynamically constructed URL: '
+      + dynamicUrl,
+    );
+
+    return dynamicUrl;
+  }
+}

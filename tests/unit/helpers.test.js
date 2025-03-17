@@ -1,6 +1,6 @@
 import { suite, test, expect, vi } from 'vitest';
 
-import { yearsSinceString } from '@/utils/helpers.js';
+import { yearsSinceString, getAssetsSiteUrl } from '@/utils/helpers.js';
 
 suite('yearsSinceString() - Unit Tests', () => {
 
@@ -193,6 +193,47 @@ suite('yearsSinceString() - Unit Tests', () => {
 
       // restore the real system time for other tests
       vi.useRealTimers();
+    });
+
+});
+
+suite('getAssetsSiteUrl() - Unit Tests', () => {
+
+  test('getAssetsSiteUrl() - returns env variable when set', () => {
+    // mock the Vite environment variable
+    vi.stubEnv('VITE_ASSETS_SITE_URL', 'https://example.com');
+
+    const result = getAssetsSiteUrl();
+
+    expect(result).toBe('https://example.com');
+
+    // restore the original environment variables
+    vi.unstubAllEnvs();
+  });
+
+  test(
+    'getAssetsSiteUrl() - returns dynamically created url and console.warn when env var not set',
+    () => {
+      // mock the Vite environment variable as not set
+      vi.stubEnv('VITE_ASSETS_SITE_URL', undefined);
+      // mock window.location.hostname for testing
+      vi.stubGlobal('location', { hostname: 'test12345.com' });
+
+      // create a mock for console.error to track its calls
+      // and prevent it from actually logging in the test suite
+      const spy = vi.spyOn(console, 'warn').mockImplementation(() => { return; });
+
+      const result = getAssetsSiteUrl();
+
+      expect(result).toBe('https://assets.test12345.com');
+
+      // verify that a console.warn was called
+      expect(spy).toHaveBeenCalledOnce();
+
+      // restore the original environment variables
+      vi.unstubAllEnvs();
+      // restore the original global variables (i.e. window.location)
+      vi.unstubAllGlobals();
     });
 
 });
