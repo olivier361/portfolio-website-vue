@@ -8,7 +8,7 @@ import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import RelatedLinks from '@/components/RelatedLinks.vue';
-import { yearsSinceString } from '@/utils/helpers';
+import { yearsSinceString, getAssetsSiteUrl } from '@/utils/helpers';
 
 const { t } = useI18n({
   messages: { en: en.en },
@@ -17,6 +17,10 @@ const { t } = useI18n({
 const curViewportWidth = ref(undefined);
 
 const mobileBreakpointPx = 799;
+
+// call once to avoid getting console.warns on every UI refresh
+// when this function uses the fallback case.
+const assetsSiteRootUrl = getAssetsSiteUrl();
 
 // TODO: remove this code after the performance test is done
 let placeholderImageCounter = 0;
@@ -836,25 +840,23 @@ function handleResize() {
           <br><br>
           {{ t('dayTrading.details2.para8') }}
         </p>
-        <!-- TODO: upload this PDF file to the site -->
-        <!-- <CTAButton
-          url="/TODO/localPath"
+        <CTAButton
+          :url="assetsSiteRootUrl + '/documents/day-trading-app-architecture-report.pdf'"
           :buttonText="t('dayTrading.details2.buttonText')"
           showOutline
           isNewTab
         />
-        <br><br> -->
+        <br><br>
         <RelatedLinks
           :linkObjectsList="[
             {
               url: 'https://github.com/olivier361/Day-Trading-App',
               teaserText: t('dayTrading.details2.relatedLinks1'),
             },
-            // TODO: upload this PDF file to the site, same as button above
-            // {
-            //   url: '/TODO/localPath',
-            //   teaserText: t('dayTrading.details2.relatedLinks2'),
-            // },
+            {
+              url: assetsSiteRootUrl + '/documents/day-trading-app-architecture-report.pdf',
+              teaserText: t('dayTrading.details2.relatedLinks2'),
+            },
           ]"
         />
       </ProjectCard>
@@ -1175,9 +1177,8 @@ function handleResize() {
               <br><br>
               {{ t('flipnoteMag.introPara3') }}
               <br><br>
-              <!-- TODO: Upload magazine PDF to site -->
               <CTAButton
-                url="/TODO"
+                :url="assetsSiteRootUrl + '/documents/flipnote-magazine-spread-compressed.pdf'"
                 :buttonText="t('flipnoteMag.buttonText')"
                 showOutline
                 isNewTab
