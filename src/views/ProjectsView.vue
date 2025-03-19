@@ -188,15 +188,14 @@ function handleResize() {
           <br><br>
           <RelatedLinks
             :linkObjectsList="[
-              // TODO: Host these resources on our site
-              // {
-              //   url: '/TODO',
-              //   teaserText: t('previousGames.relatedLinks1'),
-              // },
-              // {
-              //   url: '/TODO',
-              //   teaserText: t('previousGames.relatedLinks2'),
-              // },
+              {
+                url: assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html',
+                teaserText: t('previousGames.relatedLinks1'),
+              },
+              {
+                url: assetsSiteRootUrl + '/documents/article-reverbere-aout-2019-carnet-de-jeux.png',
+                teaserText: t('previousGames.relatedLinks2'),
+              },
               {
                 url: 'https://www.sfvictoria.ca/en/home-page/',
                 teaserText: t('previousGames.relatedLinks3'),
@@ -258,13 +257,12 @@ function handleResize() {
         <p>
           {{ t('previousGames.details3.para1') }}
         </p>
-        <!-- TODO: Host the game on the site -->
-        <!-- <CTAButton
-          url="/games/TODO"
+        <CTAButton
+          :url="assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html'"
           :buttonText="t('previousGames.details3.buttonText')"
           isFilled
           isNewTab
-        /> -->
+        />
       </ProjectCard>
       <ProjectCard
         :heading="t('computerAnimAndRender.title')"
