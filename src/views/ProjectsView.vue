@@ -716,10 +716,9 @@ function handleResize() {
               isNewTab
             />
           </div>
-          <!-- TODO: Update this embeded video to the new version -->
           <iframe
             class="uk-flex-1 yt-player"
-            src="https://www.youtube.com/embed/gkK6rIjaYvw?si=q7Y5k-fOR3c72ZO4"
+            src="https://www.youtube.com/embed/uuC9dYZs-ck?si=MYBjpYFqdtKMp06p"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1104,16 +1103,6 @@ function handleResize() {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           />
-          <!-- TODO: Add link for outro CTA video -->
-          <!-- <iframe
-            class="yt-player"
-            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          /> -->
           <iframe
             class="yt-player"
             src="https://www.youtube.com/embed/4iEIe07z5Z0?si=akiMtHUyZpOqfWUk"
@@ -1123,16 +1112,24 @@ function handleResize() {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           />
-          <!-- TODO: Add link to discussion panel video -->
-          <!-- <iframe
+          <iframe
             class="yt-player"
-            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
+            src="https://www.youtube.com/embed/kFVZINNxniM?si=eDyzYtPuDSKcd-t8"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
-          /> -->
+          />
+          <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/_p0KY3_zMUE?si=DSITd8cfWKk91LsZ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
         </div>
       </ProjectCard>
 
