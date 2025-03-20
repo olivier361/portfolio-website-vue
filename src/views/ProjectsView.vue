@@ -37,7 +37,6 @@ function handleResize() {
 
 </script>
 
-<!-- TODO: re-enable @stylistic/max-len once we add the real content -->
 <!-- eslint-disable @stylistic/max-len -->
 <template>
   <main>
@@ -230,7 +229,10 @@ function handleResize() {
         <hr class="info-divider">
 
         <h4>{{ t('previousGames.details2.title') }}</h4>
-        <div :class="curViewportWidth <= 760 ? 'uk-flex image-first-mobile' : 'uk-flex'" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div
+          :class="curViewportWidth <= 760 ? 'uk-flex image-first-mobile' : 'uk-flex'"
+          :style="{columnGap: '50px', marginBottom: '50px'}"
+        >
           <p>
             {{ t('previousGames.details2.para1') }}
           </p>
@@ -256,6 +258,7 @@ function handleResize() {
           isNewTab
         />
       </ProjectCard>
+      <!-- TODO: Add background images to remaining ProjectCards -->
       <ProjectCard
         :heading="t('computerAnimAndRender.title')"
         :previewImgList="[
