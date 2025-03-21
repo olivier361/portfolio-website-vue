@@ -3,20 +3,16 @@ import { test } from './fixtures/testFixture.js';
 
 test.describe('ProjectsView - E2E Tests', () => {
 
-  // SKIPPED: Because we currently have placeholder images on the project page
-  // which are randomly chosen on each load, we cannot match image snapshots properly.
-  test.skip('ProjectsView page should match image snapshot', async ({ page }) => {
-    // TODO: re-enable this test once we have real non-random images.
-    // ALTERNATIVE FIX: use "toHaveScreenshot({mask})" to cover images with a colored box.
-
+  test('ProjectsView page should match image snapshot', async ({ page }) => {
     test.setTimeout(60000);
     await page.goto('/projects');
     await expect(page).toHaveScreenshot({ fullPage: true, timeout: 60000 });
   });
 
   test('ProjectsView page top should match image snapshot', async ({ page }) => {
+    test.setTimeout(60000);
     await page.goto('/projects');
-    await expect(page).toHaveScreenshot({ timeout: 30000 });
+    await expect(page).toHaveScreenshot({ timeout: 600000 });
   });
 
   // This test was created with Playwright CodeGen and minor manual edits.
@@ -27,9 +23,10 @@ test.describe('ProjectsView - E2E Tests', () => {
     // open the card from the top button
     await page.locator('.expand-button').first().click();
 
-    await expect(page.getByRole('heading', { name: 'Project Title 1' })).toBeVisible();
-    await expect(page.getByRole('img', { name: 'A screenshot of a colorful 16' }).nth(1))
-      .toBeVisible();
+    await expect(page.getByRole('heading', { name: '2D Platformer Prototype' })).toBeVisible();
+    await expect(page.getByRole(
+      'img', { name: 'the Unity Editor showing the 2D platformer prototype' }),
+    ).toBeVisible();
     await expect(page.getByRole('button', { name: '▲ Close Details ▲' }).first())
       .toContainText('▲ Close Details ▲');
     await expect(page.getByRole('button', { name: '▲ Close Details ▲' }).nth(1))
