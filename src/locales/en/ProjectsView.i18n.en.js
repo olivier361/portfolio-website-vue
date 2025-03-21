@@ -10,19 +10,6 @@ export default {
       videoEditing: 'Video Editing & Production',
       graphicDesign: 'Graphic Design',
     },
-    project1: {
-      title: 'Project 1',
-      introParaPart1: `
-        One or two sentence paragraphs describing the section in general.
-        EX: I've been making games in Unity since 2020.
-        Below are a handful of game prototypes I have made.
-      `,
-      introParaPart2: `
-        A few more lines of text for these cards to be a bit longer.
-        These cards will have a "view all" button to open and close
-        the details of the card below the thich white line.
-      `,
-    },
     unity: {
       title: 'Unity Games',
       introPara1: `
@@ -682,7 +669,7 @@ export default {
     ytChannel: {
       title: 'My YouTube Channel',
       introPara1: `
-        For over eight years, I've been running my own YouTube channel in the gaming space.
+        For over {years}, I've been running my own YouTube channel in the gaming space.
         With more than 400+ videos produced and hundreds of community livestreams hosted,
         I've developed solid video editing and production experience since 2016.
       `,
@@ -835,7 +822,7 @@ export default {
     ytThumbnails: {
       title: 'YouTube Thumbnails',
       introPara1: `
-        With more than 500+ video thumbnails created, I have over eight years of design
+        With more than 500+ video thumbnails created, I have over {years} of design
         experience making eye-catching thumbnails to attract viewers to my videos.
       `,
       introPara2: `

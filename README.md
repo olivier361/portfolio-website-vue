@@ -10,6 +10,11 @@ This repository hosts the code for my personal portfolio website. The project is
 - NPM (latest version)
 - Development on WSL / Ubuntu for consistency (recommended)
 
+### Environment Setup
+Before running or building the project, setup a `.env` file at the root of the project which will contain variables and secrets needed for building/running. Start by copying the existing `.env.example` file and fill in with the values found on the project's private wiki.
+
+NOTE: Some of these values also need to be set in the CI and deployment pipeline environments.
+
 ### Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) with the following extensions:

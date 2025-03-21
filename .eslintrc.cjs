@@ -64,7 +64,7 @@ module.exports = {
     /// WARNINGS:
     'camelcase': 'warn',
     'curly': ['warn', 'multi-line', 'consistent'],
-    'no-console': 'warn',
+    'no-console': ['warn', { 'allow': ['warn', 'error'] }],
     // 'no-warning-comments': ['warn', {
     //   'terms': ['todo'],
     //   'decoration': ['/', '*']

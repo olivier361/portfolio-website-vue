@@ -8,6 +8,7 @@ import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import RelatedLinks from '@/components/RelatedLinks.vue';
+import { yearsSinceString, getAssetsSiteUrl } from '@/utils/helpers';
 
 const { t } = useI18n({
   messages: { en: en.en },
@@ -17,13 +18,9 @@ const curViewportWidth = ref(undefined);
 
 const mobileBreakpointPx = 799;
 
-// TODO: remove this code after the performance test is done
-let placeholderImageCounter = 0;
-
-// TODO: remove this code after the performance test is done
-function incrementPlaceholderImageCounter() {
-  return ++placeholderImageCounter;
-}
+// call once to avoid getting console.warns on every UI refresh
+// when this function uses the fallback case.
+const assetsSiteRootUrl = getAssetsSiteUrl();
 
 onMounted(() => {
   window.addEventListener('resize', handleResize);
@@ -40,7 +37,6 @@ function handleResize() {
 
 </script>
 
-<!-- TODO: re-enable @stylistic/max-len once we add the real content -->
 <!-- eslint-disable @stylistic/max-len -->
 <template>
   <main>
@@ -183,15 +179,14 @@ function handleResize() {
           <br><br>
           <RelatedLinks
             :linkObjectsList="[
-              // TODO: Host these resources on our site
-              // {
-              //   url: '/TODO',
-              //   teaserText: t('previousGames.relatedLinks1'),
-              // },
-              // {
-              //   url: '/TODO',
-              //   teaserText: t('previousGames.relatedLinks2'),
-              // },
+              {
+                url: assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html',
+                teaserText: t('previousGames.relatedLinks1'),
+              },
+              {
+                url: assetsSiteRootUrl + '/documents/article-reverbere-aout-2019-carnet-de-jeux.png',
+                teaserText: t('previousGames.relatedLinks2'),
+              },
               {
                 url: 'https://www.sfvictoria.ca/en/home-page/',
                 teaserText: t('previousGames.relatedLinks3'),
@@ -234,7 +229,10 @@ function handleResize() {
         <hr class="info-divider">
 
         <h4>{{ t('previousGames.details2.title') }}</h4>
-        <div :class="curViewportWidth <= 760 ? 'uk-flex image-first-mobile' : 'uk-flex'" :style="{columnGap: '50px', marginBottom: '50px'}">
+        <div
+          :class="curViewportWidth <= 760 ? 'uk-flex image-first-mobile' : 'uk-flex'"
+          :style="{columnGap: '50px', marginBottom: '50px'}"
+        >
           <p>
             {{ t('previousGames.details2.para1') }}
           </p>
@@ -253,14 +251,14 @@ function handleResize() {
         <p>
           {{ t('previousGames.details3.para1') }}
         </p>
-        <!-- TODO: Host the game on the site -->
-        <!-- <CTAButton
-          url="/games/TODO"
+        <CTAButton
+          :url="assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html'"
           :buttonText="t('previousGames.details3.buttonText')"
           isFilled
           isNewTab
-        /> -->
+        />
       </ProjectCard>
+      <!-- TODO: Add background images to remaining ProjectCards -->
       <ProjectCard
         :heading="t('computerAnimAndRender.title')"
         :previewImgList="[
@@ -713,10 +711,9 @@ function handleResize() {
               isNewTab
             />
           </div>
-          <!-- TODO: Update this embeded video to the new version -->
           <iframe
             class="uk-flex-1 yt-player"
-            src="https://www.youtube.com/embed/gkK6rIjaYvw?si=q7Y5k-fOR3c72ZO4"
+            src="https://www.youtube.com/embed/uuC9dYZs-ck?si=MYBjpYFqdtKMp06p"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -835,25 +832,23 @@ function handleResize() {
           <br><br>
           {{ t('dayTrading.details2.para8') }}
         </p>
-        <!-- TODO: upload this PDF file to the site -->
-        <!-- <CTAButton
-          url="/TODO/localPath"
+        <CTAButton
+          :url="assetsSiteRootUrl + '/documents/day-trading-app-architecture-report.pdf'"
           :buttonText="t('dayTrading.details2.buttonText')"
           showOutline
           isNewTab
         />
-        <br><br> -->
+        <br><br>
         <RelatedLinks
           :linkObjectsList="[
             {
               url: 'https://github.com/olivier361/Day-Trading-App',
               teaserText: t('dayTrading.details2.relatedLinks1'),
             },
-            // TODO: upload this PDF file to the site, same as button above
-            // {
-            //   url: '/TODO/localPath',
-            //   teaserText: t('dayTrading.details2.relatedLinks2'),
-            // },
+            {
+              url: assetsSiteRootUrl + '/documents/day-trading-app-architecture-report.pdf',
+              teaserText: t('dayTrading.details2.relatedLinks2'),
+            },
           ]"
         />
       </ProjectCard>
@@ -890,8 +885,7 @@ function handleResize() {
               class="intro-paragraph"
               :style="curViewportWidth <= 899 ? {width: '100%', maxWidth: '100%'} : {}"
             >
-              <!-- TODO: make hardcoded experience years dynamically calculated -->
-              {{ t('ytChannel.introPara1') }}
+              {{ t('ytChannel.introPara1', { years: yearsSinceString(6, 2016, 'eight years')}) }}
               <br><br>
               {{ t('ytChannel.introPara2') }}
               <br><br>
@@ -1104,16 +1098,6 @@ function handleResize() {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           />
-          <!-- TODO: Add link for outro CTA video -->
-          <!-- <iframe
-            class="yt-player"
-            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          /> -->
           <iframe
             class="yt-player"
             src="https://www.youtube.com/embed/4iEIe07z5Z0?si=akiMtHUyZpOqfWUk"
@@ -1123,16 +1107,24 @@ function handleResize() {
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           />
-          <!-- TODO: Add link to discussion panel video -->
-          <!-- <iframe
+          <iframe
             class="yt-player"
-            src="https://www.youtube.com/embed/clXuKTKAJkI?si=c25Z9WSiEIOJKHNl"
+            src="https://www.youtube.com/embed/kFVZINNxniM?si=eDyzYtPuDSKcd-t8"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
-          /> -->
+          />
+          <iframe
+            class="yt-player"
+            src="https://www.youtube.com/embed/_p0KY3_zMUE?si=DSITd8cfWKk91LsZ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
         </div>
       </ProjectCard>
 
@@ -1175,9 +1167,8 @@ function handleResize() {
               <br><br>
               {{ t('flipnoteMag.introPara3') }}
               <br><br>
-              <!-- TODO: Upload magazine PDF to site -->
               <CTAButton
-                url="/TODO"
+                :url="assetsSiteRootUrl + '/documents/flipnote-magazine-spread-compressed.pdf'"
                 :buttonText="t('flipnoteMag.buttonText')"
                 showOutline
                 isNewTab
@@ -1214,8 +1205,7 @@ function handleResize() {
         previewImgHeight="auto"
       >
         <template #introParagraph>
-          <!-- TODO: make hardcoded experience years dynamically calculated -->
-          {{ t('ytThumbnails.introPara1') }}
+          {{ t('ytThumbnails.introPara1', { years: yearsSinceString(6, 2016, 'eight years')}) }}
           <br><br>
           {{ t('ytThumbnails.introPara2') }}
         </template>
@@ -1316,296 +1306,6 @@ function handleResize() {
           {{ t('advertising.introPara1') }}
         </template>
       </ProjectCard>
-      <ProjectCard
-        :heading="t('project1.title')"
-        :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
-        :previewImgList="[
-          {
-            imgPath: '2D-Pixel-Game.png',
-            captionText: '2D Pixel Platformer Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', // eslint-disable-line @stylistic/max-len
-            altText: 'A screenshot of a colorful 16-bit 2D platformer featuring a fox character.'
-          },
-          {
-            imgPath: 'ruby-adventure.png',
-            captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.', // eslint-disable-line @stylistic/max-len
-            altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.' // eslint-disable-line @stylistic/max-len
-          },
-          {
-            imgPath: 'test-image.png',
-            captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.', // eslint-disable-line @stylistic/max-len
-            altText: 'test image'
-          }
-        ]"
-      >
-        <template #introParagraph>
-          {{ t('project1.introParaPart1') }}
-          <br><br>
-          {{ t('project1.introParaPart2') }}
-        </template>
-
-        <h3>Project Title 1</h3>
-        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
-          <p class="uk-flex-1">
-            Three to twelve sentences describing the project in general.
-            These sentences can be split into multiple paragraphs if needed.
-            Projects that require lengthy detailed explanations will actually
-            only feature a brief summary of the key "must know" details
-            on the project page. They will include a button at the end of their project section.
-            This button will direct users to a full dedicated page talking about the project.
-            <br><br>
-            Projects that can be summarized more concisely may opt to not have a dedicated page
-            and instead explain the entirety of what needs to be said right here
-            in the general project page, given that it fits in the 3 to 12 sentence
-            approximate requirement.
-            <br><br>
-            <b>
-              Projects with many photos like this one will likely not have a read more button
-              since everything is likely well explained and showcased here.
-            </b>
-            <br><br>
-            Notice how we used bold sentences mid-paragraph above.
-          </p>
-          <ImageFrame
-            class="uk-flex-1"
-            imgPath="2D-Pixel-Game.png"
-            captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
-            altText="A screenshot of a colorful 16-bit 2D platformer featuring a fox character."
-          />
-        </div>
-        <ImageCollection
-          :imgList="[
-            {
-              imgPath: 'cube-game.png',
-              captionText: 'Cube Game. Making the text longer to test how captions wrap when they are longer than the displayed image above. Let\'s make this row even longer to test image spacing when a caption is longer than others.',
-              altText: 'An endless runner game featuring a red cube character on a green surface with obstacles ahead.'
-            },
-            {
-              imgPath: 'ruby-adventure.png',
-              captionText: 'Ruby\'s Adventure Game. Making the text longer to test how captions wrap when they are longer than the displayed image above.',
-              altText: 'A top-down 2D game featuring multiple fantasy characters walking in a prototype level.'
-            },
-            {
-              imgPath: 'test-image.png',
-              captionText: 'A test image with a long caption to test how the caption wraps when it is longer than the image. The caption needs to be very long to wrap around even a big photo.',
-              altText: 'test image'
-            }
-          ]"
-          imgWidth="320px"
-          imgHeight="180px"
-          :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
-        />
-
-        <hr class="info-divider">
-
-        <h3>Project Title 2</h3>
-        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
-          <p class="uk-flex-1">
-            Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
-            Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
-            on the project page. They will include a button at the end of their project section. This button will direct users to a full
-            dedicated page talking about the project.
-            <br><br>
-            Projects that can be summarized more concisely may opt to not have a dedicated page and instead explain the entirety of what
-            needs to be said right here in the general project page, given that it fits in the 3 to 12 sentence approximate requirement.
-            <br><br>
-            <b>
-              Projects with many photos like this one will likely not have a read more button since everything is likely well explained
-              and showcased here.
-            </b>
-            <br><br>
-            Notice how we used bold sentences mid-paragraph above.
-          </p>
-          <ImageFrame
-            class="uk-flex-1"
-            imgPath="ruby-adventure.png"
-            captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
-            altText="A screenshot of a colorful 16-bit 2D platformer featuring a fox character."
-          />
-        </div>
-
-        <hr class="info-divider">
-
-        <h3>Project Title 3</h3>
-        <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
-          <p class="uk-flex-1">
-            Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
-            Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
-            on the project page. They will include a button at the end of their project section. This button will direct users to a full
-            dedicated page talking about the project.
-            <br><br>
-            Projects that can be summarized more concisely may opt to not have a dedicated page and instead explain the entirety of what
-            needs to be said right here in the general project page, given that it fits in the 3 to 12 sentence approximate requirement.
-            <br><br>
-            <b>
-              Projects with many photos like this one will likely not have a read more button since everything is likely well explained
-              and showcased here.
-            </b>
-            <br><br>
-            Notice how we used bold sentences mid-paragraph above.
-          </p>
-          <ImageFrame
-            class="uk-flex-1"
-            imgPath="cube-game.png"
-            captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
-            altText="A screenshot of a colorful 16-bit 2D platformer featuring a fox character."
-          />
-        </div>
-      </ProjectCard>
-      <ProjectCard
-        :heading="'Project 2'"
-      >
-        <template #introParagraph>
-          This is another intro paragraph.
-        </template>
-        More test content from parent!<br>
-        This content<br>
-        is on multiple<br>
-        lines.
-      </ProjectCard>
-      <ProjectCard
-        :heading="'Project 3'"
-        :isExpandable="false"
-      >
-        <template #introParagraph>
-          This is the third intro paragraph. This card has no expandable content.
-          <br><br>
-          Here are some samples of the CTAButton component:
-          <br><br>
-          <CTAButton
-            url="/"
-          />
-          <br><br>
-          <CTAButton
-            url="/"
-            showOutline
-          />
-          <br><br>
-          <CTAButton
-            url="/"
-            isFilled
-            isNewTab
-          />
-          <br><br>
-          <CTAButton
-            url="/"
-            buttonText="Custom Text!"
-            isFilled
-            :showSymbol="false"
-          />
-        </template>
-      </ProjectCard>
-
-      <!-- Start of auto-generated cards for performance test -->
-
-      <ProjectCard
-        v-for="i in 15" :key="i"
-        :heading="`Project Auto-generated ${i}`"
-        :previewBackgroundImgPath="'2d-pixel-game-fade.png'"
-        :previewImgList="[
-          {
-            imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-            isUrlPath: true,
-            captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-          },
-          {
-            imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-            isUrlPath: true,
-            captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-          },
-          {
-            imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-            isUrlPath: true,
-            captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-          }
-        ]"
-      >
-        <template #introParagraph>
-          One or two sentence paragraphs describing the section in general. EX: I've been making games in Unity since 2020. Below are a handful of game prototypes I have made.
-          <br><br>
-          A few more lines of text for these cards to be a bit longer. These cards will have a "view all" button to open and close the details of the card below the thich white line.
-        </template>
-
-        <template v-for="j in 2" :key="j">
-          <h3>Project Title A{{ j }} - Auto-generated {{ i }}</h3>
-          <div class="uk-flex image-first-mobile" :style="{columnGap: '50px', marginBottom: '50px'}">
-            <p class="uk-flex-1">
-              Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
-              Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
-              on the project page. They will include a button at the end of their project section. This button will direct users to a full
-              dedicated page talking about the project.
-              <br><br>
-              Projects that can be summarized more concisely may opt to not have a dedicated page and instead explain the entirety of what
-              needs to be said right here in the general project page, given that it fits in the 3 to 12 sentence approximate requirement.
-              <br><br>
-              <b>
-                Projects with many photos like this one will likely not have a read more button since everything is likely well explained
-                and showcased here.
-              </b>
-              <br><br>
-              Notice how we used bold sentences mid-paragraph above.
-            </p>
-            <ImageFrame
-              class="uk-flex-1"
-              :imgPath="`https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`"
-              :isUrlPath="true"
-              captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
-            />
-          </div>
-          <ImageCollection
-            :imgList="[
-              {
-                imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-                isUrlPath: true,
-                captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-              },
-              {
-                imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-                isUrlPath: true,
-                captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-              },
-              {
-                imgPath: `https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`,
-                isUrlPath: true,
-                captionText: `Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text.`
-              }
-            ]"
-            imgWidth="320px"
-            imgHeight="180px"
-            :autoSpanColumnCount="curViewportWidth <= mobileBreakpointPx ? 1 : 3"
-          />
-
-          <hr class="info-divider">
-
-          <h3>Project Title B{{ j }} - Auto-generated {{ i }}</h3>
-          <div class="uk-flex image-first-mobile" :style="{columnGap: '50px'}">
-            <p class="uk-flex-1">
-              Three to twelve sentences describing the project in general. These sentences can be split into multiple paragraphs if needed.
-              Projects that require lengthy detailed explanations will actually only feature a brief summary of the key "must know" details
-              on the project page. They will include a button at the end of their project section. This button will direct users to a full
-              dedicated page talking about the project.
-              <br><br>
-              Projects that can be summarized more concisely may opt to not have a dedicated page and instead explain the entirety of what
-              needs to be said right here in the general project page, given that it fits in the 3 to 12 sentence approximate requirement.
-              <br><br>
-              <b>
-                Projects with many photos like this one will likely not have a read more button since everything is likely well explained
-                and showcased here.
-              </b>
-              <br><br>
-              Notice how we used bold sentences mid-paragraph above.
-            </p>
-            <ImageFrame
-              class="uk-flex-1"
-              :imgPath="`https://picsum.photos/1920/1080?random=${incrementPlaceholderImageCounter()}`"
-              :isUrlPath="true"
-              captionText="Here is an image caption. its italic and smaller than regular text. Ideally a different font even maybe and shouldn't be longer than two to three lines of text."
-            />
-          </div>
-
-          <hr class="info-divider">
-        </template>
-      </ProjectCard>
-
     </div>
   </main>
 </template>

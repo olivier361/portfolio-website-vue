@@ -18,6 +18,8 @@ jobs:
   build-and-test:
 
     runs-on: ubuntu-latest
+    env:
+      VITE_ASSETS_SITE_URL: ${{ secrets.VITE_ASSETS_SITE_URL }}
 
     steps:
     - uses: actions/checkout@v4

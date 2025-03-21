@@ -30,10 +30,13 @@ jobs:
       run: npx playwright install --with-deps
     - name: 🧪 Run E2E Playwright Tests
       if: ${{ github.event_name != 'schedule' }}
+      env:
+        VITE_ASSETS_SITE_URL: ${{ secrets.VITE_ASSETS_SITE_URL }}
       run: npm run test:e2e
     - name: 🧪 Run Production E2E Playwright Tests
       if: ${{ github.event_name == 'schedule' }}
       env:
+        VITE_ASSETS_SITE_URL: ${{ secrets.VITE_ASSETS_SITE_URL }}
         E2E_URL: ${{ secrets.PROD_URL }}
         TRUNCATED_STAGING_URL: ${{ secrets.TRUNCATED_STAGING_URL }}
         CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
