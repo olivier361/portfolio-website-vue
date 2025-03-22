@@ -15,6 +15,7 @@ export default mergeConfig(
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'tests/e2e/**'],
       root: fileURLToPath(new URL('./', import.meta.url)),
+      restoreMocks: true, // restores mock implementations before each test
     },
   }),
 );

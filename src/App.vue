@@ -19,6 +19,18 @@ UIkit.use(Icons);
   @import "../node_modules/uikit/src/less/uikit.less";
 </style>
 
+<!--
+  The import of main.css has been moved from main.js to here.
+  This is because uikit default styles (above) were being loaded after main.css
+  causing uikit default styles to override our own custom default styles.
+  By loading main.css here, it will be loaded after uikit default styles
+  allowing our custom styles to correctly override uikit defaults.
+  This change doesn't seem to be causing any unexpected issues so far.
+-->
+<style lang="css">
+  @import './assets/main.css';
+</style>
+
 <style scoped>
 header {
   line-height: 1.5;

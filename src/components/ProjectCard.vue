@@ -26,17 +26,35 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
+  previewImgWidth: {
+    type: String,
+    required: false,
+    default: '320px',
+  },
+  previewImgHeight: {
+    type: String,
+    required: false,
+    default: '180px',
+  },
 });
 
 const previewSection = ref(null);
 const infoSection = ref(null);
 const infoAnimationWrapper = ref(null);
 const previewSectionHeight = ref(0);
+const previewSectionWidth = ref(0);
 const infoSectionHeight = ref(0);
 const cardBorderRadius = ref(0);
 
 const isExpanded = ref(false);
 const previewSectionStyle = ref({});
+const curColumnCount = ref(undefined);
+
+// 760px =
+// (320px (previewImg width) * 2)
+// + 20px (previewImg column gap)
+// + (2 * 50px) (ProjectCard padding)
+const mobileBreakpointPx = 760;
 
 onBeforeMount(() => {
   if (props.previewBackgroundImgPath) {
@@ -109,12 +127,31 @@ function handleResize() {
   // NOTE: If the content of the card can change it's height dynamically
   // we would need to switch to using a watcher instead of a resize event listener.
   previewSectionHeight.value = computeHeight(previewSection);
+  previewSectionWidth.value = computeWidth(previewSection);
   infoSectionHeight.value = computeHeight(infoSection);
+
+  if (props.previewImgList?.length === 1) {
+    curColumnCount.value = undefined;
+  }
+  else if (previewSectionWidth.value < mobileBreakpointPx) {
+    curColumnCount.value = 1;
+  }
+  else if (previewSectionWidth.value < 1100) {
+    curColumnCount.value = 3;
+  }
+  else {
+    curColumnCount.value = undefined;
+  }
 }
 
 function computeHeight(curRef) {
   if (!curRef?.value) return 0;
   return curRef.value.getBoundingClientRect().height;
+}
+
+function computeWidth(curRef) {
+  if (!curRef?.value) return 0;
+  return curRef.value.getBoundingClientRect().width;
 }
 
 </script>
@@ -123,16 +160,22 @@ function computeHeight(curRef) {
 
   <div :class="isExpanded ? 'project-card expanded' : 'project-card'">
     <div class="preview-section" ref="previewSection" :style="previewSectionStyle">
-      <h2>{{ heading }}</h2>
-      <p class="intro-paragraph" v-if="$slots.introParagraph">
-        <slot name="introParagraph" />
-      </p>
-      <ImageCollection
-        v-if="previewImgList"
-        :imgList="previewImgList"
-        imgWidth="320px"
-        imgHeight="180px"
-      />
+      <h3>{{ heading }}</h3>
+      <div :class="(previewImgList?.length === 1) ? 'single-preview-img-mode' : ''">
+        <p class="intro-paragraph" v-if="$slots.introParagraph">
+          <slot name="introParagraph" />
+        </p>
+        <div v-if="$slots.introCustom">
+          <slot name="introCustom" />
+        </div>
+        <ImageCollection
+          v-if="previewImgList"
+          :imgList="previewImgList"
+          :imgWidth="previewImgWidth"
+          :imgHeight="previewImgHeight"
+          :autoSpanColumnCount="curColumnCount"
+        />
+      </div>
       <div class="uk-flex uk-flex-center" v-if="isExpandable">
         <button class="expand-button" @click="handleCardExpand">
           {{ isExpanded ? "▲ Close Details ▲" : "▼ View Details ▼" }}
@@ -175,7 +218,9 @@ function computeHeight(curRef) {
 .project-card {
   --content-margin-bottom: 25px;
 
-  width: 1100px;
+  /* this width gives 20px margins on each side of card */
+  width: calc(100% - 40px);
+  max-width: 1100px;
   color: var(--color-card-text);
   background-color: var(--color-card-background);
   border-radius: var(--card-border-radius);
@@ -198,8 +243,16 @@ function computeHeight(curRef) {
     color: var(--color-card-heading);
   }
 
-  h2, :slotted(h2) {
+  h3, :slotted(h3) {
     text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  h4, :slotted(h4) {
+    margin: 25px 0px;
+    font-size: 30px;
+    font-weight: 400;
   }
 
   p, :slotted(p) {
@@ -207,7 +260,7 @@ function computeHeight(curRef) {
     margin-bottom: var(--content-margin-bottom);
   }
 
-  p.intro-paragraph {
+  p.intro-paragraph, :slotted(p.intro-paragraph) {
     /* 50% of the card width minus 25px padding for a two column layout
      * with 50px between columns.
      */
@@ -239,6 +292,46 @@ function computeHeight(curRef) {
     width: 100%;
     border-top: 5px solid var(--color-card-divider);
     margin: 0px;
+  }
+}
+
+@media (max-width: 799px) {
+  .project-card {
+    p.intro-paragraph, :slotted(p.intro-paragraph) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card {
+    /* this width gives 10px margins on each side of card */
+    width: calc(100% - 20px);
+
+    .preview-section {
+      /* -5px in the margin calculation is to account for
+      * .expand-button padding to have 25px total spacing
+      */
+      padding: var(--card-border-radius) calc(var(--card-border-radius) / 2) calc((var(--card-border-radius) / 2) - 5px);
+    }
+
+    .info-section .content {
+      margin: calc(var(--card-border-radius) / 2);
+    }
+  }
+}
+
+.single-preview-img-mode {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+@media (max-width: 899px) {
+  .single-preview-img-mode {
+    flex-direction: column;
+    gap: 0px;
   }
 }
 
