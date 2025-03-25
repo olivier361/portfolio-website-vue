@@ -57,7 +57,7 @@ defineProps({
   >
     <MaterialIcons :iconId="iconId" />
     <p class="section-button-text">{{ buttonText }}</p>
-    <p class="section-button-description">{{ descriptionText }}</p>
+    <p class="section-button-description" v-if="descriptionText">{{ descriptionText }}</p>
   </a>
 
 </template>
@@ -65,8 +65,12 @@ defineProps({
 <style scoped>
 
 p {
-  margin: 0px 0px 15px 0px;
+  margin: 0px;
   font-family: 'Roboto Condensed', Arial; /* TODO: Add proper fonts to project */
+}
+
+.section-button-description {
+  margin: 15px 0px;
 }
 
 .svg-icon-wrapper {
