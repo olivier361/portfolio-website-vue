@@ -9,7 +9,7 @@ import SectionButton from '@/components/SectionButton.vue';
     <h1 id="homepage-section1">Hello from HomeView.vue</h1>
     <SectionButton
       url="/about"
-      iconPath="icons/account-box-outline.svg"
+      iconId="gamepad-variant-outline"
       buttonText="Button Text"
       descriptionText="Button description here."
     />
