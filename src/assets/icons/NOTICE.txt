@@ -1,4 +1,0 @@
-The use of the icon files present in this directory
-is subject to the license below.
-
-https://github.com/Templarian/MaterialDesign/blob/master/LICENSE
