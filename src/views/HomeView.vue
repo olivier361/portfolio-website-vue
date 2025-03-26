@@ -1,6 +1,7 @@
 <script setup>
 import SplashScreen from '../components/SplashScreen.vue';
 import SectionButton from '@/components/SectionButton.vue';
+import PreviewCard from '@/components/PreviewCard.vue';
 </script>
 
 <template>
@@ -25,6 +26,34 @@ import SectionButton from '@/components/SectionButton.vue';
         iconId="contacts-outline"
         buttonText="Button Text"
       />
+    </div>
+
+    <div class="preview-card-section">
+      <PreviewCard
+        heading="Preview Card Heading"
+        imgPath="projects/gameDev/unity/2d-pixel-game.png"
+        imgAltText="this is the altText for a test image."
+        url="/about"
+      >
+        This is a test paragraph 1. This is a test paragraph 1.
+        This is a test paragraph 1. This is a test paragraph 1.
+        This is a test paragraph 1. This is a test paragraph 1.
+        This is a test paragraph 1. This is a test paragraph 1.
+        <br><br>
+        This is a test paragraph 2.
+        <br><br>
+        This is a test paragraph 3.
+        <br><br>
+        This is a test paragraph 4.
+        <br><br>
+        This is a test paragraph 5.
+        <br><br>
+        This is a test paragraph 6.
+        <br><br>
+        This is a test paragraph7.
+        <br><br>
+        This is a test paragraph 8.
+      </PreviewCard>
     </div>
 
     <p>
@@ -65,6 +94,16 @@ import SectionButton from '@/components/SectionButton.vue';
 </template>
 
 <style scoped>
+
+.preview-card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-card {
+  margin: 25px;
+}
 
 .section-button-container {
   display: flex;
