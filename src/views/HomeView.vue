@@ -54,6 +54,36 @@ import PreviewCard from '@/components/PreviewCard.vue';
         <br><br>
         This is a test paragraph 8.
       </PreviewCard>
+      <PreviewCard
+        heading="Software & App Development"
+        imgPath="projects/softwareDev/uhub/uhub-insta-ad-2.png"
+        imgAltText="this is the altText for a test image."
+        url="/about"
+      >
+        Thanks to my co-op work experience and my Computer Science major,
+        I have worked on dozens of software development projects since 2019.
+        These include native desktop and mobile apps, web development,
+        back-end development of scalable microservice architectures,
+        network programming, and more.
+        <br><br>
+        I've always built software with great attention to detail and consideration
+        for the end-user experience. This is reflected in team projects like our
+        UHub mobile app which helps students quickly search for food on campus
+        and our mock Day Trading system which implements a scalable back-end to handle
+        thousands of simultaneous buy and sell requests from users.
+      </PreviewCard>
+      <PreviewCard
+        heading="Graphic Design"
+        imgPath="projects/gameDev/unity/2d-pixel-game.png"
+        imgAltText="this is the altText for a test image."
+        url="/about"
+      >
+        With more than eight years of graphic design knowledge, both self-taught
+        and from university courses, I have worked on various projects like
+        making a 22-page travel magazine using my original pictures,
+        creating digital advertisements to promote my projects, and crafted over 500+
+        eye-catching video thumbnails to attract viewers to my YouTube videos.
+      </PreviewCard>
     </div>
 
     <p>
@@ -103,6 +133,12 @@ import PreviewCard from '@/components/PreviewCard.vue';
 
 .preview-card {
   margin: 25px;
+}
+
+@media (max-width: 479px) {
+  .preview-card {
+    margin: 20px 10px;
+  }
 }
 
 .section-button-container {

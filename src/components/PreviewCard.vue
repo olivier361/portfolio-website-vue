@@ -93,6 +93,7 @@ h3, :slotted(h3) {
   width: 100%;
   height: 100%;
   margin: 0px;
+  line-height: 1.2;
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--color-card-text) var(--color-card-background);
@@ -108,4 +109,59 @@ h3, :slotted(h3) {
   margin-bottom: 0px;
 }
 
+@media (max-width: 1139px) {
+  h1, h2, h3, h4, :slotted(h1), :slotted(h2), :slotted(h3), :slotted(h4) {
+    margin-bottom: 15px;
+  }
+
+  h3, :slotted(h3) {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .read-more-button {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 1019px) {
+  .text-box {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 939px) {
+  .preview-card {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    max-width: 600px;
+  }
+
+  .image-box {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .text-box {
+    height: auto;
+  }
+
+  .preview-paragraph {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 479px) {
+  .preview-card {
+    width: calc(100% - 20px);
+  }
+
+  .text-box {
+    padding: 25px;
+  }
+}
 </style>
