@@ -85,6 +85,9 @@
   --image-frame-border-width: 5px;
   --image-frame-caption-text-size: 14px;
 
+  --color-image-frame-stylized-decoration-primary: var(--c-accent-secondary);
+  --color-image-frame-stylized-decoration-secondary: var(--c-background-primary);
+
   --color-section-button-outline-dark: black;
   --color-section-button-outline-light: var(--c-accent-primary);
   --color-section-button-outline-hover: var(--c-accent-secondary);
