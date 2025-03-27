@@ -105,7 +105,7 @@ onBeforeUnmount(() => {
         <a
           id="splashcreen-cta-arrow"
           v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)"
-          href="#homepage-section1"
+          href="#about-me"
           uk-icon="icon: chevron-down; ratio: 2.5"
         />
         <!-- eslint-enable @stylistic/max-len -->
