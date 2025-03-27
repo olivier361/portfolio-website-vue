@@ -51,7 +51,10 @@ const imgUrl = props.isUrlPath
 
 <template>
 
-  <div class="image-frame-stylized" :style="{ width: width, height: height}">
+  <div
+    class="image-frame-stylized"
+    :style="{ width: width, minWidth: width, height: height, minHeight: height }"
+  >
     <div class="decoration top" />
     <div class="decoration bottom" />
     <img
