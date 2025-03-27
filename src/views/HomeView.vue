@@ -6,6 +6,7 @@ import SplashScreen from '../components/SplashScreen.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import SectionButton from '@/components/SectionButton.vue';
 import PreviewCard from '@/components/PreviewCard.vue';
+import ImageFrameStylized from '@/components/ImageFrameStylized.vue';
 
 const { t } = useI18n({
   messages: { en: en.en },
@@ -18,22 +19,29 @@ const { t } = useI18n({
     <SplashScreen />
     <div id="about-me" class="alternate-background">
       <div>
-        <h3>{{ t('about.title') }}</h3>
-        <p>
-          {{ t('about.para1') }}
-          <br><br>
-          {{ t('about.para2') }}
-          <br><br>
-          {{ t('about.para3') }}
-        </p>
-        <!-- TODO: Make sure the about me page gets implemented if we have this link -->
-        <CTAButton
-          url="/about-me"
-          :buttonText="t('about.buttonText')"
-          isDarkVersion
+        <div>
+          <h3>{{ t('about.title') }}</h3>
+          <p>
+            {{ t('about.para1') }}
+            <br><br>
+            {{ t('about.para2') }}
+            <br><br>
+            {{ t('about.para3') }}
+          </p>
+          <!-- TODO: Make sure the about me page gets implemented if we have this link -->
+          <CTAButton
+            url="/about-me"
+            :buttonText="t('about.buttonText')"
+            isDarkVersion
+          />
+        </div>
+        <!-- TODO: Add ImageFrameStylized component here -->
+        <ImageFrameStylized
+          imgPath="projects/gameDev/unity/2d-pixel-game.png"
+          width="330px"
+          height="330px"
         />
       </div>
-      <!-- TODO: Add ImageFrameStylized component here -->
     </div>
     <h1 id="homepage-section1">Hello from HomeView.vue</h1>
     <div class="section-button-container">
@@ -179,10 +187,18 @@ const { t } = useI18n({
 }
 
 #about-me {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#about-me > div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 50px;
+  align-items: center;
+  gap: 120px;
+  max-width: 960px;
 
   h1, h2, h3 {
     font-size: 36px;
