@@ -26,6 +26,7 @@
   --c-accent-quaternary: orange;
   --c-background-primary: #232323;
   --c-background-secondary: #505050;
+  --c-background-tertiary: #EDEDED;
 
   --c-text-dark-primary: #151515;
 }
@@ -35,12 +36,13 @@
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
+  --color-background-alternate: var(--c-background-tertiary);
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
+  --color-heading: black;
+  --color-text: black;
 
   --color-link: var(--c-accent-secondary);
   --color-link-hover: var(--c-accent-tertiary);
@@ -165,6 +167,10 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+}
+
 a {
   color: var(--color-link);
 }
@@ -180,6 +186,10 @@ a:visited {
 iframe {
   background-color: var(--color-img-background);
   border: var(--image-frame-border-width) solid var(--color-image-frame-border);
+}
+
+.alternate-background {
+  background-color: var(--color-background-alternate);
 }
 
 .yt-player {

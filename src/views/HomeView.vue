@@ -1,12 +1,40 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
+import en from '@/locales/en/HomeView.i18n.en.js';
+
 import SplashScreen from '../components/SplashScreen.vue';
+import CTAButton from '@/components/CTAButton.vue';
 import SectionButton from '@/components/SectionButton.vue';
 import PreviewCard from '@/components/PreviewCard.vue';
+
+const { t } = useI18n({
+  messages: { en: en.en },
+});
+
 </script>
 
 <template>
   <main>
     <SplashScreen />
+    <div id="about-me" class="alternate-background">
+      <div>
+        <h3>{{ t('about.title') }}</h3>
+        <p>
+          {{ t('about.para1') }}
+          <br><br>
+          {{ t('about.para2') }}
+          <br><br>
+          {{ t('about.para3') }}
+        </p>
+        <!-- TODO: Make sure the about me page gets implemented if we have this link -->
+        <CTAButton
+          url="/about-me"
+          :buttonText="t('about.buttonText')"
+          isDarkVersion
+        />
+      </div>
+      <!-- TODO: Add ImageFrameStylized component here -->
+    </div>
     <h1 id="homepage-section1">Hello from HomeView.vue</h1>
     <div class="section-button-container">
       <SectionButton
@@ -150,4 +178,15 @@ import PreviewCard from '@/components/PreviewCard.vue';
   flex: 1;
 }
 
+#about-me {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50px;
+
+  h1, h2, h3 {
+    font-size: 36px;
+    font-weight: 400;
+  }
+}
 </style>
