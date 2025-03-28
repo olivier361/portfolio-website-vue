@@ -205,4 +205,9 @@ const { t } = useI18n({
     font-weight: 400;
   }
 }
+
+#about-me p {
+  margin: 25px 0px;
+}
+
 </style>

@@ -70,7 +70,7 @@ const imgUrl = props.isUrlPath
 
 .image-frame-stylized {
   --decoration-offset: 15px;
-  --image-border-radius: 25px;
+  --image-border-radius: 15px;
 
   position: relative;
 }
@@ -87,6 +87,8 @@ img, .decoration {
   border-radius:
     calc(var(--image-border-radius) + var(--decoration-offset))
     var(--image-border-radius);
+  /* border-radius:
+    var(--image-border-radius); */
 }
 
 .decoration.top {
@@ -112,6 +114,7 @@ img {
   z-index: 3;
   object-fit: cover;
   border-radius: var(--image-border-radius);
+  /* box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); */
 }
 
 </style>
