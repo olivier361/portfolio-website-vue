@@ -69,7 +69,6 @@ onBeforeUnmount(() => {
 
 function handleResize() {
   curRootDivWidth.value = computeWidth(rootDivRef);
-  console.log('curRootDivWidth', curRootDivWidth.value);
 }
 
 function computeWidth(curRef) {
@@ -88,16 +87,11 @@ function computeCurHeight() {
   }
   return props.heightPx;
 }
+
 </script>
 
 <template>
 
-  <!-- <div
-    class="image-frame-stylized"
-    :style="isFullWidth
-      ? { width: '100%', height: 'auto', aspectRatio: computeAspectRatio() }
-      : { width: widthPx, minWidth: widthPx, height: heightPx, minHeight: heightPx }"
-  > -->
   <div
     class="image-frame-stylized"
     ref="rootDivRef"
@@ -105,21 +99,8 @@ function computeCurHeight() {
       ? { width: '100%', height: computeCurHeight() }
       : { width: widthPx, minWidth: widthPx, height: heightPx, minHeight: heightPx }"
   >
-    <!-- <div class="decoration top"
-      :style="{ width: widthPx, height: heightPx }"
-    />
-    <div class="decoration bottom"
-      :style="{ width: widthPx, height: heightPx }"
-    /> -->
     <div class="decoration top" />
     <div class="decoration bottom" />
-    <!-- <img
-      :src="imgUrl"
-      :alt="(altText === undefined ? imgPath : altText)"
-      :style="{backgroundColor: backgroundColor}"
-      :width="isFullWidth ? '100%' : widthPx"
-      :height="isFullWidth ? 'auto' : heightPx"
-    > -->
     <img
       :src="imgUrl"
       :alt="(altText === undefined ? imgPath : altText)"

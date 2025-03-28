@@ -51,8 +51,7 @@ function handleResize() {
             isDarkVersion
           />
         </div>
-        <!-- TODO: Add ImageFrameStylized component here -->
-        <!-- :widthPx="curViewportWidth <= 479 ? '100%' : '330px'" -->
+        <!-- TODO: Add actual image here -->
         <ImageFrameStylized
           imgPath="projects/gameDev/unity/2d-pixel-game.png"
           widthPx="330px"
@@ -233,10 +232,6 @@ function handleResize() {
     flex-direction: column;
     max-width: 600px;
   }
-
-  /* #about-me .image-frame-stylized {
-    width: 100%;
-  } */
 }
 
 @media (max-width: 479px) {
@@ -252,4 +247,5 @@ function handleResize() {
     gap: 35px;
   }
 }
+
 </style>
