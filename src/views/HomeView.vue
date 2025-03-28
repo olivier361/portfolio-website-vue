@@ -246,6 +246,15 @@ function handleResize() {
   }
 }
 
+@media (max-width: 939px) {
+  .site-categories > * {
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(2, auto); */
+  }
+}
+
 @media (max-width: 799px) {
   #about-me > div {
     flex-direction: column;
@@ -254,6 +263,17 @@ function handleResize() {
 }
 
 @media (max-width: 479px) {
+  .site-categories {
+    margin: 35px 10px 40px 10px;
+  }
+
+  .site-categories > * {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .preview-card-section {
     gap: 40px;
   }
