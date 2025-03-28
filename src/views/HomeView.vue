@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import en from '@/locales/en/HomeView.i18n.en.js';
 
@@ -11,6 +12,21 @@ import ImageFrameStylized from '@/components/ImageFrameStylized.vue';
 const { t } = useI18n({
   messages: { en: en.en },
 });
+
+const curViewportWidth = ref(undefined);
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  handleResize();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+function handleResize() {
+  curViewportWidth.value = window.innerWidth;
+}
 
 </script>
 
@@ -36,10 +52,12 @@ const { t } = useI18n({
           />
         </div>
         <!-- TODO: Add ImageFrameStylized component here -->
+        <!-- :widthPx="curViewportWidth <= 479 ? '100%' : '330px'" -->
         <ImageFrameStylized
           imgPath="projects/gameDev/unity/2d-pixel-game.png"
-          width="330px"
-          height="330px"
+          widthPx="330px"
+          heightPx="330px"
+          :isFullWidth="curViewportWidth <= 479"
         />
       </div>
     </div>
@@ -171,12 +189,6 @@ const { t } = useI18n({
   margin: 25px;
 }
 
-@media (max-width: 479px) {
-  .preview-card {
-    margin: 20px 10px;
-  }
-}
-
 .section-button-container {
   display: flex;
   gap: 15px;
@@ -210,4 +222,34 @@ const { t } = useI18n({
   margin: 25px 0px;
 }
 
+@media (max-width: 1059px) {
+  #about-me > div {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 799px) {
+  #about-me > div {
+    flex-direction: column;
+    max-width: 600px;
+  }
+
+  /* #about-me .image-frame-stylized {
+    width: 100%;
+  } */
+}
+
+@media (max-width: 479px) {
+  .preview-card {
+    margin: 20px 10px;
+  }
+
+  #about-me {
+    padding: 35px;
+  }
+
+  #about-me > div {
+    gap: 35px;
+  }
+}
 </style>

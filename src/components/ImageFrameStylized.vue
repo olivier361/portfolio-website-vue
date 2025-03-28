@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 
 const props = defineProps({
   imgPath: {
@@ -19,17 +20,24 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
-  height: {
-    // set the height of the image in pixels or percentage.
+  heightPx: {
+    // set the height of the image in pixels.
     // This mesurement includes the exterior frame.
     type: String,
     required: true,
   },
-  width: {
-    // set the width of the image in pixels or percentage.
+  widthPx: {
+    // set the width of the image in pixels.
     // This mesurement includes the exterior frame.
     type: String,
     required: true,
+  },
+  isFullWidth: {
+    // set to true if the image should span the full width of the parent.
+    // the provided width and height will be used to compute an aspect ratio.
+    type: Boolean,
+    required: false,
+    default: false,
   },
   backgroundColor: {
     // the background color of the image.
@@ -39,6 +47,9 @@ const props = defineProps({
   },
 });
 
+const rootDivRef = ref(null);
+const curRootDivWidth = ref(0);
+
 // This is needed to successfully resolve a path constructed with props
 // in the production build given images are processed by Vite with a new name and location.
 // See: https://vite.dev/guide/assets
@@ -47,16 +58,68 @@ const imgUrl = props.isUrlPath
   ? props.imgPath
   : new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
 
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  handleResize();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+function handleResize() {
+  curRootDivWidth.value = computeWidth(rootDivRef);
+  console.log('curRootDivWidth', curRootDivWidth.value);
+}
+
+function computeWidth(curRef) {
+  if (!curRef?.value) return 0;
+  return curRef.value.getBoundingClientRect().width;
+}
+
+// Given the widthPx and heightPx props, compute the aspect ratio
+function computeAspectRatio() {
+  return (parseInt(props.widthPx) / parseInt(props.heightPx));
+}
+
+function computeCurHeight() {
+  if (props.isFullWidth) {
+    return `${curRootDivWidth.value / computeAspectRatio()}px`;
+  }
+  return props.heightPx;
+}
 </script>
 
 <template>
 
+  <!-- <div
+    class="image-frame-stylized"
+    :style="isFullWidth
+      ? { width: '100%', height: 'auto', aspectRatio: computeAspectRatio() }
+      : { width: widthPx, minWidth: widthPx, height: heightPx, minHeight: heightPx }"
+  > -->
   <div
     class="image-frame-stylized"
-    :style="{ width: width, minWidth: width, height: height, minHeight: height }"
+    ref="rootDivRef"
+    :style="isFullWidth
+      ? { width: '100%', height: computeCurHeight() }
+      : { width: widthPx, minWidth: widthPx, height: heightPx, minHeight: heightPx }"
   >
+    <!-- <div class="decoration top"
+      :style="{ width: widthPx, height: heightPx }"
+    />
+    <div class="decoration bottom"
+      :style="{ width: widthPx, height: heightPx }"
+    /> -->
     <div class="decoration top" />
     <div class="decoration bottom" />
+    <!-- <img
+      :src="imgUrl"
+      :alt="(altText === undefined ? imgPath : altText)"
+      :style="{backgroundColor: backgroundColor}"
+      :width="isFullWidth ? '100%' : widthPx"
+      :height="isFullWidth ? 'auto' : heightPx"
+    > -->
     <img
       :src="imgUrl"
       :alt="(altText === undefined ? imgPath : altText)"
