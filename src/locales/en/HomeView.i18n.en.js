@@ -23,7 +23,10 @@ export default {
       buttonText: 'More About Me',
     },
     sectionButtons1: {
-      // TODO
+      buttonText1: 'Game\nDevelopment',
+      buttonText2: 'Software\nDevelopment',
+      buttonText3: 'Video Editing\n& Production',
+      buttonText4: 'Graphic\nDesign',
     },
     previewCards: {
       // TODO

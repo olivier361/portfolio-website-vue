@@ -102,6 +102,7 @@ a:hover .svg-icon-wrapper {
   color: var(--color-section-button-text-dark);
   text-decoration: none;
   transition: color 200ms, border-color 200ms;
+  white-space: pre-line;
 }
 
 .section-button.light {
@@ -117,7 +118,7 @@ a:hover .svg-icon-wrapper {
 .section-button-text {
   font-size: 26px;
   font-weight: 700;
-  line-height: 1.0;
+  line-height: 1.2;
 }
 
 .fit-content {

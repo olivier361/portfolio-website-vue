@@ -60,25 +60,30 @@ function handleResize() {
         />
       </div>
     </div>
-    <h1 id="homepage-section1">Hello from HomeView.vue</h1>
-    <div class="section-button-container">
-      <SectionButton
-        url="/about"
-        iconId="gamepad-variant-outline"
-        buttonText="Button Text"
-        descriptionText="Button description here."
-      />
-      <SectionButton
-        url="/about"
-        iconId="file-document-outline"
-        buttonText="Button Text"
-        descriptionText="Button description here. This is a pretty long description."
-      />
-      <SectionButton
-        url="/about"
-        iconId="contacts-outline"
-        buttonText="Button Text"
-      />
+
+    <div class="site-categories">
+      <div class="section-button-container">
+        <SectionButton
+          url="#game-development"
+          iconId="gamepad-variant-outline"
+          :buttonText="t('sectionButtons1.buttonText1')"
+        />
+        <SectionButton
+          url="#software-development"
+          iconId="file-code-outline"
+          :buttonText="t('sectionButtons1.buttonText2')"
+        />
+        <SectionButton
+          url="#video-editing"
+          iconId="video-outline"
+          :buttonText="t('sectionButtons1.buttonText3')"
+        />
+        <SectionButton
+          url="#graphic-design"
+          iconId="image-edit-outline"
+          :buttonText="t('sectionButtons1.buttonText4')"
+        />
+      </div>
     </div>
 
     <div class="preview-card-section">
@@ -182,10 +187,24 @@ function handleResize() {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 50px;
 }
 
 .preview-card {
-  margin: 25px;
+  margin: 0px 25px;
+}
+
+.site-categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  margin: 50px 25px;
+}
+
+.site-categories > * {
+  width: 100%;
+  max-width: 1100px;
 }
 
 .section-button-container {
@@ -235,8 +254,12 @@ function handleResize() {
 }
 
 @media (max-width: 479px) {
+  .preview-card-section {
+    gap: 40px;
+  }
+
   .preview-card {
-    margin: 20px 10px;
+    margin: 0px 10px;
   }
 
   #about-me {
