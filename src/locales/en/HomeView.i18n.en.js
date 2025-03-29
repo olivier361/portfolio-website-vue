@@ -29,7 +29,69 @@ export default {
       buttonText4: 'Graphic\nDesign',
     },
     previewCards: {
-      // TODO
+      gameDev: {
+        title: 'Game Development',
+        para1: `
+          Having built various game prototypes in Unity and previously released
+          an educational web game for a local non-profit organization,
+          I have experience and a passion for game development.
+        `,
+        para2: `
+          I also have experience with 3D modelling and implementing computer animation and
+          rendering algorithms such as inverse kinematics, splines, and ray traced rendering.
+        `,
+        // TODO: Add alt text once we have the final image
+        altText: '',
+      },
+      softwareDev: {
+        title: 'Software & App Development',
+        para1: `
+          Thanks to my co-op work experience and my Computer Science major,
+          I have worked on dozens of software development projects since 2019.
+          These include native desktop and mobile apps, web development,
+          back-end development of scalable microservice architectures,
+          network programming, and more.
+        `,
+        para2: `
+          I've always built software with great attention to detail and consideration
+          for the end-user experience. This is reflected in team projects like
+          our UHub mobile app which helps students quickly search for food on campus
+          and our mock Day Trading system which implements a scalable back-end
+          to handle thousands of simultaneous buy and sell requests from users.
+        `,
+        // TODO: Add alt text once we have the final image
+        altText: '',
+      },
+      videoEditing: {
+        title: 'Video Editing & Production',
+        para1: `
+          Since 2016, I've produced and edited over 400+ videos for my YouTube channel
+          focused on Nintendo and the games industry. With content like in-depth
+          game design analyses, indie game showcases, commentary on games industry news,
+          and hosting hundreds of community livestreams, I have gained extensive experience
+          with video editing & production, hosting live events, social media marketing,
+          community management, and more.
+        `,
+        para2: `
+          I've also done video editing for clients with over 40 social media teaser clips
+          and trailers created to date. This includes creating motion graphics
+          and transitions that match the client's branding.
+        `,
+        // TODO: Add alt text once we have the final image
+        altText: '',
+      },
+      graphicDesign: {
+        title: 'Graphic Design',
+        para1: `
+          With more than {years} of graphic design knowledge, both self-taught
+          and from university courses, I have worked on various projects like making
+          a 22-page travel magazine using my original pictures, creating digital advertisements
+          to promote my projects, and crafted over 500+ eye-catching video thumbnails
+          to attract viewers to my YouTube videos.
+        `,
+        // TODO: Add alt text once we have the final image
+        altText: '',
+      },
     },
     sectionButtons2: {
       // TODO

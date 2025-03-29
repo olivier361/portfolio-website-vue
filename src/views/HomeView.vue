@@ -8,6 +8,7 @@ import CTAButton from '@/components/CTAButton.vue';
 import SectionButton from '@/components/SectionButton.vue';
 import PreviewCard from '@/components/PreviewCard.vue';
 import ImageFrameStylized from '@/components/ImageFrameStylized.vue';
+import { yearsSinceString } from '@/utils/helpers';
 
 const { t } = useI18n({
   messages: { en: en.en },
@@ -141,6 +142,54 @@ function handleResize() {
         making a 22-page travel magazine using my original pictures,
         creating digital advertisements to promote my projects, and crafted over 500+
         eye-catching video thumbnails to attract viewers to my YouTube videos.
+      </PreviewCard>
+      <!-- TODO: Remove the sample cards above -->
+      <!-- TODO: Add actual preview card image -->
+      <PreviewCard
+        :heading="t('previewCards.gameDev.title')"
+        imgPath="projects/gameDev/unity/2d-pixel-game.png"
+        :imgAltText="t('previewCards.gameDev.altText')"
+        url="/projects#game-development"
+      >
+        {{ t('previewCards.gameDev.para1') }}
+        <br><br>
+        {{ t('previewCards.gameDev.para2') }}
+      </PreviewCard>
+      <!-- TODO: Add actual preview card image -->
+      <PreviewCard
+        :heading="t('previewCards.softwareDev.title')"
+        imgPath="projects/softwareDev/uhub/uhub-insta-ad-2.png"
+        :imgAltText="t('previewCards.softwareDev.altText')"
+        url="/projects#software-development"
+      >
+        {{ t('previewCards.softwareDev.para1') }}
+        <br><br>
+        {{ t('previewCards.softwareDev.para2') }}
+      </PreviewCard>
+      <!-- TODO: Add actual preview card image -->
+      <PreviewCard
+        :heading="t('previewCards.videoEditing.title')"
+        imgPath="projects/gameDev/unity/2d-pixel-game.png"
+        :imgAltText="t('previewCards.videoEditing.altText')"
+        url="/projects#video-editing"
+      >
+        {{ t('previewCards.videoEditing.para1') }}
+        <br><br>
+        {{ t('previewCards.videoEditing.para2') }}
+      </PreviewCard>
+      <!-- TODO: Add actual preview card image -->
+      <PreviewCard
+        :heading="t('previewCards.graphicDesign.title')"
+        imgPath="projects/softwareDev/uhub/uhub-insta-ad-2.png"
+        :imgAltText="t('previewCards.graphicDesign.altText')"
+        url="/projects#graphic-design"
+      >
+        {{
+          t(
+            'previewCards.graphicDesign.para1',
+            { years: yearsSinceString(6, 2016, 'eight years')}
+          )
+        }}
       </PreviewCard>
     </div>
 
