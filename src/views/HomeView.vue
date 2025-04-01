@@ -145,6 +145,18 @@ function handleResize() {
       </PreviewCard>
     </div>
 
+    <div class="cta-section">
+      <p>
+        {{ t('cta.para1') }}
+      </p>
+      <CTAButton
+        url="/projects"
+        :buttonText="t('cta.buttonText')"
+        showOutline
+        isDarkVersion
+      />
+    </div>
+
     <p>
       A ton of content to make sure the page is long enough to scroll.
       <br>
@@ -189,6 +201,27 @@ function handleResize() {
   flex-direction: column;
   align-items: center;
   gap: 50px;
+}
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 100px 25px;
+}
+
+.cta-section > p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0px;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.cta-section .cta-button {
+  margin: 0px;
 }
 
 .preview-card {
@@ -248,6 +281,11 @@ function handleResize() {
 }
 
 @media (max-width: 939px) {
+  .cta-section > p {
+    white-space: normal;
+    max-width: 600px;
+  }
+
   .site-categories > * {
     max-width: 600px;
     display: grid;

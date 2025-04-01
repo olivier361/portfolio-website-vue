@@ -93,6 +93,10 @@ export default {
         altText: '',
       },
     },
+    cta: {
+      para1: 'Find details, media, interactive demos, code repositories, and more\nfor all these projects over on the projects page.',
+      buttonText: 'View All Projects',
+    },
     sectionButtons2: {
       // TODO
     },
