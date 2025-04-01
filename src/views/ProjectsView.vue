@@ -42,7 +42,7 @@ function handleResize() {
   <main>
     <div class="projects">
       <h1>{{ t('title') }}</h1>
-      <h2>{{ t('section.gameDev') }}</h2>
+      <h2 id="game-development">{{ t('section.gameDev') }}</h2>
       <ProjectCard
         :heading="t('unity.title')"
         :previewBackgroundImgPath="'projects/gameDev/unity/unity-card-background-fade.png'"
@@ -638,7 +638,7 @@ function handleResize() {
 
       </ProjectCard>
 
-      <h2>{{ t('section.softwareDev') }}</h2>
+      <h2 id="software-development">{{ t('section.softwareDev') }}</h2>
 
       <ProjectCard
         :heading="t('uhub.title')"
@@ -853,7 +853,7 @@ function handleResize() {
         />
       </ProjectCard>
 
-      <h2>{{ t('section.videoEditing') }}</h2>
+      <h2 id="video-editing">{{ t('section.videoEditing') }}</h2>
 
       <ProjectCard
         :heading="t('ytChannel.title')"
@@ -1128,7 +1128,7 @@ function handleResize() {
         </div>
       </ProjectCard>
 
-      <h2>{{ t('section.graphicDesign') }}</h2>
+      <h2 id="graphic-design">{{ t('section.graphicDesign') }}</h2>
 
       <ProjectCard
         :heading="t('flipnoteMag.title')"
@@ -1332,6 +1332,13 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.projects > h2 {
+  /* When clicking an anchor link,
+   * scolls 70px above the target element
+   */
+  scroll-margin-top: 70px;
 }
 
 .project-card {

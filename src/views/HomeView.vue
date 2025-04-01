@@ -68,21 +68,25 @@ function handleResize() {
           url="#game-development"
           iconId="gamepad-variant-outline"
           :buttonText="t('sectionButtons1.buttonText1')"
+          isSmoothScroll
         />
         <SectionButton
           url="#software-development"
           iconId="file-code-outline"
           :buttonText="t('sectionButtons1.buttonText2')"
+          isSmoothScroll
         />
         <SectionButton
           url="#video-editing"
           iconId="video-outline"
           :buttonText="t('sectionButtons1.buttonText3')"
+          isSmoothScroll
         />
         <SectionButton
           url="#graphic-design"
           iconId="image-edit-outline"
           :buttonText="t('sectionButtons1.buttonText4')"
+          isSmoothScroll
         />
       </div>
     </div>
@@ -90,6 +94,7 @@ function handleResize() {
     <div class="preview-card-section">
       <!-- TODO: Add actual preview card image -->
       <PreviewCard
+        id="game-development"
         :heading="t('previewCards.gameDev.title')"
         imgPath="projects/gameDev/unity/2d-pixel-game.png"
         :imgAltText="t('previewCards.gameDev.altText')"
@@ -101,6 +106,7 @@ function handleResize() {
       </PreviewCard>
       <!-- TODO: Add actual preview card image -->
       <PreviewCard
+        id="software-development"
         :heading="t('previewCards.softwareDev.title')"
         imgPath="projects/softwareDev/uhub/uhub-insta-ad-2.png"
         :imgAltText="t('previewCards.softwareDev.altText')"
@@ -112,6 +118,7 @@ function handleResize() {
       </PreviewCard>
       <!-- TODO: Add actual preview card image -->
       <PreviewCard
+        id="video-editing"
         :heading="t('previewCards.videoEditing.title')"
         imgPath="projects/gameDev/unity/2d-pixel-game.png"
         :imgAltText="t('previewCards.videoEditing.altText')"
@@ -123,6 +130,7 @@ function handleResize() {
       </PreviewCard>
       <!-- TODO: Add actual preview card image -->
       <PreviewCard
+        id="graphic-design"
         :heading="t('previewCards.graphicDesign.title')"
         imgPath="projects/softwareDev/uhub/uhub-insta-ad-2.png"
         :imgAltText="t('previewCards.graphicDesign.altText')"

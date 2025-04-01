@@ -1,11 +1,14 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
 
 const headingEntries = ref([
   'Software & Game Developer',
   'Video Content Creator',
   'Design and Marketing',
 ]);
+
+const router = useRouter();
 
 const windowWidth = ref(window.innerWidth);
 const windowHeight = ref(window.innerHeight);
@@ -24,6 +27,15 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
 });
+
+function smoothScrollToId(id) {
+  const target = document.getElementById(id);
+  if (target) {
+    // target.scrollIntoView({ behavior: 'smooth' }); // no longer needed
+    // Update the hash in the browser path. The router will handle the scroll.
+    router.replace({ hash: `#${id}` });
+  }
+}
 
 </script>
 
@@ -106,6 +118,7 @@ onBeforeUnmount(() => {
           id="splashcreen-cta-arrow"
           v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)"
           href="#about-me"
+          @click.prevent="smoothScrollToId('about-me')"
           uk-icon="icon: chevron-down; ratio: 2.5"
         />
         <!-- eslint-enable @stylistic/max-len -->

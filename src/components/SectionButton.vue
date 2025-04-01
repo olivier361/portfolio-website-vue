@@ -1,7 +1,8 @@
 <script setup>
 import MaterialIcons from './MaterialIcons.vue';
+import { useRouter } from 'vue-router';
 
-defineProps({
+const props = defineProps({
   url: {
     // the url that is opened when the button is clicked.
     type: String,
@@ -31,6 +32,14 @@ defineProps({
     required: false,
     default: false,
   },
+  isSmoothScroll: {
+    // set to true if the button should smooth scroll to an element
+    // within the same page with the id specified in the 'url' prop.
+    // NOTE: the 'url' prop should be in the format '#element-id'.
+    type: Boolean,
+    required: false,
+    default: false,
+  },
   isDarkVersion: {
     // use the dark version of the button.
     type: Boolean,
@@ -45,6 +54,27 @@ defineProps({
   },
 });
 
+const router = useRouter();
+
+function handleClick(event) {
+  if (props.isSmoothScroll) {
+    event.preventDefault();
+    smoothScrollToId(props.url);
+  }
+}
+
+function smoothScrollToId(id) {
+  // Remove the leading '#' from the id
+  const parsedId = id.replace('#', '');
+
+  const target = document.getElementById(parsedId);
+  if (target) {
+    // target.scrollIntoView({ behavior: 'smooth' }); // no longer needed
+    // Update the hash in the browser path. The router will handle the scroll.
+    router.replace({ hash: `#${parsedId}` });
+  }
+}
+
 </script>
 
 <template>
@@ -52,6 +82,7 @@ defineProps({
   <a
     :href="url"
     :target="isNewTab ? '_blank' : '_self'"
+    @click="handleClick"
     class="section-button"
     :class="{ 'dark': isDarkVersion, 'light': !isDarkVersion, 'fit-content': isFitToContent }"
   >

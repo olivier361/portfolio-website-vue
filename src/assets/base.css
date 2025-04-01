@@ -165,11 +165,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  /* smoothly scroll to section anchors when href clicked */
-  scroll-behavior: smooth;
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading);
 }
