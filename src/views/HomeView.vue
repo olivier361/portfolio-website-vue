@@ -201,41 +201,6 @@ function handleResize() {
         />
       </div>
     </div>
-
-    <p>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-      A ton of content to make sure the page is long enough to scroll.
-      <br>
-    </p>
   </main>
 </template>
 
