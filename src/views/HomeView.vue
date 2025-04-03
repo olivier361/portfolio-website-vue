@@ -157,7 +157,8 @@ function handleResize() {
       />
     </div>
 
-    <div class="site-categories">
+    <!-- TODO: uncomment this version once resume and about the site pages are implemented -->
+    <!-- <div class="site-categories">
       <div class="section-button-container">
         <SectionButton
           url="/resume"
@@ -178,6 +179,25 @@ function handleResize() {
           iconId="application-brackets-outline"
           :buttonText="t('sectionButtons2.buttonText3')"
           :descriptionText="t('sectionButtons2.buttonPara3')"
+        />
+      </div>
+    </div> -->
+
+    <!-- TODO: Remove this temporary content once the resume and about the site pages
+     are implemented. -->
+    <div class="site-categories">
+      <div class="section-button-container">
+        <SectionButton
+          url="/about-me"
+          iconId="account-box-outline"
+          :buttonText="t('sectionButtons2.buttonTextTmp1')"
+          :descriptionText="t('sectionButtons2.buttonParaTmp1')"
+        />
+        <SectionButton
+          url="/contact"
+          iconId="contacts-outline"
+          :buttonText="t('sectionButtons2.buttonText2')"
+          :descriptionText="t('sectionButtons2.buttonPara2')"
         />
       </div>
     </div>

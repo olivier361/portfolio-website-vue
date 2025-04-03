@@ -104,6 +104,9 @@ export default {
       buttonPara1: "View my complete work experience,\nincluding software and tools I've used.",
       buttonPara2: "Think I'd be a good fit for your team or project?\nPlease don't hesitate to reach out!",
       buttonPara3: 'Learn about how this portfolio site was created, the software development process I followed,\nand the many tools used in this web development project.',
+      // TODO: Remove this temporary content once the resume and about the site pages are implemented.
+      buttonTextTmp1: 'About Me',
+      buttonParaTmp1: 'Get to know more about me,\nfrom my experience to my favorite hobbies.',
     },
   },
 };
