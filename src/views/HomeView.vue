@@ -63,7 +63,7 @@ function handleResize() {
     </div>
 
     <div class="site-categories">
-      <div class="section-button-container">
+      <div class="section-button-container grid">
         <SectionButton
           url="#game-development"
           iconId="gamepad-variant-outline"
@@ -157,6 +157,31 @@ function handleResize() {
       />
     </div>
 
+    <div class="site-categories">
+      <div class="section-button-container">
+        <SectionButton
+          url="/resume"
+          iconId="file-document-outline"
+          :buttonText="t('sectionButtons2.buttonText1')"
+          :descriptionText="t('sectionButtons2.buttonPara1')"
+        />
+        <SectionButton
+          url="/contact"
+          iconId="contacts-outline"
+          :buttonText="t('sectionButtons2.buttonText2')"
+          :descriptionText="t('sectionButtons2.buttonPara2')"
+        />
+      </div>
+      <div class="section-button-container">
+        <SectionButton
+          url="/about-the-site"
+          iconId="application-brackets-outline"
+          :buttonText="t('sectionButtons2.buttonText3')"
+          :descriptionText="t('sectionButtons2.buttonPara3')"
+        />
+      </div>
+    </div>
+
     <p>
       A ton of content to make sure the page is long enough to scroll.
       <br>
@@ -230,9 +255,9 @@ function handleResize() {
 
 .site-categories {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 50px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   margin: 50px 25px;
 }
 
@@ -288,6 +313,13 @@ function handleResize() {
 
   .site-categories > * {
     max-width: 600px;
+  }
+
+  .site-categories :deep(.section-button-description) {
+    white-space: normal;
+  }
+
+  .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     /* grid-template-rows: repeat(2, auto); */

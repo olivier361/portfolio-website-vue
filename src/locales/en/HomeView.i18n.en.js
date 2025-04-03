@@ -98,7 +98,12 @@ export default {
       buttonText: 'View All Projects',
     },
     sectionButtons2: {
-      // TODO
+      buttonText1: 'Resume',
+      buttonText2: 'Contact Me',
+      buttonText3: 'About the Site',
+      buttonPara1: "View my complete work experience,\nincluding software and tools I've used.",
+      buttonPara2: "Think I'd be a good fit for your team or project?\nPlease don't hesitate to reach out!",
+      buttonPara3: 'Learn about how this portfolio site was created, the software development process I followed,\nand the many tools used in this web development project.',
     },
   },
 };
