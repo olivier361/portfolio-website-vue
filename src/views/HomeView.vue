@@ -52,9 +52,8 @@ function handleResize() {
             isDarkVersion
           />
         </div>
-        <!-- TODO: Add actual image here -->
         <ImageFrameStylized
-          imgPath="projects/gameDev/unity/2d-pixel-game.png"
+          imgPath="pixel-profile-picture.png"
           widthPx="330px"
           heightPx="330px"
           :isFullWidth="curViewportWidth <= 479"
@@ -92,11 +91,10 @@ function handleResize() {
     </div>
 
     <div class="preview-card-section">
-      <!-- TODO: Add actual preview card image -->
       <PreviewCard
         id="game-development"
         :heading="t('previewCards.gameDev.title')"
-        imgPath="projects/gameDev/unity/2d-pixel-game.png"
+        imgPath="home/preview-card-game-dev.png"
         :imgAltText="t('previewCards.gameDev.altText')"
         url="/projects#game-development"
       >
@@ -104,11 +102,10 @@ function handleResize() {
         <br><br>
         {{ t('previewCards.gameDev.para2') }}
       </PreviewCard>
-      <!-- TODO: Add actual preview card image -->
       <PreviewCard
         id="software-development"
         :heading="t('previewCards.softwareDev.title')"
-        imgPath="projects/softwareDev/uhub/uhub-insta-ad-2.png"
+        imgPath="home/preview-card-software-dev.png"
         :imgAltText="t('previewCards.softwareDev.altText')"
         url="/projects#software-development"
       >
@@ -116,23 +113,24 @@ function handleResize() {
         <br><br>
         {{ t('previewCards.softwareDev.para2') }}
       </PreviewCard>
-      <!-- TODO: Add actual preview card image -->
       <PreviewCard
         id="video-editing"
         :heading="t('previewCards.videoEditing.title')"
-        imgPath="projects/gameDev/unity/2d-pixel-game.png"
+        imgPath="home/preview-card-video-editing.png"
         :imgAltText="t('previewCards.videoEditing.altText')"
+        :imgStyle="curViewportWidth <= 939
+          ? 'object-position: 35% center;'
+          : 'object-position: 62% center;'"
         url="/projects#video-editing"
       >
         {{ t('previewCards.videoEditing.para1') }}
         <br><br>
         {{ t('previewCards.videoEditing.para2') }}
       </PreviewCard>
-      <!-- TODO: Add actual preview card image -->
       <PreviewCard
         id="graphic-design"
         :heading="t('previewCards.graphicDesign.title')"
-        imgPath="projects/softwareDev/uhub/uhub-insta-ad-2.png"
+        imgPath="home/preview-card-graphic-design.png"
         :imgAltText="t('previewCards.graphicDesign.altText')"
         url="/projects#graphic-design"
       >
