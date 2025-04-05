@@ -54,6 +54,7 @@ function handleResize() {
         </div>
         <ImageFrameStylized
           imgPath="pixel-profile-picture.png"
+          :altText="t('about.imgAltText')"
           widthPx="330px"
           heightPx="330px"
           :isFullWidth="curViewportWidth <= 479"

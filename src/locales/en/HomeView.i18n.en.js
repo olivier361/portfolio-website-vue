@@ -21,6 +21,7 @@ export default {
         about some key projects I have worked on in recent years.
       `,
       buttonText: 'More About Me',
+      imgAltText: 'A profile picture of me depicted as a pixel art video game character sprite.',
     },
     sectionButtons1: {
       buttonText1: 'Game\nDevelopment',
@@ -40,8 +41,7 @@ export default {
           I also have experience with 3D modelling and implementing computer animation and
           rendering algorithms such as inverse kinematics, splines, and ray traced rendering.
         `,
-        // TODO: Add alt text once we have the final image
-        altText: '',
+        altText: 'A colorful 16-bit 2D platformer featuring a fox character.',
       },
       softwareDev: {
         title: 'Software & App Development',
@@ -59,8 +59,7 @@ export default {
           and our mock Day Trading system which implements a scalable back-end
           to handle thousands of simultaneous buy and sell requests from users.
         `,
-        // TODO: Add alt text once we have the final image
-        altText: '',
+        altText: 'A screenshot of the UHub app showing a map of food outlet locations on the top of the screen. The bottom half shows the menu of a food outlet called the Chopbox.',
       },
       videoEditing: {
         title: 'Video Editing & Production',
@@ -77,8 +76,7 @@ export default {
           and trailers created to date. This includes creating motion graphics
           and transitions that match the client's branding.
         `,
-        // TODO: Add alt text once we have the final image
-        altText: '',
+        altText: 'A view of a video editing timeline inside the Vegas Pro software for one of my YouTube videos.',
       },
       graphicDesign: {
         title: 'Graphic Design',
@@ -89,8 +87,7 @@ export default {
           to promote my projects, and crafted over 500+ eye-catching video thumbnails
           to attract viewers to my YouTube videos.
         `,
-        // TODO: Add alt text once we have the final image
-        altText: '',
+        altText: 'The front cover of Flipnote magazine features a picture of the "Chateau de Versailles" in France with a clear blue sky. The magazine title is in the top right corner and the lower third has a slanted aqua blue banner with highlights of pictures and articles found inside the magazine.',
       },
     },
     cta: {
