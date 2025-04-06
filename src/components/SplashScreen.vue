@@ -48,14 +48,68 @@ function smoothScrollToId(id) {
       uk-slideshow="animation: pull; autoplay: true; pause-on-hover: false"
     >
       <div class="uk-slideshow-items">
+        <!-- TODO: Add the alt text via localization -->
         <div>
-          <img src="@/assets/2D-Pixel-Game.png" alt="2D Pixel Platformer Game" uk-cover>
+          <img
+            src="@/assets/home/splashScreen/2d-pixel-game.png"
+            alt="2D Pixel Platformer Game"
+            uk-cover
+          >
         </div>
         <div>
-          <img src="@/assets/cube-game.png" alt="Cube Game" uk-cover>
+          <img
+            src="@/assets/home/splashScreen/uhub-3d-render.png"
+            alt="TODO"
+            uk-cover
+            :style="(windowWidth < 540) || (windowWidth / windowHeight) < 0.7
+              ? 'object-position: 75% center;'
+              : ''"
+          >
         </div>
         <div>
-          <img src="@/assets/ruby-adventure.png" alt="Ruby's Adventure Game" uk-cover>
+          <img
+            src="@/assets/home/splashScreen/raytrace-dragon-tree-skybox.png"
+            alt="TODO"
+            uk-cover
+            :style="(windowWidth / windowHeight) > 2.0
+              ? 'object-position: center center;'
+              : 'object-position: center 80%;'"
+          >
+        </div>
+        <div>
+          <img
+            src="@/assets/home/splashScreen/raytrace-perlin-cubic.png"
+            alt="TODO"
+            uk-cover
+          >
+        </div>
+        <div>
+          <img
+            src="@/assets/home/splashScreen/thw0.jpg"
+            alt="TODO"
+            uk-cover
+          >
+        </div>
+        <div>
+          <img
+            src="@/assets/home/splashScreen/thw4.jpg"
+            alt="TODO"
+            uk-cover
+          >
+        </div>
+        <div>
+          <img
+            src="@/assets/home/splashScreen/cube-game.png"
+            alt="Cube Game"
+            uk-cover
+          >
+        </div>
+        <div>
+          <img
+            src="@/assets/home/splashScreen/ruby-adventure.png"
+            alt="Ruby's Adventure Game"
+            uk-cover
+          >
         </div>
       </div>
       <div class="image-overlay uk-position-center" />
