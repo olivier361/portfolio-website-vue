@@ -78,29 +78,8 @@ function smoothScrollToId(id) {
         </div>
         <div>
           <img
-            src="@/assets/home/splashScreen/raytrace-perlin-cubic.png"
-            alt="TODO"
-            uk-cover
-          >
-        </div>
-        <div>
-          <img
             src="@/assets/home/splashScreen/thw0.jpg"
             alt="TODO"
-            uk-cover
-          >
-        </div>
-        <div>
-          <img
-            src="@/assets/home/splashScreen/thw4.jpg"
-            alt="TODO"
-            uk-cover
-          >
-        </div>
-        <div>
-          <img
-            src="@/assets/home/splashScreen/cube-game.png"
-            alt="Cube Game"
             uk-cover
           >
         </div>
