@@ -45,10 +45,13 @@ export default {
       buttonText: 'View All Projects',
     },
     sectionButtons1: {
-      buttonText1: 'Contact Me',
-      buttonText2: 'Resume',
-      buttonPara1: "Think I'd be a good fit for your team or project?\nPlease don't hesitate to reach out!",
-      buttonPara2: "View my complete work experience,\nincluding software and tools I've used.",
+      buttonText1: 'Resume',
+      buttonText2: 'Contact Me',
+      buttonPara1: "View my complete work experience,\nincluding software and tools I've used.",
+      buttonPara2: "Think I'd be a good fit for your team or project?\nPlease don't hesitate to reach out!",
+      // TODO: Remove this temporary content once the resume page is implemented.
+      buttonTextTmp1: 'About Me',
+      buttonParaTmp1: 'Get to know more about me,\nfrom my experience to my favorite hobbies.',
     },
   },
 };
