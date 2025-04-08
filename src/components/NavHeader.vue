@@ -21,8 +21,11 @@ function handleSetMobileNavMenu(state = true) {
     <div class="nav-links">
       <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
       <RouterLink to="/projects" @click="handleSetMobileNavMenu(false)">Projects</RouterLink>
-      <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
-      <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
+      <!-- TODO: re-enable nav links when either resume or about the site pages are implemented -->
+      <!-- <RouterLink to="/resume" @click="handleSetMobileNavMenu(false)">Resume</RouterLink> -->
+      <!-- <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink> -->
+      <RouterLink to="/about-me" @click="handleSetMobileNavMenu(false)">About</RouterLink>
+      <RouterLink to="/contact" @click="handleSetMobileNavMenu(false)">Contact</RouterLink>
     </div>
   </div>
   <div class="header header-mobile">
@@ -37,8 +40,11 @@ function handleSetMobileNavMenu(state = true) {
   <div v-if="isMobileNavMenuOpen" id="nav-links-mobile">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
     <RouterLink to="/projects" @click="handleSetMobileNavMenu(false)">Projects</RouterLink>
-    <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">Resume</RouterLink>
-    <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink>
+    <!-- TODO: re-enable nav links when either resume or about the site pages are implemented -->
+    <!-- <RouterLink to="/resume" @click="handleSetMobileNavMenu(false)">Resume</RouterLink> -->
+    <!-- <RouterLink to="/about" @click="handleSetMobileNavMenu(false)">About</RouterLink> -->
+    <RouterLink to="/about-me" @click="handleSetMobileNavMenu(false)">About</RouterLink>
+    <RouterLink to="/contact" @click="handleSetMobileNavMenu(false)">Contact</RouterLink>
     <button id="nav-mobile-close" @click="handleSetMobileNavMenu(false)" type="button">
       <span href="" uk-icon="icon: close; ratio: 1.6" />
     </button>
