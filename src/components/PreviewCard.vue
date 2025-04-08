@@ -19,6 +19,12 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
+  imgStyle: {
+    // use this prop to pass custom style rules to the image inside the preview card.
+    type: String,
+    required: false,
+    default: undefined,
+  },
   url: {
     // the url that is opened when the Read More button is clicked.
     type: String,
@@ -48,6 +54,7 @@ const imgUrl = new URL(`/src/assets/${props.imgPath}`, import.meta.url).href;
       class="image-box"
       :src="imgUrl"
       :alt="(imgAltText === undefined ? imgPath : imgAltText)"
+      :style="imgStyle"
     >
   </div>
 

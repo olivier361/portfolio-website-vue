@@ -1,11 +1,20 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import en from '@/locales/en/SplashScreen.i18n.en.js';
+
+const { t } = useI18n({
+  messages: { en: en.en },
+});
 
 const headingEntries = ref([
   'Software & Game Developer',
   'Video Content Creator',
   'Design and Marketing',
 ]);
+
+const router = useRouter();
 
 const windowWidth = ref(window.innerWidth);
 const windowHeight = ref(window.innerHeight);
@@ -25,6 +34,15 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
 });
 
+function smoothScrollToId(id) {
+  const target = document.getElementById(id);
+  if (target) {
+    // target.scrollIntoView({ behavior: 'smooth' }); // no longer needed
+    // Update the hash in the browser path. The router will handle the scroll.
+    router.replace({ hash: `#${id}` });
+  }
+}
+
 </script>
 
 <template>
@@ -37,13 +55,45 @@ onBeforeUnmount(() => {
     >
       <div class="uk-slideshow-items">
         <div>
-          <img src="@/assets/2D-Pixel-Game.png" alt="2D Pixel Platformer Game" uk-cover>
+          <img
+            src="@/assets/home/splashScreen/2d-pixel-game.png"
+            :alt="t('imgAltText1')"
+            uk-cover
+          >
         </div>
         <div>
-          <img src="@/assets/cube-game.png" alt="Cube Game" uk-cover>
+          <img
+            src="@/assets/home/splashScreen/uhub-3d-render.png"
+            :alt="t('imgAltText2')"
+            uk-cover
+            :style="(windowWidth < 540) || (windowWidth / windowHeight) < 0.7
+              ? 'object-position: 75% center;'
+              : ''"
+          >
         </div>
         <div>
-          <img src="@/assets/ruby-adventure.png" alt="Ruby's Adventure Game" uk-cover>
+          <img
+            src="@/assets/home/splashScreen/raytrace-dragon-tree-skybox.png"
+            :alt="t('imgAltText3')"
+            uk-cover
+            :style="(windowWidth / windowHeight) > 2.0
+              ? 'object-position: center center;'
+              : 'object-position: center 80%;'"
+          >
+        </div>
+        <div>
+          <img
+            src="@/assets/home/splashScreen/thw0.jpg"
+            :alt="t('imgAltText4')"
+            uk-cover
+          >
+        </div>
+        <div>
+          <img
+            src="@/assets/home/splashScreen/ruby-adventure.png"
+            :alt="t('imgAltText5')"
+            uk-cover
+          >
         </div>
       </div>
       <div class="image-overlay uk-position-center" />
@@ -105,7 +155,8 @@ onBeforeUnmount(() => {
         <a
           id="splashcreen-cta-arrow"
           v-if="windowHeight >= 550 || (windowHeight >= 440 && windowWidth > 640) || (windowHeight >= 380 && windowWidth > 960)"
-          href="#homepage-section1"
+          href="#about-me"
+          @click.prevent="smoothScrollToId('about-me')"
           uk-icon="icon: chevron-down; ratio: 2.5"
         />
         <!-- eslint-enable @stylistic/max-len -->
