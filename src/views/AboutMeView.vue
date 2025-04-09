@@ -16,8 +16,6 @@ const { t } = useI18n({
   <main>
     <div class="about-me uk-flex uk-flex-column uk-flex-middle">
       <h1>{{ t('title') }}</h1>
-      <h2>test h2</h2>
-      <h3>test h3</h3>
       <div class="content-card">
         <p>
           {{ t('aboutText.para1') }}
@@ -40,7 +38,7 @@ const { t } = useI18n({
         />
       </div>
 
-      <div class="cta-section">
+      <div class="cta-section" style="margin-top: 100px; margin-bottom: 50px;">
         <p>
           {{ t('cta.para1') }}
         </p>
@@ -83,13 +81,4 @@ const { t } = useI18n({
 
 <style scoped>
 @import "@/assets/styles/defaultPageStyle.css";
-/* TODO: import a defaultPageStyle.css CSS file here */
-
-/* @media (min-width: 1024px) {
-  .about-me {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
 </style>
