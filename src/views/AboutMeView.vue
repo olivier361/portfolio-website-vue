@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import en from '@/locales/en/AboutMeView.i18n.en.js';
 
@@ -10,6 +11,21 @@ const { t } = useI18n({
   messages: { en: en.en },
 });
 
+const curViewportWidth = ref(undefined);
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  handleResize();
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+function handleResize() {
+  curViewportWidth.value = window.innerWidth;
+}
+
 </script>
 
 <template>
@@ -18,6 +34,13 @@ const { t } = useI18n({
       <h1>{{ t('title') }}</h1>
       <div class="content-card">
         <p>
+          <ImageFrame
+            class="float-image"
+            imgPath="pixel-profile-picture.png"
+            :altText="t('aboutImgAltText')"
+            :widthPx="curViewportWidth <= 499 ? undefined : '300px'"
+            :widthPercent="curViewportWidth <= 499 ? '100%' : undefined"
+          />
           {{ t('aboutText.para1') }}
           <br><br>
           {{ t('aboutText.para2') }}
@@ -31,11 +54,6 @@ const { t } = useI18n({
           {{ t('aboutText.para6') }}
           <a href="/contact">{{ t('aboutText.para7') }}</a>{{ t('aboutText.para8') }}
         </p>
-        <ImageFrame
-          imgPath="pixel-profile-picture.png"
-          :altText="t('aboutImgAltText')"
-          widthPx="300px"
-        />
       </div>
 
       <div class="cta-section" style="margin-top: 100px; margin-bottom: 50px;">
@@ -81,4 +99,17 @@ const { t } = useI18n({
 
 <style scoped>
 @import "@/assets/styles/defaultPageStyle.css";
+
+.float-image {
+  float: right;
+  margin: 0px 0px 25px 50px;
+}
+
+@media (max-width: 759px) {
+  .float-image {
+    float: none;
+    margin: 0px auto 25px auto;
+  }
+}
+
 </style>

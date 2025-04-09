@@ -46,6 +46,10 @@ h3, :slotted(h3) {
   }
 }
 
+.content-card > p:last-child {
+  margin: 0px;
+}
+
 .cta-section {
   display: flex;
   flex-direction: column;
