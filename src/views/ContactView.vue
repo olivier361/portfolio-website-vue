@@ -1,3 +1,16 @@
+<script setup>
+import { useI18n } from 'vue-i18n';
+import en from '@/locales/en/ContactView.i18n.en.js';
+
+import CTAButton from '@/components/CTAButton.vue';
+import SectionButton from '@/components/SectionButton.vue';
+
+const { t } = useI18n({
+  messages: { en: en.en },
+});
+
+</script>
+
 <template>
   <div class="contact">
     <h1>This is a contact page</h1>
