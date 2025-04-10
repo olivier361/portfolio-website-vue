@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n';
 import en from '@/locales/en/ContactView.i18n.en.js';
 
+import SocialLinks from '@/components/SocialLinks.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import SectionButton from '@/components/SectionButton.vue';
 
@@ -21,14 +22,28 @@ const { t } = useI18n({
         <p>{{ t('work.para1') }}</p>
         <!-- TODO: Add button here -->
         <p>{{ t('work.para2') }}</p>
-        <!-- TODO: Add social links here -->
+        <SocialLinks
+          :linkObjectsList="[
+            { url: 'https://www.linkedin.com/in/olivier-gg/', teaserText: 'linkedin.com/in/olivier-gg', ukIconName: 'linkedin' },
+            { url: 'https://twitter.com/oliviergg', teaserText: '@oliviergg', ukIconName: 'x' },
+            { url: 'https://github.com/olivier361', teaserText: '@olivier361', ukIconName: 'github' },
+            // TODO: Add bluesky once setup
+          ]"
+        />
       </div>
 
       <div class="content-card">
         <h3>{{ t('youtube.title') }}</h3>
         <p>{{ t('youtube.para1') }}</p>
         <!-- TODO: Add button here -->
-        <!-- TODO: Add social links here -->
+        <SocialLinks
+          :linkObjectsList="[
+            { url: 'https://youtube.com/@skullkid_gaming', teaserText: 'youtube.com/@skullkid_gaming', ukIconName: 'youtube' },
+            { url: 'https://bsky.app/profile/skullkidyt.bsky.social', teaserText: '@skullkidyt.bsky.social', ukIconName: 'bluesky' },
+            { url: 'https://twitter.com/SkullkidYT', teaserText: '@SkullkidYT', ukIconName: 'x' },
+            { url: 'https://www.instagram.com/skullkid_gaming/', teaserText: '@skullkid_gaming', ukIconName: 'instagram' },
+          ]"
+        />
       </div>
 
       <div class="cta-section" style="margin-top: 100px; margin-bottom: 50px;">

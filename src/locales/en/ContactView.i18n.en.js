@@ -10,9 +10,15 @@ export default {
     },
     work: {
       title: 'Work Related',
+      // TODO: uncomment this once bluesky is setup
+      // para1: `
+      //   For work related inquiries or general questions, please don't hesitate
+      //   to reach out via email or DM me on Twitter/X, LinkedIn, or Bluesky.
+      // `,
+      // TODO: remove this temp version once bluesky is setup
       para1: `
         For work related inquiries or general questions, please don't hesitate
-        to reach out via email or DM me on Twitter/X, LinkedIn, or Bluesky.
+        to reach out via email or DM me on Twitter/X or LinkedIn.
       `,
       para2: `
         Follow me on social media to stay up to date with the projects I'm working on!
