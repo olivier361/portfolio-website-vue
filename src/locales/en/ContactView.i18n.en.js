@@ -7,6 +7,7 @@ export default {
     shared: {
       email: 'Email',
       emailButtonText: 'Click to reveal email',
+      imgFallbackAltText: 'Please DM me on social media if the contact is not showing.',
     },
     work: {
       title: 'Work Related',

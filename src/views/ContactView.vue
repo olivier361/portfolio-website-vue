@@ -1,14 +1,31 @@
 <script setup>
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import en from '@/locales/en/ContactView.i18n.en.js';
 
 import SocialLinks from '@/components/SocialLinks.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import SectionButton from '@/components/SectionButton.vue';
+import { getAssetsSiteUrl } from '@/utils/helpers';
 
 const { t } = useI18n({
   messages: { en: en.en },
 });
+
+const workAssetSource = ref(undefined);
+const youtubeAssetSource = ref(undefined);
+
+// call once to avoid getting console.warns on every UI refresh
+// when this function uses the fallback case.
+const assetsSiteRootUrl = getAssetsSiteUrl();
+
+function handleWorkButtonClick(assetSource) {
+  workAssetSource.value = `${assetsSiteRootUrl}/images/${assetSource}`;
+}
+
+function handleYoutubeButtonClick(assetSource) {
+  youtubeAssetSource.value = `${assetsSiteRootUrl}/images/${assetSource}`;
+}
 
 </script>
 
@@ -19,8 +36,23 @@ const { t } = useI18n({
 
       <div class="content-card" style="margin-bottom: 50px;">
         <h3>{{ t('work.title') }}</h3>
-        <p>{{ t('work.para1') }}</p>
-        <!-- TODO: Add button here -->
+        <p style="margin-bottom: 0px;">{{ t('work.para1') }}</p>
+        <div class="tarpit">
+          <b>{{ t('shared.email') }}:</b>&nbsp;&nbsp;&nbsp;
+          <img
+            v-if="workAssetSource"
+            class="tarpit-img"
+            :src="workAssetSource"
+            :alt="t('shared.imgFallbackAltText')"
+          >
+          <CTAButton
+            v-else
+            :onClickFunction="() => { handleWorkButtonClick('work-tarpit.png'); }"
+            :buttonText="t('shared.emailButtonText')"
+            isFilled
+            :showSymbol="false"
+          />
+        </div>
         <p>{{ t('work.para2') }}</p>
         <SocialLinks
           :linkObjectsList="[
@@ -34,8 +66,23 @@ const { t } = useI18n({
 
       <div class="content-card">
         <h3>{{ t('youtube.title') }}</h3>
-        <p>{{ t('youtube.para1') }}</p>
-        <!-- TODO: Add button here -->
+        <p style="margin-bottom: 0px;">{{ t('youtube.para1') }}</p>
+        <div class="tarpit">
+          <b>{{ t('shared.email') }}:</b>&nbsp;&nbsp;&nbsp;
+          <img
+            v-if="youtubeAssetSource"
+            class="tarpit-img"
+            :src="youtubeAssetSource"
+            :alt="t('shared.imgFallbackAltText')"
+          >
+          <CTAButton
+            v-else
+            :onClickFunction="() => { handleYoutubeButtonClick('youtube-tarpit.png'); }"
+            :buttonText="t('shared.emailButtonText')"
+            isFilled
+            :showSymbol="false"
+          />
+        </div>
         <SocialLinks
           :linkObjectsList="[
             { url: 'https://youtube.com/@skullkid_gaming', teaserText: 'youtube.com/@skullkid_gaming', ukIconName: 'youtube' },
@@ -92,6 +139,27 @@ const { t } = useI18n({
 
 h3 {
   text-transform: none;
+}
+
+.tarpit {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 40px 0px;
+  min-height: 50px;
+}
+
+.tarpit .cta-button {
+  margin: 0px;
+}
+
+.tarpit-img {
+  height: 16px;
+  width: auto;
+  max-width: 100%;
+  position: relative;
+  top: 3px;
 }
 
 </style>
