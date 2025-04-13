@@ -45,7 +45,6 @@ function handleResize() {
             <br><br>
             {{ t('about.para3') }}
           </p>
-          <!-- TODO: Make sure the about me page gets implemented if we have this link -->
           <CTAButton
             url="/about-me"
             :buttonText="t('about.buttonText')"
