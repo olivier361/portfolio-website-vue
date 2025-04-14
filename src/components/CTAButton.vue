@@ -1,10 +1,20 @@
 <script setup>
+import { onMounted } from 'vue';
 
-defineProps({
+const props = defineProps({
   url: {
     // the url that is opened when the button is clicked.
+    // NOTE: either a 'url' or 'onClickFunction' prop must be provided.
     type: String,
-    required: true,
+    required: false,
+    default: undefined,
+  },
+  onClickFunction: {
+    // the function that is called when the button is clicked.
+    // NOTE: either a 'url' or 'onClickFunction' prop must be provided.
+    type: Function,
+    required: false,
+    default: undefined,
   },
   buttonText: {
     // the text displayed on the button.
@@ -46,6 +56,30 @@ defineProps({
   },
 });
 
+onMounted(() => {
+  if (props.url === undefined && props.onClickFunction === undefined) {
+    // eslint-disable-next-line @stylistic/max-len
+    console.warn("[CTAButton]: Missing required prop: Either a 'url' or 'onClickFunction' prop must be provided.");
+  }
+});
+
+// When the CTAButton is clicked, this function is called.
+// if an 'onClickFunction' prop is provided, navigation to the url
+// (whether provided or not) will be prevented and the onClickFunction will be called.
+// NOTE: A url can still be provided with a function if we want
+// the button hover to show a specific url.
+function handleClick(event) {
+  if (props.onClickFunction) {
+    event.preventDefault();
+    try {
+      props.onClickFunction();
+    }
+    catch (error) {
+      console.error('CTAButton - Error occurred while executing onClickFunction:', error);
+    }
+  }
+}
+
 </script>
 
 <template>
@@ -53,6 +87,7 @@ defineProps({
   <a
     :href="url"
     :target="isNewTab ? '_blank' : '_self'"
+    @click="handleClick"
     class="cta-button"
     :class="{
       'cta-button-base': !showOutline && !isFilled,
@@ -81,6 +116,7 @@ defineProps({
   background-color: transparent;
   color: var(--color-cta-button-text-light);
   text-decoration: none;
+  user-select: none;
 }
 
 .cta-button.dark {

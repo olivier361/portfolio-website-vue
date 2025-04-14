@@ -23,8 +23,8 @@ test.describe('HomeView - E2E Tests', () => {
     // navbar should have links to key pages
     await expect(navBar.getByRole('link', { name: 'home' })).toBeVisible();
     await expect(navBar.getByRole('link', { name: 'projects' })).toBeVisible();
-    await expect(navBar.getByRole('link', { name: 'resume' })).toBeVisible();
     await expect(navBar.getByRole('link', { name: 'about' })).toBeVisible();
+    await expect(navBar.getByRole('link', { name: 'contact' })).toBeVisible();
   });
 
   test('HomeView NavBar links should have correct href', async ({ page }) => {
@@ -37,16 +37,16 @@ test.describe('HomeView - E2E Tests', () => {
       .toHaveAttribute('href', '/');
     await expect(navBar.getByRole('link', { name: 'projects' }))
       .toHaveAttribute('href', '/projects');
-    await expect(navBar.getByRole('link', { name: 'resume' }))
-      .toHaveAttribute('href', '/about');
     await expect(navBar.getByRole('link', { name: 'about' }))
-      .toHaveAttribute('href', '/about');
+      .toHaveAttribute('href', '/about-me');
+    await expect(navBar.getByRole('link', { name: 'contact' }))
+      .toHaveAttribute('href', '/contact');
   });
 
   [
     { button: 'projects', link: 'projects', expectedHeader: 'Projects' },
-    { button: 'resume', link: 'about', expectedHeader: 'This is an about page' },
-    { button: 'about', link: 'about', expectedHeader: 'This is an about page' },
+    { button: 'about', link: 'about-me', expectedHeader: 'About Me' },
+    { button: 'contact', link: 'contact', expectedHeader: 'Contact' },
   ].forEach(({ button, link, expectedHeader }) => {
     test(`HomeView NavBar link click should go to correct pages - ${button}`, async ({ page }) => {
       const rootUrl = '/';

@@ -1063,7 +1063,6 @@ function handleResize() {
               {{ t('videoEditor.introPara1') }}
               <br><br>
               {{ t('videoEditor.introPara2') }}
-              <!-- TODO: Make sure to implement the contact page or remove this link -->
               <a href="/contact">{{ t('videoEditor.introPara3') }}</a>{{ t('videoEditor.introPara4') }}
             </p>
             <iframe

@@ -1,0 +1,138 @@
+/* Style Sheet - Default Page Style
+ * Import this style sheet in a View component to style the entire page.
+ * EX: <style scoped> @import "@/assets/styles/defaultPageStyle.css"; </style>
+ */
+
+p {
+  margin: 0px 0px 25px 0px;
+}
+
+h1, h2, h3, h4, :slotted(h1), :slotted(h2), :slotted(h3), :slotted(h4) {
+  line-height: 1.2;
+}
+
+h1, :slotted(h1) {
+  text-transform: uppercase;
+  margin: 50px 0px;
+  color: var(--color-page-title-text);
+  font-size: var(--page-title-font-size);
+  text-align: center;
+}
+
+h2, :slotted(h2) {
+  text-transform: uppercase;
+  margin: 50px 0px 25px 0px;
+  color: var(--color-page-section-text);
+  font-size: var(--page-section-font-size);
+  text-align: center;
+}
+
+h3, :slotted(h3) {
+  text-transform: uppercase;
+  color: var(--color-page-section-text);
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.content-card {
+  width: calc(100% - 40px);
+  max-width: 1100px;
+  color: var(--color-card-text);
+  background-color: var(--color-card-background);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-border-radius);
+  margin: 0px 20px;
+
+  h1, h2, h3, h4, :slotted(h1), :slotted(h2), :slotted(h3), :slotted(h4) {
+    margin: 0px;
+    margin-bottom: 25px;
+    color: var(--color-card-heading);
+  }
+}
+
+.content-card > p:last-child {
+  margin: 0px;
+}
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 0px 25px;
+}
+
+.cta-section > p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0px;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.cta-section .cta-button {
+  margin: 0px;
+}
+
+.site-categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin: 50px 0px;
+  padding: 0px 20px;
+}
+
+.section-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.section-button-container > * {
+  flex: 1;
+}
+
+@media (max-width: 939px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(2, auto); */
+  }
+}
+
+@media (max-width: 799px) {
+  .section-button-container :deep(.section-button-description) {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .content-card {
+    width: calc(100% - 20px);
+    padding: var(--card-border-radius) calc(var(--card-border-radius) / 2);
+    margin: 0px 10px;
+  }
+
+  .cta-section > p {
+    white-space: normal;
+    max-width: 600px;
+  }
+
+  .site-categories {
+    padding: 0px 10px;
+  }
+}
+
+@media (max-width: 479px) {
+  .section-button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
