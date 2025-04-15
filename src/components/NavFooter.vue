@@ -176,8 +176,6 @@ h4, .nav-footer h4 {
     display: flex;
     flex-direction: column;
     flex: none;
-    gap: 30px 50px;
-    max-width: 600px;
   }
 
   /* .nav-footer-wrapper > div {
