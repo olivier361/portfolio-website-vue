@@ -50,7 +50,7 @@ import { getCurrentYear } from '@/utils/helpers';
         <RouterLink to="/projects#video-editing">Video Editing & Production</RouterLink>
         <RouterLink to="/projects#graphic-design">Graphic Design</RouterLink>
       </div>
-      <div class="footer-social-links">
+      <div class="footer-social-links" style="grid-area: 1/2;">
         <h4>Socials</h4>
         <SocialLinks
           :linkObjectsList="[
@@ -64,6 +64,13 @@ import { getCurrentYear } from '@/utils/helpers';
           :showExternalLinkIcon="false"
         />
       </div>
+      <p class="copyright">
+        {{
+          'Copyright &copy; '+ getCurrentYear(2025) + '\n' +
+            'Olivier Gervais-Gougeon.\n' +
+            'All rights reserved.'
+        }}
+      </p>
     </div>
   </div>
 </template>
@@ -130,9 +137,13 @@ h4, .nav-footer h4 {
   justify-content: space-between;
 }
 
-.footer-logo > p {
+.footer-logo > p, .copyright {
   margin: 0px;
   white-space: pre;
+}
+
+.copyright {
+  display: none;
 }
 
 .footer-logo .cta-button {
@@ -144,6 +155,46 @@ h4, .nav-footer h4 {
   width: auto;
   height: 26px;
   object-fit: contain;
+}
+
+@media (max-width: 799px) {
+  .nav-footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: flex-start;
+    gap: 30px 50px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 579px) {
+  .nav-footer {
+    padding: 25px 20px;
+  }
+
+  .nav-footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    gap: 30px 50px;
+    max-width: 600px;
+  }
+
+  /* .nav-footer-wrapper > div {
+    align-items: center;
+  } */
+
+  .footer-logo .cta-button {
+    margin: 12px 0px 0px 0px !important;
+  }
+
+  .footer-logo > p {
+    display: none;
+  }
+
+  .copyright {
+    display: block;
+  }
 }
 
 </style>
