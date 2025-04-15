@@ -55,6 +55,37 @@ export function yearsSinceString(month, year, fallbackString) {
 }
 
 /**
+ * Returns a number value for the current year. A fallback number parameter
+ * must be provided in case the computed date function fails.
+ * @param {number} fallback if the date function fails
+ * or returns a number smaller than the fallback, this value will be used.
+ */
+export function getCurrentYear(fallback) {
+  // Log error if the fallback is not a number
+  if (typeof fallback !== 'number' || !Number.isInteger(fallback)) {
+    console.error('getCurrentYear() - Invalid fallback value. This value must be a number.');
+    return undefined;
+  }
+
+  let result = undefined;
+  try {
+    result = new Date().getFullYear();
+    if (result < fallback) {
+      result = fallback;
+    }
+  }
+  catch (error) {
+    console.warn(
+      'getCurrentYear() - Could not compute the current year. Using provided fallback.',
+      error,
+    );
+    result = fallback;
+  }
+
+  return result;
+}
+
+/**
  * If the VITE_ASSETS_SITE_URL is defined in the environment variables,
  * then this function returns that URL.
  * Otherwise, it constructs and returns a URL based on the current hostname
