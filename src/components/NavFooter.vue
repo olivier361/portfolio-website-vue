@@ -26,9 +26,11 @@ import { getCurrentYear } from '@/utils/helpers';
           :showSymbol="false"
         />
         <p>
-          <!-- TODO: Create a proper date function with a fallback -->
-          Copyright&nbsp;&copy;&nbsp;{{ getCurrentYear(2025) }}<br>Olivier&nbsp;Gervais&#8209;Gougeon.<br>All&nbsp;rights&nbsp;reserved.
-
+          {{
+            'Copyright &copy; '+ getCurrentYear(2025) + '\n' +
+              'Olivier Gervais-Gougeon.\n' +
+              'All rights reserved.'
+          }}
         </p>
       </div>
       <div class="footer-site-map">
@@ -130,6 +132,7 @@ h4, .nav-footer h4 {
 
 .footer-logo > p {
   margin: 0px;
+  white-space: pre;
 }
 
 .footer-logo .cta-button {
