@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import SocialLinks from '@/components/SocialLinks.vue';
+import CTAButton from './CTAButton.vue';
+import { getCurrentYear } from '@/utils/helpers';
 </script>
 
 <template>
@@ -16,16 +18,24 @@ import SocialLinks from '@/components/SocialLinks.vue';
             height="85"
           >
         </RouterLink>
+        <CTAButton
+          url="/contact"
+          :buttonText="'Contact Me'"
+          isDarkVersion
+          isFilled
+          :showSymbol="false"
+        />
         <p>
           <!-- TODO: Create a proper date function with a fallback -->
-          Copyright&nbsp;&copy;&nbsp;{{ new Date().getFullYear() }} Olivier&nbsp;Gervais&#8209;Gougeon. All&nbsp;rights&nbsp;reserved.
+          Copyright&nbsp;&copy;&nbsp;{{ getCurrentYear(2025) }}<br>Olivier&nbsp;Gervais&#8209;Gougeon.<br>All&nbsp;rights&nbsp;reserved.
+
         </p>
       </div>
       <div class="footer-site-map">
         <h4>Site Map</h4>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/projects">Projects</RouterLink>
-        <!-- TODO: re-enable nav links when either resume or about the site pages are implemented -->
+        <!-- TODO: re-enable links when either resume or about the site pages are implemented -->
         <!-- <RouterLink to="/resume">Resume</RouterLink> -->
         <!-- <RouterLink to="/about">About</RouterLink> -->
         <RouterLink to="/about-me">About</RouterLink>
@@ -43,7 +53,7 @@ import SocialLinks from '@/components/SocialLinks.vue';
         <SocialLinks
           :linkObjectsList="[
             { url: 'https://www.linkedin.com/in/olivier-gg/', teaserText: 'LinkedIn', ukIconName: 'linkedin' },
-            { url: 'https://twitter.com/oliviergg', teaserText: 'Twitter / X', ukIconName: 'x' },
+            { url: 'https://twitter.com/oliviergg', teaserText: 'Twitter&nbsp;/&nbsp;X', ukIconName: 'x' },
             { url: 'https://github.com/olivier361', teaserText: 'GitHub', ukIconName: 'github' },
             { url: 'https://youtube.com/@skullkid_gaming', teaserText: 'YouTube', ukIconName: 'youtube' },
             // TODO: Add bluesky once setup
@@ -95,6 +105,7 @@ h4, .nav-footer h4 {
   justify-content: space-between;
   align-items: stretch;
   max-width: 1100px;
+  gap: 20px;
 }
 
 .nav-footer * {
@@ -106,6 +117,7 @@ h4, .nav-footer h4 {
 .nav-footer-wrapper > div {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .nav-footer-wrapper > div > *:not(:last-child, h4) {
@@ -120,9 +132,15 @@ h4, .nav-footer h4 {
   margin: 0px;
 }
 
+.footer-logo .cta-button {
+  margin: 0px;
+  line-height: 1.0;
+}
+
 .site-logo-img {
   width: auto;
   height: 26px;
+  object-fit: contain;
 }
 
 </style>
