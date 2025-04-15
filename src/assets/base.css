@@ -64,6 +64,9 @@
   --color-header-button-click: var(--c-accent-secondary);
   --color-header-link-hover: var(--c-accent-secondary);
 
+  --color-footer-background: var(--c-background-primary);
+  --color-footer-text: var(--c-accent-primary);
+
   --color-splashscreen-social-links-background: var(--c-background-primary);
   --color-splashscreen-social-links-border: var(--c-background-primary);
   --color-splashscreen-text: var(--c-accent-primary);
