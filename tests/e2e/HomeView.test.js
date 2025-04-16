@@ -68,7 +68,8 @@ test.describe('HomeView - E2E Tests', () => {
     await page.goto('/');
 
     // only github link and bottom arrow visible in viewport at the start
-    await expect(page.getByRole('link', { name: 'GitHub' })).toBeInViewport();
+    await expect(page.locator('.splashscreen').getByRole('link', { name: 'GitHub' }))
+      .toBeInViewport();
     await expect(page.locator('div').filter({ hasText: re }).getByRole('link'))
       .toBeInViewport();
     await expect(page.getByRole('heading', { name: 'About Me' }))
@@ -81,7 +82,8 @@ test.describe('HomeView - E2E Tests', () => {
     // page should scroll and content below splashscreen
     // is now in viewport while github link is not.
     await expect(page.getByRole('heading', { name: 'About Me' })).toBeInViewport();
-    await expect(page.getByRole('link', { name: 'GitHub' })).not.toBeInViewport();
+    await expect(page.locator('.splashscreen').getByRole('link', { name: 'GitHub' }))
+      .not.toBeInViewport();
   });
 });
 
