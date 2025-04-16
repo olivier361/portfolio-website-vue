@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import SocialLinks from '@/components/SocialLinks.vue';
-import CTAButton from './CTAButton.vue';
+import CTAButton from '@/components/CTAButton.vue';
 import { getCurrentYear } from '@/utils/helpers';
 </script>
 
@@ -27,7 +27,7 @@ import { getCurrentYear } from '@/utils/helpers';
         />
         <p>
           {{
-            'Copyright &copy; '+ getCurrentYear(2025) + '\n' +
+            'Copyright &copy; ' + getCurrentYear(2025) + '\n' +
               'Olivier Gervais-Gougeon.\n' +
               'All rights reserved.'
           }}
@@ -66,7 +66,7 @@ import { getCurrentYear } from '@/utils/helpers';
       </div>
       <p class="copyright">
         {{
-          'Copyright &copy; '+ getCurrentYear(2025) + '\n' +
+          'Copyright &copy; ' + getCurrentYear(2025) + '\n' +
             'Olivier Gervais-Gougeon.\n' +
             'All rights reserved.'
         }}
