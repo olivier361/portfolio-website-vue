@@ -2,7 +2,8 @@
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import { RouterView } from 'vue-router';
-import NavHeader from './components/NavHeader.vue';
+import NavHeader from '@/components/NavHeader.vue';
+import NavFooter from '@/components/NavFooter.vue';
 
 UIkit.use(Icons);
 </script>
@@ -13,6 +14,10 @@ UIkit.use(Icons);
   </header>
 
   <RouterView />
+
+  <footer>
+    <NavFooter />
+  </footer>
 </template>
 
 <style lang="less">
