@@ -119,7 +119,11 @@
   --header-height: 50px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* NOTE: The placeholder dark color palette has been disabled
+ * because it causes readability issues by clashing with other styling.
+ * We will implement a proper well thought out dark mode in the future.
+ */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
     --color-background-soft: var(--vt-c-black-soft);
@@ -131,7 +135,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
-}
+} */
 
 *,
 *::before,
