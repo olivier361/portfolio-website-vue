@@ -1,23 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 
+const coreWebsiteTitle = ' - Olivier G-G';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
+      meta: { title: 'Olivier G-G - Portfolio Site' },
       component: HomeView,
     },
     {
       path: '/projects',
       name: 'projects',
+      meta: { title: 'Projects' + coreWebsiteTitle },
       // page is lazy-loaded when the route is visited.
       component: () => import('../views/ProjectsView.vue'),
     },
     {
       path: '/about',
       name: 'about',
+      meta: { title: 'About' + coreWebsiteTitle },
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -26,6 +31,7 @@ const router = createRouter({
     {
       path: '/about-me',
       name: 'about-me',
+      meta: { title: 'About Me' + coreWebsiteTitle },
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -34,6 +40,7 @@ const router = createRouter({
     {
       path: '/contact',
       name: 'contact',
+      meta: { title: 'Contact' + coreWebsiteTitle },
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -79,6 +86,11 @@ const router = createRouter({
       };
     }
   },
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'Olivier G-G - Portfolio Site';
+  next();
 });
 
 export default router;
