@@ -16,7 +16,9 @@ const router = createRouter({
       path: '/projects',
       name: 'projects',
       meta: { title: 'Projects' + coreWebsiteTitle },
-      // page is lazy-loaded when the route is visited.
+      // route level code-splitting
+      // this generates a separate chunk (ProjectsView-[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProjectsView.vue'),
     },
     {
@@ -25,27 +27,21 @@ const router = createRouter({
       meta: { title: 'About' + coreWebsiteTitle },
       // TODO: remove the redirect when the About page is implemented.
       redirect: '/about-me',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      // page is lazy-loaded as a separate chunk ([name]View-[hash].js) when the route is visited.
       // component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/about-me',
       name: 'about-me',
       meta: { title: 'About Me' + coreWebsiteTitle },
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      // page is lazy-loaded as a separate chunk ([name]View-[hash].js) when the route is visited.
       component: () => import('../views/AboutMeView.vue'),
     },
     {
       path: '/contact',
       name: 'contact',
       meta: { title: 'Contact' + coreWebsiteTitle },
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      // page is lazy-loaded as a separate chunk ([name]View-[hash].js) when the route is visited.
       component: () => import('../views/ContactView.vue'),
     },
   ],
