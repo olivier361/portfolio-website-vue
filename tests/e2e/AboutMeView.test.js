@@ -36,7 +36,7 @@ test.describe('AboutMeView - E2E Tests', () => {
     await page.goto('/about-me');
     await expect(page.getByRole('img', { name: /profile.+picture/ })).toBeVisible();
     await expect(page.getByRole('img', { name: /profile.+picture/ }))
-      .toHaveAttribute('src', /assets\/pixel-profile-picture\.png/);
+      .toHaveAttribute('src', /assets\/pixel-profile-picture.*\.png/);
   });
 
   test('AboutMeView should show content-card with text content', async ({ page }) => {
