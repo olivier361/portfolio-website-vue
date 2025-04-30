@@ -344,7 +344,7 @@ export default {
           graphic functions so that the choice of graphical libraries can be easily changed
           without requiring any changes to the gameplay logic code.
         `,
-        relatedLinks1: 'View the “cpp-tetris” code on GitHub.',
+        relatedLinks1: 'View the “tetris-game-cpp” code on GitHub.',
         relatedLinks2: 'Watch the video demo and presentation on YouTube.',
         caption1: 'A screenshot of my C++ Tetris game.',
         altText1: 'A Tetris board with multiple blocks clumsily stacked. A red block is currently falling. The game window has a blue background and instructions on how to play are on the left of the board with the score on the right.',

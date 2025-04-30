@@ -450,11 +450,10 @@ function handleResize() {
             </p>
             <RelatedLinks
               :linkObjectsList="[
-                // TODO: Create a public version of the repository for the tetris project
-                // {
-                //   url: '/TODO',
-                //   teaserText: t('computerAnimAndRender.details3.relatedLinks1'),
-                // },
+                {
+                  url: 'https://github.com/olivier361/tetris-game-cpp',
+                  teaserText: t('computerAnimAndRender.details3.relatedLinks1'),
+                },
                 {
                   url: 'https://youtu.be/2A3-CP1nTuE',
                   teaserText: t('computerAnimAndRender.details3.relatedLinks2'),
