@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ImageFrame - Component Tests > ImageFrame content matches snapshot 1`] = `
-"<figure data-v-ef47a592=""><img data-v-ef47a592="" src="file:///src/assets/test-image.png" alt="test-image.png" style="width: 100%; min-width: 100%; max-width: 100%; height: auto; min-height: auto; max-height: auto; background-color: rgb(80, 80, 80);">
+"<figure data-v-ef47a592=""><img data-v-ef47a592="" src="file:///src/assets/test-image.png" alt="test-image.png" style="width: 100%; min-width: 100%; max-width: 100%; height: auto; min-height: auto; background-color: rgb(80, 80, 80);">
   <!--v-if-->
 </figure>"
 `;
