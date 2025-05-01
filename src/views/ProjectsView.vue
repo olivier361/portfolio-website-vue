@@ -1178,7 +1178,8 @@ function handleResize() {
               imgPath="projects/graphicDesign/flipnoteMag/flipnote-magazine-cover.png"
               :captionText="t('flipnoteMag.imgFrame.caption1')"
               :altText="t('flipnoteMag.imgFrame.altText1')"
-              :height="curViewportWidth <= 899 ? 'fit-content' : '400px'"
+              :height="curViewportWidth <= 899 ? 'auto' : '400px'"
+              :widthPx="curViewportWidth <= 899 ? '100%' : 'auto'"
               :style="curViewportWidth <= 899 ? {} : { marginBottom: '50px' }"
             />
           </div>
