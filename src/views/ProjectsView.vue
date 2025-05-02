@@ -8,6 +8,7 @@ import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import RelatedLinks from '@/components/RelatedLinks.vue';
+import QuickLinks from '@/components/QuickLinks.vue';
 import { yearsSinceString, getAssetsSiteUrl } from '@/utils/helpers';
 
 const { t } = useI18n({
@@ -42,6 +43,26 @@ function handleResize() {
   <main>
     <div class="projects">
       <h1>{{ t('title') }}</h1>
+      <QuickLinks
+        :linkObjectsList="[
+          {
+            buttonText: t('quickLinks.buttonText1'),
+            url: '#game-development',
+          },
+          {
+            buttonText: t('quickLinks.buttonText2'),
+            url: '#software-development',
+          },
+          {
+            buttonText: t('quickLinks.buttonText3'),
+            url: '#video-editing',
+          },
+          {
+            buttonText: t('quickLinks.buttonText4'),
+            url: '#graphic-design',
+          },
+        ]"
+      />
       <h2 id="game-development">{{ t('section.gameDev') }}</h2>
       <ProjectCard
         :heading="t('unity.title')"
