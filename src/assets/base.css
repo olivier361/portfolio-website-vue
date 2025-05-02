@@ -107,6 +107,10 @@
   --color-cta-button-background: var(--c-accent-secondary);
   --color-cta-button-background-hover: var(--c-accent-tertiary);
 
+  --color-quick-links-button-background: var(--c-background-primary);
+  --color-quick-links-button-background-hover: var(--c-background-secondary);
+  --color-quick-links-button-text: var(--c-accent-primary);
+
   --section-gap: 160px;
 
   /* See https://getuikit.com/docs/visibility#visible */
