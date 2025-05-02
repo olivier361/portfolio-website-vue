@@ -55,9 +55,11 @@
 
   --color-page-title-text: var(--c-text-dark-primary);
   --color-page-section-text: var(--c-text-dark-primary);
+  --color-page-sub-section-text: var(--c-text-dark-primary);
 
   --page-title-font-size: 64px;
   --page-section-font-size: 48px;
+  --page-sub-section-font-size: 36px;
 
   --color-header-background: var(--c-background-primary);
   --color-header-link: var(--c-accent-primary);

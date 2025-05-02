@@ -6,7 +6,7 @@ defineProps({
     // NOTE: set to null for no heading.
     type: String,
     required: false,
-    default: 'Quick Links:',
+    default: 'Quick Links',
   },
   linkObjectsList: {
     // EX:
@@ -67,7 +67,6 @@ defineProps({
 /* TODO: for QuickLinks
  * - Clicking the buttons should smooth scroll to the section
  *   instead of jumping to it.
- * - h3 header needs to be styled or setup to grab the style of the project view page.
  * - Figure out if there is a way to make flex wrap favor not having lone buttons on a line.
 */
 
@@ -78,6 +77,10 @@ defineProps({
 
 h3 {
   margin: 0px 0px 15px 0px;
+  color: var(--color-page-sub-section-text);
+  font-size: var(--page-sub-section-font-size);
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 ul {
