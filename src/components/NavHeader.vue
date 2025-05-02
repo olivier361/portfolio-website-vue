@@ -141,12 +141,13 @@ span {
 
 #nav-links-mobile {
   display: flex;
-  opacity:    0.85;
   background: var(--color-page-overlay);
   width:      100%;
   height:     100%;
-  z-index:    10;
+  z-index:    100;
   position:   fixed;
+  top: var(--header-height);
+  left: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -164,10 +165,6 @@ span {
 
   .header-desktop {
     display: none;
-  }
-
-  #nav-links-mobile.show-nav-links {
-    display: flex;
   }
 }
 

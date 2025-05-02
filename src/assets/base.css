@@ -50,7 +50,7 @@
 
   --color-img-background: var(--c-background-secondary);
 
-  --color-page-overlay: black;
+  --color-page-overlay: rgba(0, 0, 0, 0.85);
 
   --color-page-title-text: var(--c-text-dark-primary);
   --color-page-section-text: var(--c-text-dark-primary);
