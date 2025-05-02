@@ -64,9 +64,16 @@ defineProps({
 </template>
 
 <style scoped>
+/* TODO: for QuickLinks
+ * - Clicking the buttons should smooth scroll to the section
+ *   instead of jumping to it.
+ * - h3 header needs to be styled or setup to grab the style of the project view page.
+ * - Figure out if there is a way to make flex wrap favor not having lone buttons on a line.
+*/
 
 .quick-links {
   text-align: center;
+  margin: 0px 20px;
 }
 
 h3 {
@@ -85,22 +92,24 @@ ul {
 }
 
 .ql-button {
+  --button-height: 34px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
+  height: var(--button-height);
   padding: 0px 20px;
-  border-radius: 18px;
+  border-radius: calc(var(--button-height) / 2);
   background-color: var(--color-quick-links-button-background);
   color: var(--color-quick-links-button-text);
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.0;
+  line-height: var(--button-height);
+  /* TODO: add proper font */
 }
 
 .ql-button:hover {
-  /* TODO: find a better color */
   background-color: var(--color-quick-links-button-background-hover);
 }
 
