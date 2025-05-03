@@ -1,6 +1,7 @@
 <script setup>
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 
-defineProps({
+const props = defineProps({
   linkObjectsList: {
     // EX:
     // linkObjectsList: [{
@@ -66,6 +67,33 @@ defineProps({
   },
 });
 
+const scrollContainer = ref(null);
+
+onMounted(() => {
+  if (scrollContainer?.value) {
+    scrollContainer.value.addEventListener('wheel', handleSideScroll, { passive: false });
+  }
+});
+
+onBeforeUnmount(() => {
+  if (scrollContainer?.value) {
+    scrollContainer.value.removeEventListener('wheel', handleSideScroll);
+  }
+});
+
+// When a mouse wheel scroll event happens when the mouse is over the
+// list of link buttons, prevent the scroll event from scrolling the page
+// as normal and instead scroll the list horizontally.
+// NOTE: This only takes effect when 'isSideScrollMobile' is set to true.
+function handleSideScroll(event) {
+  if (!props.isSideScrollMobile || event.deltaY === 0 || window.innerWidth >= 499) {
+    return;
+  }
+
+  event.preventDefault();
+  scrollContainer.value.scrollLeft += event.deltaY;
+}
+
 </script>
 
 <template>
@@ -75,7 +103,7 @@ defineProps({
   >
     <h3 v-if="heading">{{ heading }}</h3>
     <div class="ql-wrapper">
-      <ul>
+      <ul ref="scrollContainer">
         <li v-for="(linkObject, index) in linkObjectsList" :key="index">
           <a class="ql-button" :href="linkObject.url" target="_self">
             {{ linkObject.buttonText }}
