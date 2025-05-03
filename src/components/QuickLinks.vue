@@ -8,6 +8,12 @@ defineProps({
     required: false,
     default: 'Quick Links',
   },
+  maxWidth: {
+    // the maximum width the list of link buttons will take up.
+    type: String,
+    required: false,
+    default: undefined,
+  },
   linkObjectsList: {
     // EX:
     // linkObjectsList: [{
@@ -51,15 +57,18 @@ defineProps({
 </script>
 
 <template>
-  <div class="quick-links">
+  <div class="quick-links" :style="{ maxWidth: maxWidth }">
     <h3 v-if="heading">{{ heading }}</h3>
-    <ul>
-      <li v-for="(linkObject, index) in linkObjectsList" :key="index">
-        <a class="ql-button" :href="linkObject.url" target="_self">
-          {{ linkObject.buttonText }}
-        </a>
-      </li>
-    </ul>
+    <div class="ql-wrapper">
+      <ul>
+        <li v-for="(linkObject, index) in linkObjectsList" :key="index">
+          <a class="ql-button" :href="linkObject.url" target="_self">
+            {{ linkObject.buttonText }}
+          </a>
+        </li>
+      </ul>
+      <div class="ql-gradient" />
+    </div>
   </div>
 </template>
 
@@ -71,6 +80,8 @@ defineProps({
 */
 
 .quick-links {
+  --button-height: 34px;
+
   text-align: center;
   margin: 0px 20px;
 }
@@ -95,8 +106,6 @@ ul {
 }
 
 .ql-button {
-  --button-height: 34px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,6 +118,8 @@ ul {
   font-size: 18px;
   font-weight: 400;
   line-height: var(--button-height);
+  white-space: nowrap;
+  user-select: none;
   /* TODO: add proper font */
 }
 
@@ -116,4 +127,79 @@ ul {
   background-color: var(--color-quick-links-button-background-hover);
 }
 
+.ql-wrapper {
+  position: relative;
+}
+
+.ql-gradient {
+  display: none;
+}
+
+@media (max-width: 499px) {
+  .quick-links {
+    width: 100%;
+  }
+
+  ul {
+    /* position: relative; */
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0px 20px 10px 20px;
+  }
+
+  /* ul::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    pointer-events: none;
+    /* background: linear-gradient(to left, white 40%, transparent 80%); */
+    /* background: linear-gradient(to left,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 5%,
+      rgba(255, 255, 255, 0.7) 15%,
+      rgba(255, 255, 255, 0.4) 30%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background: linear-gradient(to left,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.95) 5%,
+      rgba(255, 255, 255, 0.9) 15%,
+      rgba(255, 255, 255, 0.7) 30%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  } */
+
+  .ql-gradient {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: var(--button-height);
+    pointer-events: none;
+    /* background: linear-gradient(to left, white 40%, transparent 80%); */
+    /* background: linear-gradient(to left,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 5%,
+      rgba(255, 255, 255, 0.7) 15%,
+      rgba(255, 255, 255, 0.4) 30%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ); */
+    background: linear-gradient(to left,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.95) 10%,
+      rgba(255, 255, 255, 0.9) 15%,
+      rgba(255, 255, 255, 0.85) 30%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
 </style>
