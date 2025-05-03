@@ -52,12 +52,27 @@ defineProps({
     required: false,
     default: undefined,
   },
+  isSideScrollMobile: {
+    // whether the list of link buttons should be side scrolled on mobile.
+    type: Boolean,
+    required: false,
+    default: true,
+  },
+  showSideScrollGradient: {
+    // whether a fade-out gradient is shown on the right side of the list of link buttons.
+    type: Boolean,
+    required: false,
+    default: true,
+  },
 });
 
 </script>
 
 <template>
-  <div class="quick-links" :style="{ maxWidth: maxWidth }">
+  <div
+    :class="isSideScrollMobile ? 'quick-links ql-side-scroll' : 'quick-links'"
+    :style="{ maxWidth: maxWidth }"
+  >
     <h3 v-if="heading">{{ heading }}</h3>
     <div class="ql-wrapper">
       <ul>
@@ -67,7 +82,7 @@ defineProps({
           </a>
         </li>
       </ul>
-      <div class="ql-gradient" />
+      <div v-if="showSideScrollGradient" class="ql-gradient" />
     </div>
   </div>
 </template>
@@ -136,18 +151,18 @@ ul {
 }
 
 @media (max-width: 499px) {
-  .quick-links {
+  .quick-links.ql-side-scroll {
     width: 100%;
   }
 
-  ul {
+  .ql-side-scroll ul {
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
     padding: 0px 20px 10px 20px;
   }
 
-  .ql-gradient {
+  .ql-side-scroll .ql-gradient {
     display: block;
     position: absolute;
     top: 0;
