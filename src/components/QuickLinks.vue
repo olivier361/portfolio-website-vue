@@ -1,19 +1,6 @@
 <script setup>
 
 defineProps({
-  heading: {
-    // the heading text displayed above the list of link buttons.
-    // NOTE: set to null for no heading.
-    type: String,
-    required: false,
-    default: 'Quick Links',
-  },
-  maxWidth: {
-    // the maximum width the list of link buttons will take up.
-    type: String,
-    required: false,
-    default: undefined,
-  },
   linkObjectsList: {
     // EX:
     // linkObjectsList: [{
@@ -51,6 +38,19 @@ defineProps({
             );
         });
     },
+  },
+  heading: {
+    // the heading text displayed above the list of link buttons.
+    // NOTE: set to null for no heading.
+    type: String,
+    required: false,
+    default: 'Quick Links',
+  },
+  maxWidth: {
+    // the maximum width the list of link buttons will take up.
+    type: String,
+    required: false,
+    default: undefined,
   },
 });
 
@@ -141,39 +141,11 @@ ul {
   }
 
   ul {
-    /* position: relative; */
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
     padding: 0px 20px 10px 20px;
   }
-
-  /* ul::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 100%;
-    pointer-events: none;
-    /* background: linear-gradient(to left, white 40%, transparent 80%); */
-    /* background: linear-gradient(to left,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.9) 5%,
-      rgba(255, 255, 255, 0.7) 15%,
-      rgba(255, 255, 255, 0.4) 30%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    background: linear-gradient(to left,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.95) 5%,
-      rgba(255, 255, 255, 0.9) 15%,
-      rgba(255, 255, 255, 0.7) 30%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  } */
 
   .ql-gradient {
     display: block;
@@ -183,15 +155,7 @@ ul {
     width: 20px;
     height: var(--button-height);
     pointer-events: none;
-    /* background: linear-gradient(to left, white 40%, transparent 80%); */
-    /* background: linear-gradient(to left,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.9) 5%,
-      rgba(255, 255, 255, 0.7) 15%,
-      rgba(255, 255, 255, 0.4) 30%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0) 100%
-    ); */
+    /* background: linear-gradient(to left, white 0%, transparent 100%); */
     background: linear-gradient(to left,
       rgba(255, 255, 255, 1) 0%,
       rgba(255, 255, 255, 0.95) 10%,
