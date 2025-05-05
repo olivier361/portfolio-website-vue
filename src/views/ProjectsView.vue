@@ -47,19 +47,19 @@ function handleResize() {
         :linkObjectsList="[
           {
             buttonText: t('quickLinks.buttonText1'),
-            url: '#game-development',
+            routeUrl: '#game-development',
           },
           {
             buttonText: t('quickLinks.buttonText2'),
-            url: '#software-development',
+            routeUrl: '#software-development',
           },
           {
             buttonText: t('quickLinks.buttonText3'),
-            url: '#video-editing',
+            routeUrl: '#video-editing',
           },
           {
             buttonText: t('quickLinks.buttonText4'),
-            url: '#graphic-design',
+            routeUrl: '#graphic-design',
           },
         ]"
       />

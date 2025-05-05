@@ -1,15 +1,16 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const props = defineProps({
   linkObjectsList: {
     // EX:
     // linkObjectsList: [{
     //    buttonText: 'Section Name',
-    //    url?: 'urlString',
+    //    routeUrl?: 'urlString EX: #some-anchor',
     //    onClickFunction?: () => { return; },
     //  }, ...]
-    // NOTE: 'buttonText' key is required. One of 'url' or 'onClickFunction' is required.
+    // NOTE: 'buttonText' key is required. One of 'routeUrl' or 'onClickFunction' is required.
     // NOTE: the array must contain at least one object.
     type: Array,
     required: true,
@@ -24,12 +25,12 @@ const props = defineProps({
               && typeof item.buttonText === 'string'
               && item.buttonText.length > 0
             )
-            && ( // 'url' or 'onClickFunction' is required
-              Object.hasOwn(item, 'url') || Object.hasOwn(item, 'onClickFunction')
+            && ( // 'routeUrl' or 'onClickFunction' is required
+              Object.hasOwn(item, 'routeUrl') || Object.hasOwn(item, 'onClickFunction')
             )
-            && ( // if 'url' is provided it must be a non-empty string
-              Object.hasOwn(item, 'url')
-                ? (typeof item.url === 'string' && item.url.length > 0)
+            && ( // if 'routeUrl' is provided it must be a non-empty string
+              Object.hasOwn(item, 'routeUrl')
+                ? (typeof item.routeUrl === 'string' && item.routeUrl.length > 0)
                 : true
             )
             && ( // if 'onClickFunction' is provided it must be a function
@@ -105,9 +106,21 @@ function handleSideScroll(event) {
     <div class="ql-wrapper">
       <ul ref="scrollContainer">
         <li v-for="(linkObject, index) in linkObjectsList" :key="index">
-          <a class="ql-button" :href="linkObject.url" target="_self">
+          <a
+            v-if="linkObject?.onClickFunction"
+            class="ql-button"
+            :href="linkObject?.routeUrl"
+            @click.prevent="linkObject.onClickFunction()"
+          >
             {{ linkObject.buttonText }}
           </a>
+          <RouterLink
+            v-else
+            class="ql-button"
+            :to="linkObject?.routeUrl"
+          >
+            {{ linkObject.buttonText }}
+          </RouterLink>
         </li>
       </ul>
       <div v-if="showSideScrollGradient" class="ql-gradient" />
@@ -116,11 +129,6 @@ function handleSideScroll(event) {
 </template>
 
 <style scoped>
-/* TODO: for QuickLinks
- * - Clicking the buttons should smooth scroll to the section
- *   instead of jumping to it.
- * - Figure out if there is a way to make flex wrap favor not having lone buttons on a line.
-*/
 
 .quick-links {
   --button-height: 34px;
@@ -209,4 +217,5 @@ ul {
     );
   }
 }
+
 </style>
