@@ -123,7 +123,8 @@ function handleSideScroll(event) {
           </RouterLink>
         </li>
       </ul>
-      <div v-if="showSideScrollGradient" class="ql-gradient" />
+      <div v-if="showSideScrollGradient" class="ql-gradient left" />
+      <div v-if="showSideScrollGradient" class="ql-gradient right" />
     </div>
   </div>
 </template>
@@ -198,7 +199,26 @@ ul {
     padding: 0px 20px 10px 20px;
   }
 
-  .ql-side-scroll .ql-gradient {
+  .ql-side-scroll .ql-gradient.left {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: var(--button-height);
+    pointer-events: none;
+    /* background: linear-gradient(to right, white 0%, transparent 100%); */
+    background: linear-gradient(to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.95) 10%,
+      rgba(255, 255, 255, 0.9) 15%,
+      rgba(255, 255, 255, 0.85) 30%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .ql-side-scroll .ql-gradient.right {
     display: block;
     position: absolute;
     top: 0;
