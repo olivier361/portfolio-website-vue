@@ -10,6 +10,12 @@ export default {
       videoEditing: 'Video Editing & Production',
       graphicDesign: 'Graphic Design',
     },
+    quickLinks: {
+      buttonText1: 'Game Development',
+      buttonText2: 'Software Development',
+      buttonText3: 'Video Production',
+      buttonText4: 'Graphic Design',
+    },
     unity: {
       title: 'Unity Games',
       introPara1: `

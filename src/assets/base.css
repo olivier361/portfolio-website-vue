@@ -26,7 +26,8 @@
   --c-accent-quaternary: orange;
   --c-background-primary: #232323;
   --c-background-secondary: #505050;
-  --c-background-tertiary: #EDEDED;
+  --c-background-tertiary: #606060;
+  --c-background-quaternary: #EDEDED;
 
   --c-text-dark-primary: #151515;
 }
@@ -36,7 +37,7 @@
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
-  --color-background-alternate: var(--c-background-tertiary);
+  --color-background-alternate: var(--c-background-quaternary);
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
@@ -54,9 +55,11 @@
 
   --color-page-title-text: var(--c-text-dark-primary);
   --color-page-section-text: var(--c-text-dark-primary);
+  --color-page-sub-section-text: var(--c-text-dark-primary);
 
   --page-title-font-size: 64px;
   --page-section-font-size: 48px;
+  --page-sub-section-font-size: 36px;
 
   --color-header-background: var(--c-background-primary);
   --color-header-link: var(--c-accent-primary);
@@ -106,6 +109,10 @@
   --color-cta-button-text-hover: var(--c-accent-secondary);
   --color-cta-button-background: var(--c-accent-secondary);
   --color-cta-button-background-hover: var(--c-accent-tertiary);
+
+  --color-quick-links-button-background: var(--c-background-primary);
+  --color-quick-links-button-background-hover: var(--c-background-tertiary);
+  --color-quick-links-button-text: var(--c-accent-primary);
 
   --section-gap: 160px;
 
