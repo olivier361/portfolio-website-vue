@@ -61,7 +61,8 @@ const props = defineProps({
     default: true,
   },
   showSideScrollGradient: {
-    // whether a fade-out gradient is shown on the right side of the list of link buttons.
+    // whether a fade-out gradient is shown
+    // on the left and right sides of the list of link buttons.
     type: Boolean,
     required: false,
     default: true,
@@ -173,6 +174,7 @@ ul {
   white-space: nowrap;
   user-select: none;
   /* TODO: add proper font */
+  transition: background-color 200ms;
 }
 
 .ql-button:hover {
