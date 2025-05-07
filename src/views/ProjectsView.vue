@@ -687,8 +687,6 @@ function handleResize() {
           {{ t('uhub.introPara2') }}
           <br><br>
           {{ t('uhub.introPara3') }}
-          <br><br>
-          {{ t('uhub.introPara4') }}
         </template>
 
         <h4>{{ t('uhub.details1.title') }}</h4>

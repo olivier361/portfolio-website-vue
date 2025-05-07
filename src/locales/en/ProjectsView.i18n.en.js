@@ -475,14 +475,10 @@ export default {
         their menus, ingredients, or daily specials.
       `,
       introPara3: `
-        With the UHub app, students can find the locations of food outlets on campus,
+        Thanks to the UHub app, students can find the locations of food outlets on campus,
         browse their menus, and see crowdsourced data on daily specials.
-        With various search options available to find specific food items, dietary restrictions,
+        With various search options available to find specific food items by dietary restrictions
         and more, UHub removes the stress of finding what to eat on campus.
-      `,
-      introPara4: `
-        Thanks to UHub, students can stop googling for lackluster campus resources
-        and find everything they need in a centralized user-friendly experience.
       `,
       previewImg: {
         caption1: `
