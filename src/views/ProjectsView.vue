@@ -184,35 +184,25 @@ function handleResize() {
         previewImgHeight="auto"
       >
         <template #introParagraph>
-          <u><b>{{ t('previousGames.introPara1') }}</b></u>
-          <br>
-          <b>{{ t('previousGames.introPara2') }}</b>
-          <br><br>
+          {{ t('previousGames.introPara1') }}
+          <i>
+            <a href="https://www.sfvictoria.ca/en/home-page/" target="_blank">
+              {{ t('previousGames.introPara2') }}
+            </a>
+          </i>
           {{ t('previousGames.introPara3') }}
-          <i>{{ t('previousGames.introPara4') }}</i>
+          <br><br>
+          {{ t('previousGames.introPara4') }}
+          <br><br>
           {{ t('previousGames.introPara5') }}
           <br><br>
-          {{ t('previousGames.introPara6') }}
+          <i>{{ t('previousGames.introPara6') }}</i>
           <br><br>
-          {{ t('previousGames.introPara7') }}
-          <br><br>
-          <i>{{ t('previousGames.introPara8') }}</i>
-          <br><br>
-          <RelatedLinks
-            :linkObjectsList="[
-              {
-                url: assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html',
-                teaserText: t('previousGames.relatedLinks1'),
-              },
-              {
-                url: assetsSiteRootUrl + '/documents/article-reverbere-aout-2019-carnet-de-jeux.png',
-                teaserText: t('previousGames.relatedLinks2'),
-              },
-              {
-                url: 'https://www.sfvictoria.ca/en/home-page/',
-                teaserText: t('previousGames.relatedLinks3'),
-              },
-            ]"
+          <CTAButton
+            :url="assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html'"
+            :buttonText="t('previousGames.buttonText')"
+            showOutline
+            isNewTab
           />
         </template>
 
@@ -274,9 +264,22 @@ function handleResize() {
         </p>
         <CTAButton
           :url="assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html'"
-          :buttonText="t('previousGames.details3.buttonText')"
+          :buttonText="t('previousGames.buttonText')"
           isFilled
           isNewTab
+        />
+        <br><br>
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: assetsSiteRootUrl + '/documents/article-reverbere-aout-2019-carnet-de-jeux.png',
+              teaserText: t('previousGames.details3.relatedLinks1'),
+            },
+            {
+              url: 'https://www.sfvictoria.ca/en/home-page/',
+              teaserText: t('previousGames.details3.relatedLinks2'),
+            },
+          ]"
         />
       </ProjectCard>
       <!-- TODO: Add background images to remaining ProjectCards -->
