@@ -107,10 +107,9 @@ a:hover > * {
   text-decoration: underline;
 }
 
-/* Decided not to use this for now for stylistic reasons */
-/* a:visited > .sl-text, a:visited > .sl-icon-external {
-  color: var(--color-link-visited);
-} */
+a:visited > .sl-text, a:visited > .sl-icon-external {
+  color: var(--color-card-text);
+}
 
 a:hover > .sl-text, a:hover > .sl-icon-external {
   color: var(--color-link-hover);

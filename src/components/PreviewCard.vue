@@ -70,7 +70,13 @@ h1, h2, h3, h4, :slotted(h1), :slotted(h2), :slotted(h3), :slotted(h4) {
 
 h3, :slotted(h3) {
   text-transform: uppercase;
-  font-size: 36px;
+  /* font-size: 36px; */
+  /* TODO: Font size 32px is a temporary fix to prevent the heading
+   * from taking up two lines on systems that don't have Segoe UI and
+   * use a wider fallback font. This will be fixed more elegantly in a future
+   * PR when we later bundle our own font with the site assets.
+   */
+  font-size: 32px;
   font-weight: 400;
 }
 
