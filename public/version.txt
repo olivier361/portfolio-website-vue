@@ -1,1 +1,1 @@
-Portfolio Website Vue - Version 0.6.0
+Portfolio Website Vue - Version 0.7.0
