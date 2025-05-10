@@ -8,6 +8,7 @@ import ImageCollection from '@/components/ImageCollection.vue';
 import ImageFrame from '@/components/ImageFrame.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import RelatedLinks from '@/components/RelatedLinks.vue';
+import QuickLinks from '@/components/QuickLinks.vue';
 import { yearsSinceString, getAssetsSiteUrl } from '@/utils/helpers';
 
 const { t } = useI18n({
@@ -42,6 +43,26 @@ function handleResize() {
   <main>
     <div class="projects">
       <h1>{{ t('title') }}</h1>
+      <QuickLinks
+        :linkObjectsList="[
+          {
+            buttonText: t('quickLinks.buttonText1'),
+            routeUrl: '#game-development',
+          },
+          {
+            buttonText: t('quickLinks.buttonText2'),
+            routeUrl: '#software-development',
+          },
+          {
+            buttonText: t('quickLinks.buttonText3'),
+            routeUrl: '#video-editing',
+          },
+          {
+            buttonText: t('quickLinks.buttonText4'),
+            routeUrl: '#graphic-design',
+          },
+        ]"
+      />
       <h2 id="game-development">{{ t('section.gameDev') }}</h2>
       <ProjectCard
         :heading="t('unity.title')"
@@ -163,35 +184,25 @@ function handleResize() {
         previewImgHeight="auto"
       >
         <template #introParagraph>
-          <u><b>{{ t('previousGames.introPara1') }}</b></u>
-          <br>
-          <b>{{ t('previousGames.introPara2') }}</b>
-          <br><br>
+          {{ t('previousGames.introPara1') }}
+          <i>
+            <a href="https://www.sfvictoria.ca/en/home-page/" target="_blank">
+              {{ t('previousGames.introPara2') }}
+            </a>
+          </i>
           {{ t('previousGames.introPara3') }}
-          <i>{{ t('previousGames.introPara4') }}</i>
+          <br><br>
+          {{ t('previousGames.introPara4') }}
+          <br><br>
           {{ t('previousGames.introPara5') }}
           <br><br>
-          {{ t('previousGames.introPara6') }}
+          <i>{{ t('previousGames.introPara6') }}</i>
           <br><br>
-          {{ t('previousGames.introPara7') }}
-          <br><br>
-          <i>{{ t('previousGames.introPara8') }}</i>
-          <br><br>
-          <RelatedLinks
-            :linkObjectsList="[
-              {
-                url: assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html',
-                teaserText: t('previousGames.relatedLinks1'),
-              },
-              {
-                url: assetsSiteRootUrl + '/documents/article-reverbere-aout-2019-carnet-de-jeux.png',
-                teaserText: t('previousGames.relatedLinks2'),
-              },
-              {
-                url: 'https://www.sfvictoria.ca/en/home-page/',
-                teaserText: t('previousGames.relatedLinks3'),
-              },
-            ]"
+          <CTAButton
+            :url="assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html'"
+            :buttonText="t('previousGames.buttonText')"
+            showOutline
+            isNewTab
           />
         </template>
 
@@ -253,9 +264,22 @@ function handleResize() {
         </p>
         <CTAButton
           :url="assetsSiteRootUrl + '/games/carnet-de-jeux/Carnet de jeux - MD.html'"
-          :buttonText="t('previousGames.details3.buttonText')"
+          :buttonText="t('previousGames.buttonText')"
           isFilled
           isNewTab
+        />
+        <br><br>
+        <RelatedLinks
+          :linkObjectsList="[
+            {
+              url: assetsSiteRootUrl + '/documents/article-reverbere-aout-2019-carnet-de-jeux.png',
+              teaserText: t('previousGames.details3.relatedLinks1'),
+            },
+            {
+              url: 'https://www.sfvictoria.ca/en/home-page/',
+              teaserText: t('previousGames.details3.relatedLinks2'),
+            },
+          ]"
         />
       </ProjectCard>
       <!-- TODO: Add background images to remaining ProjectCards -->
@@ -450,11 +474,10 @@ function handleResize() {
             </p>
             <RelatedLinks
               :linkObjectsList="[
-                // TODO: Create a public version of the repository for the tetris project
-                // {
-                //   url: '/TODO',
-                //   teaserText: t('computerAnimAndRender.details3.relatedLinks1'),
-                // },
+                {
+                  url: 'https://github.com/olivier361/tetris-game-cpp',
+                  teaserText: t('computerAnimAndRender.details3.relatedLinks1'),
+                },
                 {
                   url: 'https://youtu.be/2A3-CP1nTuE',
                   teaserText: t('computerAnimAndRender.details3.relatedLinks2'),
@@ -667,8 +690,6 @@ function handleResize() {
           {{ t('uhub.introPara2') }}
           <br><br>
           {{ t('uhub.introPara3') }}
-          <br><br>
-          {{ t('uhub.introPara4') }}
         </template>
 
         <h4>{{ t('uhub.details1.title') }}</h4>
@@ -1179,7 +1200,8 @@ function handleResize() {
               imgPath="projects/graphicDesign/flipnoteMag/flipnote-magazine-cover.png"
               :captionText="t('flipnoteMag.imgFrame.caption1')"
               :altText="t('flipnoteMag.imgFrame.altText1')"
-              :height="curViewportWidth <= 899 ? 'fit-content' : '400px'"
+              :height="curViewportWidth <= 899 ? 'auto' : '400px'"
+              :widthPx="curViewportWidth <= 899 ? '100%' : 'auto'"
               :style="curViewportWidth <= 899 ? {} : { marginBottom: '50px' }"
             />
           </div>

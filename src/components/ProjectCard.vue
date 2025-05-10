@@ -328,6 +328,10 @@ function computeWidth(curRef) {
   gap: 50px;
 }
 
+.single-preview-img-mode > .image-collection {
+  flex: 1;
+}
+
 @media (max-width: 899px) {
   .single-preview-img-mode {
     flex-direction: column;

@@ -1,42 +1,47 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 
+const coreWebsiteTitle = ' - Olivier G-G';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
+      meta: { title: 'Olivier G-G - Portfolio Site' },
       component: HomeView,
     },
     {
       path: '/projects',
       name: 'projects',
-      // page is lazy-loaded when the route is visited.
+      meta: { title: 'Projects' + coreWebsiteTitle },
+      // route level code-splitting
+      // this generates a separate chunk (ProjectsView-[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProjectsView.vue'),
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      meta: { title: 'About' + coreWebsiteTitle },
+      // TODO: remove the redirect when the About page is implemented.
+      redirect: '/about-me',
+      // page is lazy-loaded as a separate chunk ([name]View-[hash].js) when the route is visited.
+      // component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/about-me',
       name: 'about-me',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      meta: { title: 'About Me' + coreWebsiteTitle },
+      // page is lazy-loaded as a separate chunk ([name]View-[hash].js) when the route is visited.
       component: () => import('../views/AboutMeView.vue'),
     },
     {
       path: '/contact',
       name: 'contact',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      meta: { title: 'Contact' + coreWebsiteTitle },
+      // page is lazy-loaded as a separate chunk ([name]View-[hash].js) when the route is visited.
       component: () => import('../views/ContactView.vue'),
     },
   ],
@@ -79,6 +84,11 @@ const router = createRouter({
       };
     }
   },
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'Olivier G-G - Portfolio Site';
+  next();
 });
 
 export default router;

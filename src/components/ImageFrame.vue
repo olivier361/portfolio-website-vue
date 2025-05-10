@@ -68,8 +68,13 @@ const imgUrl = props.isUrlPath
       :src="imgUrl"
       :alt="(altText === undefined ? imgPath : altText)"
       :style="{
-        width: (widthPx ?? '100%'), minWidth: (widthPx ?? '100%'), maxWidth: (widthPx ?? '100%'),
-        height: height, minHeight: height, maxHeight: height, backgroundColor: backgroundColor,
+        width: (widthPx ?? '100%'),
+        minWidth: (widthPx ?? '100%'),
+        maxWidth: (widthPx ?? '100%'),
+        height: height,
+        minHeight: height,
+        maxHeight: height === 'auto' ? undefined : height,
+        backgroundColor: backgroundColor,
       }"
     >
     <figcaption v-if="captionText">{{ captionText }}</figcaption>

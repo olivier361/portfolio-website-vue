@@ -16,7 +16,7 @@ function handleSetMobileNavMenu(state = true) {
 <template>
   <div class="header header-desktop">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
-      <img alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26">
+      <img alt="Site logo" src="@/assets/ogg-logo-long.png">
     </RouterLink>
     <div class="nav-links">
       <RouterLink to="/" @click="handleSetMobileNavMenu(false)">Home</RouterLink>
@@ -30,7 +30,7 @@ function handleSetMobileNavMenu(state = true) {
   </div>
   <div class="header header-mobile">
     <RouterLink to="/" @click="handleSetMobileNavMenu(false)" style="height: 26px">
-      <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png" width="auto" height="26">
+      <img id="nav-logo" alt="Site logo" src="@/assets/ogg-logo-long.png">
     </RouterLink>
     <button @click="handleMobileNavMenu" type="button">
       <span v-if="isMobileNavMenuOpen" id="nav-menu" href="" uk-icon="icon: close; ratio: 1.3" />
@@ -60,6 +60,7 @@ function handleSetMobileNavMenu(state = true) {
 <style scoped>
 img {
   height: 26px;
+  width: auto;
 }
 
 button {
@@ -114,7 +115,6 @@ span {
 }
 
 #nav-logo {
-  min-width: fit-content;
   margin: 0;
   position: absolute;
   left: 50%;
@@ -141,12 +141,13 @@ span {
 
 #nav-links-mobile {
   display: flex;
-  opacity:    0.85;
   background: var(--color-page-overlay);
   width:      100%;
   height:     100%;
-  z-index:    10;
+  z-index:    100;
   position:   fixed;
+  top: var(--header-height);
+  left: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -164,10 +165,6 @@ span {
 
   .header-desktop {
     display: none;
-  }
-
-  #nav-links-mobile.show-nav-links {
-    display: flex;
   }
 }
 

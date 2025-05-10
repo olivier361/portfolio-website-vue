@@ -11,4 +11,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    // Prevent Vite prod build from base64 inlining assets below 4kb in the code.
+    // DOCS: https://vite.dev/config/build-options.html#build-assetsinlinelimit
+    assetsInlineLimit: 0,
+  },
 });

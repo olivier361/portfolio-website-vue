@@ -10,6 +10,12 @@ export default {
       videoEditing: 'Video Editing & Production',
       graphicDesign: 'Graphic Design',
     },
+    quickLinks: {
+      buttonText1: 'Game Development',
+      buttonText2: 'Software Development',
+      buttonText3: 'Video Production',
+      buttonText4: 'Graphic Design',
+    },
     unity: {
       title: 'Unity Games',
       introPara1: `
@@ -82,40 +88,33 @@ export default {
     },
     previousGames: {
       title: 'Previous Game Releases',
-      introPara1: 'Carnet de Jeux (French Educational Game):',
-      introPara2: `
-        An interactive educational web game for kids to help them learn French
-        while uncovering the story behind one of Victoria's most important
-        historical figures for the French community.
-      `,
-      introPara3: `
+      introPara1: `
         From 2017 to 2019, I volunteered to develop a kids educational web game
-        for the
+        titled "Carnet de Jeux: Modeste Demers" for the
       `,
-      introPara4: `
+      introPara2: `
         Société francophone de Victoria
       `,
-      introPara5: `
+      introPara3: `
         non-profit organization.
       `,
-      introPara6: `
+      // \u00A0 is a non-breaking space
+      introPara4: `
         As part of the organization's three year "Carnet de jeux" project
         which aimed to release three paper activity booklets in the classrooms of
-        local french-immersion schools for kids aged 6 to 11, an accompanying web game
+        local french schools for kids aged\u00A06\u00A0to\u00A011, an accompanying web game
         was also developed and published on the organization's website.
       `,
-      introPara7: `
-        The goal of both the web game and the paper booklets was to help kids aged 6 to 11
-        learn French and discover the history behind three influential figures that helped
-        form the French community in Victoria throughout the past centuries.
+      introPara5: `
+        The goal of both the web game and paper booklets was to help kids
+        learn French and uncover the story behind three historical figures that helped
+        shape the French community in Victoria throughout the past centuries.
       `,
-      introPara8: `
+      introPara6: `
         * Myself and the Société francophone de Victoria would like to thank
         Canadian Heritage for helping fund this project.
       `,
-      relatedLinks1: 'Click here to play the game!',
-      relatedLinks2: 'Read the related magazine article.',
-      relatedLinks3: 'Learn more about the Société francophone de Victoria.',
+      buttonText: 'Play the Game in your Browser!',
       previewImg: {
         caption1: `
           The main menu features sketchbook-styled art
@@ -192,7 +191,8 @@ export default {
           to further edit the scanned art for use as game assets and Audacity
           for recording and editing voice lines.
         `,
-        buttonText: 'Play the Game in your Browser!',
+        relatedLinks1: 'Read the related magazine article.',
+        relatedLinks2: 'Learn more about the Société francophone de Victoria.',
       },
     },
     computerAnimAndRender: {
@@ -344,7 +344,7 @@ export default {
           graphic functions so that the choice of graphical libraries can be easily changed
           without requiring any changes to the gameplay logic code.
         `,
-        relatedLinks1: 'View the “cpp-tetris” code on GitHub.',
+        relatedLinks1: 'View the “tetris-game-cpp” code on GitHub.',
         relatedLinks2: 'Watch the video demo and presentation on YouTube.',
         caption1: 'A screenshot of my C++ Tetris game.',
         altText1: 'A Tetris board with multiple blocks clumsily stacked. A red block is currently falling. The game window has a blue background and instructions on how to play are on the left of the board with the score on the right.',
@@ -469,14 +469,10 @@ export default {
         their menus, ingredients, or daily specials.
       `,
       introPara3: `
-        With the UHub app, students can find the locations of food outlets on campus,
+        Thanks to the UHub app, students can find the locations of food outlets on campus,
         browse their menus, and see crowdsourced data on daily specials.
-        With various search options available to find specific food items, dietary restrictions,
+        With various search options available to find specific food items by dietary restrictions
         and more, UHub removes the stress of finding what to eat on campus.
-      `,
-      introPara4: `
-        Thanks to UHub, students can stop googling for lackluster campus resources
-        and find everything they need in a centralized user-friendly experience.
       `,
       previewImg: {
         caption1: `
