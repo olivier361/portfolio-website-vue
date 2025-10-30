@@ -1,9 +1,16 @@
+/* eslint-env node */
+// The above ESLint rule lets ESLint know using
+// "process.env" is allowed in this current context
+
 import { expect } from '@playwright/test';
 import { test } from './fixtures/testFixture.js';
 
 test.describe('AboutMeView - E2E Tests', () => {
 
-  test('AboutMeView page should match image snapshot', async ({ page }) => {
+  test('AboutMeView page should match image snapshot', async ({ page, browserName }) => {
+    test.skip(browserName === 'chromium' && process?.env?.CI,
+      'Skipping AboutMeView snapshot on Chromium due to issues with bigger font weight on CI only.',
+    );
     await page.goto('/about-me');
     await expect(page).toHaveScreenshot({ fullPage: true });
   });
