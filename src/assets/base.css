@@ -207,4 +207,6 @@ iframe {
 .yt-player {
   aspect-ratio: 16/9;
   height: fit-content;
+  /* fixes an aspect-ratio and flex-1 issue on Chromium ~v136+. See PWV-121 ticket for details. */
+  min-width: 0%;
 }
