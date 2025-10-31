@@ -11,6 +11,30 @@ import { defineConfig, devices } from '@playwright/test';
  */
 // require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
+// NOTE: Recent versions (~v1.51-v1.56) of Playwright's HTML reporter include a "copy prompt" button
+// and an attached "error-context.md" page aria snapshot file in the HTML report for failed tests.
+// These can be used with AI tools/LLMs to get help with debugging test failures, however, these
+// aria snapshots may leak sensitive information present on the tested web page and provide
+// an easy plaintext way to scrape the page's content.
+// For this reason, we want to disable this feature when running on CI because the HTML report
+// with the aria snapshots is visible in the CI artifacts.
+// By setting both
+//   1) PLAYWRIGHT_NO_COPY_PROMPT=true (undocumented) env variable (disables the copy prompt button)
+//   2) either the "noCopyPrompt" option in the html reporter settings below
+//      or the PLAYWRIGHT_HTML_NO_COPY_PROMPT=true env variable (disables the actual page snapshots)
+// when running on CI, the page snapshots and AI prompt button are disabled in the HTML report.
+// It seems like an oversight in the current Playwright version (v1.56.1) that two separate settings
+// are needed to achieve this. Maybe the behavior will be updated in future Playwright versions
+// requiring new changes to our config here.
+//
+// RESOURCES:
+// - https://github.com/microsoft/playwright/issues/37438
+// - https://playwright.dev/docs/test-reporters#html-reporter
+// - https://github.com/microsoft/playwright/blob/release-1.56/packages/playwright/src/index.ts#L671
+// - https://github.com/search?q=repo%3Amicrosoft%2Fplaywright%20error-context&type=code
+
+if (process.env.CI) process.env.PLAYWRIGHT_NO_COPY_PROMPT = 'true';
+
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -28,7 +52,8 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  /* See comment above regarding "noCopyPrompt" setting on CI */
+  reporter: [['html', { noCopyPrompt: !!process.env.CI }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
