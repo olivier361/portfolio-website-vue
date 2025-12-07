@@ -81,7 +81,6 @@ const { t } = useI18n({
     </div>
   </div>
   <div class="nav-footer-banner">
-    <!-- {{ t('bannerText1') }} -->
     <a
       href="https://github.com/olivier361/portfolio-website-vue"
       target="_blank"
@@ -98,10 +97,6 @@ a:visited, :deep(a:visited) {
   color: var(--color-footer-text);
 }
 
-/* .nav-footer-wrapper a:visited, .nav-footer-wrapper :deep(a:visited) {
-  color: var(--color-footer-text);
-} */
-
 a:hover, :deep(a:hover), :deep(a:hover > .sl-text) {
   color: var(--color-link-hover);
 }
@@ -115,15 +110,8 @@ ul, :deep(ul) {
 }
 
 .nav-footer-banner {
-  /* background-color: var(--c-accent-tertiary); */
-  /* background-color: var(--c-background-secondary); */
-  /* background-color: var(--c-text-dark-primary); */
-  /* background-color: #233d62; */
-  /* background-color: #5476a7; */
   background-color: var(--color-footer-banner-background);
   color: var(--color-footer-text);
-  /* color: var(--color-link); */
-
   text-align: center;
   padding: 5px 20px;
 }
