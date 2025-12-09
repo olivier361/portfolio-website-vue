@@ -6,7 +6,7 @@ import QuickLinks from '@/components/QuickLinks.vue';
 
 suite('QuickLinks - Component Tests', () => {
 
-  // Mock the RouterLink component used inside QuickLinks
+  // Stub the RouterLink component used inside QuickLinks
   // to avoid Vue Router dependency for testing while preserving
   // the route it was supposed to link to.
   const routerLinkStub = {
@@ -77,6 +77,11 @@ suite('QuickLinks - Component Tests', () => {
     const wrapper = mount(QuickLinks, {
       global: {
         plugins: [router],
+        stubs: {
+          // Disable the global RouterLink stub to use the actual real
+          // RouterLink from our real router created above for this test.
+          RouterLink: false,
+        },
       },
       props: {
         linkObjectsList: [
