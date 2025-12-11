@@ -93,7 +93,7 @@ const { t } = useI18n({
 
 <style scoped>
 
-a:visited, :deep(a:visited) {
+a, a:visited, :deep(a:visited) {
   color: var(--color-footer-text);
 }
 
