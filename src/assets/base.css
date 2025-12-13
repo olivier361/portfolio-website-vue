@@ -69,6 +69,7 @@
 
   --color-footer-background: var(--c-background-primary);
   --color-footer-text: var(--c-accent-primary);
+  --color-footer-banner-background: var(--c-background-tertiary);
 
   --color-splashscreen-social-links-background: var(--c-background-primary);
   --color-splashscreen-social-links-border: var(--c-background-primary);

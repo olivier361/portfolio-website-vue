@@ -3,6 +3,13 @@ import { RouterLink } from 'vue-router';
 import SocialLinks from '@/components/SocialLinks.vue';
 import CTAButton from '@/components/CTAButton.vue';
 import { getCurrentYear } from '@/utils/helpers';
+import { useI18n } from 'vue-i18n';
+import en from '@/locales/en/NavFooter.i18n.en.js';
+
+const { t } = useI18n({
+  messages: { en: en.en },
+});
+
 </script>
 
 <template>
@@ -73,11 +80,20 @@ import { getCurrentYear } from '@/utils/helpers';
       </p>
     </div>
   </div>
+  <div class="nav-footer-banner">
+    <a
+      href="https://github.com/olivier361/portfolio-website-vue"
+      target="_blank"
+    >
+      {{ t('bannerText1') }}
+      <span class="nav-footer-banner-highlight">{{ t('bannerText2') }}</span>
+    </a>{{ t('bannerText3') }}
+  </div>
 </template>
 
 <style scoped>
 
-a:visited, :deep(a:visited) {
+a, a:visited, :deep(a:visited) {
   color: var(--color-footer-text);
 }
 
@@ -91,6 +107,31 @@ ul, :deep(ul) {
 
 :deep(.sl-text) {
   font-weight: 300;
+}
+
+.nav-footer-banner {
+  background-color: var(--color-footer-banner-background);
+  color: var(--color-footer-text);
+  text-align: center;
+  padding: 5px 20px;
+}
+
+.nav-footer-banner a:hover {
+  color: var(--color-footer-text);
+  text-decoration: underline;
+}
+
+.nav-footer-banner-highlight {
+  color: var(--color-link);
+}
+
+.nav-footer-banner a:hover .nav-footer-banner-highlight {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+.nav-footer-banner a:visited .nav-footer-banner-highlight {
+  color: var(--color-link-visited);
 }
 
 h4, .nav-footer h4 {
