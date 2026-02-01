@@ -6,10 +6,10 @@ import QuickLinks from '@/components/QuickLinks.vue';
 
 suite('QuickLinks - Component Tests', () => {
 
-  // Mock the RouterLink component used inside QuickLinks
+  // Stub the RouterLink component used inside QuickLinks in some tests
   // to avoid Vue Router dependency for testing while preserving
   // the route it was supposed to link to.
-  const routerLinkStub = {
+  const customRouterLinkStub = {
     props: ['to'],
     template: '<a :href="typeof to === \'string\' ? to : to.path"><slot /></a>',
   };
@@ -18,7 +18,7 @@ suite('QuickLinks - Component Tests', () => {
     const wrapper = mount(QuickLinks, {
       global: {
         stubs: {
-          RouterLink: routerLinkStub,
+          RouterLink: customRouterLinkStub,
         },
       },
       props: {
@@ -77,6 +77,11 @@ suite('QuickLinks - Component Tests', () => {
     const wrapper = mount(QuickLinks, {
       global: {
         plugins: [router],
+        stubs: {
+          // Disable the global RouterLink stub to use the actual real
+          // RouterLink from our real router created above for this test.
+          RouterLink: false,
+        },
       },
       props: {
         linkObjectsList: [
@@ -153,11 +158,6 @@ suite('QuickLinks - Component Tests', () => {
     const mockClickFuntion2 = vi.fn();
 
     const wrapper = mount(QuickLinks, {
-      global: {
-        stubs: {
-          RouterLink: routerLinkStub,
-        },
-      },
       props: {
         linkObjectsList: [
           {
@@ -195,11 +195,6 @@ suite('QuickLinks - Component Tests', () => {
 
   test('QuickLinks heading prop test', () => {
     const wrapper = mount(QuickLinks, {
-      global: {
-        stubs: {
-          RouterLink: routerLinkStub,
-        },
-      },
       props: {
         linkObjectsList: [
           {
@@ -218,11 +213,6 @@ suite('QuickLinks - Component Tests', () => {
     const width = '400px';
 
     const wrapper = mount(QuickLinks, {
-      global: {
-        stubs: {
-          RouterLink: routerLinkStub,
-        },
-      },
       props: {
         linkObjectsList: [
           {
@@ -249,11 +239,6 @@ suite('QuickLinks - Component Tests', () => {
 
   test('QuickLinks isSideScrollMobile prop test - default (true)', () => {
     const wrapper = mount(QuickLinks, {
-      global: {
-        stubs: {
-          RouterLink: routerLinkStub,
-        },
-      },
       props: {
         linkObjectsList: [
           {
@@ -269,11 +254,6 @@ suite('QuickLinks - Component Tests', () => {
 
   test('QuickLinks isSideScrollMobile prop test - false', () => {
     const wrapper = mount(QuickLinks, {
-      global: {
-        stubs: {
-          RouterLink: routerLinkStub,
-        },
-      },
       props: {
         linkObjectsList: [
           {
@@ -290,11 +270,6 @@ suite('QuickLinks - Component Tests', () => {
 
   test('QuickLinks showSideScrollGradient prop test - default (true)', () => {
     const wrapper = mount(QuickLinks, {
-      global: {
-        stubs: {
-          RouterLink: routerLinkStub,
-        },
-      },
       props: {
         linkObjectsList: [
           {
@@ -313,11 +288,6 @@ suite('QuickLinks - Component Tests', () => {
 
   test('QuickLinks showSideScrollGradient prop test - false', () => {
     const wrapper = mount(QuickLinks, {
-      global: {
-        stubs: {
-          RouterLink: routerLinkStub,
-        },
-      },
       props: {
         linkObjectsList: [
           {

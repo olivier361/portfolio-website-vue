@@ -1,9 +1,26 @@
-import { suite, test, expect } from 'vitest';
+import { suite, test, beforeEach, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 
 import SectionButton from '@/components/SectionButton.vue';
 
 suite('SectionButton - Component Tests', () => {
+
+  beforeEach(() => {
+    // mock vue-router so router.replace() calls inside SectionButton
+    // do not cause errors during testing.
+    vi.mock('vue-router', () => {
+      return {
+        useRouter: () => ({
+          push: vi.fn(),
+          replace: vi.fn(),
+        }),
+        useRoute: () => ({
+          params: {},
+          query: {},
+        }),
+      };
+    });
+  });
 
   test('SectionButton renders correctly', () => {
     const wrapper = mount(SectionButton, { props: {
