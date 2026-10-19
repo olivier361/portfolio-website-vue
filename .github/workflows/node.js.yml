@@ -22,9 +22,9 @@ jobs:
       VITE_ASSETS_SITE_URL: ${{ secrets.VITE_ASSETS_SITE_URL }}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
     - name: Use Node.js v20 (lts/iron) # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-      uses: actions/setup-node@v5
+      uses: actions/setup-node@v7
       with:
         node-version: lts/iron
         cache: 'npm'
