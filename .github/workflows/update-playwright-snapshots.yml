@@ -1,0 +1,91 @@
+name: Update Playwright Snapshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_branch:
+        description: Branch to refresh snapshots for and target with the pull request
+        required: true
+        default: develop
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-snapshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out base branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.base_branch }}
+
+      - name: Create snapshot update branch
+        env:
+          BASE_BRANCH: ${{ inputs.base_branch }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          branch="update-playwright-snapshots-${RUN_ID}-${RUN_ATTEMPT}"
+          git switch --create "$branch"
+          echo "SNAPSHOT_BRANCH=$branch" >> "$GITHUB_ENV"
+          echo "BASE_BRANCH=$BASE_BRANCH" >> "$GITHUB_ENV"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/iron
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Update and verify snapshots
+        env:
+          VITE_ASSETS_SITE_URL: ${{ secrets.VITE_ASSETS_SITE_URL }}
+        shell: bash
+        run: |
+          verified=false
+          for iteration in 1 2 3; do
+            echo "Snapshot update and verification attempt $iteration of 3"
+            if ! npm run test:e2e:update-snapshots; then
+              echo "Snapshot update command reported failures; running verification anyway."
+            fi
+
+            if npm run test:e2e; then
+              verified=true
+              break
+            fi
+          done
+
+          if [[ "$verified" != true ]]; then
+            echo "E2E tests did not pass after 3 snapshot update attempts."
+            exit 1
+          fi
+
+      - name: Push snapshots and open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add tests/e2e/__snapshots__
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to publish."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Playwright snapshots"
+          git push --set-upstream origin "$SNAPSHOT_BRANCH"
+
+          gh pr create \
+            --base "$BASE_BRANCH" \
+            --head "$SNAPSHOT_BRANCH" \
+            --title "Update Playwright snapshots" \
+            --body "Automated Playwright screenshot snapshot refresh. All E2E tests passed after the snapshot update."
