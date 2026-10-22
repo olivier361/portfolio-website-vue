@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       base_branch:
-        description: Branch to refresh snapshots for and target with the pull request
+        description: The branch to update snapshots for and set as the merge target for the created pull request.
         required: true
         default: develop
         type: string
       e2e_passes_required:
-        description: Required consecutive passing E2E runs after each snapshot update (0-10; 0 skips verification)
+        description: The number of consecutive passing E2E runs required to consider the new snapshots stable. (Select between 0-10)
         required: true
         default: 1
         type: number
@@ -21,66 +21,68 @@ jobs:
     permissions:
       contents: read
     outputs:
-      snapshot-branch: ${{ steps.branch.outputs.name }}
-      artifact-id: ${{ steps.upload.outputs.artifact-id }}
+      snapshot-branch: ${{ steps.new_branch.outputs.branch_name }}
+      artifact-id: ${{ steps.upload_artifact.outputs.artifact-id }}
     steps:
-      - name: Check out base branch
+      - name: Check out selected branch
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.base_branch }}
           persist-credentials: false
 
-      - name: Validate required E2E passes
+      - name: Validate user input for E2E passes required
         env:
           E2E_PASSES_REQUIRED: ${{ inputs.e2e_passes_required }}
         shell: bash
         run: |
           if [[ ! "$E2E_PASSES_REQUIRED" =~ ^(0|[1-9]|10)$ ]]; then
-            echo "e2e_passes_required must be an integer from 0 to 10."
+            echo "User provided e2e_passes_required must be an integer from 0 to 10."
             exit 1
           fi
 
           echo "E2E_PASSES_REQUIRED=$E2E_PASSES_REQUIRED" >> "$GITHUB_ENV"
 
-      - name: Create snapshot update branch
-        id: branch
+      - name: Generate new working branch name
+        id: new_branch
         env:
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
         run: |
           branch="update-playwright-snapshots-${RUN_ID}-${RUN_ATTEMPT}"
-          echo "name=$branch" >> "$GITHUB_OUTPUT"
+          echo "branch_name=$branch" >> "$GITHUB_OUTPUT"
 
-      - name: Set up Node.js
+      - name: Set up Node.js v20 (lts/iron) # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
         uses: actions/setup-node@v7
         with:
           node-version: lts/iron
           cache: npm
 
-      - name: Install dependencies
+      - name: 🔗 Install Dependencies
         run: npm ci
 
-      - name: Install Playwright browsers
+      - name: 🌐 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Update and verify snapshots
+      - name: 📷 Update and Verify Snapshots
         env:
             VITE_ASSETS_SITE_URL: ${{ secrets.VITE_ASSETS_SITE_URL }}
         shell: bash
         run: |
           verified=false
           for iteration in 1 2 3; do
-            echo "Snapshot update and verification attempt $iteration of 3"
+            echo "Updating and verifying Playwright snapshots attempt $iteration of 3."
             if ! npm run test:e2e:update-snapshots; then
-              echo "Snapshot update command failed."
+              echo "Failed to update snapshots on attempt $iteration."
               continue
             fi
 
+            echo "Snapshots successfully updated. Running E2E tests to verify stability."
+
             consecutive_passes=0
             while (( consecutive_passes < E2E_PASSES_REQUIRED )); do
-              echo "E2E verification run $((consecutive_passes + 1)) of $E2E_PASSES_REQUIRED"
+              echo "Starting E2E verification run $((consecutive_passes + 1)) of $E2E_PASSES_REQUIRED."
               if ! npm run test:e2e; then
-                echo "E2E verification failed before reaching the required consecutive passes."
+                echo "E2E verification failed on pass $((consecutive_passes + 1)) of $E2E_PASSES_REQUIRED. Retrying snapshot update and verification."
                 break
               fi
               consecutive_passes=$((consecutive_passes + 1))
@@ -93,12 +95,14 @@ jobs:
           done
 
           if [[ "$verified" != true ]]; then
-            echo "Failed to update snapshots and pass all E2E tests after 3 attempts."
+            echo "Failed to update snapshots and consistently pass all E2E tests after 3 update attempts."
             exit 1
           fi
 
-      - name: Upload updated snapshots
-        id: upload
+          echo "Playwright snapshots updated and verified successfully after $iteration attempts."
+
+      - name: 📤 Upload Updated Snapshots to Artifact
+        id: upload_artifact
         uses: actions/upload-artifact@v7
         with:
           name: playwright-snapshots
@@ -113,18 +117,21 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - name: Check out base branch
+      - name: Check out selected branch
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.base_branch }}
-
-      - name: Download updated snapshots
+      
+      # TODO: Make sure we replace all existing snapshots
+      - name: 📥 Download Updated Snapshots Artifact
         uses: actions/download-artifact@v7
         with:
           name: playwright-snapshots
           path: tests/e2e/__snapshots__/
 
-      - name: Push snapshots and open pull request
+      # TODO: Commit message PR title could be improved to include the run ID and attempt number for easier tracking of which run produced the snapshots.
+      # We can also include a link to the workflow run in the PR body for easier access to logs.
+      - name: ✅ Push Snapshots and Open Pull Request
         env:
           GH_TOKEN: ${{ github.token }}
           BASE_BRANCH: ${{ inputs.base_branch }}
@@ -152,11 +159,11 @@ jobs:
     needs: [update-snapshots, publish-snapshots]
     if: ${{ always() && needs.update-snapshots.result == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       actions: write
     steps:
-      - name: Delete snapshot artifact
+      - name: 🗑️ Delete Snapshots Artifact
         env:
           GH_TOKEN: ${{ github.token }}
           ARTIFACT_ID: ${{ needs.update-snapshots.outputs.artifact-id }}
