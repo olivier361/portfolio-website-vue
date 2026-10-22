@@ -54,18 +54,25 @@ jobs:
           verified=false
           for iteration in 1 2 3; do
             echo "Snapshot update and verification attempt $iteration of 3"
-            if ! npm run test:e2e:update-snapshots; then
-              echo "Snapshot update command reported failures; running verification anyway."
+            update_succeeded=false
+            if npm run test:e2e:update-snapshots; then
+              update_succeeded=true
+            else
+              echo "Snapshot update command failed."
             fi
 
             if npm run test:e2e; then
-              verified=true
-              break
+              if [[ "$update_succeeded" == true ]]; then
+                verified=true
+                break
+              fi
+            else
+              echo "E2E verification failed."
             fi
           done
 
           if [[ "$verified" != true ]]; then
-            echo "E2E tests did not pass after 3 snapshot update attempts."
+            echo "Failed to update snapshots and pass all E2E tests after 3 attempts."
             exit 1
           fi
 
