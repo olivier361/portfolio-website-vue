@@ -8,6 +8,11 @@ on:
         required: true
         default: develop
         type: string
+      e2e_passes_required:
+        description: Required consecutive passing E2E runs after each snapshot update (0-10; 0 skips verification)
+        required: true
+        default: 1
+        type: number
 
 jobs:
   update-snapshots:
@@ -24,6 +29,18 @@ jobs:
         with:
           ref: ${{ inputs.base_branch }}
           persist-credentials: false
+
+      - name: Validate required E2E passes
+        env:
+          E2E_PASSES_REQUIRED: ${{ inputs.e2e_passes_required }}
+        shell: bash
+        run: |
+          if [[ ! "$E2E_PASSES_REQUIRED" =~ ^(0|[1-9]|10)$ ]]; then
+            echo "e2e_passes_required must be an integer from 0 to 10."
+            exit 1
+          fi
+
+          echo "E2E_PASSES_REQUIRED=$E2E_PASSES_REQUIRED" >> "$GITHUB_ENV"
 
       - name: Create snapshot update branch
         id: branch
@@ -54,20 +71,24 @@ jobs:
           verified=false
           for iteration in 1 2 3; do
             echo "Snapshot update and verification attempt $iteration of 3"
-            update_succeeded=false
-            if npm run test:e2e:update-snapshots; then
-              update_succeeded=true
-            else
+            if ! npm run test:e2e:update-snapshots; then
               echo "Snapshot update command failed."
+              continue
             fi
 
-            if npm run test:e2e; then
-              if [[ "$update_succeeded" == true ]]; then
-                verified=true
+            consecutive_passes=0
+            while (( consecutive_passes < E2E_PASSES_REQUIRED )); do
+              echo "E2E verification run $((consecutive_passes + 1)) of $E2E_PASSES_REQUIRED"
+              if ! npm run test:e2e; then
+                echo "E2E verification failed before reaching the required consecutive passes."
                 break
               fi
-            else
-              echo "E2E verification failed."
+              consecutive_passes=$((consecutive_passes + 1))
+            done
+
+            if (( consecutive_passes == E2E_PASSES_REQUIRED )); then
+              verified=true
+              break
             fi
           done
 
