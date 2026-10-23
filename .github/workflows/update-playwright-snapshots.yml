@@ -159,8 +159,16 @@ jobs:
           git commit -m "Update Playwright snapshots (run ${RUN_ID}, attempt ${RUN_ATTEMPT})"
           git push --set-upstream origin "$SNAPSHOT_BRANCH"
 
-          PR_BODY=$(printf '## Changes:\nAutomated Playwright snapshot update from CI. All E2E tests passed after the snapshot update.\n\nBase branch: %s\nBase commit used to take snapshots: %s\n\nWorkflow run: https://github.com/%s/actions/runs/%s/attempts/%s' \
-            "$BASE_BRANCH" "$BASE_COMMIT" "$REPOSITORY" "$RUN_ID" "$RUN_ATTEMPT")
+          RUN_URL="https://github.com/$REPOSITORY/actions/runs/$RUN_ID/attempts/$RUN_ATTEMPT"
+
+          PR_BODY=$(printf '%s\n' \
+            '## Changes:' \
+            'Automated Playwright snapshot update from CI. All E2E tests passed.' \
+            '' \
+            "Base branch: $BASE_BRANCH" \
+            "Base commit used to take snapshots: $BASE_COMMIT" \
+            '' \
+            "Workflow run: $RUN_URL")
 
           gh pr create \
             --base "$BASE_BRANCH" \
