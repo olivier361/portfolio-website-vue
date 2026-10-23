@@ -122,23 +122,27 @@ jobs:
         with:
           ref: ${{ inputs.base_branch }}
       
-      # TODO: Make sure we replace all existing snapshots
+      # Remove any existing snapshots to ensure we only commit the updated ones
+      - name: Remove checked-out snapshots
+        run: rm -rf tests/e2e/__snapshots__
+
       - name: 📥 Download Updated Snapshots Artifact
         uses: actions/download-artifact@v7
         with:
           name: playwright-snapshots
           path: tests/e2e/__snapshots__/
 
-      # TODO: Commit message PR title could be improved to include the run ID and attempt number for easier tracking of which run produced the snapshots.
-      # We can also include a link to the workflow run in the PR body for easier access to logs.
       - name: ✅ Push Snapshots and Open Pull Request
         env:
           GH_TOKEN: ${{ github.token }}
           BASE_BRANCH: ${{ inputs.base_branch }}
           SNAPSHOT_BRANCH: ${{ needs.update-snapshots.outputs.snapshot-branch }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           git switch --create "$SNAPSHOT_BRANCH"
-          git add tests/e2e/__snapshots__
+          git add --all -- tests/e2e/__snapshots__
           if git diff --cached --quiet; then
             echo "No snapshot changes to publish."
             exit 0
@@ -146,14 +150,14 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update Playwright snapshots"
+          git commit -m "Update Playwright snapshots (run ${RUN_ID}, attempt ${RUN_ATTEMPT})"
           git push --set-upstream origin "$SNAPSHOT_BRANCH"
 
           gh pr create \
             --base "$BASE_BRANCH" \
             --head "$SNAPSHOT_BRANCH" \
-            --title "Update Playwright snapshots" \
-            --body "Automated Playwright screenshot snapshot refresh. All E2E tests passed after the snapshot update."
+            --title "Update Playwright snapshots (run ${RUN_ID}, attempt ${RUN_ATTEMPT})" \
+            --body "##Changes:\nAutomated Playwright snapshot update from CI. All E2E tests passed after the snapshot update.\n\nWorkflow run: https://github.com/${REPOSITORY}/actions/runs/${RUN_ID}/attempts/${RUN_ATTEMPT}"
 
   cleanup-snapshot-artifact:
     needs: [update-snapshots, publish-snapshots]
