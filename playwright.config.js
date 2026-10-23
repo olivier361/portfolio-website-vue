@@ -26,6 +26,12 @@ import { defineConfig, devices } from '@playwright/test';
 // It seems like an oversight in the current Playwright version (v1.56.1) that two separate settings
 // are needed to achieve this. Maybe the behavior will be updated in future Playwright versions
 // requiring new changes to our config here.
+// UPDATE: In Playwright 1.60+, an error-context.md file is now added for more types of things
+// including error context from individual matcher statements (e.g. toHaveScreenshot()) in a test.
+// This means that even with our current settings to disable the copy prompt and page snapshots
+// on CI, we still are succesfully disabling general aria snapshots from showing up
+// in the error-context.md file on CI. However, if matchers like toHaveText() are used,
+// they may still generate aria snapshots in the error-context.md file.
 //
 // RESOURCES:
 // - https://github.com/microsoft/playwright/issues/37438
