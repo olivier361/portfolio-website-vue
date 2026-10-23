@@ -94,7 +94,7 @@ jobs:
             exit 1
           fi
 
-          echo "Playwright snapshots updated and verified successfully after $iteration attempts."
+          echo "Playwright snapshots updated and verified successfully after $iteration attempt(s)."
 
       - name: 📤 Upload Updated Snapshots to Artifact
         id: upload_artifact
@@ -127,7 +127,7 @@ jobs:
           name: playwright-snapshots
           path: tests/e2e/__snapshots__/
 
-      - name: Generate new working branch name
+      - name: Generate new working branch name for PR
         id: new_branch
         env:
           RUN_ID: ${{ github.run_id }}
