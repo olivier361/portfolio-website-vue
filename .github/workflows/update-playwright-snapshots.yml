@@ -1,0 +1,190 @@
+name: 📷 Update Playwright Snapshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_branch:
+        description: The branch to update snapshots for and set as the merge target for the created pull request.
+        required: true
+        default: develop
+        type: string
+      e2e_passes_required:
+        description: The number of consecutive passing E2E runs required to consider the new snapshots stable. (Select between 0-10)
+        required: true
+        default: 1
+        type: number
+
+jobs:
+  update-snapshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    outputs:
+      artifact-id: ${{ steps.upload_artifact.outputs.artifact-id }}
+      base-commit: ${{ steps.base_commit.outputs.short_sha }}
+    steps:
+      - name: Check out selected branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.base_branch }}
+          persist-credentials: false
+
+      - name: Record base commit used for snapshots
+        id: base_commit
+        run: echo "short_sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Validate user input for E2E passes required
+        env:
+          E2E_PASSES_REQUIRED: ${{ inputs.e2e_passes_required }}
+        shell: bash
+        run: |
+          if [[ ! "$E2E_PASSES_REQUIRED" =~ ^(0|[1-9]|10)$ ]]; then
+            echo "User provided e2e_passes_required must be an integer from 0 to 10."
+            exit 1
+          fi
+
+          echo "E2E_PASSES_REQUIRED=$E2E_PASSES_REQUIRED" >> "$GITHUB_ENV"
+
+      - name: Set up Node.js v20 (lts/iron) # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/iron
+          cache: npm
+
+      - name: 🔗 Install Dependencies
+        run: npm ci
+
+      - name: 🌐 Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: 📷 Update and Verify Snapshots
+        env:
+            VITE_ASSETS_SITE_URL: ${{ secrets.VITE_ASSETS_SITE_URL }}
+        shell: bash
+        run: |
+          verified=false
+          for iteration in 1 2 3; do
+            echo "Updating and verifying Playwright snapshots attempt $iteration of 3."
+            if ! npm run test:e2e:update-snapshots; then
+              echo "Failed to update snapshots on attempt $iteration."
+              continue
+            fi
+
+            echo "Snapshots successfully updated. Running E2E tests to verify stability."
+
+            consecutive_passes=0
+            while (( consecutive_passes < E2E_PASSES_REQUIRED )); do
+              echo "Starting E2E verification run $((consecutive_passes + 1)) of $E2E_PASSES_REQUIRED."
+              if ! npm run test:e2e; then
+                echo "E2E verification failed on pass $((consecutive_passes + 1)) of $E2E_PASSES_REQUIRED. Retrying snapshot update and verification."
+                break
+              fi
+              consecutive_passes=$((consecutive_passes + 1))
+            done
+
+            if (( consecutive_passes == E2E_PASSES_REQUIRED )); then
+              verified=true
+              break
+            fi
+          done
+
+          if [[ "$verified" != true ]]; then
+            echo "Failed to update snapshots and consistently pass all E2E tests after 3 update attempts."
+            exit 1
+          fi
+
+          echo "Playwright snapshots updated and verified successfully after $iteration attempt(s)."
+
+      - name: 📤 Upload Updated Snapshots to Artifact
+        id: upload_artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-snapshots
+          path: tests/e2e/__snapshots__/
+          if-no-files-found: error
+          retention-days: 1
+
+  publish-snapshots:
+    needs: update-snapshots
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out selected branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.base_branch }}
+
+      # Remove any existing snapshots to ensure we only commit the updated ones
+      - name: Remove checked-out snapshots
+        run: rm -rf tests/e2e/__snapshots__
+
+      - name: 📥 Download Updated Snapshots Artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: playwright-snapshots
+          path: tests/e2e/__snapshots__/
+
+      - name: Generate new working branch name for PR
+        id: new_branch
+        env:
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          branch="update-playwright-snapshots-${RUN_ID}-${RUN_ATTEMPT}"
+          echo "branch_name=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: ✅ Push Snapshots and Open Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_BRANCH: ${{ inputs.base_branch }}
+          SNAPSHOT_BRANCH: ${{ steps.new_branch.outputs.branch_name }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          REPOSITORY: ${{ github.repository }}
+          BASE_COMMIT: ${{ needs.update-snapshots.outputs.base-commit }}
+        run: |
+          git switch --create "$SNAPSHOT_BRANCH"
+          git add --all -- tests/e2e/__snapshots__
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to publish."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Playwright snapshots (run ${RUN_ID}, attempt ${RUN_ATTEMPT})"
+          git push --set-upstream origin "$SNAPSHOT_BRANCH"
+
+          RUN_URL="https://github.com/$REPOSITORY/actions/runs/$RUN_ID/attempts/$RUN_ATTEMPT"
+
+          PR_BODY=$(printf '%s\n' \
+            '## Changes:' \
+            'Automated Playwright snapshot update from CI. All E2E tests passed.' \
+            '' \
+            "Base branch: $BASE_BRANCH" \
+            "Base commit used to take snapshots: $BASE_COMMIT" \
+            '' \
+            "Workflow run: $RUN_URL")
+
+          gh pr create \
+            --base "$BASE_BRANCH" \
+            --head "$SNAPSHOT_BRANCH" \
+            --title "Update Playwright snapshots (run ${RUN_ID}, attempt ${RUN_ATTEMPT})" \
+            --body "$PR_BODY"
+
+  cleanup-snapshot-artifact:
+    needs: [update-snapshots, publish-snapshots]
+    if: ${{ always() && needs.update-snapshots.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: write
+    steps:
+      - name: 🗑️ Delete Snapshots Artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.update-snapshots.outputs.artifact-id }}
+        run: gh api --method DELETE "repos/${GITHUB_REPOSITORY}/actions/artifacts/${ARTIFACT_ID}"
