@@ -21,7 +21,6 @@ jobs:
     permissions:
       contents: read
     outputs:
-      snapshot-branch: ${{ steps.new_branch.outputs.branch_name }}
       artifact-id: ${{ steps.upload_artifact.outputs.artifact-id }}
       base-commit: ${{ steps.base_commit.outputs.short_sha }}
     steps:
@@ -46,15 +45,6 @@ jobs:
           fi
 
           echo "E2E_PASSES_REQUIRED=$E2E_PASSES_REQUIRED" >> "$GITHUB_ENV"
-
-      - name: Generate new working branch name
-        id: new_branch
-        env:
-          RUN_ID: ${{ github.run_id }}
-          RUN_ATTEMPT: ${{ github.run_attempt }}
-        run: |
-          branch="update-playwright-snapshots-${RUN_ID}-${RUN_ATTEMPT}"
-          echo "branch_name=$branch" >> "$GITHUB_OUTPUT"
 
       - name: Set up Node.js v20 (lts/iron) # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
         uses: actions/setup-node@v7
@@ -126,7 +116,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.base_branch }}
-      
+
       # Remove any existing snapshots to ensure we only commit the updated ones
       - name: Remove checked-out snapshots
         run: rm -rf tests/e2e/__snapshots__
@@ -137,11 +127,20 @@ jobs:
           name: playwright-snapshots
           path: tests/e2e/__snapshots__/
 
+      - name: Generate new working branch name
+        id: new_branch
+        env:
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          branch="update-playwright-snapshots-${RUN_ID}-${RUN_ATTEMPT}"
+          echo "branch_name=$branch" >> "$GITHUB_OUTPUT"
+
       - name: ✅ Push Snapshots and Open Pull Request
         env:
           GH_TOKEN: ${{ github.token }}
           BASE_BRANCH: ${{ inputs.base_branch }}
-          SNAPSHOT_BRANCH: ${{ needs.update-snapshots.outputs.snapshot-branch }}
+          SNAPSHOT_BRANCH: ${{ steps.new_branch.outputs.branch_name }}
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
           REPOSITORY: ${{ github.repository }}
