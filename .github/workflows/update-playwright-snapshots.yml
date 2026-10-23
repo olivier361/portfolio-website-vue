@@ -1,4 +1,4 @@
-name: Update Playwright Snapshots
+name: 📷 Update Playwright Snapshots
 
 on:
   workflow_dispatch:
