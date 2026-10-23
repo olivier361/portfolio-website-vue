@@ -23,12 +23,17 @@ jobs:
     outputs:
       snapshot-branch: ${{ steps.new_branch.outputs.branch_name }}
       artifact-id: ${{ steps.upload_artifact.outputs.artifact-id }}
+      base-commit: ${{ steps.base_commit.outputs.short_sha }}
     steps:
       - name: Check out selected branch
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.base_branch }}
           persist-credentials: false
+
+      - name: Record base commit used for snapshots
+        id: base_commit
+        run: echo "short_sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Validate user input for E2E passes required
         env:
@@ -140,6 +145,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
           REPOSITORY: ${{ github.repository }}
+          BASE_COMMIT: ${{ needs.update-snapshots.outputs.base-commit }}
         run: |
           git switch --create "$SNAPSHOT_BRANCH"
           git add --all -- tests/e2e/__snapshots__
@@ -153,11 +159,14 @@ jobs:
           git commit -m "Update Playwright snapshots (run ${RUN_ID}, attempt ${RUN_ATTEMPT})"
           git push --set-upstream origin "$SNAPSHOT_BRANCH"
 
+          PR_BODY=$(printf '## Changes:\nAutomated Playwright snapshot update from CI. All E2E tests passed after the snapshot update.\n\nBase branch: %s\nBase commit used to take snapshots: %s\n\nWorkflow run: https://github.com/%s/actions/runs/%s/attempts/%s' \
+            "$BASE_BRANCH" "$BASE_COMMIT" "$REPOSITORY" "$RUN_ID" "$RUN_ATTEMPT")
+
           gh pr create \
             --base "$BASE_BRANCH" \
             --head "$SNAPSHOT_BRANCH" \
             --title "Update Playwright snapshots (run ${RUN_ID}, attempt ${RUN_ATTEMPT})" \
-            --body "##Changes:\nAutomated Playwright snapshot update from CI. All E2E tests passed after the snapshot update.\n\nWorkflow run: https://github.com/${REPOSITORY}/actions/runs/${RUN_ID}/attempts/${RUN_ATTEMPT}"
+            --body "$PR_BODY"
 
   cleanup-snapshot-artifact:
     needs: [update-snapshots, publish-snapshots]
